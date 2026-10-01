@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "cash": 50000,
+  "xp": 0,
+  "rep": 500,
+  "cars": [
+    {
+      "uid": "kaze-alm25hp",
+      "model": "kaze",
+      "color": "#e6603b",
+      "upgrades": {
+        "tires": 0
+      },
+      "tune": {},
+      "visual": {
+        "wheels": "silver",
+        "finish": "metallic",
+        "stripe": false,
+        "spoiler": false,
+        "tint": 0.45,
+        "rideHeight": 0
+      },
+      "condition": 100
+    },
+    {
+      "uid": "metro-m3rfpdp",
+      "model": "metro",
+      "color": "#e5bc47",
+      "upgrades": {
+        "tires": 0
+      },
+      "tune": {},
+      "visual": {
+        "wheels": "silver",
+        "finish": "metallic",
+        "stripe": false,
+        "spoiler": false,
+        "tint": 0.45,
+        "rideHeight": 0
+      },
+      "condition": 100
+    }
+  ],
+  "selected": "kaze-alm25hp",
+  "completed": [],
+  "records": {},
+  "history": [],
+  "business": {
+    "level": 1,
+    "bank": 0,
+    "lastAccrued": 1790804156752,
+    "jobs": [
+      {
+        "jobId": "show",
+        "carUid": "kaze-alm25hp",
+        "endsAt": 1790876155752
+      }
+    ]
+  },
+  "settings": {
+    "difficulty": "Easy",
+    "transmission": "auto",
+    "launch": "auto",
+    "traction": 0.7,
+    "revMatch": true,
+    "shiftHints": true,
+    "staging": "auto",
+    "damage": "off",
+    "sound": false,
+    "volume": 0.18
+  },
+  "free": {
+    "distance": 402.336,
+    "track": "dock",
+    "weather": "Dry",
+    "time": "Night",
+    "opponent": "matched"
+  },
+  "savedAt": 1790876156752
+}
