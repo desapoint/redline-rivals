@@ -1,8 +1,10 @@
 # Integrating layered car packs
 
-The runtime accepts separate body, underlay, wheel, caliper and optional rotor images. The production manifest is `src/assets/cars/manifest.json`. It now contains the reviewed revision-9 Mazda3 and Silverado packages. Original sources, preparation plans and QA remain in `tests/skill-runs/20261002-pipeline/`; lossless WebP runtime copies preserve their native dimensions and mechanical attachment scales.
+The production manifest is `src/assets/cars/manifest.json`. All twelve production cars now use a uniform recolorable paint foundation, discrete grayscale shading shapes, fixed fixtures and independent black line art, plus separate underlay, wheels, rotors and stationary calipers. See [the current flat-paint contract](art/flat-paint-layers.md) for compositing, source preservation, replay and isolated previews. The implementation history below records earlier revisions; the flat-paint contract supersedes the former baked-body tint approach. Lossless WebP runtime copies retain native dimensions and mechanical attachment scales.
 
 Open `/asset-preview.html` on the development server to inspect the shared SVG/Canvas renderer. The hand-authored vector demo is a geometry fixture, not a real car. Once production records exist, they appear in the same gallery. Controls demonstrate offset component pivots, independent paint masks, ride height, both facing directions, wheel slip and a geometry overlay.
+
+The [eight-car preparation record](art/additional-cars.md) documents the supplied sources, complete mechanical reconstruction, native hub measurements, revision history and factory/model distinction. All twelve cars are available in the dealership and driving lab. Career rivals and prizes currently use the original four. The current build contains 144 independent image files.
 
 ## Pack format
 
@@ -81,21 +83,23 @@ Matching the previous metadata did not establish correct visual placement. Nativ
 
 | Vehicle | Rear hub / tire radius (native px) | Front hub / tire radius (native px) | Current reviewed package |
 | --- | --- | --- | --- |
-| Silverado | (464, 660) / 145 | (1750, 660) / 145 | `arch-fit-v12` |
-| Rogue | (499, 675) / 172 | (1673, 675) / 172 | `wheel-fit-v3` |
-| Forte GT | (464, 665) / 134 | (1487, 665) / 134 | `wheel-fit-v2` |
+| Silverado | (464, 660) / 145 | (1750, 660) / 145 | `contour-fit-v13` |
+| Rogue | (499, 675) / 172 | (1673, 675) / 172 | `contour-fit-v4` |
+| Forte GT | (464, 665) / 134 | (1487, 665) / 134 | `contour-fit-v3` |
 
 `scripts/repair-wheel-placement.py` creates source-preserving geometry revisions. Body, paint masks, underlays and native mechanical pixels remain byte-identical to the previous packs. Only axle anchors and dependent wheel/rotor/caliper placement scales change. Revisions receive fresh full QA and visual review before the runtime converter accepts them. Measurement diagnostics, before/after images, corrected ground-line overlays and reviewed ZIPs are under `tests/car-integration/20261003/`.
 
 Each axle has separate `*-wheel.webp`, `*-rotor.webp` and `*-caliper.webp` images. The runtime `brake` descriptor refers to the stationary caliper; the separate `rotor` descriptor rotates with the wheel. Both SVG and Canvas draw rotor → fixed caliper → tire/rim → exterior, with shared native hub placement. Geometry tests require separate file paths, a common ground line and framing that preserves the taller corrected tires.
 
-## Rounded Silverado arches — 2026-10-03
+## Source contours for arbitrary arches — 2026-10-03
 
-Tire circles describe tire placement only. Arch envelopes are separate native-coordinate profiles: `scripts/wheel_arch_profiles.py` accepts rounded rectangles with four independent corner radii, or measured polygon contours. `docs/art/silverado-arch-plan.json` supplies the truck's flat crowns, rounded upper corners and straight lower sides. Backing is clipped to inverse original body alpha and stops at y674 above the rocker; source fenders and the illustrated inner edge remain intact.
+Tire circles describe tire placement only. `scripts/wheel_arch_profiles.py` uses `source-opening` profiles to trace the connected transparent opening selected by a native-coordinate seed. It follows the original alpha contour rather than fitting a circle, rectangle or curve. A bounded region selects the well and its lower rocker cutoff; reaching its top or sides is rejected instead of silently truncating the arch. Original antialiasing is retained on the traced edge. Unrelated transparent regions are excluded, and original body pixels remain unchanged.
 
-Replay with the bundled Pillow Python runtime: `python scripts/wheel_arch_profiles.py docs/art/silverado-arch-plan.json NEW_OUTPUT_DIRECTORY`. The script rejects changed body hashes and existing target directories, preserves all unrelated native layers and records unchanged hashes. Run fresh sprite QA, inspect its previews, record review and package before importing. Production selects reviewed `arch-fit-v12`, retains v11 wheel anchors and includes arch profiles in its manifest. The installed skill remains unchanged.
+All four production cars use the same tracing method, driven by source-hashed plans in `docs/art/arch-plans/`. Current reviewed sources are Mazda `contour-fit-v10`, Silverado `contour-fit-v13`, Forte `contour-fit-v3` and Rogue `contour-fit-v4`. Their wheel anchors, body, paint masks and mechanical image bytes are unchanged from the preceding accepted revisions. Arch profiles are retained in the runtime manifest. Explicit rounded rectangles and measured polygon contours remain supported for manually supplied envelopes; the earlier Silverado rectangle experiment is archived, superseded by source tracing.
 
-`python -m unittest discover -s tests -p test_wheel_arch_profiles.py -v` checks flat crowns, rounded corners, straight sides, explicit contours, invalid profiles, no backing below the cutoff, source preservation and deterministic Silverado replay. Review evidence and the complete reviewed ZIP are beside the new package under `tests/car-integration/20261003/`.
+Replay all plans using the bundled Pillow runtime: `python scripts/repair-wheel-arches.py`. For a new source/target, use `python scripts/wheel_arch_profiles.py PLAN.json NEW_OUTPUT_DIRECTORY`. Changed body hashes, opaque seeds, cropped contours and existing target directories are rejected. Source tracing requires a transparent native opening; a baked or opaque master needs explicit preparation rather than guessed fender geometry. Full QA, actual visual review and packaging precede runtime import. The installed skill remains unchanged.
+
+`python -m unittest discover -s tests -p test_wheel_arch_profiles.py -v` checks round, squared, sloped and concave contours, selected-region isolation, original alpha edges, invalid/cropped profiles, bounded lower cutoff, source preservation and deterministic replay of all four cars. Review evidence and full reviewed ZIPs are beside each new package under `tests/car-integration/20261003/`.
 
 ## Real-car demo deployment — 2026-10-03
 

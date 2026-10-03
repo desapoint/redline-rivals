@@ -10,11 +10,12 @@
     "identity",
     "layer-isolation",
     "paint-coverage-exclusions",
+    "paint-layer-isolation",
     "stationary-calipers",
     "underlay-coverage"
   ],
-  "notes": "User-reported wheel placement remeasured against native body alpha openings. Inspected before/after assembled cars, native opening diagnostic grid, rotations 0/45/90/180, separate mechanical layers and invariant caliper frames, underlay/wheels hidden, checker/black/white/gray backgrounds and blue repaint. Corrected tire contact lines match; all source layer bytes preserved.",
+  "notes": "Inspected the current isolated body stack, factory/blue/white/black assembly and all mandatory rotation, caliper, mechanical isolation, underlay, background and paint previews. Uniform base RGB and opaque interior; discrete grayscale shading; independent silhouette, panel and handle linework; fixed glass, lights and trim. Native source archives and all mechanical bytes retained. Arbitrary wheel-arch boundaries remain native and antialiased. No unresolved issues.",
   "unresolvedIssues": [],
-  "contentFingerprint": "9a4aeed07417cca14deae71f556029a2866d5c19fc6e140d35cfa801662ecdeb",
-  "qaReportHash": "c34d6f4894b9400417c891e386a989741e4078b96d4ecb7c4d56841629f98c29"
+  "contentFingerprint": "16d19660af2f83df25edd361887fe298d65747135258b5199c34191a0df78f00",
+  "qaReportHash": "7f364ee4bea367696496f3b1a78d2fcf3da6c8d21c09c64f4d219dad849eb900"
 }

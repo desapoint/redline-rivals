@@ -1,10 +1,10 @@
 {
-  "sourcePackage": "tests/car-integration/20261003/nissan-rogue-2020-red/wheel-fit-v3",
+  "sourcePackage": "tests/car-integration/20261003/nissan-rogue-2020-red/flat-paint-v10",
   "sourceManifest": "docs/art/runtime-provenance/nissan-rogue-2020-red/car-sprite.json",
   "bodySource": "docs/art/staged-roster/nissan-rogue-2020-red/body-2d.png",
   "bodySourceSha256": "17031392c4c527099904d5cb87f1e45afb3d7f91a7d07c6f269d2aa63b1eb3b0",
-  "revision": 3,
-  "reviewFingerprint": "25084f090e245c2f10c7e00f311a34da13e48547e9d73053913da3cfcd85deaa",
-  "sourceManifestSha256": "470b4b6489582b061613698081449a2a49cc0616466272ecfb3a1d7a57ae03db",
-  "conversion": "Exact selected -2d body decoded to lossless WebP; underlay retained separately; measured wheel geometry with original component pixels/scales/pivots. Display framing ignores alpha below 8; native body pixels are retained. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+  "revision": 10,
+  "reviewFingerprint": "b6ca34c896e07b021d240fff392035552c3282356d900eef19668e301a28fddf",
+  "sourceManifestSha256": "b2a86b16872301bc953463c1c00dfefd4d50558c1ee1d934b10795edfefd2d06",
+  "conversion": "Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
 }

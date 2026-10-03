@@ -8,7 +8,7 @@
     "trim": "Custom Crew Cab Short Bed TurboMax 4WD (provisional)",
     "facing": "right"
   },
-  "revision": 12,
+  "revision": 19,
   "canvas": {
     "width": 2200,
     "height": 887
@@ -26,46 +26,6 @@
     }
   },
   "layers": [
-    {
-      "id": "body-glass",
-      "file": "body/glass.png",
-      "z": 420,
-      "placement": {
-        "mode": "canvas",
-        "x": 0,
-        "y": 0
-      }
-    },
-    {
-      "id": "body-lights",
-      "file": "body/lights.png",
-      "z": 430,
-      "placement": {
-        "mode": "canvas",
-        "x": 0,
-        "y": 0
-      }
-    },
-    {
-      "id": "body-mirrors",
-      "file": "body/mirrors.png",
-      "z": 450,
-      "placement": {
-        "mode": "canvas",
-        "x": 0,
-        "y": 0
-      }
-    },
-    {
-      "id": "body-exterior",
-      "file": "body/exterior.png",
-      "z": 400,
-      "placement": {
-        "mode": "canvas",
-        "x": 0,
-        "y": 0
-      }
-    },
     {
       "id": "car-underlay",
       "file": "body/car-underlay.png",
@@ -189,10 +149,51 @@
         ]
       },
       "rotateWithWheel": true
+    },
+    {
+      "id": "body-paint",
+      "file": "body/paint.png",
+      "z": 400,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-shading",
+      "file": "body/shading.png",
+      "z": 410,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-fixtures",
+      "file": "body/fixtures.png",
+      "z": 440,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-linework",
+      "file": "body/linework.png",
+      "z": 460,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
     }
   ],
   "masks": {
-    "paint": "masks/paint-mask.png"
+    "paint": "masks/paint-mask.png",
+    "paintRegions": "masks/paint-regions.png"
   },
   "sources": [
     {
@@ -223,7 +224,10 @@
     "Brake radius ratios and illustrated component identity are modeling choices, not factory measurements. Source artwork identity is inherited, not independently OEM-certified.",
     "Rotor repair includes a measured occlusion/shadow fringe beyond the tight caliper contour; complete caliper pads are retained separately. Opposite-side clean source pixels rebuild the hidden disc.",
     "Wheel centers/radii remeasured against the alpha openings after user placement review; rotor/caliper scales follow each corrected hub; tire contact lines match. No source pixels or factory physics changed.",
-    "Explicit rounded-rectangle arch envelopes clipped to original body alpha; tire circles only locate rotating components. Native fenders, wheel placement, paint masks and separated mechanical pixels unchanged."
+    "Explicit rounded-rectangle arch envelopes clipped to original body alpha; tire circles only locate rotating components. Native fenders, wheel placement, paint masks and separated mechanical pixels unchanged.",
+    "Independent arch profiles follow original body alpha; source-opening profiles trace connected native contours of any shape. Tire circles only locate rotating components. Native fenders, wheel placement, paint masks and separated mechanical pixels unchanged.",
+    "Uniform white paint foundation accepts an arbitrary RGB color. Separate black/white grayscale shading uses discrete opacity shapes; separate black linework defines silhouette/panels/details. Glass/lights/trim remain fixed above paint. No source hue or gradients are baked into paint/shading. Native body source, arbitrary arch contours, axle geometry and mechanical pixels are preserved.",
+    "Uniform white paint foundation accepts an arbitrary RGB color. Separate black/white grayscale shading uses discrete opacity shapes; separate black linework defines silhouette/panels/details. Glass/lights/trim remain fixed above paint. No source hue or gradients are baked into paint/shading. Native body source, arbitrary arch contours, axle geometry and mechanical pixels are preserved."
   ],
   "paintSamples": [
     {
@@ -265,114 +269,234 @@
     {
       "x": 900,
       "y": 350,
-      "expected": "protected",
+      "expected": "paint",
       "label": "rear glass lower edge"
     },
     {
       "x": 1260,
       "y": 350,
-      "expected": "protected",
+      "expected": "paint",
       "label": "previous front glass rectangle"
     },
     {
       "x": 1240,
       "y": 260,
-      "expected": "protected",
+      "expected": "paint",
       "label": "previous diagonal glass spill"
     },
     {
       "x": 1470,
       "y": 350,
-      "expected": "protected",
+      "expected": "paint",
       "label": "mirror"
     },
     {
       "x": 1930,
       "y": 437,
-      "expected": "protected",
+      "expected": "paint",
       "label": "lamp"
     },
     {
       "x": 820,
       "y": 430,
-      "expected": "protected",
+      "expected": "paint",
       "label": "handle"
     },
     {
       "x": 850,
       "y": 665,
-      "expected": "protected",
+      "expected": "paint",
       "label": "rocker trim"
     },
     {
       "x": 1300,
       "y": 263,
-      "expected": "protected",
+      "expected": "paint",
       "label": "upper front glass reflection previously tinted"
     },
     {
       "x": 2080,
       "y": 601,
-      "expected": "protected",
+      "expected": "paint",
       "label": "front plastic bumper edge"
     },
     {
       "x": 1250,
       "y": 230,
-      "expected": "protected",
+      "expected": "paint",
       "label": "inspected upper glass reflection"
     },
     {
       "x": 1300,
       "y": 245,
-      "expected": "protected",
+      "expected": "paint",
       "label": "inspected upper glass reflection"
     },
     {
       "x": 1350,
       "y": 275,
-      "expected": "protected",
+      "expected": "paint",
       "label": "inspected upper glass reflection"
     },
     {
       "x": 1400,
       "y": 310,
-      "expected": "protected",
+      "expected": "paint",
       "label": "inspected upper glass reflection"
     }
   ],
   "archProfiles": [
     {
       "axle": "rear",
-      "shape": "rounded-rectangle",
+      "shape": "source-opening",
       "bounds": [
-        310,
-        475,
-        610,
+        280,
+        450,
+        640,
         674
       ],
-      "cornerRadii": [
-        55,
-        55,
-        0,
-        0
+      "seed": [
+        464,
+        600
       ]
     },
     {
       "axle": "front",
-      "shape": "rounded-rectangle",
+      "shape": "source-opening",
       "bounds": [
-        1600,
-        475,
-        1900,
+        1570,
+        450,
+        1930,
         674
       ],
-      "cornerRadii": [
-        55,
-        55,
-        0,
-        0
+      "seed": [
+        1750,
+        600
       ]
     }
-  ]
+  ],
+  "paintLayerMode": "foundation",
+  "bodyLayerMode": "flat-cel",
+  "fixtureSamples": [
+    {
+      "x": 900,
+      "y": 350,
+      "label": "rear glass lower edge",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 1260,
+      "y": 350,
+      "label": "previous front glass rectangle",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 1240,
+      "y": 260,
+      "label": "previous diagonal glass spill",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 1470,
+      "y": 350,
+      "label": "mirror",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 1930,
+      "y": 437,
+      "label": "lamp",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 820,
+      "y": 430,
+      "label": "handle",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 850,
+      "y": 665,
+      "label": "rocker trim",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 1300,
+      "y": 263,
+      "label": "upper front glass reflection previously tinted",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 2080,
+      "y": 601,
+      "label": "front plastic bumper edge",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 1250,
+      "y": 230,
+      "label": "inspected upper glass reflection",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 1300,
+      "y": 245,
+      "label": "inspected upper glass reflection",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 1350,
+      "y": 275,
+      "label": "inspected upper glass reflection",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 1400,
+      "y": 310,
+      "label": "inspected upper glass reflection",
+      "layer": "body-fixtures"
+    }
+  ],
+  "flatPaint": {
+    "sourceReferenceLuminance": 44.072200775146484,
+    "shadowAlphaPalette": [
+      0,
+      40,
+      88,
+      132,
+      176
+    ],
+    "highlightAlphaPalette": [
+      0,
+      40,
+      80
+    ],
+    "shadingRGBPalette": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        255,
+        255,
+        255
+      ]
+    ],
+    "baseRGB": [
+      255,
+      255,
+      255
+    ],
+    "gradientInterpolation": false,
+    "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+    "classificationBlurPixels": 12,
+    "factoryColor": "#202226",
+    "stack": [
+      "body-paint",
+      "body-shading",
+      "body-fixtures",
+      "body-linework"
+    ]
+  }
 }

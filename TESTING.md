@@ -1,5 +1,13 @@
 # Verification record
 
+## Independent paint layers — October 3, 2026
+
+- Final verification: 54 Node tests and 18 Python art/geometry tests pass. Asset validation and the static build pass with 12 cars and 144 independently decoded image files.
+- All twelve production cars use independently decoded flat paint, grayscale shading, fixed fixtures and black linework. Six Python decomposition checks pass, including deterministic source replay across all twelve packages, uniform opaque paint interiors, preserved exterior/arch alpha edges, discrete shading opacities and separation of ink from shading/fixtures. Eight arch-profile checks also pass.
+- `tests/flat-paint-browser.mjs` passes for all twelve cars at 1440 and 390 px widths with 2× DPR. Canvas paint-only pixels exactly match black, white, blue, pink and green RGB choices; SVG uses the chosen color on a silhouette mask. Shading, fixtures and linework isolate to their own images. Neither renderer uses color blending for these production packs. The inspector has no horizontal overflow on phones.
+- The original four cars pass actual garage repaint/save persistence, native source/spec dialogs, moving races, animated slips and rolling drive-lab checks at 1440×900, 390×844 and 360×640, all at 2× DPR. Desktop and phone layer/assembly screenshots in `tests/artifacts/flat-paint-*.png` were visually inspected.
+- Each imported source revision has fresh QA and a hash-bound accepted visual review. Original masters, semantic paint-region masks, rejected/superseded revisions and source packages stay archived locally. See [the current layer contract](docs/art/flat-paint-layers.md). Historical records below describe earlier implementations.
+
 ## Real-car demo — October 3, 2026
 
 Pass: 50 Node tests, four arch-profile tests, asset validation and Pages build. Browser checks cover all four real cars at 1440×900, 390×844 and 360×640, all at 2× DPR. The main browser suite verifies rewards, upgrades, tune/paint persistence, manual launch, career, offline income and jobs. Reviewed source snapshots retain their exact bytes across Windows and Linux.
@@ -94,11 +102,22 @@ The full 28-event campaign, prolonged real-time job durations, every keyboard/to
 ## Wheel placement repair after user review — 2026-10-03
 
 - Replaced metadata-only visual acceptance with measured body-opening inspection. Corrected Silverado, Rogue and Kia axle centers/radii in new source-preserving package revisions; body, paint and mechanical image pixels remain byte-identical. Shared road contact lines are explicit.
-- New production sources: Silverado `arch-fit-v12` (retaining v11 wheel geometry), Rogue `wheel-fit-v3`, Forte `wheel-fit-v2`. Prior revisions remain archived. Fresh QA, rotations/backgrounds/repaint, native opening and common-ground overlays were visually inspected; reviewed ZIPs bind the corrected manifests.
+- Current production sources: Silverado `contour-fit-v13` (retaining v11 wheel geometry), Rogue `contour-fit-v4`, Forte `contour-fit-v3`, Mazda `contour-fit-v10`. Prior revisions remain archived. Fresh QA, rotations/backgrounds/repaint, native opening and common-ground overlays were visually inspected; reviewed ZIPs bind the corrected manifests.
 - The 48 automated checks pass with corrected geometry. Assertions additionally require separate wheel/rotor/caliper file paths and common tire contact lines. SVG/Canvas rendering rotates wheels and rotors while keeping calipers fixed. QA caliper image hashes are identical across 0°, 45°, 90° and 180°.
 - The asset/build check still validates 4 cars and 36 native layer files. Physics specifications, saved ownership and career state are independent of these artwork-placement corrections.
 
 ## Independent arch profiles — 2026-10-03
 
-- Four Python shape/replay checks pass: flat crowns and rounded corners, straight sides, measured contours, invalid shape rejection, body-edge clipping, bounded lower cutoff and byte preservation of Silverado body/mechanical layers.
-- Silverado `arch-fit-v12` changes the backing and arch metadata only. Source fenders remain untouched. Fresh full sprite QA and visual inspection cover four rotations, stationary calipers, isolated parts, wheels hidden, four backgrounds and contrasting repaint. A hash-bound accepted review and full reviewed ZIP accompany it.
+- Current verification: 50 game tests and the 4-car / 36-layer build pass. Eight Python shape/replay checks pass: flat crowns/rounded corners, straight sides, measured contours, round/squared/sloped/concave source tracing, invalid/cropped shape rejection, independent-region isolation, original alpha edges, bounded lower cutoff and deterministic replay with byte preservation across all four source packages.
+- Every current production pack uses connected source-opening tracing. Only backing and arch metadata change; source fenders and mechanical layers remain untouched. Fresh full sprite QA and visual inspection cover four rotations, stationary calipers, isolated parts, wheels hidden, four backgrounds and contrasting repaint. Hash-bound accepted reviews and full reviewed ZIPs accompany all four revisions.
+- After importing these contour packs, the real-car browser runner passes at 1440×900, 390×844 and 360×640 (2× DPR), including races/slips, masked repaint persistence, source/spec pagination and actual Forte/Rogue rolling-lab controls. Runtime desktop Silverado and phone Rogue screenshots were inspected.
+
+## Twelve-car independent-layer demo — 2026-10-03
+
+- 54 game tests and 18 Python preparation/flat-layer/arch tests pass. The build validates twelve production cars and 144 native WebP layer files, including committed source-manifest SHA checks.
+- Eight additional source illustrations were prepared with measured polygons, source hashes and repeatable standard-tools processing. Tires and hidden mechanical parts are complete; rotating rotor/drum and wheel images are separate from stationary caliper/backing images. Revisions 1–6 and rejected observations remain archived; final independent body packages are `flat-v7` with fresh accepted fingerprint-bound QA and full reviewed ZIPs.
+- Actual visual review covers isolated paint/shading/fixtures/linework, wheels/rotors/calipers/underlays, four rotations, wheels-hidden assembly, contrasting repaint and checkerboard/white/black/gray backgrounds. Complete rim/brake reconstructions are disclosed as visual approximations. Source images and unchanged geometry remain preserved.
+- `npm run test:paint` verifies every production car at 1440×1000 and 390×844 / 2× DPR: five arbitrary exact RGB paint choices, separate layers, SVG/Canvas behavior, no baked source hue and no horizontal overflow.
+- `npm run test:real-cars` passes original-car save migration, specs/source pagination, tune/data views, repaint persistence, moving races/slips and CVT/DCT controls at 1440×900, 390×844 and 360×640 / 2× DPR, plus rolling lab checks.
+- `npm run test:additional-cars` covers all eight dealership purchases, ownership/selection and repaint persistence, production garages, factory/simulation/source dialogs, moving races/results at desktop and phone sizes, and rolling lab gauges. Screenshots are isolated in ignored `tests/artifacts/`; the runner accepts `REDLINE_TEST_ORIGIN` for the deployed Pages URL.
+- Factory references and unknown values remain separate from simulated gearing, masses, torque shapes, credits and visual geometry. The historical Boss rating is labeled SAE gross; its rear drum/backing hardware uses the shared mechanical attachment roles.

@@ -1,0 +1,211 @@
+{
+  "make": "Ford",
+  "model": "Mustang",
+  "year": 1969,
+  "trim": "Boss 302",
+  "color": "#ef2417",
+  "facing": "right",
+  "r": 150,
+  "hubs": [
+    [
+      456,
+      553
+    ],
+    [
+      1663,
+      553
+    ]
+  ],
+  "rocker": 596,
+  "wheelStyle": "boss",
+  "rearDrum": true,
+  "arches": [
+    [
+      [
+        292,
+        592
+      ],
+      [
+        295,
+        521
+      ],
+      [
+        317,
+        463
+      ],
+      [
+        359,
+        422
+      ],
+      [
+        410,
+        403
+      ],
+      [
+        465,
+        398
+      ],
+      [
+        518,
+        409
+      ],
+      [
+        564,
+        436
+      ],
+      [
+        602,
+        479
+      ],
+      [
+        620,
+        530
+      ],
+      [
+        627,
+        598
+      ]
+    ],
+    [
+      [
+        1493,
+        590
+      ],
+      [
+        1498,
+        521
+      ],
+      [
+        1523,
+        468
+      ],
+      [
+        1564,
+        427
+      ],
+      [
+        1612,
+        407
+      ],
+      [
+        1669,
+        404
+      ],
+      [
+        1727,
+        416
+      ],
+      [
+        1775,
+        444
+      ],
+      [
+        1809,
+        489
+      ],
+      [
+        1829,
+        539
+      ],
+      [
+        1832,
+        602
+      ]
+    ]
+  ],
+  "exclusions": [
+    [
+      [
+        683,
+        268
+      ],
+      [
+        759,
+        190
+      ],
+      [
+        1067,
+        182
+      ],
+      [
+        1107,
+        201
+      ],
+      [
+        1210,
+        272
+      ],
+      [
+        1300,
+        307
+      ],
+      [
+        777,
+        305
+      ]
+    ],
+    [
+      [
+        1901,
+        386
+      ],
+      [
+        1985,
+        381
+      ],
+      [
+        1969,
+        461
+      ],
+      [
+        1897,
+        466
+      ]
+    ],
+    [
+      [
+        1843,
+        509
+      ],
+      [
+        1888,
+        507
+      ],
+      [
+        1888,
+        528
+      ],
+      [
+        1844,
+        529
+      ]
+    ],
+    [
+      [
+        103,
+        439
+      ],
+      [
+        148,
+        439
+      ],
+      [
+        148,
+        460
+      ],
+      [
+        103,
+        459
+      ]
+    ]
+  ],
+  "id": "ford-mustang-boss302-1969",
+  "source": "tests/car-integration/20261003-additional/sources/ford-mustang-boss302-1969/ford-mustang-boss302-1969-2d.png",
+  "sha256": "07dddb01fe882ad67a6c27e7b467e34a426849049000930ef8e992faa61e8976",
+  "alphaFloor": 8,
+  "mechanicalMethod": "Source rims and hubs isolated by measured spoke support; upper tire restored by 180-degree source symmetry; complete rotors and calipers drawn with Pillow, separately for each axle.",
+  "notes": [
+    "Illustrated source geometry, wheel styles and accessories are preserved; this is not an OEM CAD reconstruction.",
+    "Brake colors, positions and dimensions are visual modeling choices. Existing source discs/calipers are rejected because they contain clipped or spoke-occluded regions."
+  ]
+}

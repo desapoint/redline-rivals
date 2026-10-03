@@ -40,6 +40,13 @@ export function normalizePack(pack) {
       layers.paintMask=layer(value.layers.paintMask,`${id}.paintMask`);
       if(layers.paintMask.width!==value.width || layers.paintMask.height!==value.height) throw Error(`${id}: paint mask must align with the body canvas`);
     }
+    if(value.paintMode==='flat-cel'){
+      if(!layers.paintMask)throw Error(`${id}: flat paint requires its silhouette mask`);
+      for(const role of ['shading','fixtures','linework']){
+        layers[role]=layer(value.layers[role],`${id}.${role}`);
+        if(layers[role].width!==value.width || layers[role].height!==value.height)throw Error(`${id}: ${role} must align with the body canvas`);
+      }
+    }else if(value.paintMode && value.paintMode!=='legacy-tint')throw Error(`${id}: unsupported paint mode`);
     for (const type of ['wheel','brake','rotor']) if(value.layers[type]) layers[type]=layer(value.layers[type],`${id}.${type}`,true);
     const wheels=value.wheels.map((w,i)=>{
       if (![w.x,w.y,w.radius].every(finite) || w.x<0 || w.x>value.width || w.y<0 || w.y>value.height || w.radius<=0 || w.radius>Math.max(value.width,value.height)) throw Error(`${id}: invalid wheel ${i}`);

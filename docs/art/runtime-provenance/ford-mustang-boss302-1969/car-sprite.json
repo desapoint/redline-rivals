@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 1,
+  "revision": 7,
+  "vehicle": {
+    "id": "ford-mustang-boss302-1969",
+    "make": "Ford",
+    "model": "Mustang",
+    "year": 1969,
+    "trim": "Boss 302",
+    "facing": "right"
+  },
+  "canvas": {
+    "width": 2052,
+    "height": 766
+  },
+  "anchors": {
+    "rearWheel": {
+      "x": 456,
+      "y": 553,
+      "radius": 150
+    },
+    "frontWheel": {
+      "x": 1663,
+      "y": 553,
+      "radius": 150
+    }
+  },
+  "layers": [
+    {
+      "id": "car-underlay",
+      "file": "underlay.png",
+      "z": 200,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "rear-rotor",
+      "file": "rear-rotor.png",
+      "z": 300,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "rear-caliper",
+      "file": "rear-caliper.png",
+      "z": 310,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "rear-wheel",
+      "file": "rear-wheel.png",
+      "z": 320,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-rotor",
+      "file": "front-rotor.png",
+      "z": 330,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-caliper",
+      "file": "front-caliper.png",
+      "z": 340,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "front-wheel",
+      "file": "front-wheel.png",
+      "z": 350,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "body-paint",
+      "file": "body/paint.png",
+      "z": 400,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-shading",
+      "file": "body/shading.png",
+      "z": 410,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-fixtures",
+      "file": "body/fixtures.png",
+      "z": 440,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-linework",
+      "file": "body/linework.png",
+      "z": 460,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "masks": {
+    "paint": "paint-mask.png",
+    "paintRegions": "paint-regions.png"
+  },
+  "sources": [
+    {
+      "originalPath": "tests/car-integration/20261003-additional/sources/ford-mustang-boss302-1969/ford-mustang-boss302-1969-2d.png",
+      "sha256": "07dddb01fe882ad67a6c27e7b467e34a426849049000930ef8e992faa61e8976",
+      "archivedFile": "inputs/master.png"
+    },
+    {
+      "originalPath": "scripts/prepare-additional-cars.py",
+      "sha256": "35b0d0cb2ddaeab48c4cae8f2198f474ad765b7c5e376aa2d05d04d7ab2bb063",
+      "archivedFile": "preparation-script.py"
+    },
+    {
+      "originalPath": "docs/art/additional-car-plans/ford-mustang-boss302-1969.json",
+      "sha256": "19c4c9a86700129ce5bb938b4098cd5412efb3b9977b079e23add865d85822b9",
+      "archivedFile": "preparation-plan.json"
+    },
+    {
+      "originalPath": "scripts/flat_car_layers.py",
+      "sha256": "fdb1915d33933de4e5062269109b0693e9c5aff347d7bbdf9d819e952a1d36c1",
+      "archivedFile": "processing/flat_car_layers.py"
+    },
+    {
+      "originalPath": "scripts/prepare-additional-flat-cars.py",
+      "sha256": "47a7555cd190e4c103eb5b31cb2958b86ef90f849300091dd1bcdf160355188f",
+      "archivedFile": "processing/prepare-additional-flat-cars.py"
+    }
+  ],
+  "notes": [
+    "Illustrated source geometry, wheel styles and accessories are preserved; this is not an OEM CAD reconstruction.",
+    "Brake colors, positions and dimensions are visual modeling choices. Existing source discs/calipers are rejected because they contain clipped or spoke-occluded regions.",
+    "Source rims and hubs isolated by measured spoke support; upper tire restored by 180-degree source symmetry; complete rotors and calipers drawn with Pillow, separately for each axle.",
+    "The five composite-source rims retain native tire/lip pixels; their inner split ten-spoke geometry is reconstructed with Pillow because the source repeats calipers in all cavities.",
+    "Merged original exterior retained: the deferred flat-paint/fixture redesign is not applied.",
+    "Rear rotor role contains the rotating drum; stationary caliper role contains backing-plate hardware. The classic Boss uses front discs and rear drums.",
+    "Uniform continuous paint foundation covers the native silhouette with unchanged arches. Source-derived black/white shading has discrete alpha levels, fixtures retain fixed source pixels, and independent ink follows panels and silhouette. No source hue is baked into the paint or shading."
+  ],
+  "archProfiles": [
+    {
+      "axle": "rear",
+      "shape": "measured-contour",
+      "points": [
+        [
+          292,
+          592
+        ],
+        [
+          295,
+          521
+        ],
+        [
+          317,
+          463
+        ],
+        [
+          359,
+          422
+        ],
+        [
+          410,
+          403
+        ],
+        [
+          465,
+          398
+        ],
+        [
+          518,
+          409
+        ],
+        [
+          564,
+          436
+        ],
+        [
+          602,
+          479
+        ],
+        [
+          620,
+          530
+        ],
+        [
+          627,
+          598
+        ]
+      ]
+    },
+    {
+      "axle": "front",
+      "shape": "measured-contour",
+      "points": [
+        [
+          1493,
+          590
+        ],
+        [
+          1498,
+          521
+        ],
+        [
+          1523,
+          468
+        ],
+        [
+          1564,
+          427
+        ],
+        [
+          1612,
+          407
+        ],
+        [
+          1669,
+          404
+        ],
+        [
+          1727,
+          416
+        ],
+        [
+          1775,
+          444
+        ],
+        [
+          1809,
+          489
+        ],
+        [
+          1829,
+          539
+        ],
+        [
+          1832,
+          602
+        ]
+      ]
+    }
+  ],
+  "paintLayerMode": "foundation",
+  "bodyLayerMode": "flat-cel",
+  "flatPaint": {
+    "sourceReferenceLuminance": 70.46720123291016,
+    "shadowAlphaPalette": [
+      0,
+      40,
+      88,
+      132,
+      176
+    ],
+    "highlightAlphaPalette": [
+      0,
+      40,
+      80
+    ],
+    "shadingRGBPalette": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        255,
+        255,
+        255
+      ]
+    ],
+    "baseRGB": [
+      255,
+      255,
+      255
+    ],
+    "gradientInterpolation": false,
+    "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+    "classificationBlurPixels": 12,
+    "factoryColor": "#ef2417"
+  },
+  "fixtureSamples": [
+    {
+      "x": 986,
+      "y": 246,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 1938,
+      "y": 424,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 1866,
+      "y": 518,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 126,
+      "y": 449,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    }
+  ]
+}

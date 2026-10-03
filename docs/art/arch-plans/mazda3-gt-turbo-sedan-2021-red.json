@@ -1,0 +1,36 @@
+{
+  "sourcePackage": "tests/skill-runs/20261002-pipeline/examples/mazda3-gt-turbo-sedan-2021-red/reviewed-v9",
+  "bodySha256": "dc0ec3438550c6a6dfbac7db02c1e6cfa8c3d17875c2cbf94c9953f1de7970d7",
+  "revision": 10,
+  "profiles": [
+    {
+      "axle": "rear",
+      "shape": "source-opening",
+      "bounds": [
+        320,
+        450,
+        740,
+        690
+      ],
+      "seed": [
+        530,
+        590
+      ]
+    },
+    {
+      "axle": "front",
+      "shape": "source-opening",
+      "bounds": [
+        1390,
+        450,
+        1810,
+        690
+      ],
+      "seed": [
+        1599,
+        590
+      ]
+    }
+  ],
+  "measurementNotes": "Seed selects each native transparent wheel-well opening. Bounds enclose the full fender and end above rocker/exterior leakage. Connected source alpha defines the contour, independently of wheel radius; no geometric shape is inferred or imposed."
+}

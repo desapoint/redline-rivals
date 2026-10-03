@@ -12,7 +12,7 @@ import {restrictionReason} from '../src/views.js';
 const pack=JSON.parse(readFileSync(new URL('../src/assets/cars/manifest.json',import.meta.url),'utf8'));
 
 test('every demo car, career opponent and prize has real production artwork',()=>{
-  assert.equal(CARS.length,4);
+  assert.equal(CARS.length,12);
   for(const c of CARS)assert.ok(pack.cars[c.artId],c.id+' needs a production sprite');
   for(const id of [...CAREER_MODELS,...CAREER_PRIZES])assert.ok(CARS.some(c=>c.id===id),'career model '+id+' is playable');
   assert.equal(CAREER_MODELS.length,7);assert.equal(CAREER_PRIZES.length,7);
@@ -109,21 +109,39 @@ test('conversion preserves reviewed native anchors, component scales and separat
 });
 
 test('production drawing puts underlay below wheels, keeps calipers fixed and rotates wheels and rotors',async()=>{
-  const oldImage=globalThis.Image,dimensions=new Map();
+  const oldImage=globalThis.Image,oldDocument=globalThis.document,dimensions=new Map(),paintOperations=[];
   for(const c of Object.values(pack.cars))for(const l of [...Object.values(c.layers),...c.wheels.flatMap(s=>[s.wheel,s.brake,s.rotor])])dimensions.set(l.file,l);
   globalThis.Image=class{complete=true;async decode(){const l=dimensions.get(new URL(this.src).pathname.split('/cars/')[1]);this.naturalWidth=l.width;this.naturalHeight=l.height;}};
+  globalThis.document={createElement(){return {getContext(){return {drawImage(){},fillRect(){paintOperations.push(['fill',this.fillStyle]);},set globalCompositeOperation(value){paintOperations.push(['composite',value]);}};}};}};
   try{
     await installSpritePack(pack,new URL('https://test.invalid/cars/'));
-    for(const base of CARS.filter(c=>c.artId)){
+    for(const base of CARS.filter(c=>c.artId&&pack.cars[c.artId]?.paintMode==='flat-cel')){
       const c=buildCar(newCar(base.id));
       for(const angle of [0,Math.PI/4,Math.PI/2,Math.PI]){
-        const log=[],ctx={save(){},restore(){},translate(){},scale(){},beginPath(){},ellipse(){},fill(){},rotate(value){log.push(['rotate',value]);},drawImage(img){log.push(['image',new URL(img.src).pathname.split('/').at(-1)]);}};
+        const log=[],ctx={save(){},restore(){},translate(){},scale(){},beginPath(){},ellipse(){},fill(){},rotate(value){log.push(['rotate',value]);},drawImage(img){log.push(['image',img.src?new URL(img.src).pathname.split('/').at(-1):'flat-paint']);}};
         assert.equal(drawSprite(ctx,c,0,0,600,{front:angle,rear:angle}),true);
-        assert.deepEqual(log.filter(x=>x[0]==='image').map(x=>x[1]),['underlay.webp','rear-rotor.webp','rear-caliper.webp','rear-wheel.webp','front-rotor.webp','front-caliper.webp','front-wheel.webp','body.webp']);
-        assert.deepEqual(log.filter(x=>x[0]==='rotate').map(x=>x[1]),[angle,0,angle,angle,0,angle]);
+        assert.deepEqual(log.filter(x=>x[0]==='image').map(x=>x[1]),['underlay.webp','rear-rotor.webp','rear-caliper.webp','rear-wheel.webp','front-rotor.webp','front-caliper.webp','front-wheel.webp','flat-paint','shading.webp','fixtures.webp','linework.webp']);
+        const rotation=pack.cars[c.artId].facing==='left'?-angle:angle;
+        assert.deepEqual(log.filter(x=>x[0]==='rotate').map(x=>x[1]),[rotation,0,rotation,rotation,0,rotation]);
         const svg=spriteSVG(c,'',{front:angle,rear:angle});assert.ok(svg.indexOf('underlay.webp')<svg.indexOf('rear-rotor.webp'));
-        assert.ok(svg.includes(`rotate(${angle*180/Math.PI})`));assert.match(svg,/rotate\(0\)/);
+        assert.ok(svg.includes(`rotate(${rotation*180/Math.PI})`));assert.match(svg,/rotate\(0\)/);
+        assert.doesNotMatch(svg,/mix-blend-mode:color/);assert.match(svg,new RegExp('fill="'+c.color+'"'));
+        assert.ok(svg.indexOf('shading.webp')<svg.indexOf('fixtures.webp'));assert.ok(svg.indexOf('fixtures.webp')<svg.indexOf('linework.webp'));
       }
     }
-  }finally{await installSpritePack({schemaVersion:1,cars:{}},new URL('https://test.invalid/cars/'));globalThis.Image=oldImage;}
+    assert.ok(paintOperations.some(([op,value])=>op==='composite'&&value==='source-in'));
+    assert.ok(!paintOperations.some(([op,value])=>op==='composite'&&value==='color'));
+  }finally{await installSpritePack({schemaVersion:1,cars:{}},new URL('https://test.invalid/cars/'));globalThis.Image=oldImage;globalThis.document=oldDocument;}
+});
+
+test('flat production bodies require independent shading, fixtures and line art',()=>{
+  for(const record of Object.values(pack.cars)){
+    assert.equal(record.paintMode,'flat-cel');
+    assert.equal(new Set(['body','shading','fixtures','linework'].map(role=>record.layers[role].file)).size,4);
+    assert.equal(record.flatPaint.gradientInterpolation,false);
+  }
+  for(const role of ['shading','fixtures','linework']){
+    const bad=structuredClone(pack),record=Object.values(bad.cars)[0];delete record.layers[role];
+    assert.throws(()=>normalizePack(bad),new RegExp(role));
+  }
 });

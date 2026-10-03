@@ -1,0 +1,12 @@
+{
+  "sourcePackage": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/flat-v7",
+  "sourceManifest": "docs/art/runtime-provenance/volkswagen-golf-gti-2024/car-sprite.json",
+  "bodySource": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/flat-v7/inputs/body-2d.png",
+  "bodySourceSha256": "4508fc607a98b3b27d3b418bbfd8eb9bb6c7aa1dc6512c9da0a421e8efd9a2a9",
+  "masterSource": "tests/car-integration/20261003-additional/sources/volkswagen-golf-gti-2024/volkswagen-golf-gti-2024-2d.png",
+  "masterSourceSha256": "b22cdfa92f120789caa8111809c7da9512f3862e23f76dfd9b88d35908d65be1",
+  "revision": 7,
+  "reviewFingerprint": "3796c2cfedef4318c5f4c092dc47a71d4b296ec0cf6467411e680a911bf6f9ae",
+  "sourceManifestSha256": "f94ac1819e067a0a4ed02d29dbb3105edfed65f1202cc9231eecf3bc6a109cce",
+  "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+}

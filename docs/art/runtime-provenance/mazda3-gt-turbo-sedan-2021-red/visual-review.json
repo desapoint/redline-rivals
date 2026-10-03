@@ -10,11 +10,12 @@
     "identity",
     "layer-isolation",
     "paint-coverage-exclusions",
+    "paint-layer-isolation",
     "stationary-calipers",
     "underlay-coverage"
   ],
-  "notes": "Inspected native source crops, isolated mechanical components, all four rotations, caliper-only comparisons, contrast backgrounds, wheels-hidden arches, paint-mask overlay and contrasting recolor; exercised the browser controls. Identity is matched to the selected illustrated master, with inherited trim uncertainty and modeled brake ratios. Exterior reconstruction preserves all visible master pixels. Revision 9 archives native reference metadata and retains revision 8 artwork exactly. Sources and replay files match byte for byte.",
+  "notes": "Inspected the current isolated body stack, factory/blue/white/black assembly and all mandatory rotation, caliper, mechanical isolation, underlay, background and paint previews. Uniform base RGB and opaque interior; discrete grayscale shading; independent silhouette, panel and handle linework; fixed glass, lights and trim. Native source archives and all mechanical bytes retained. Arbitrary wheel-arch boundaries remain native and antialiased. No unresolved issues.",
   "unresolvedIssues": [],
-  "contentFingerprint": "6559e72303266baa354b06caae6d975ea14358df5286e3ff2068dfe9f91887e9",
-  "qaReportHash": "89ea218f788f2ed7015c57c234b03a0c220152835b895f3f84418a4be234d3c9"
+  "contentFingerprint": "260179af13ae84f6812fd6a22956114318591ce4588cd1dbfcc6eda36d2f0f4f",
+  "qaReportHash": "eb8f69e2fa76c8d95ee041d1f787912932689fb20edffdd773aea5843ab90cc2"
 }

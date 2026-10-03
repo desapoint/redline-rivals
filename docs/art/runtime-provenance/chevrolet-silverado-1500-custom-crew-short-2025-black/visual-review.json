@@ -10,11 +10,12 @@
     "identity",
     "layer-isolation",
     "paint-coverage-exclusions",
+    "paint-layer-isolation",
     "stationary-calipers",
     "underlay-coverage"
   ],
-  "notes": "Inspected assembled rotations 0/45/90/180, stationary calipers, isolated components, wheels-hidden, checker/black/white/gray, mask and recolor contact sheet and native arch crop. Squared exterior fenders retain source pixels. Rounded-rectangle envelopes bound backing clipped to original opening alpha, cutoff y674 above rocker; circular tire anchors remain v11. Source identity provisional. Only backing image and arch metadata changed.",
+  "notes": "Inspected the current isolated body stack, factory/blue/white/black assembly and all mandatory rotation, caliper, mechanical isolation, underlay, background and paint previews. Uniform base RGB and opaque interior; discrete grayscale shading; independent silhouette, panel and handle linework; fixed glass, lights and trim. Native source archives and all mechanical bytes retained. Arbitrary wheel-arch boundaries remain native and antialiased. No unresolved issues.",
   "unresolvedIssues": [],
-  "contentFingerprint": "b8087ab5a6c3e175e90ad8ba2ff104a311e9ec2cb0c440fc7a80b19bab74d9f0",
-  "qaReportHash": "ada93ace234daef5c9f2592c66b7bdee9c722357d9c1382c562e9d7b407ce231"
+  "contentFingerprint": "06bc70a4a933441461c776dcc8baa2117b2949e562c4fe191cf68db332c95848",
+  "qaReportHash": "f6f1ec709eec2c86b736df7df9aad4f204c050b340dd3db63ff7c774d1363396"
 }

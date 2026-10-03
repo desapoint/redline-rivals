@@ -1,7 +1,9 @@
 """Explicit native-coordinate arch masks, independent of tire circles.
 
-Rounded rectangles and measured polygons bound the wheel-well backing. Source
-alpha supplies the final inner fender edge; this never cuts or repaints a body.
+Source-opening profiles trace connected native alpha contours of any shape.
+Rounded rectangles and measured polygons are optional explicit alternatives.
+This never cuts or repaints a body. Bounds select a well and its rocker cutoff;
+they do not fit or replace the fender line.
 """
 import argparse
 import hashlib

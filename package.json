@@ -13,6 +13,8 @@
     "test:browser": "node tests/browser.mjs",
     "test:interface": "node tests/interface-browser.mjs",
     "test:race-feel": "node tests/race-feel-browser.mjs",
-    "test:real-cars": "node tests/real-cars-browser.mjs"
+    "test:real-cars": "node tests/real-cars-browser.mjs",
+    "test:additional-cars": "node tests/additional-cars-browser.mjs",
+    "test:paint": "node tests/flat-paint-browser.mjs"
   }
 }

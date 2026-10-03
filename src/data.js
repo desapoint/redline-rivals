@@ -37,7 +37,7 @@ export const LEGACY_MODEL_REPLACEMENTS = Object.freeze({roadster:'vortex',zenith
 export const CAREER_MODELS = ['rogue','vortex','vortex','kaze','rogue','metro','kaze'];
 export const CAREER_PRIZES = ['metro','vortex','rogue','kaze','rogue','metro','kaze'];
 const factoryTires={kaze:0,metro:0,roadster:0,vortex:1,rogue:0,zenith:1,rally:2,muscle:3,apex:3,spectre:3,nova:4};
-[...CARS,...LEGACY_CARS].forEach(c=>{c.factoryTires=factoryTires[c.id];});
+[...CARS,...LEGACY_CARS].forEach(c=>{c.factoryTires=factoryTires[c.id]??c.factoryTires??0;});
 export const PARTS = [
   {id:'intake',name:'Intake & exhaust',group:'Engine',icon:'↗',description:'Open up the airflow. A broader, stronger torque curve.',effect:'+8% torque / stage',baseCost:600,max:3},
   {id:'ecu',name:'ECU calibration',group:'Engine',icon:'⌘',description:'Fuel, ignition and a little more room at the top.',effect:'+7% torque · +150 RPM / stage',baseCost:900,max:3},

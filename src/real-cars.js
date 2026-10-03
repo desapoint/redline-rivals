@@ -1,4 +1,5 @@
 import { REAL_CAR_SPECS } from './real-car-specs.js';
+import { ADDITIONAL_REAL_CARS } from './additional-cars.js';
 
 const mazdaId='mazda3-gt-turbo-sedan-2021-red';
 const truckId='chevrolet-silverado-1500-custom-crew-short-2025-black';
@@ -44,4 +45,5 @@ export const REAL_CARS=[
     radius:.36215,wheelbase:2.706,cd:.35,area:2.7,efficiency:.80,shiftTime:0,
     ...researched(rogueId,6500,135),fuelProfile:'Regular fuel · 170 HP / 237 Nm',
     modelAssumptions:['SV AWD is provisional. Mass (1,620 kg), redline (6,500 RPM), final drive (5.1) and CVT ratio range (0.5–2.6) are simulation estimates; factory values remain unknown.','The continuous-ratio model holds an estimated 6,000 RPM power target under full throttle; Nissan D-Step behavior is not reproduced. There are no fabricated fixed gears.','Torque curve, aero, losses and grip are estimated. Tire radius uses the researched base SV P225/65R17 tire.']}
+ ,...ADDITIONAL_REAL_CARS
 ];

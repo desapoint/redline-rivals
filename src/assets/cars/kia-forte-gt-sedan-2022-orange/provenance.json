@@ -1,10 +1,10 @@
 {
-  "sourcePackage": "tests/car-integration/20261003/kia-forte-gt-sedan-2022-orange/wheel-fit-v2",
+  "sourcePackage": "tests/car-integration/20261003/kia-forte-gt-sedan-2022-orange/flat-paint-v9",
   "sourceManifest": "docs/art/runtime-provenance/kia-forte-gt-sedan-2022-orange/car-sprite.json",
   "bodySource": "docs/art/staged-roster/kia-forte-gt-sedan-2022-orange/body-2d.png",
   "bodySourceSha256": "52b42926f3c6f098627adc90145db3964fdf842ce2192b5e071729e6a8a97cfc",
-  "revision": 2,
-  "reviewFingerprint": "9a4aeed07417cca14deae71f556029a2866d5c19fc6e140d35cfa801662ecdeb",
-  "sourceManifestSha256": "d0e6208b77709d79c74ba48dc8fcfe36796e0388561305660f8d17b4fb4a3d7c",
-  "conversion": "Exact selected -2d body decoded to lossless WebP; underlay retained separately; measured wheel geometry with original component pixels/scales/pivots. Display framing ignores alpha below 8; native body pixels are retained. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+  "revision": 9,
+  "reviewFingerprint": "16d19660af2f83df25edd361887fe298d65747135258b5199c34191a0df78f00",
+  "sourceManifestSha256": "246df45512c5a1a04a295881bc82384e522548b7fb5daf4ccc460394ade03c0e",
+  "conversion": "Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
 }

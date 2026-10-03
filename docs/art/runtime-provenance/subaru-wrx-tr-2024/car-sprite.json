@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "revision": 7,
+  "vehicle": {
+    "id": "subaru-wrx-tr-2024",
+    "make": "Subaru",
+    "model": "WRX",
+    "year": 2024,
+    "trim": "TR / accessory spoiler",
+    "facing": "right"
+  },
+  "canvas": {
+    "width": 2048,
+    "height": 1024
+  },
+  "anchors": {
+    "rearWheel": {
+      "x": 516,
+      "y": 739,
+      "radius": 136
+    },
+    "frontWheel": {
+      "x": 1509,
+      "y": 739,
+      "radius": 136
+    }
+  },
+  "layers": [
+    {
+      "id": "car-underlay",
+      "file": "underlay.png",
+      "z": 200,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "rear-rotor",
+      "file": "rear-rotor.png",
+      "z": 300,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "rear-caliper",
+      "file": "rear-caliper.png",
+      "z": 310,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "rear-wheel",
+      "file": "rear-wheel.png",
+      "z": 320,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-rotor",
+      "file": "front-rotor.png",
+      "z": 330,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-caliper",
+      "file": "front-caliper.png",
+      "z": 340,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "front-wheel",
+      "file": "front-wheel.png",
+      "z": 350,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "body-paint",
+      "file": "body/paint.png",
+      "z": 400,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-shading",
+      "file": "body/shading.png",
+      "z": 410,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-fixtures",
+      "file": "body/fixtures.png",
+      "z": 440,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-linework",
+      "file": "body/linework.png",
+      "z": 460,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "masks": {
+    "paint": "paint-mask.png",
+    "paintRegions": "paint-regions.png"
+  },
+  "sources": [
+    {
+      "originalPath": "tests/car-integration/20261003-additional/sources/subaru-wrx-tr-2024/subaru-wrx-tr-2024-composite.png",
+      "sha256": "fc4edb2968e705c3ca0b582c285aed956a0b71f307070393d6e4fa5ecbcd7fe6",
+      "archivedFile": "inputs/master.png"
+    },
+    {
+      "originalPath": "scripts/prepare-additional-cars.py",
+      "sha256": "35b0d0cb2ddaeab48c4cae8f2198f474ad765b7c5e376aa2d05d04d7ab2bb063",
+      "archivedFile": "preparation-script.py"
+    },
+    {
+      "originalPath": "docs/art/additional-car-plans/subaru-wrx-tr-2024.json",
+      "sha256": "e16eba3999b0b5545fb8916a5c835cb6c6bd53c7e5194bdf3a9f77efc1ff3da7",
+      "archivedFile": "preparation-plan.json"
+    },
+    {
+      "originalPath": "scripts/flat_car_layers.py",
+      "sha256": "fdb1915d33933de4e5062269109b0693e9c5aff347d7bbdf9d819e952a1d36c1",
+      "archivedFile": "processing/flat_car_layers.py"
+    },
+    {
+      "originalPath": "scripts/prepare-additional-flat-cars.py",
+      "sha256": "47a7555cd190e4c103eb5b31cb2958b86ef90f849300091dd1bcdf160355188f",
+      "archivedFile": "processing/prepare-additional-flat-cars.py"
+    }
+  ],
+  "notes": [
+    "Illustrated source geometry, wheel styles and accessories are preserved; this is not an OEM CAD reconstruction.",
+    "Brake colors, positions and dimensions are visual modeling choices. Existing source discs/calipers are rejected because they contain clipped or spoke-occluded regions.",
+    "Source rims and hubs isolated by measured spoke support; upper tire restored by 180-degree source symmetry; complete rotors and calipers drawn with Pillow, separately for each axle.",
+    "The five composite-source rims retain native tire/lip pixels; their inner split ten-spoke geometry is reconstructed with Pillow because the source repeats calipers in all cavities.",
+    "Merged original exterior retained: the deferred flat-paint/fixture redesign is not applied.",
+    "Uniform continuous paint foundation covers the native silhouette with unchanged arches. Source-derived black/white shading has discrete alpha levels, fixtures retain fixed source pixels, and independent ink follows panels and silhouette. No source hue is baked into the paint or shading."
+  ],
+  "archProfiles": [
+    {
+      "axle": "rear",
+      "shape": "measured-contour",
+      "points": [
+        [
+          367,
+          807
+        ],
+        [
+          373,
+          737
+        ],
+        [
+          389,
+          683
+        ],
+        [
+          422,
+          637
+        ],
+        [
+          466,
+          611
+        ],
+        [
+          515,
+          602
+        ],
+        [
+          565,
+          609
+        ],
+        [
+          611,
+          635
+        ],
+        [
+          647,
+          677
+        ],
+        [
+          669,
+          733
+        ],
+        [
+          679,
+          820
+        ]
+      ]
+    },
+    {
+      "axle": "front",
+      "shape": "measured-contour",
+      "points": [
+        [
+          1343,
+          820
+        ],
+        [
+          1349,
+          733
+        ],
+        [
+          1365,
+          681
+        ],
+        [
+          1399,
+          636
+        ],
+        [
+          1450,
+          608
+        ],
+        [
+          1506,
+          599
+        ],
+        [
+          1559,
+          609
+        ],
+        [
+          1607,
+          634
+        ],
+        [
+          1640,
+          678
+        ],
+        [
+          1664,
+          735
+        ],
+        [
+          1671,
+          822
+        ]
+      ]
+    }
+  ],
+  "paintLayerMode": "foundation",
+  "bodyLayerMode": "flat-cel",
+  "flatPaint": {
+    "sourceReferenceLuminance": 62.898399353027344,
+    "shadowAlphaPalette": [
+      0,
+      40,
+      88,
+      132,
+      176
+    ],
+    "highlightAlphaPalette": [
+      0,
+      40,
+      80
+    ],
+    "shadingRGBPalette": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        255,
+        255,
+        255
+      ]
+    ],
+    "baseRGB": [
+      255,
+      255,
+      255
+    ],
+    "gradientInterpolation": false,
+    "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+    "classificationBlurPixels": 12,
+    "factoryColor": "#1459b3"
+  },
+  "fixtureSamples": [
+    {
+      "x": 914,
+      "y": 407,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 1218,
+      "y": 492,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 271,
+      "y": 527,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 1766,
+      "y": 595,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    }
+  ]
+}

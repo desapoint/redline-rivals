@@ -1,0 +1,21 @@
+{
+  "accepted": true,
+  "reviewer": "Codex visual review",
+  "checks": [
+    "alpha-backgrounds",
+    "complete-rotors",
+    "complete-tires",
+    "fender-occlusion",
+    "hub-alignment",
+    "identity",
+    "layer-isolation",
+    "paint-coverage-exclusions",
+    "paint-layer-isolation",
+    "stationary-calipers",
+    "underlay-coverage"
+  ],
+  "notes": "Inspected the four isolated body layers, continuous white foundation with native arches, fixed fixture pixels, discrete grayscale alpha shading, independent ink, green repaint, native source/hub crops and v6 mechanical diagnostics. Reviewed flat-v7 wheels-hidden, black/white/gray/checkerboard assembled contacts and 0/45/90/180 geometry. Eight illustrations are model representations; scripted brakes/rims/tires are visual approximations. No wheel/caliper/source-byte changes during flat decomposition.",
+  "unresolvedIssues": [],
+  "contentFingerprint": "dbc76ba958922f271e98f2122e4a64ee2c92034157c7b5e29e5f3e2cf817cd04",
+  "qaReportHash": "2679b0414809526b3456017403305b0e7d72a85cb3c90904ef37290f11d87c23"
+}

@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 1,
+  "revision": 7,
+  "vehicle": {
+    "id": "toyota-gr-corolla-2024",
+    "make": "Toyota",
+    "model": "GR Corolla",
+    "year": 2024,
+    "trim": "Circuit Edition / illustrated",
+    "facing": "left"
+  },
+  "canvas": {
+    "width": 1672,
+    "height": 941
+  },
+  "anchors": {
+    "rearWheel": {
+      "x": 1382,
+      "y": 659,
+      "radius": 133
+    },
+    "frontWheel": {
+      "x": 339,
+      "y": 659,
+      "radius": 133
+    }
+  },
+  "layers": [
+    {
+      "id": "car-underlay",
+      "file": "underlay.png",
+      "z": 200,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "rear-rotor",
+      "file": "rear-rotor.png",
+      "z": 300,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "rear-caliper",
+      "file": "rear-caliper.png",
+      "z": 310,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "rear-wheel",
+      "file": "rear-wheel.png",
+      "z": 320,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-rotor",
+      "file": "front-rotor.png",
+      "z": 330,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-caliper",
+      "file": "front-caliper.png",
+      "z": 340,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "front-wheel",
+      "file": "front-wheel.png",
+      "z": 350,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "body-paint",
+      "file": "body/paint.png",
+      "z": 400,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-shading",
+      "file": "body/shading.png",
+      "z": 410,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-fixtures",
+      "file": "body/fixtures.png",
+      "z": 440,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-linework",
+      "file": "body/linework.png",
+      "z": 460,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "masks": {
+    "paint": "paint-mask.png",
+    "paintRegions": "paint-regions.png"
+  },
+  "sources": [
+    {
+      "originalPath": "tests/car-integration/20261003-additional/sources/toyota-gr-corolla-2024/toyota-gr-corolla-2024-2d.png",
+      "sha256": "25dac294c2dfacd83e6fe2299db13a4b39b4779c3e87479799b08c3968f9a28e",
+      "archivedFile": "inputs/master.png"
+    },
+    {
+      "originalPath": "scripts/prepare-additional-cars.py",
+      "sha256": "35b0d0cb2ddaeab48c4cae8f2198f474ad765b7c5e376aa2d05d04d7ab2bb063",
+      "archivedFile": "preparation-script.py"
+    },
+    {
+      "originalPath": "docs/art/additional-car-plans/toyota-gr-corolla-2024.json",
+      "sha256": "b98395f86ca80edcd7e9b85fbb13e41b1e20579ba2b955ad5706f9253d46eca8",
+      "archivedFile": "preparation-plan.json"
+    },
+    {
+      "originalPath": "scripts/flat_car_layers.py",
+      "sha256": "fdb1915d33933de4e5062269109b0693e9c5aff347d7bbdf9d819e952a1d36c1",
+      "archivedFile": "processing/flat_car_layers.py"
+    },
+    {
+      "originalPath": "scripts/prepare-additional-flat-cars.py",
+      "sha256": "47a7555cd190e4c103eb5b31cb2958b86ef90f849300091dd1bcdf160355188f",
+      "archivedFile": "processing/prepare-additional-flat-cars.py"
+    }
+  ],
+  "notes": [
+    "Illustrated source geometry, wheel styles and accessories are preserved; this is not an OEM CAD reconstruction.",
+    "Brake colors, positions and dimensions are visual modeling choices. Existing source discs/calipers are rejected because they contain clipped or spoke-occluded regions.",
+    "Source rims and hubs isolated by measured spoke support; upper tire restored by 180-degree source symmetry; complete rotors and calipers drawn with Pillow, separately for each axle.",
+    "The five composite-source rims retain native tire/lip pixels; their inner split ten-spoke geometry is reconstructed with Pillow because the source repeats calipers in all cavities.",
+    "Merged original exterior retained: the deferred flat-paint/fixture redesign is not applied.",
+    "Uniform continuous paint foundation covers the native silhouette with unchanged arches. Source-derived black/white shading has discrete alpha levels, fixtures retain fixed source pixels, and independent ink follows panels and silhouette. No source hue is baked into the paint or shading."
+  ],
+  "archProfiles": [
+    {
+      "axle": "rear",
+      "shape": "measured-contour",
+      "points": [
+        [
+          1228,
+          705
+        ],
+        [
+          1232,
+          640
+        ],
+        [
+          1249,
+          585
+        ],
+        [
+          1288,
+          544
+        ],
+        [
+          1332,
+          523
+        ],
+        [
+          1386,
+          516
+        ],
+        [
+          1440,
+          527
+        ],
+        [
+          1484,
+          554
+        ],
+        [
+          1517,
+          601
+        ],
+        [
+          1530,
+          656
+        ],
+        [
+          1533,
+          705
+        ]
+      ]
+    },
+    {
+      "axle": "front",
+      "shape": "measured-contour",
+      "points": [
+        [
+          189,
+          715
+        ],
+        [
+          194,
+          638
+        ],
+        [
+          215,
+          584
+        ],
+        [
+          253,
+          544
+        ],
+        [
+          296,
+          523
+        ],
+        [
+          342,
+          515
+        ],
+        [
+          388,
+          523
+        ],
+        [
+          431,
+          547
+        ],
+        [
+          470,
+          589
+        ],
+        [
+          492,
+          651
+        ],
+        [
+          496,
+          714
+        ]
+      ]
+    }
+  ],
+  "paintLayerMode": "foundation",
+  "bodyLayerMode": "flat-cel",
+  "flatPaint": {
+    "sourceReferenceLuminance": 120.89440155029297,
+    "shadowAlphaPalette": [
+      0,
+      40,
+      88,
+      132,
+      176
+    ],
+    "highlightAlphaPalette": [
+      0,
+      40,
+      80
+    ],
+    "shadingRGBPalette": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        255,
+        255,
+        255
+      ]
+    ],
+    "baseRGB": [
+      255,
+      255,
+      255
+    ],
+    "gradientInterpolation": false,
+    "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+    "classificationBlurPixels": 12,
+    "factoryColor": "#0866e8"
+  },
+  "fixtureSamples": [
+    {
+      "x": 603,
+      "y": 402,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 1547,
+      "y": 428,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 484,
+      "y": 524,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    }
+  ]
+}

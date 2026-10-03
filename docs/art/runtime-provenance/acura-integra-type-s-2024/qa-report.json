@@ -1,0 +1,256 @@
+{
+  "toolVersion": "1.2.0",
+  "manifest": "car-sprite.json",
+  "scope": "full",
+  "problems": [],
+  "warnings": [],
+  "angles": [
+    0.0,
+    45.0,
+    90.0,
+    180.0
+  ],
+  "generated": [
+    "assembled.png",
+    "layer-body-paint.jpg",
+    "layer-body-shading.jpg",
+    "layer-body-fixtures.jpg",
+    "layer-body-linework.jpg",
+    "wheels-hidden.png",
+    "checkerboard.jpg",
+    "on-black.jpg",
+    "on-white.jpg",
+    "on-gray.jpg",
+    "rotation-0.png",
+    "calipers-0.jpg",
+    "rotation-45.png",
+    "calipers-45.jpg",
+    "rotation-90.png",
+    "calipers-90.jpg",
+    "rotation-180.png",
+    "calipers-180.jpg",
+    "isolated-wheel.jpg",
+    "isolated-rotor.jpg",
+    "isolated-caliper.jpg",
+    "isolated-underlay.jpg",
+    "paint-mask-overlay.jpg",
+    "recolor-check.jpg"
+  ],
+  "artifactHashes": {
+    "assembled.png": "4f8f06656fdc99cad71721fe8c07c832083553e661cf692d94804046daa5a135",
+    "layer-body-paint.jpg": "9fc6f294a4f340f654f31e3cce184f851faf3314a7ba20ca88e17d0ab3c37a96",
+    "layer-body-shading.jpg": "db15eff7919ecc225e135bb244828137b80fa31ea3f92fcbc9a0651deb585462",
+    "layer-body-fixtures.jpg": "7ad93999eb29d63225df88b39d1570a40cdd49100a2b1dacf80e95988cd20853",
+    "layer-body-linework.jpg": "f51a31828273515fb2214770c20036ed7fd1c1ba8851dab5daa7538aa282cec4",
+    "wheels-hidden.png": "eeb03160c9e592689adc02ec9b57416d1a9d70f8496ab03c7e79513a5e6116e4",
+    "checkerboard.jpg": "ad437396317c1d4a8d58eac9dc689e86ab239783e28ebd93da7b58e8caa16de1",
+    "on-black.jpg": "035b5170c0cb67d9e0a14f616ee1fa78d65aa57fdf14fab88a17e33ed8c7dc3e",
+    "on-white.jpg": "65d51a7c3a970e34229488398cf15ea6519b49f5248d1095a8181571cddab60a",
+    "on-gray.jpg": "c0a86514e7d563e1f00b7f6fbfb15c4cb86ce5a786528b30d1f0e1b400fdc5f1",
+    "rotation-0.png": "4f8f06656fdc99cad71721fe8c07c832083553e661cf692d94804046daa5a135",
+    "calipers-0.jpg": "085a022ff27d1fd81ff17e0adbce3ca95e07af5ba07f035453c9380761d71033",
+    "rotation-45.png": "6c3953b6341e49b53a0fec5924de146faf2d81672eac71f1411b86afb76b47a8",
+    "calipers-45.jpg": "085a022ff27d1fd81ff17e0adbce3ca95e07af5ba07f035453c9380761d71033",
+    "rotation-90.png": "64cb66f7856154d87e6a416461b22064c57b54f8f74412ed64e37ed3937df867",
+    "calipers-90.jpg": "085a022ff27d1fd81ff17e0adbce3ca95e07af5ba07f035453c9380761d71033",
+    "rotation-180.png": "075614cbfd9118ba2c4d7e21fff53d03d3a25af727de7bf3d2993e2e4c69ef1c",
+    "calipers-180.jpg": "085a022ff27d1fd81ff17e0adbce3ca95e07af5ba07f035453c9380761d71033",
+    "isolated-wheel.jpg": "45feec10e4bb1aa5252ed2c7db1c6f06d7e07d5fcb86e92217c5dcd58d064e25",
+    "isolated-rotor.jpg": "be02327ed1c1bf5633cd90ea5b9ea667749dc1aa34044b13bc6ec19903f06f74",
+    "isolated-caliper.jpg": "085a022ff27d1fd81ff17e0adbce3ca95e07af5ba07f035453c9380761d71033",
+    "isolated-underlay.jpg": "b750fe0151e3782fbb02e9c40fde0c5d71021210e6d47997bebb9e2586c70706",
+    "paint-mask-overlay.jpg": "7e9f75e2347d3dd4f7c401750fbdd68f11023a0d43395b8e7c40bb4419539afc",
+    "recolor-check.jpg": "29d2ba67e6a3f54fb56c29fcdbfc767bb4fa071eeecee0d71bf62c46e8f6c2db"
+  },
+  "visualReviewRequired": true,
+  "images": {
+    "underlay.png": {
+      "size": [
+        2048,
+        1024
+      ],
+      "bounds": [
+        336,
+        571,
+        1666,
+        792
+      ],
+      "mode": "RGBA",
+      "sha256": "7336a3d4ed12dfde9d2a68a16f9a49797de08f7fb38b96c8e461ed5760430c38"
+    },
+    "rear-rotor.png": {
+      "size": [
+        300,
+        300
+      ],
+      "bounds": [
+        67,
+        67,
+        233,
+        233
+      ],
+      "mode": "RGBA",
+      "sha256": "9d4c8209eec812d819a84c8e95a96df60afd5f178699d92981b128db9f5bc99a"
+    },
+    "rear-caliper.png": {
+      "size": [
+        300,
+        300
+      ],
+      "bounds": [
+        204,
+        113,
+        238,
+        187
+      ],
+      "mode": "RGBA",
+      "sha256": "8b5bcf237513b70b2dfe64dbffebf2acd57e0a0f4a30f6f6cd526b59e3723fed"
+    },
+    "rear-wheel.png": {
+      "size": [
+        300,
+        300
+      ],
+      "bounds": [
+        8,
+        8,
+        292,
+        292
+      ],
+      "mode": "RGBA",
+      "sha256": "c9ec579edbd3e66562af33700195278095af6ffb5cdc6eca68dd235d5fb17169"
+    },
+    "front-rotor.png": {
+      "size": [
+        300,
+        300
+      ],
+      "bounds": [
+        52,
+        52,
+        248,
+        248
+      ],
+      "mode": "RGBA",
+      "sha256": "8172573a8d10fae04809d007b7f2fcb2c2d5a78eefa78c467e87c7d9b1199985"
+    },
+    "front-caliper.png": {
+      "size": [
+        300,
+        300
+      ],
+      "bounds": [
+        215,
+        99,
+        254,
+        201
+      ],
+      "mode": "RGBA",
+      "sha256": "43554d16d7aa73db33ee7194142603a7037c1145e81591b1206a86dd36b5dd68"
+    },
+    "front-wheel.png": {
+      "size": [
+        300,
+        300
+      ],
+      "bounds": [
+        8,
+        8,
+        292,
+        292
+      ],
+      "mode": "RGBA",
+      "sha256": "7c3be25976944caf0b76df7c429f98db7c6be911881ba7422dd569e4278b41d8"
+    },
+    "body/paint.png": {
+      "size": [
+        2048,
+        1024
+      ],
+      "bounds": [
+        140,
+        314,
+        1870,
+        796
+      ],
+      "mode": "RGBA",
+      "sha256": "8e8642ac0e1afb20ab6abf172c0ee9843b048f3bc9b5e3de406e12457c744de8"
+    },
+    "body/shading.png": {
+      "size": [
+        2048,
+        1024
+      ],
+      "bounds": [
+        147,
+        320,
+        1863,
+        791
+      ],
+      "mode": "RGBA",
+      "sha256": "d7b8e8e1acb2cd4cb58e1b4e2a68bd8f2301b268a604e5658c375e3492015319"
+    },
+    "body/fixtures.png": {
+      "size": [
+        2048,
+        1024
+      ],
+      "bounds": [
+        146,
+        319,
+        1864,
+        795
+      ],
+      "mode": "RGBA",
+      "sha256": "9f739f2376e542307220566c76b72ad405bbdd292e9a3d921be3306276a46a07"
+    },
+    "body/linework.png": {
+      "size": [
+        2048,
+        1024
+      ],
+      "bounds": [
+        140,
+        314,
+        1870,
+        796
+      ],
+      "mode": "RGBA",
+      "sha256": "413370576af2ea73c5742f8143175554b6a245ab97b075f7612ac2ad5b6da08b"
+    },
+    "paint-mask.png": {
+      "size": [
+        2048,
+        1024
+      ],
+      "bounds": [
+        140,
+        314,
+        1870,
+        796
+      ],
+      "mode": "RGBA",
+      "sha256": "8e8642ac0e1afb20ab6abf172c0ee9843b048f3bc9b5e3de406e12457c744de8"
+    },
+    "paint-regions.png": {
+      "size": [
+        2048,
+        1024
+      ],
+      "bounds": [
+        142,
+        315,
+        1865,
+        791
+      ],
+      "mode": "RGBA",
+      "sha256": "aaf23e0ed9f876ce6fced9e38565f33619c69430eaf522761269f9f34d50a539"
+    }
+  },
+  "contentFingerprint": "169ba1f4bba4bd6643e2c560aada8fb58c98ac04a8798508c352fe4d86cf44d6",
+  "recolorDiagnostic": {
+    "color": "#27bf67",
+    "purpose": "mask coverage/exclusion; not a factory paint simulation"
+  },
+  "passed": true
+}

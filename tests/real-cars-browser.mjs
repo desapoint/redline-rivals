@@ -69,7 +69,7 @@ try{
     console.log(`PASS: four real cars at ${viewport.width}×${viewport.height} / 2× DPR.`);
   }
   const context=await browser.newContext({viewport:{width:1440,height:900}}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('http://localhost:5173/test-drive.html');await page.waitForFunction(()=>document.getElementById('lab-asset-status').textContent.includes('4 production'));
+  await page.goto('http://localhost:5173/test-drive.html');await page.waitForFunction(()=>document.getElementById('lab-asset-status').textContent.includes('12 production'));
   for(const model of ['vortex','rogue']){
     await page.getByRole('combobox',{name:'Vehicle',exact:true}).selectOption(model);
     assert.equal(await page.locator('#ratio-0').count(),model==='rogue'?0:1);

@@ -1,0 +1,411 @@
+{
+  "schemaVersion": 1,
+  "revision": 7,
+  "vehicle": {
+    "id": "volkswagen-golf-gti-2024",
+    "make": "Volkswagen",
+    "model": "Golf GTI",
+    "year": 2024,
+    "trim": "S / illustrated wheels",
+    "facing": "right"
+  },
+  "canvas": {
+    "width": 1717,
+    "height": 916
+  },
+  "anchors": {
+    "rearWheel": {
+      "x": 299,
+      "y": 639,
+      "radius": 139
+    },
+    "frontWheel": {
+      "x": 1376,
+      "y": 639,
+      "radius": 139
+    }
+  },
+  "layers": [
+    {
+      "id": "car-underlay",
+      "file": "underlay.png",
+      "z": 200,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "rear-rotor",
+      "file": "rear-rotor.png",
+      "z": 300,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "rear-caliper",
+      "file": "rear-caliper.png",
+      "z": 310,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "rear-wheel",
+      "file": "rear-wheel.png",
+      "z": 320,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-rotor",
+      "file": "front-rotor.png",
+      "z": 330,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-caliper",
+      "file": "front-caliper.png",
+      "z": 340,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "front-wheel",
+      "file": "front-wheel.png",
+      "z": 350,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "body-paint",
+      "file": "body/paint.png",
+      "z": 400,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-shading",
+      "file": "body/shading.png",
+      "z": 410,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-fixtures",
+      "file": "body/fixtures.png",
+      "z": 440,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-linework",
+      "file": "body/linework.png",
+      "z": 460,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "masks": {
+    "paint": "paint-mask.png",
+    "paintRegions": "paint-regions.png"
+  },
+  "sources": [
+    {
+      "originalPath": "tests/car-integration/20261003-additional/sources/volkswagen-golf-gti-2024/volkswagen-golf-gti-2024-2d.png",
+      "sha256": "b22cdfa92f120789caa8111809c7da9512f3862e23f76dfd9b88d35908d65be1",
+      "archivedFile": "inputs/master.png"
+    },
+    {
+      "originalPath": "scripts/prepare-additional-cars.py",
+      "sha256": "35b0d0cb2ddaeab48c4cae8f2198f474ad765b7c5e376aa2d05d04d7ab2bb063",
+      "archivedFile": "preparation-script.py"
+    },
+    {
+      "originalPath": "docs/art/additional-car-plans/volkswagen-golf-gti-2024.json",
+      "sha256": "1a07fd424d367de251c9e6d8df603cd2eb33659d37613cd58ab5c4e0eb41f9be",
+      "archivedFile": "preparation-plan.json"
+    },
+    {
+      "originalPath": "scripts/flat_car_layers.py",
+      "sha256": "fdb1915d33933de4e5062269109b0693e9c5aff347d7bbdf9d819e952a1d36c1",
+      "archivedFile": "processing/flat_car_layers.py"
+    },
+    {
+      "originalPath": "scripts/prepare-additional-flat-cars.py",
+      "sha256": "47a7555cd190e4c103eb5b31cb2958b86ef90f849300091dd1bcdf160355188f",
+      "archivedFile": "processing/prepare-additional-flat-cars.py"
+    }
+  ],
+  "notes": [
+    "Illustrated source geometry, wheel styles and accessories are preserved; this is not an OEM CAD reconstruction.",
+    "Brake colors, positions and dimensions are visual modeling choices. Existing source discs/calipers are rejected because they contain clipped or spoke-occluded regions.",
+    "Source rims and hubs isolated by measured spoke support; upper tire restored by 180-degree source symmetry; complete rotors and calipers drawn with Pillow, separately for each axle.",
+    "The five composite-source rims retain native tire/lip pixels; their inner split ten-spoke geometry is reconstructed with Pillow because the source repeats calipers in all cavities.",
+    "Merged original exterior retained: the deferred flat-paint/fixture redesign is not applied.",
+    "Uniform continuous paint foundation covers the native silhouette with unchanged arches. Source-derived black/white shading has discrete alpha levels, fixtures retain fixed source pixels, and independent ink follows panels and silhouette. No source hue is baked into the paint or shading."
+  ],
+  "archProfiles": [
+    {
+      "axle": "rear",
+      "shape": "measured-contour",
+      "points": [
+        [
+          145,
+          679
+        ],
+        [
+          146,
+          616
+        ],
+        [
+          167,
+          561
+        ],
+        [
+          207,
+          520
+        ],
+        [
+          253,
+          500
+        ],
+        [
+          303,
+          493
+        ],
+        [
+          358,
+          503
+        ],
+        [
+          407,
+          530
+        ],
+        [
+          439,
+          575
+        ],
+        [
+          452,
+          632
+        ],
+        [
+          455,
+          689
+        ]
+      ]
+    },
+    {
+      "axle": "front",
+      "shape": "measured-contour",
+      "points": [
+        [
+          1219,
+          690
+        ],
+        [
+          1223,
+          627
+        ],
+        [
+          1249,
+          568
+        ],
+        [
+          1290,
+          525
+        ],
+        [
+          1339,
+          501
+        ],
+        [
+          1392,
+          498
+        ],
+        [
+          1445,
+          510
+        ],
+        [
+          1489,
+          541
+        ],
+        [
+          1521,
+          589
+        ],
+        [
+          1533,
+          650
+        ],
+        [
+          1535,
+          697
+        ]
+      ]
+    }
+  ],
+  "paintLayerMode": "foundation",
+  "bodyLayerMode": "flat-cel",
+  "flatPaint": {
+    "sourceReferenceLuminance": 61.33440017700195,
+    "shadowAlphaPalette": [
+      0,
+      40,
+      88,
+      132,
+      176
+    ],
+    "highlightAlphaPalette": [
+      0,
+      40,
+      80
+    ],
+    "shadingRGBPalette": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        255,
+        255,
+        255
+      ]
+    ],
+    "baseRGB": [
+      255,
+      255,
+      255
+    ],
+    "gradientInterpolation": false,
+    "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+    "classificationBlurPixels": 12,
+    "factoryColor": "#dc1826"
+  },
+  "fixtureSamples": [
+    {
+      "x": 466,
+      "y": 290,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 933,
+      "y": 298,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 1090,
+      "y": 369,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 101,
+      "y": 412,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 1603,
+      "y": 501,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 1645,
+      "y": 618,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    }
+  ]
+}

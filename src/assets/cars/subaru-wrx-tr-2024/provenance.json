@@ -1,0 +1,12 @@
+{
+  "sourcePackage": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/flat-v7",
+  "sourceManifest": "docs/art/runtime-provenance/subaru-wrx-tr-2024/car-sprite.json",
+  "bodySource": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/flat-v7/inputs/body-2d.png",
+  "bodySourceSha256": "46e55c5dc9c06af3b1f64b75ae67bcc9730f9e0befd44aebfc79d743222e988c",
+  "masterSource": "tests/car-integration/20261003-additional/sources/subaru-wrx-tr-2024/subaru-wrx-tr-2024-composite.png",
+  "masterSourceSha256": "fc4edb2968e705c3ca0b582c285aed956a0b71f307070393d6e4fa5ecbcd7fe6",
+  "revision": 7,
+  "reviewFingerprint": "877ac7f737e35ee6edaed44f00b15c517b66f63a343cb249af9d79ea93e2a011",
+  "sourceManifestSha256": "402f4263d912eec35a4673fab195d1bc6b4fe5f743780489bd16def16f054296",
+  "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+}

@@ -86,6 +86,21 @@
           "width": 2099,
           "height": 926
         },
+        "shading": {
+          "file": "mazda3-gt-turbo-sedan-2021-red/shading.webp",
+          "width": 2099,
+          "height": 926
+        },
+        "fixtures": {
+          "file": "mazda3-gt-turbo-sedan-2021-red/fixtures.webp",
+          "width": 2099,
+          "height": 926
+        },
+        "linework": {
+          "file": "mazda3-gt-turbo-sedan-2021-red/linework.webp",
+          "width": 2099,
+          "height": 926
+        },
         "underlay": {
           "file": "mazda3-gt-turbo-sedan-2021-red/underlay.webp",
           "width": 2099,
@@ -96,6 +111,79 @@
           "width": 2099,
           "height": 926
         }
+      },
+      "archProfiles": [
+        {
+          "axle": "rear",
+          "shape": "source-opening",
+          "bounds": [
+            320,
+            450,
+            740,
+            690
+          ],
+          "seed": [
+            530,
+            590
+          ]
+        },
+        {
+          "axle": "front",
+          "shape": "source-opening",
+          "bounds": [
+            1390,
+            450,
+            1810,
+            690
+          ],
+          "seed": [
+            1599,
+            590
+          ]
+        }
+      ],
+      "paintMode": "flat-cel",
+      "flatPaint": {
+        "sourceReferenceLuminance": 49.180599212646484,
+        "shadowAlphaPalette": [
+          0,
+          40,
+          88,
+          132,
+          176
+        ],
+        "highlightAlphaPalette": [
+          0,
+          40,
+          80
+        ],
+        "shadingRGBPalette": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ],
+        "baseRGB": [
+          255,
+          255,
+          255
+        ],
+        "gradientInterpolation": false,
+        "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+        "classificationBlurPixels": 12,
+        "factoryColor": "#a91f2c",
+        "stack": [
+          "body-paint",
+          "body-shading",
+          "body-fixtures",
+          "body-linework"
+        ]
       },
       "bounds": [
         192,
@@ -110,14 +198,14 @@
         530
       ],
       "provenance": {
-        "sourcePackage": "tests/skill-runs/20261002-pipeline/examples/mazda3-gt-turbo-sedan-2021-red/reviewed-v9",
+        "sourcePackage": "tests/car-integration/20261003/mazda3-gt-turbo-sedan-2021-red/flat-paint-v16",
         "sourceManifest": "docs/art/runtime-provenance/mazda3-gt-turbo-sedan-2021-red/car-sprite.json",
         "bodySource": "docs/art/staged-roster/mazda3-gt-turbo-sedan-2021-red/body-2d.png",
         "bodySourceSha256": "dc0ec3438550c6a6dfbac7db02c1e6cfa8c3d17875c2cbf94c9953f1de7970d7",
-        "revision": 9,
-        "reviewFingerprint": "6559e72303266baa354b06caae6d975ea14358df5286e3ff2068dfe9f91887e9",
-        "sourceManifestSha256": "4ebad93d6b8f8f57c2755d9cd91896334944ddea73eb7d31b3861888934fc35e",
-        "conversion": "Exact selected -2d body decoded to lossless WebP; underlay retained separately; measured wheel geometry with original component pixels/scales/pivots. Display framing ignores alpha below 8; native body pixels are retained. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+        "revision": 16,
+        "reviewFingerprint": "260179af13ae84f6812fd6a22956114318591ce4588cd1dbfcc6eda36d2f0f4f",
+        "sourceManifestSha256": "d220b6c8b9df4afe1e47988d72f96c5558951e9b7fefff915e4f879eb47dc181",
+        "conversion": "Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
       }
     },
     "chevrolet-silverado-1500-custom-crew-short-2025-black": {
@@ -205,6 +293,21 @@
           "width": 2200,
           "height": 887
         },
+        "shading": {
+          "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/shading.webp",
+          "width": 2200,
+          "height": 887
+        },
+        "fixtures": {
+          "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/fixtures.webp",
+          "width": 2200,
+          "height": 887
+        },
+        "linework": {
+          "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/linework.webp",
+          "width": 2200,
+          "height": 887
+        },
         "underlay": {
           "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/underlay.webp",
           "width": 2200,
@@ -219,37 +322,76 @@
       "archProfiles": [
         {
           "axle": "rear",
-          "shape": "rounded-rectangle",
+          "shape": "source-opening",
           "bounds": [
-            310,
-            475,
-            610,
+            280,
+            450,
+            640,
             674
           ],
-          "cornerRadii": [
-            55,
-            55,
-            0,
-            0
+          "seed": [
+            464,
+            600
           ]
         },
         {
           "axle": "front",
-          "shape": "rounded-rectangle",
+          "shape": "source-opening",
           "bounds": [
-            1600,
-            475,
-            1900,
+            1570,
+            450,
+            1930,
             674
           ],
-          "cornerRadii": [
-            55,
-            55,
-            0,
-            0
+          "seed": [
+            1750,
+            600
           ]
         }
       ],
+      "paintMode": "flat-cel",
+      "flatPaint": {
+        "sourceReferenceLuminance": 44.072200775146484,
+        "shadowAlphaPalette": [
+          0,
+          40,
+          88,
+          132,
+          176
+        ],
+        "highlightAlphaPalette": [
+          0,
+          40,
+          80
+        ],
+        "shadingRGBPalette": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ],
+        "baseRGB": [
+          255,
+          255,
+          255
+        ],
+        "gradientInterpolation": false,
+        "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+        "classificationBlurPixels": 12,
+        "factoryColor": "#202226",
+        "stack": [
+          "body-paint",
+          "body-shading",
+          "body-fixtures",
+          "body-linework"
+        ]
+      },
       "bounds": [
         104,
         89,
@@ -263,14 +405,14 @@
         641
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003/chevrolet-silverado-1500-custom-crew-short-2025-black/arch-fit-v12",
+        "sourcePackage": "tests/car-integration/20261003/chevrolet-silverado-1500-custom-crew-short-2025-black/flat-paint-v19",
         "sourceManifest": "docs/art/runtime-provenance/chevrolet-silverado-1500-custom-crew-short-2025-black/car-sprite.json",
         "bodySource": "docs/art/staged-roster/chevrolet-silverado-1500-custom-crew-short-2025-black/body-2d.png",
         "bodySourceSha256": "d3a84a84df7d34d37de24f5e7b42d6fc6baca7daec421bbc7e619012eb9a4432",
-        "revision": 12,
-        "reviewFingerprint": "b8087ab5a6c3e175e90ad8ba2ff104a311e9ec2cb0c440fc7a80b19bab74d9f0",
-        "sourceManifestSha256": "7e05a5832e0008eacb841114b3daae1f730a4fbaab593460032d52b1aa67e4ba",
-        "conversion": "Exact selected -2d body decoded to lossless WebP; underlay retained separately; measured wheel geometry with original component pixels/scales/pivots. Display framing ignores alpha below 8; native body pixels are retained. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+        "revision": 19,
+        "reviewFingerprint": "06bc70a4a933441461c776dcc8baa2117b2949e562c4fe191cf68db332c95848",
+        "sourceManifestSha256": "9961c64f8dacbadc6fb0f30628aed3640fa5df80da1567a38e4a2a5359e4b24c",
+        "conversion": "Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
       }
     },
     "kia-forte-gt-sedan-2022-orange": {
@@ -358,6 +500,21 @@
           "width": 1932,
           "height": 1000
         },
+        "shading": {
+          "file": "kia-forte-gt-sedan-2022-orange/shading.webp",
+          "width": 1932,
+          "height": 1000
+        },
+        "fixtures": {
+          "file": "kia-forte-gt-sedan-2022-orange/fixtures.webp",
+          "width": 1932,
+          "height": 1000
+        },
+        "linework": {
+          "file": "kia-forte-gt-sedan-2022-orange/linework.webp",
+          "width": 1932,
+          "height": 1000
+        },
         "underlay": {
           "file": "kia-forte-gt-sedan-2022-orange/underlay.webp",
           "width": 1932,
@@ -368,6 +525,79 @@
           "width": 1932,
           "height": 1000
         }
+      },
+      "archProfiles": [
+        {
+          "axle": "rear",
+          "shape": "source-opening",
+          "bounds": [
+            290,
+            480,
+            660,
+            705
+          ],
+          "seed": [
+            464,
+            605
+          ]
+        },
+        {
+          "axle": "front",
+          "shape": "source-opening",
+          "bounds": [
+            1310,
+            480,
+            1680,
+            705
+          ],
+          "seed": [
+            1487,
+            605
+          ]
+        }
+      ],
+      "paintMode": "flat-cel",
+      "flatPaint": {
+        "sourceReferenceLuminance": 132.39439392089844,
+        "shadowAlphaPalette": [
+          0,
+          40,
+          88,
+          132,
+          176
+        ],
+        "highlightAlphaPalette": [
+          0,
+          40,
+          80
+        ],
+        "shadingRGBPalette": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ],
+        "baseRGB": [
+          255,
+          255,
+          255
+        ],
+        "gradientInterpolation": false,
+        "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+        "classificationBlurPixels": 12,
+        "factoryColor": "#ef721b",
+        "stack": [
+          "body-paint",
+          "body-shading",
+          "body-fixtures",
+          "body-linework"
+        ]
       },
       "bounds": [
         95,
@@ -382,14 +612,14 @@
         563
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003/kia-forte-gt-sedan-2022-orange/wheel-fit-v2",
+        "sourcePackage": "tests/car-integration/20261003/kia-forte-gt-sedan-2022-orange/flat-paint-v9",
         "sourceManifest": "docs/art/runtime-provenance/kia-forte-gt-sedan-2022-orange/car-sprite.json",
         "bodySource": "docs/art/staged-roster/kia-forte-gt-sedan-2022-orange/body-2d.png",
         "bodySourceSha256": "52b42926f3c6f098627adc90145db3964fdf842ce2192b5e071729e6a8a97cfc",
-        "revision": 2,
-        "reviewFingerprint": "9a4aeed07417cca14deae71f556029a2866d5c19fc6e140d35cfa801662ecdeb",
-        "sourceManifestSha256": "d0e6208b77709d79c74ba48dc8fcfe36796e0388561305660f8d17b4fb4a3d7c",
-        "conversion": "Exact selected -2d body decoded to lossless WebP; underlay retained separately; measured wheel geometry with original component pixels/scales/pivots. Display framing ignores alpha below 8; native body pixels are retained. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+        "revision": 9,
+        "reviewFingerprint": "16d19660af2f83df25edd361887fe298d65747135258b5199c34191a0df78f00",
+        "sourceManifestSha256": "246df45512c5a1a04a295881bc82384e522548b7fb5daf4ccc460394ade03c0e",
+        "conversion": "Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
       }
     },
     "nissan-rogue-2020-red": {
@@ -477,6 +707,21 @@
           "width": 2200,
           "height": 887
         },
+        "shading": {
+          "file": "nissan-rogue-2020-red/shading.webp",
+          "width": 2200,
+          "height": 887
+        },
+        "fixtures": {
+          "file": "nissan-rogue-2020-red/fixtures.webp",
+          "width": 2200,
+          "height": 887
+        },
+        "linework": {
+          "file": "nissan-rogue-2020-red/linework.webp",
+          "width": 2200,
+          "height": 887
+        },
         "underlay": {
           "file": "nissan-rogue-2020-red/underlay.webp",
           "width": 2200,
@@ -487,6 +732,79 @@
           "width": 2200,
           "height": 887
         }
+      },
+      "archProfiles": [
+        {
+          "axle": "rear",
+          "shape": "source-opening",
+          "bounds": [
+            300,
+            420,
+            710,
+            680
+          ],
+          "seed": [
+            499,
+            615
+          ]
+        },
+        {
+          "axle": "front",
+          "shape": "source-opening",
+          "bounds": [
+            1480,
+            420,
+            1890,
+            680
+          ],
+          "seed": [
+            1673,
+            615
+          ]
+        }
+      ],
+      "paintMode": "flat-cel",
+      "flatPaint": {
+        "sourceReferenceLuminance": 63.56480026245117,
+        "shadowAlphaPalette": [
+          0,
+          40,
+          88,
+          132,
+          176
+        ],
+        "highlightAlphaPalette": [
+          0,
+          40,
+          80
+        ],
+        "shadingRGBPalette": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ],
+        "baseRGB": [
+          255,
+          255,
+          255
+        ],
+        "gradientInterpolation": false,
+        "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+        "classificationBlurPixels": 12,
+        "factoryColor": "#a92331",
+        "stack": [
+          "body-paint",
+          "body-shading",
+          "body-fixtures",
+          "body-linework"
+        ]
       },
       "bounds": [
         89,
@@ -501,14 +819,2214 @@
         724
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003/nissan-rogue-2020-red/wheel-fit-v3",
+        "sourcePackage": "tests/car-integration/20261003/nissan-rogue-2020-red/flat-paint-v10",
         "sourceManifest": "docs/art/runtime-provenance/nissan-rogue-2020-red/car-sprite.json",
         "bodySource": "docs/art/staged-roster/nissan-rogue-2020-red/body-2d.png",
         "bodySourceSha256": "17031392c4c527099904d5cb87f1e45afb3d7f91a7d07c6f269d2aa63b1eb3b0",
-        "revision": 3,
-        "reviewFingerprint": "25084f090e245c2f10c7e00f311a34da13e48547e9d73053913da3cfcd85deaa",
-        "sourceManifestSha256": "470b4b6489582b061613698081449a2a49cc0616466272ecfb3a1d7a57ae03db",
-        "conversion": "Exact selected -2d body decoded to lossless WebP; underlay retained separately; measured wheel geometry with original component pixels/scales/pivots. Display framing ignores alpha below 8; native body pixels are retained. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+        "revision": 10,
+        "reviewFingerprint": "b6ca34c896e07b021d240fff392035552c3282356d900eef19668e301a28fddf",
+        "sourceManifestSha256": "b2a86b16872301bc953463c1c00dfefd4d50558c1ee1d934b10795edfefd2d06",
+        "conversion": "Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+      }
+    },
+    "acura-integra-type-s-2024": {
+      "width": 2048,
+      "height": 1024,
+      "facing": "right",
+      "paintColor": "#e4e5e5",
+      "layers": {
+        "body": {
+          "file": "acura-integra-type-s-2024/body.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "underlay": {
+          "file": "acura-integra-type-s-2024/underlay.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "paintMask": {
+          "file": "acura-integra-type-s-2024/paint-mask.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "shading": {
+          "file": "acura-integra-type-s-2024/shading.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "fixtures": {
+          "file": "acura-integra-type-s-2024/fixtures.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "linework": {
+          "file": "acura-integra-type-s-2024/linework.webp",
+          "width": 2048,
+          "height": 1024
+        }
+      },
+      "wheels": [
+        {
+          "axle": "rear",
+          "x": 505,
+          "y": 718,
+          "radius": 142,
+          "wheel": {
+            "file": "acura-integra-type-s-2024/rear-wheel.webp",
+            "width": 300,
+            "height": 300,
+            "pivot": [
+              150.0,
+              150.0
+            ],
+            "radius": 142.0
+          },
+          "rotor": {
+            "file": "acura-integra-type-s-2024/rear-rotor.webp",
+            "width": 300,
+            "height": 300,
+            "pivot": [
+              150.0,
+              150.0
+            ],
+            "radius": 142.0
+          },
+          "brake": {
+            "file": "acura-integra-type-s-2024/rear-caliper.webp",
+            "width": 300,
+            "height": 300,
+            "pivot": [
+              150.0,
+              150.0
+            ],
+            "radius": 142.0
+          }
+        },
+        {
+          "axle": "front",
+          "x": 1507,
+          "y": 718,
+          "radius": 142,
+          "wheel": {
+            "file": "acura-integra-type-s-2024/front-wheel.webp",
+            "width": 300,
+            "height": 300,
+            "pivot": [
+              150.0,
+              150.0
+            ],
+            "radius": 142.0
+          },
+          "rotor": {
+            "file": "acura-integra-type-s-2024/front-rotor.webp",
+            "width": 300,
+            "height": 300,
+            "pivot": [
+              150.0,
+              150.0
+            ],
+            "radius": 142.0
+          },
+          "brake": {
+            "file": "acura-integra-type-s-2024/front-caliper.webp",
+            "width": 300,
+            "height": 300,
+            "pivot": [
+              150.0,
+              150.0
+            ],
+            "radius": 142.0
+          }
+        }
+      ],
+      "archProfiles": [
+        {
+          "axle": "rear",
+          "shape": "measured-contour",
+          "points": [
+            [
+              339,
+              782
+            ],
+            [
+              345,
+              704
+            ],
+            [
+              362,
+              650
+            ],
+            [
+              395,
+              609
+            ],
+            [
+              439,
+              587
+            ],
+            [
+              489,
+              580
+            ],
+            [
+              541,
+              585
+            ],
+            [
+              585,
+              608
+            ],
+            [
+              620,
+              650
+            ],
+            [
+              644,
+              706
+            ],
+            [
+              651,
+              791
+            ]
+          ]
+        },
+        {
+          "axle": "front",
+          "shape": "measured-contour",
+          "points": [
+            [
+              1349,
+              790
+            ],
+            [
+              1355,
+              703
+            ],
+            [
+              1376,
+              648
+            ],
+            [
+              1411,
+              608
+            ],
+            [
+              1459,
+              582
+            ],
+            [
+              1508,
+              574
+            ],
+            [
+              1561,
+              583
+            ],
+            [
+              1608,
+              609
+            ],
+            [
+              1641,
+              652
+            ],
+            [
+              1658,
+              710
+            ],
+            [
+              1663,
+              790
+            ]
+          ]
+        }
+      ],
+      "paintMode": "flat-cel",
+      "flatPaint": {
+        "sourceReferenceLuminance": 203.2126007080078,
+        "shadowAlphaPalette": [
+          0,
+          40,
+          88,
+          132,
+          176
+        ],
+        "highlightAlphaPalette": [
+          0,
+          40,
+          80
+        ],
+        "shadingRGBPalette": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ],
+        "baseRGB": [
+          255,
+          255,
+          255
+        ],
+        "gradientInterpolation": false,
+        "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+        "classificationBlurPixels": 12,
+        "factoryColor": "#e4e5e5"
+      },
+      "bounds": [
+        140,
+        314,
+        1730,
+        546
+      ],
+      "displayBounds": [
+        140,
+        314,
+        1730,
+        546
+      ],
+      "provenance": {
+        "sourcePackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/flat-v7",
+        "sourceManifest": "docs/art/runtime-provenance/acura-integra-type-s-2024/car-sprite.json",
+        "bodySource": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/flat-v7/inputs/body-2d.png",
+        "bodySourceSha256": "fa5bcc729c24a79c00615a4b69e8039f42731645d1ba34f1b3ab46d3c90e9773",
+        "masterSource": "tests/car-integration/20261003-additional/sources/acura-integra-type-s-2024/acura-integra-type-s-2024-composite.png",
+        "masterSourceSha256": "176c20f2d9217d6d55b4a3954e28b131f5fd98e761d6b82bc7ede447e40acda7",
+        "revision": 7,
+        "reviewFingerprint": "169ba1f4bba4bd6643e2c560aada8fb58c98ac04a8798508c352fe4d86cf44d6",
+        "sourceManifestSha256": "aa88eb21ce66822c4a404b7b04016c6dd3de6c55d722fad9e7f7aaeb07aba651",
+        "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+      }
+    },
+    "cadillac-ct5-v-blackwing-2025": {
+      "width": 2048,
+      "height": 1024,
+      "facing": "right",
+      "paintColor": "#bc1831",
+      "layers": {
+        "body": {
+          "file": "cadillac-ct5-v-blackwing-2025/body.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "underlay": {
+          "file": "cadillac-ct5-v-blackwing-2025/underlay.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "paintMask": {
+          "file": "cadillac-ct5-v-blackwing-2025/paint-mask.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "shading": {
+          "file": "cadillac-ct5-v-blackwing-2025/shading.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "fixtures": {
+          "file": "cadillac-ct5-v-blackwing-2025/fixtures.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "linework": {
+          "file": "cadillac-ct5-v-blackwing-2025/linework.webp",
+          "width": 2048,
+          "height": 1024
+        }
+      },
+      "wheels": [
+        {
+          "axle": "rear",
+          "x": 518,
+          "y": 706,
+          "radius": 140,
+          "wheel": {
+            "file": "cadillac-ct5-v-blackwing-2025/rear-wheel.webp",
+            "width": 296,
+            "height": 296,
+            "pivot": [
+              148.0,
+              148.0
+            ],
+            "radius": 140.0
+          },
+          "rotor": {
+            "file": "cadillac-ct5-v-blackwing-2025/rear-rotor.webp",
+            "width": 296,
+            "height": 296,
+            "pivot": [
+              148.0,
+              148.0
+            ],
+            "radius": 140.0
+          },
+          "brake": {
+            "file": "cadillac-ct5-v-blackwing-2025/rear-caliper.webp",
+            "width": 296,
+            "height": 296,
+            "pivot": [
+              148.0,
+              148.0
+            ],
+            "radius": 140.0
+          }
+        },
+        {
+          "axle": "front",
+          "x": 1600,
+          "y": 706,
+          "radius": 140,
+          "wheel": {
+            "file": "cadillac-ct5-v-blackwing-2025/front-wheel.webp",
+            "width": 296,
+            "height": 296,
+            "pivot": [
+              148.0,
+              148.0
+            ],
+            "radius": 140.0
+          },
+          "rotor": {
+            "file": "cadillac-ct5-v-blackwing-2025/front-rotor.webp",
+            "width": 296,
+            "height": 296,
+            "pivot": [
+              148.0,
+              148.0
+            ],
+            "radius": 140.0
+          },
+          "brake": {
+            "file": "cadillac-ct5-v-blackwing-2025/front-caliper.webp",
+            "width": 296,
+            "height": 296,
+            "pivot": [
+              148.0,
+              148.0
+            ],
+            "radius": 140.0
+          }
+        }
+      ],
+      "archProfiles": [
+        {
+          "axle": "rear",
+          "shape": "measured-contour",
+          "points": [
+            [
+              359,
+              782
+            ],
+            [
+              365,
+              700
+            ],
+            [
+              386,
+              646
+            ],
+            [
+              421,
+              606
+            ],
+            [
+              465,
+              582
+            ],
+            [
+              516,
+              575
+            ],
+            [
+              565,
+              582
+            ],
+            [
+              612,
+              606
+            ],
+            [
+              648,
+              648
+            ],
+            [
+              669,
+              701
+            ],
+            [
+              684,
+              793
+            ]
+          ]
+        },
+        {
+          "axle": "front",
+          "shape": "measured-contour",
+          "points": [
+            [
+              1439,
+              792
+            ],
+            [
+              1444,
+              699
+            ],
+            [
+              1464,
+              648
+            ],
+            [
+              1500,
+              606
+            ],
+            [
+              1549,
+              581
+            ],
+            [
+              1601,
+              574
+            ],
+            [
+              1651,
+              581
+            ],
+            [
+              1698,
+              606
+            ],
+            [
+              1732,
+              649
+            ],
+            [
+              1750,
+              701
+            ],
+            [
+              1756,
+              792
+            ]
+          ]
+        }
+      ],
+      "paintMode": "flat-cel",
+      "flatPaint": {
+        "sourceReferenceLuminance": 53.0072021484375,
+        "shadowAlphaPalette": [
+          0,
+          40,
+          88,
+          132,
+          176
+        ],
+        "highlightAlphaPalette": [
+          0,
+          40,
+          80
+        ],
+        "shadingRGBPalette": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ],
+        "baseRGB": [
+          255,
+          255,
+          255
+        ],
+        "gradientInterpolation": false,
+        "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+        "classificationBlurPixels": 12,
+        "factoryColor": "#bc1831"
+      },
+      "bounds": [
+        138,
+        297,
+        1818,
+        549
+      ],
+      "displayBounds": [
+        138,
+        297,
+        1818,
+        549
+      ],
+      "provenance": {
+        "sourcePackage": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/flat-v7",
+        "sourceManifest": "docs/art/runtime-provenance/cadillac-ct5-v-blackwing-2025/car-sprite.json",
+        "bodySource": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/flat-v7/inputs/body-2d.png",
+        "bodySourceSha256": "75f38f935cfc7899b363251409596addf3d6e8d7955c3409accfafc03c2cd7b6",
+        "masterSource": "tests/car-integration/20261003-additional/sources/cadillac-ct5-v-blackwing-2025/cadillac-ct5-v-blackwing-2025-composite.png",
+        "masterSourceSha256": "d2e6e6d0a996854a103f1d509f9d493b681efed509a3f079459bca20c2293b85",
+        "revision": 7,
+        "reviewFingerprint": "043919e2cf79a9f492a31f321b7bed2fb528e92e53082bdfef46ce2de1186cb1",
+        "sourceManifestSha256": "a14cdd4d4ce3672499478576d069be4a3915eecceef1d80577b71c8a0e78146f",
+        "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+      }
+    },
+    "ford-mustang-boss302-1969": {
+      "width": 2052,
+      "height": 766,
+      "facing": "right",
+      "paintColor": "#ef2417",
+      "layers": {
+        "body": {
+          "file": "ford-mustang-boss302-1969/body.webp",
+          "width": 2052,
+          "height": 766
+        },
+        "underlay": {
+          "file": "ford-mustang-boss302-1969/underlay.webp",
+          "width": 2052,
+          "height": 766
+        },
+        "paintMask": {
+          "file": "ford-mustang-boss302-1969/paint-mask.webp",
+          "width": 2052,
+          "height": 766
+        },
+        "shading": {
+          "file": "ford-mustang-boss302-1969/shading.webp",
+          "width": 2052,
+          "height": 766
+        },
+        "fixtures": {
+          "file": "ford-mustang-boss302-1969/fixtures.webp",
+          "width": 2052,
+          "height": 766
+        },
+        "linework": {
+          "file": "ford-mustang-boss302-1969/linework.webp",
+          "width": 2052,
+          "height": 766
+        }
+      },
+      "wheels": [
+        {
+          "axle": "rear",
+          "x": 456,
+          "y": 553,
+          "radius": 150,
+          "wheel": {
+            "file": "ford-mustang-boss302-1969/rear-wheel.webp",
+            "width": 316,
+            "height": 316,
+            "pivot": [
+              158.0,
+              158.0
+            ],
+            "radius": 150.0
+          },
+          "rotor": {
+            "file": "ford-mustang-boss302-1969/rear-rotor.webp",
+            "width": 316,
+            "height": 316,
+            "pivot": [
+              158.0,
+              158.0
+            ],
+            "radius": 150.0
+          },
+          "brake": {
+            "file": "ford-mustang-boss302-1969/rear-caliper.webp",
+            "width": 316,
+            "height": 316,
+            "pivot": [
+              158.0,
+              158.0
+            ],
+            "radius": 150.0
+          }
+        },
+        {
+          "axle": "front",
+          "x": 1663,
+          "y": 553,
+          "radius": 150,
+          "wheel": {
+            "file": "ford-mustang-boss302-1969/front-wheel.webp",
+            "width": 316,
+            "height": 316,
+            "pivot": [
+              158.0,
+              158.0
+            ],
+            "radius": 150.0
+          },
+          "rotor": {
+            "file": "ford-mustang-boss302-1969/front-rotor.webp",
+            "width": 316,
+            "height": 316,
+            "pivot": [
+              158.0,
+              158.0
+            ],
+            "radius": 150.0
+          },
+          "brake": {
+            "file": "ford-mustang-boss302-1969/front-caliper.webp",
+            "width": 316,
+            "height": 316,
+            "pivot": [
+              158.0,
+              158.0
+            ],
+            "radius": 150.0
+          }
+        }
+      ],
+      "archProfiles": [
+        {
+          "axle": "rear",
+          "shape": "measured-contour",
+          "points": [
+            [
+              292,
+              592
+            ],
+            [
+              295,
+              521
+            ],
+            [
+              317,
+              463
+            ],
+            [
+              359,
+              422
+            ],
+            [
+              410,
+              403
+            ],
+            [
+              465,
+              398
+            ],
+            [
+              518,
+              409
+            ],
+            [
+              564,
+              436
+            ],
+            [
+              602,
+              479
+            ],
+            [
+              620,
+              530
+            ],
+            [
+              627,
+              598
+            ]
+          ]
+        },
+        {
+          "axle": "front",
+          "shape": "measured-contour",
+          "points": [
+            [
+              1493,
+              590
+            ],
+            [
+              1498,
+              521
+            ],
+            [
+              1523,
+              468
+            ],
+            [
+              1564,
+              427
+            ],
+            [
+              1612,
+              407
+            ],
+            [
+              1669,
+              404
+            ],
+            [
+              1727,
+              416
+            ],
+            [
+              1775,
+              444
+            ],
+            [
+              1809,
+              489
+            ],
+            [
+              1829,
+              539
+            ],
+            [
+              1832,
+              602
+            ]
+          ]
+        }
+      ],
+      "paintMode": "flat-cel",
+      "flatPaint": {
+        "sourceReferenceLuminance": 70.46720123291016,
+        "shadowAlphaPalette": [
+          0,
+          40,
+          88,
+          132,
+          176
+        ],
+        "highlightAlphaPalette": [
+          0,
+          40,
+          80
+        ],
+        "shadingRGBPalette": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ],
+        "baseRGB": [
+          255,
+          255,
+          255
+        ],
+        "gradientInterpolation": false,
+        "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+        "classificationBlurPixels": 12,
+        "factoryColor": "#ef2417"
+      },
+      "bounds": [
+        26,
+        133,
+        2000,
+        570
+      ],
+      "displayBounds": [
+        26,
+        133,
+        2000,
+        570
+      ],
+      "provenance": {
+        "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/flat-v7",
+        "sourceManifest": "docs/art/runtime-provenance/ford-mustang-boss302-1969/car-sprite.json",
+        "bodySource": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/flat-v7/inputs/body-2d.png",
+        "bodySourceSha256": "e41b1574d187add7ec2f63634d56461d6dbeb095b905f78dc5a979a8b61835e1",
+        "masterSource": "tests/car-integration/20261003-additional/sources/ford-mustang-boss302-1969/ford-mustang-boss302-1969-2d.png",
+        "masterSourceSha256": "07dddb01fe882ad67a6c27e7b467e34a426849049000930ef8e992faa61e8976",
+        "revision": 7,
+        "reviewFingerprint": "6c1aae97eb612d6e3af1a65449693ebf7dbe63a1f8060c5cfd0e64d735da902f",
+        "sourceManifestSha256": "90a3ad86e33e439ecdf2b8ffe135534b9a26d307198258ac0401dd46579b913f",
+        "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+      }
+    },
+    "ford-mustang-dark-horse-2024": {
+      "width": 2048,
+      "height": 1024,
+      "facing": "right",
+      "paintColor": "#24518a",
+      "layers": {
+        "body": {
+          "file": "ford-mustang-dark-horse-2024/body.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "underlay": {
+          "file": "ford-mustang-dark-horse-2024/underlay.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "paintMask": {
+          "file": "ford-mustang-dark-horse-2024/paint-mask.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "shading": {
+          "file": "ford-mustang-dark-horse-2024/shading.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "fixtures": {
+          "file": "ford-mustang-dark-horse-2024/fixtures.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "linework": {
+          "file": "ford-mustang-dark-horse-2024/linework.webp",
+          "width": 2048,
+          "height": 1024
+        }
+      },
+      "wheels": [
+        {
+          "axle": "rear",
+          "x": 535,
+          "y": 696,
+          "radius": 137,
+          "wheel": {
+            "file": "ford-mustang-dark-horse-2024/rear-wheel.webp",
+            "width": 290,
+            "height": 290,
+            "pivot": [
+              145.0,
+              145.0
+            ],
+            "radius": 137.0
+          },
+          "rotor": {
+            "file": "ford-mustang-dark-horse-2024/rear-rotor.webp",
+            "width": 290,
+            "height": 290,
+            "pivot": [
+              145.0,
+              145.0
+            ],
+            "radius": 137.0
+          },
+          "brake": {
+            "file": "ford-mustang-dark-horse-2024/rear-caliper.webp",
+            "width": 290,
+            "height": 290,
+            "pivot": [
+              145.0,
+              145.0
+            ],
+            "radius": 137.0
+          }
+        },
+        {
+          "axle": "front",
+          "x": 1587,
+          "y": 696,
+          "radius": 137,
+          "wheel": {
+            "file": "ford-mustang-dark-horse-2024/front-wheel.webp",
+            "width": 290,
+            "height": 290,
+            "pivot": [
+              145.0,
+              145.0
+            ],
+            "radius": 137.0
+          },
+          "rotor": {
+            "file": "ford-mustang-dark-horse-2024/front-rotor.webp",
+            "width": 290,
+            "height": 290,
+            "pivot": [
+              145.0,
+              145.0
+            ],
+            "radius": 137.0
+          },
+          "brake": {
+            "file": "ford-mustang-dark-horse-2024/front-caliper.webp",
+            "width": 290,
+            "height": 290,
+            "pivot": [
+              145.0,
+              145.0
+            ],
+            "radius": 137.0
+          }
+        }
+      ],
+      "archProfiles": [
+        {
+          "axle": "rear",
+          "shape": "measured-contour",
+          "points": [
+            [
+              369,
+              783
+            ],
+            [
+              375,
+              690
+            ],
+            [
+              389,
+              639
+            ],
+            [
+              422,
+              589
+            ],
+            [
+              474,
+              558
+            ],
+            [
+              529,
+              548
+            ],
+            [
+              583,
+              555
+            ],
+            [
+              630,
+              580
+            ],
+            [
+              665,
+              627
+            ],
+            [
+              681,
+              691
+            ],
+            [
+              686,
+              790
+            ]
+          ]
+        },
+        {
+          "axle": "front",
+          "shape": "measured-contour",
+          "points": [
+            [
+              1433,
+              789
+            ],
+            [
+              1438,
+              688
+            ],
+            [
+              1453,
+              634
+            ],
+            [
+              1490,
+              586
+            ],
+            [
+              1533,
+              558
+            ],
+            [
+              1588,
+              548
+            ],
+            [
+              1643,
+              556
+            ],
+            [
+              1691,
+              584
+            ],
+            [
+              1722,
+              631
+            ],
+            [
+              1737,
+              687
+            ],
+            [
+              1741,
+              790
+            ]
+          ]
+        }
+      ],
+      "paintMode": "flat-cel",
+      "flatPaint": {
+        "sourceReferenceLuminance": 58.72319793701172,
+        "shadowAlphaPalette": [
+          0,
+          40,
+          88,
+          132,
+          176
+        ],
+        "highlightAlphaPalette": [
+          0,
+          40,
+          80
+        ],
+        "shadingRGBPalette": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ],
+        "baseRGB": [
+          255,
+          255,
+          255
+        ],
+        "gradientInterpolation": false,
+        "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+        "classificationBlurPixels": 12,
+        "factoryColor": "#24518a"
+      },
+      "bounds": [
+        143,
+        292,
+        1826,
+        541
+      ],
+      "displayBounds": [
+        143,
+        292,
+        1826,
+        541
+      ],
+      "provenance": {
+        "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/flat-v7",
+        "sourceManifest": "docs/art/runtime-provenance/ford-mustang-dark-horse-2024/car-sprite.json",
+        "bodySource": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/flat-v7/inputs/body-2d.png",
+        "bodySourceSha256": "ff7e998b7838ca7f23adb1c0597b770b85c2bb79e8f763b82c58111fa917ae8d",
+        "masterSource": "tests/car-integration/20261003-additional/sources/ford-mustang-dark-horse-2024/ford-mustang-dark-horse-2024-composite.png",
+        "masterSourceSha256": "2555bd406212daa6d4f19a313777e939ebfa1062d2eaff69aa24ae965b9bd59a",
+        "revision": 7,
+        "reviewFingerprint": "dbc76ba958922f271e98f2122e4a64ee2c92034157c7b5e29e5f3e2cf817cd04",
+        "sourceManifestSha256": "95fddb6dc800bf96ce3de4b6e7784c84f1430882563782f00514bee45697b236",
+        "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+      }
+    },
+    "nissan-z-nismo-2024": {
+      "width": 2048,
+      "height": 1024,
+      "facing": "right",
+      "paintColor": "#a0a3a7",
+      "layers": {
+        "body": {
+          "file": "nissan-z-nismo-2024/body.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "underlay": {
+          "file": "nissan-z-nismo-2024/underlay.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "paintMask": {
+          "file": "nissan-z-nismo-2024/paint-mask.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "shading": {
+          "file": "nissan-z-nismo-2024/shading.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "fixtures": {
+          "file": "nissan-z-nismo-2024/fixtures.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "linework": {
+          "file": "nissan-z-nismo-2024/linework.webp",
+          "width": 2048,
+          "height": 1024
+        }
+      },
+      "wheels": [
+        {
+          "axle": "rear",
+          "x": 511,
+          "y": 718,
+          "radius": 139,
+          "wheel": {
+            "file": "nissan-z-nismo-2024/rear-wheel.webp",
+            "width": 294,
+            "height": 294,
+            "pivot": [
+              147.0,
+              147.0
+            ],
+            "radius": 139.0
+          },
+          "rotor": {
+            "file": "nissan-z-nismo-2024/rear-rotor.webp",
+            "width": 294,
+            "height": 294,
+            "pivot": [
+              147.0,
+              147.0
+            ],
+            "radius": 139.0
+          },
+          "brake": {
+            "file": "nissan-z-nismo-2024/rear-caliper.webp",
+            "width": 294,
+            "height": 294,
+            "pivot": [
+              147.0,
+              147.0
+            ],
+            "radius": 139.0
+          }
+        },
+        {
+          "axle": "front",
+          "x": 1510,
+          "y": 718,
+          "radius": 139,
+          "wheel": {
+            "file": "nissan-z-nismo-2024/front-wheel.webp",
+            "width": 294,
+            "height": 294,
+            "pivot": [
+              147.0,
+              147.0
+            ],
+            "radius": 139.0
+          },
+          "rotor": {
+            "file": "nissan-z-nismo-2024/front-rotor.webp",
+            "width": 294,
+            "height": 294,
+            "pivot": [
+              147.0,
+              147.0
+            ],
+            "radius": 139.0
+          },
+          "brake": {
+            "file": "nissan-z-nismo-2024/front-caliper.webp",
+            "width": 294,
+            "height": 294,
+            "pivot": [
+              147.0,
+              147.0
+            ],
+            "radius": 139.0
+          }
+        }
+      ],
+      "archProfiles": [
+        {
+          "axle": "rear",
+          "shape": "measured-contour",
+          "points": [
+            [
+              327,
+              798
+            ],
+            [
+              333,
+              708
+            ],
+            [
+              351,
+              654
+            ],
+            [
+              386,
+              611
+            ],
+            [
+              431,
+              585
+            ],
+            [
+              482,
+              576
+            ],
+            [
+              530,
+              582
+            ],
+            [
+              578,
+              605
+            ],
+            [
+              616,
+              645
+            ],
+            [
+              639,
+              702
+            ],
+            [
+              654,
+              805
+            ]
+          ]
+        },
+        {
+          "axle": "front",
+          "shape": "measured-contour",
+          "points": [
+            [
+              1348,
+              807
+            ],
+            [
+              1352,
+              706
+            ],
+            [
+              1373,
+              651
+            ],
+            [
+              1408,
+              610
+            ],
+            [
+              1455,
+              584
+            ],
+            [
+              1506,
+              575
+            ],
+            [
+              1560,
+              582
+            ],
+            [
+              1607,
+              607
+            ],
+            [
+              1642,
+              650
+            ],
+            [
+              1660,
+              707
+            ],
+            [
+              1668,
+              807
+            ]
+          ]
+        }
+      ],
+      "paintMode": "flat-cel",
+      "flatPaint": {
+        "sourceReferenceLuminance": 99.6550064086914,
+        "shadowAlphaPalette": [
+          0,
+          40,
+          88,
+          132,
+          176
+        ],
+        "highlightAlphaPalette": [
+          0,
+          40,
+          80
+        ],
+        "shadingRGBPalette": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ],
+        "baseRGB": [
+          255,
+          255,
+          255
+        ],
+        "gradientInterpolation": false,
+        "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+        "classificationBlurPixels": 12,
+        "factoryColor": "#a0a3a7"
+      },
+      "bounds": [
+        155,
+        328,
+        1723,
+        529
+      ],
+      "displayBounds": [
+        155,
+        328,
+        1723,
+        529
+      ],
+      "provenance": {
+        "sourcePackage": "tests/car-integration/20261003-additional/nissan-z-nismo-2024/flat-v7",
+        "sourceManifest": "docs/art/runtime-provenance/nissan-z-nismo-2024/car-sprite.json",
+        "bodySource": "tests/car-integration/20261003-additional/nissan-z-nismo-2024/flat-v7/inputs/body-2d.png",
+        "bodySourceSha256": "59e2efff4c810a248cbe2cdc6d46c9fc4b84eb3026d3535ca73c1f3b34554400",
+        "masterSource": "tests/car-integration/20261003-additional/sources/nissan-z-nismo-2024/nissan-z-nismo-2024-composite.png",
+        "masterSourceSha256": "c046433c39fccb63b7280a0759d9dea4d9f9a1a02c92a860f6089da5bf2236da",
+        "revision": 7,
+        "reviewFingerprint": "7e0ee7b87ae0e0a92e43223913ba1ce23a1dae94e20ea8896d85914c4cfb64a8",
+        "sourceManifestSha256": "dde307d9645677ec3e48ae92382535834ab2eb49c6a4ece24b9b3b71b9fc2113",
+        "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+      }
+    },
+    "subaru-wrx-tr-2024": {
+      "width": 2048,
+      "height": 1024,
+      "facing": "right",
+      "paintColor": "#1459b3",
+      "layers": {
+        "body": {
+          "file": "subaru-wrx-tr-2024/body.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "underlay": {
+          "file": "subaru-wrx-tr-2024/underlay.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "paintMask": {
+          "file": "subaru-wrx-tr-2024/paint-mask.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "shading": {
+          "file": "subaru-wrx-tr-2024/shading.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "fixtures": {
+          "file": "subaru-wrx-tr-2024/fixtures.webp",
+          "width": 2048,
+          "height": 1024
+        },
+        "linework": {
+          "file": "subaru-wrx-tr-2024/linework.webp",
+          "width": 2048,
+          "height": 1024
+        }
+      },
+      "wheels": [
+        {
+          "axle": "rear",
+          "x": 516,
+          "y": 739,
+          "radius": 136,
+          "wheel": {
+            "file": "subaru-wrx-tr-2024/rear-wheel.webp",
+            "width": 288,
+            "height": 288,
+            "pivot": [
+              144.0,
+              144.0
+            ],
+            "radius": 136.0
+          },
+          "rotor": {
+            "file": "subaru-wrx-tr-2024/rear-rotor.webp",
+            "width": 288,
+            "height": 288,
+            "pivot": [
+              144.0,
+              144.0
+            ],
+            "radius": 136.0
+          },
+          "brake": {
+            "file": "subaru-wrx-tr-2024/rear-caliper.webp",
+            "width": 288,
+            "height": 288,
+            "pivot": [
+              144.0,
+              144.0
+            ],
+            "radius": 136.0
+          }
+        },
+        {
+          "axle": "front",
+          "x": 1509,
+          "y": 739,
+          "radius": 136,
+          "wheel": {
+            "file": "subaru-wrx-tr-2024/front-wheel.webp",
+            "width": 288,
+            "height": 288,
+            "pivot": [
+              144.0,
+              144.0
+            ],
+            "radius": 136.0
+          },
+          "rotor": {
+            "file": "subaru-wrx-tr-2024/front-rotor.webp",
+            "width": 288,
+            "height": 288,
+            "pivot": [
+              144.0,
+              144.0
+            ],
+            "radius": 136.0
+          },
+          "brake": {
+            "file": "subaru-wrx-tr-2024/front-caliper.webp",
+            "width": 288,
+            "height": 288,
+            "pivot": [
+              144.0,
+              144.0
+            ],
+            "radius": 136.0
+          }
+        }
+      ],
+      "archProfiles": [
+        {
+          "axle": "rear",
+          "shape": "measured-contour",
+          "points": [
+            [
+              367,
+              807
+            ],
+            [
+              373,
+              737
+            ],
+            [
+              389,
+              683
+            ],
+            [
+              422,
+              637
+            ],
+            [
+              466,
+              611
+            ],
+            [
+              515,
+              602
+            ],
+            [
+              565,
+              609
+            ],
+            [
+              611,
+              635
+            ],
+            [
+              647,
+              677
+            ],
+            [
+              669,
+              733
+            ],
+            [
+              679,
+              820
+            ]
+          ]
+        },
+        {
+          "axle": "front",
+          "shape": "measured-contour",
+          "points": [
+            [
+              1343,
+              820
+            ],
+            [
+              1349,
+              733
+            ],
+            [
+              1365,
+              681
+            ],
+            [
+              1399,
+              636
+            ],
+            [
+              1450,
+              608
+            ],
+            [
+              1506,
+              599
+            ],
+            [
+              1559,
+              609
+            ],
+            [
+              1607,
+              634
+            ],
+            [
+              1640,
+              678
+            ],
+            [
+              1664,
+              735
+            ],
+            [
+              1671,
+              822
+            ]
+          ]
+        }
+      ],
+      "paintMode": "flat-cel",
+      "flatPaint": {
+        "sourceReferenceLuminance": 62.898399353027344,
+        "shadowAlphaPalette": [
+          0,
+          40,
+          88,
+          132,
+          176
+        ],
+        "highlightAlphaPalette": [
+          0,
+          40,
+          80
+        ],
+        "shadingRGBPalette": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ],
+        "baseRGB": [
+          255,
+          255,
+          255
+        ],
+        "gradientInterpolation": false,
+        "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+        "classificationBlurPixels": 12,
+        "factoryColor": "#1459b3"
+      },
+      "bounds": [
+        168,
+        308,
+        1715,
+        567
+      ],
+      "displayBounds": [
+        168,
+        308,
+        1715,
+        567
+      ],
+      "provenance": {
+        "sourcePackage": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/flat-v7",
+        "sourceManifest": "docs/art/runtime-provenance/subaru-wrx-tr-2024/car-sprite.json",
+        "bodySource": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/flat-v7/inputs/body-2d.png",
+        "bodySourceSha256": "46e55c5dc9c06af3b1f64b75ae67bcc9730f9e0befd44aebfc79d743222e988c",
+        "masterSource": "tests/car-integration/20261003-additional/sources/subaru-wrx-tr-2024/subaru-wrx-tr-2024-composite.png",
+        "masterSourceSha256": "fc4edb2968e705c3ca0b582c285aed956a0b71f307070393d6e4fa5ecbcd7fe6",
+        "revision": 7,
+        "reviewFingerprint": "877ac7f737e35ee6edaed44f00b15c517b66f63a343cb249af9d79ea93e2a011",
+        "sourceManifestSha256": "402f4263d912eec35a4673fab195d1bc6b4fe5f743780489bd16def16f054296",
+        "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+      }
+    },
+    "toyota-gr-corolla-2024": {
+      "width": 1672,
+      "height": 941,
+      "facing": "left",
+      "paintColor": "#0866e8",
+      "layers": {
+        "body": {
+          "file": "toyota-gr-corolla-2024/body.webp",
+          "width": 1672,
+          "height": 941
+        },
+        "underlay": {
+          "file": "toyota-gr-corolla-2024/underlay.webp",
+          "width": 1672,
+          "height": 941
+        },
+        "paintMask": {
+          "file": "toyota-gr-corolla-2024/paint-mask.webp",
+          "width": 1672,
+          "height": 941
+        },
+        "shading": {
+          "file": "toyota-gr-corolla-2024/shading.webp",
+          "width": 1672,
+          "height": 941
+        },
+        "fixtures": {
+          "file": "toyota-gr-corolla-2024/fixtures.webp",
+          "width": 1672,
+          "height": 941
+        },
+        "linework": {
+          "file": "toyota-gr-corolla-2024/linework.webp",
+          "width": 1672,
+          "height": 941
+        }
+      },
+      "wheels": [
+        {
+          "axle": "rear",
+          "x": 1382,
+          "y": 659,
+          "radius": 133,
+          "wheel": {
+            "file": "toyota-gr-corolla-2024/rear-wheel.webp",
+            "width": 282,
+            "height": 282,
+            "pivot": [
+              141.0,
+              141.0
+            ],
+            "radius": 133.0
+          },
+          "rotor": {
+            "file": "toyota-gr-corolla-2024/rear-rotor.webp",
+            "width": 282,
+            "height": 282,
+            "pivot": [
+              141.0,
+              141.0
+            ],
+            "radius": 133.0
+          },
+          "brake": {
+            "file": "toyota-gr-corolla-2024/rear-caliper.webp",
+            "width": 282,
+            "height": 282,
+            "pivot": [
+              141.0,
+              141.0
+            ],
+            "radius": 133.0
+          }
+        },
+        {
+          "axle": "front",
+          "x": 339,
+          "y": 659,
+          "radius": 133,
+          "wheel": {
+            "file": "toyota-gr-corolla-2024/front-wheel.webp",
+            "width": 282,
+            "height": 282,
+            "pivot": [
+              141.0,
+              141.0
+            ],
+            "radius": 133.0
+          },
+          "rotor": {
+            "file": "toyota-gr-corolla-2024/front-rotor.webp",
+            "width": 282,
+            "height": 282,
+            "pivot": [
+              141.0,
+              141.0
+            ],
+            "radius": 133.0
+          },
+          "brake": {
+            "file": "toyota-gr-corolla-2024/front-caliper.webp",
+            "width": 282,
+            "height": 282,
+            "pivot": [
+              141.0,
+              141.0
+            ],
+            "radius": 133.0
+          }
+        }
+      ],
+      "archProfiles": [
+        {
+          "axle": "rear",
+          "shape": "measured-contour",
+          "points": [
+            [
+              1228,
+              705
+            ],
+            [
+              1232,
+              640
+            ],
+            [
+              1249,
+              585
+            ],
+            [
+              1288,
+              544
+            ],
+            [
+              1332,
+              523
+            ],
+            [
+              1386,
+              516
+            ],
+            [
+              1440,
+              527
+            ],
+            [
+              1484,
+              554
+            ],
+            [
+              1517,
+              601
+            ],
+            [
+              1530,
+              656
+            ],
+            [
+              1533,
+              705
+            ]
+          ]
+        },
+        {
+          "axle": "front",
+          "shape": "measured-contour",
+          "points": [
+            [
+              189,
+              715
+            ],
+            [
+              194,
+              638
+            ],
+            [
+              215,
+              584
+            ],
+            [
+              253,
+              544
+            ],
+            [
+              296,
+              523
+            ],
+            [
+              342,
+              515
+            ],
+            [
+              388,
+              523
+            ],
+            [
+              431,
+              547
+            ],
+            [
+              470,
+              589
+            ],
+            [
+              492,
+              651
+            ],
+            [
+              496,
+              714
+            ]
+          ]
+        }
+      ],
+      "paintMode": "flat-cel",
+      "flatPaint": {
+        "sourceReferenceLuminance": 120.89440155029297,
+        "shadowAlphaPalette": [
+          0,
+          40,
+          88,
+          132,
+          176
+        ],
+        "highlightAlphaPalette": [
+          0,
+          40,
+          80
+        ],
+        "shadingRGBPalette": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ],
+        "baseRGB": [
+          255,
+          255,
+          255
+        ],
+        "gradientInterpolation": false,
+        "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+        "classificationBlurPixels": 12,
+        "factoryColor": "#0866e8"
+      },
+      "bounds": [
+        15,
+        205,
+        1642,
+        587
+      ],
+      "displayBounds": [
+        15,
+        205,
+        1642,
+        587
+      ],
+      "provenance": {
+        "sourcePackage": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/flat-v7",
+        "sourceManifest": "docs/art/runtime-provenance/toyota-gr-corolla-2024/car-sprite.json",
+        "bodySource": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/flat-v7/inputs/body-2d.png",
+        "bodySourceSha256": "96f85bf15e18486a0e7c4b38af0c2dfcc2d61bb14fd0ba46f26be488d595d580",
+        "masterSource": "tests/car-integration/20261003-additional/sources/toyota-gr-corolla-2024/toyota-gr-corolla-2024-2d.png",
+        "masterSourceSha256": "25dac294c2dfacd83e6fe2299db13a4b39b4779c3e87479799b08c3968f9a28e",
+        "revision": 7,
+        "reviewFingerprint": "a0f1ff5ade70127614cbe87096879738bead47d7d7a686db4ea50403d43ccb0d",
+        "sourceManifestSha256": "9e200903d96b2b960db163f34c0e90efe80d7d385ef8ce41c779d933845d32c6",
+        "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+      }
+    },
+    "volkswagen-golf-gti-2024": {
+      "width": 1717,
+      "height": 916,
+      "facing": "right",
+      "paintColor": "#dc1826",
+      "layers": {
+        "body": {
+          "file": "volkswagen-golf-gti-2024/body.webp",
+          "width": 1717,
+          "height": 916
+        },
+        "underlay": {
+          "file": "volkswagen-golf-gti-2024/underlay.webp",
+          "width": 1717,
+          "height": 916
+        },
+        "paintMask": {
+          "file": "volkswagen-golf-gti-2024/paint-mask.webp",
+          "width": 1717,
+          "height": 916
+        },
+        "shading": {
+          "file": "volkswagen-golf-gti-2024/shading.webp",
+          "width": 1717,
+          "height": 916
+        },
+        "fixtures": {
+          "file": "volkswagen-golf-gti-2024/fixtures.webp",
+          "width": 1717,
+          "height": 916
+        },
+        "linework": {
+          "file": "volkswagen-golf-gti-2024/linework.webp",
+          "width": 1717,
+          "height": 916
+        }
+      },
+      "wheels": [
+        {
+          "axle": "rear",
+          "x": 299,
+          "y": 639,
+          "radius": 139,
+          "wheel": {
+            "file": "volkswagen-golf-gti-2024/rear-wheel.webp",
+            "width": 294,
+            "height": 294,
+            "pivot": [
+              147.0,
+              147.0
+            ],
+            "radius": 139.0
+          },
+          "rotor": {
+            "file": "volkswagen-golf-gti-2024/rear-rotor.webp",
+            "width": 294,
+            "height": 294,
+            "pivot": [
+              147.0,
+              147.0
+            ],
+            "radius": 139.0
+          },
+          "brake": {
+            "file": "volkswagen-golf-gti-2024/rear-caliper.webp",
+            "width": 294,
+            "height": 294,
+            "pivot": [
+              147.0,
+              147.0
+            ],
+            "radius": 139.0
+          }
+        },
+        {
+          "axle": "front",
+          "x": 1376,
+          "y": 639,
+          "radius": 139,
+          "wheel": {
+            "file": "volkswagen-golf-gti-2024/front-wheel.webp",
+            "width": 294,
+            "height": 294,
+            "pivot": [
+              147.0,
+              147.0
+            ],
+            "radius": 139.0
+          },
+          "rotor": {
+            "file": "volkswagen-golf-gti-2024/front-rotor.webp",
+            "width": 294,
+            "height": 294,
+            "pivot": [
+              147.0,
+              147.0
+            ],
+            "radius": 139.0
+          },
+          "brake": {
+            "file": "volkswagen-golf-gti-2024/front-caliper.webp",
+            "width": 294,
+            "height": 294,
+            "pivot": [
+              147.0,
+              147.0
+            ],
+            "radius": 139.0
+          }
+        }
+      ],
+      "archProfiles": [
+        {
+          "axle": "rear",
+          "shape": "measured-contour",
+          "points": [
+            [
+              145,
+              679
+            ],
+            [
+              146,
+              616
+            ],
+            [
+              167,
+              561
+            ],
+            [
+              207,
+              520
+            ],
+            [
+              253,
+              500
+            ],
+            [
+              303,
+              493
+            ],
+            [
+              358,
+              503
+            ],
+            [
+              407,
+              530
+            ],
+            [
+              439,
+              575
+            ],
+            [
+              452,
+              632
+            ],
+            [
+              455,
+              689
+            ]
+          ]
+        },
+        {
+          "axle": "front",
+          "shape": "measured-contour",
+          "points": [
+            [
+              1219,
+              690
+            ],
+            [
+              1223,
+              627
+            ],
+            [
+              1249,
+              568
+            ],
+            [
+              1290,
+              525
+            ],
+            [
+              1339,
+              501
+            ],
+            [
+              1392,
+              498
+            ],
+            [
+              1445,
+              510
+            ],
+            [
+              1489,
+              541
+            ],
+            [
+              1521,
+              589
+            ],
+            [
+              1533,
+              650
+            ],
+            [
+              1535,
+              697
+            ]
+          ]
+        }
+      ],
+      "paintMode": "flat-cel",
+      "flatPaint": {
+        "sourceReferenceLuminance": 61.33440017700195,
+        "shadowAlphaPalette": [
+          0,
+          40,
+          88,
+          132,
+          176
+        ],
+        "highlightAlphaPalette": [
+          0,
+          40,
+          80
+        ],
+        "shadingRGBPalette": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ],
+        "baseRGB": [
+          255,
+          255,
+          255
+        ],
+        "gradientInterpolation": false,
+        "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+        "classificationBlurPixels": 12,
+        "factoryColor": "#dc1826"
+      },
+      "bounds": [
+        11,
+        188,
+        1693,
+        590
+      ],
+      "displayBounds": [
+        11,
+        188,
+        1693,
+        590
+      ],
+      "provenance": {
+        "sourcePackage": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/flat-v7",
+        "sourceManifest": "docs/art/runtime-provenance/volkswagen-golf-gti-2024/car-sprite.json",
+        "bodySource": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/flat-v7/inputs/body-2d.png",
+        "bodySourceSha256": "4508fc607a98b3b27d3b418bbfd8eb9bb6c7aa1dc6512c9da0a421e8efd9a2a9",
+        "masterSource": "tests/car-integration/20261003-additional/sources/volkswagen-golf-gti-2024/volkswagen-golf-gti-2024-2d.png",
+        "masterSourceSha256": "b22cdfa92f120789caa8111809c7da9512f3862e23f76dfd9b88d35908d65be1",
+        "revision": 7,
+        "reviewFingerprint": "3796c2cfedef4318c5f4c092dc47a71d4b296ec0cf6467411e680a911bf6f9ae",
+        "sourceManifestSha256": "f94ac1819e067a0a4ed02d29dbb3105edfed65f1202cc9231eecf3bc6a109cce",
+        "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
       }
     }
   },

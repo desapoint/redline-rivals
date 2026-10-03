@@ -1,0 +1,12 @@
+{
+  "sourcePackage": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/flat-v7",
+  "sourceManifest": "docs/art/runtime-provenance/toyota-gr-corolla-2024/car-sprite.json",
+  "bodySource": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/flat-v7/inputs/body-2d.png",
+  "bodySourceSha256": "96f85bf15e18486a0e7c4b38af0c2dfcc2d61bb14fd0ba46f26be488d595d580",
+  "masterSource": "tests/car-integration/20261003-additional/sources/toyota-gr-corolla-2024/toyota-gr-corolla-2024-2d.png",
+  "masterSourceSha256": "25dac294c2dfacd83e6fe2299db13a4b39b4779c3e87479799b08c3968f9a28e",
+  "revision": 7,
+  "reviewFingerprint": "a0f1ff5ade70127614cbe87096879738bead47d7d7a686db4ea50403d43ccb0d",
+  "sourceManifestSha256": "9e200903d96b2b960db163f34c0e90efe80d7d385ef8ce41c779d933845d32c6",
+  "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+}

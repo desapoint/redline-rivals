@@ -1,0 +1,36 @@
+{
+  "sourcePackage": "tests/car-integration/20261003/kia-forte-gt-sedan-2022-orange/wheel-fit-v2",
+  "bodySha256": "52b42926f3c6f098627adc90145db3964fdf842ce2192b5e071729e6a8a97cfc",
+  "revision": 3,
+  "profiles": [
+    {
+      "axle": "rear",
+      "shape": "source-opening",
+      "bounds": [
+        290,
+        480,
+        660,
+        705
+      ],
+      "seed": [
+        464,
+        605
+      ]
+    },
+    {
+      "axle": "front",
+      "shape": "source-opening",
+      "bounds": [
+        1310,
+        480,
+        1680,
+        705
+      ],
+      "seed": [
+        1487,
+        605
+      ]
+    }
+  ],
+  "measurementNotes": "Seed selects each native transparent wheel-well opening. Bounds enclose the full fender and end above rocker/exterior leakage. Connected source alpha defines the contour, independently of wheel radius; no geometric shape is inferred or imposed."
+}

@@ -1,0 +1,12 @@
+{
+  "sourcePackage": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/flat-v7",
+  "sourceManifest": "docs/art/runtime-provenance/cadillac-ct5-v-blackwing-2025/car-sprite.json",
+  "bodySource": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/flat-v7/inputs/body-2d.png",
+  "bodySourceSha256": "75f38f935cfc7899b363251409596addf3d6e8d7955c3409accfafc03c2cd7b6",
+  "masterSource": "tests/car-integration/20261003-additional/sources/cadillac-ct5-v-blackwing-2025/cadillac-ct5-v-blackwing-2025-composite.png",
+  "masterSourceSha256": "d2e6e6d0a996854a103f1d509f9d493b681efed509a3f079459bca20c2293b85",
+  "revision": 7,
+  "reviewFingerprint": "043919e2cf79a9f492a31f321b7bed2fb528e92e53082bdfef46ce2de1186cb1",
+  "sourceManifestSha256": "a14cdd4d4ce3672499478576d069be4a3915eecceef1d80577b71c8a0e78146f",
+  "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+}

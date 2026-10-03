@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "revision": 7,
+  "vehicle": {
+    "id": "acura-integra-type-s-2024",
+    "make": "Acura",
+    "model": "Integra",
+    "year": 2024,
+    "trim": "Type S",
+    "facing": "right"
+  },
+  "canvas": {
+    "width": 2048,
+    "height": 1024
+  },
+  "anchors": {
+    "rearWheel": {
+      "x": 505,
+      "y": 718,
+      "radius": 142
+    },
+    "frontWheel": {
+      "x": 1507,
+      "y": 718,
+      "radius": 142
+    }
+  },
+  "layers": [
+    {
+      "id": "car-underlay",
+      "file": "underlay.png",
+      "z": 200,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "rear-rotor",
+      "file": "rear-rotor.png",
+      "z": 300,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "rear-caliper",
+      "file": "rear-caliper.png",
+      "z": 310,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "rear-wheel",
+      "file": "rear-wheel.png",
+      "z": 320,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-rotor",
+      "file": "front-rotor.png",
+      "z": 330,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-caliper",
+      "file": "front-caliper.png",
+      "z": 340,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "front-wheel",
+      "file": "front-wheel.png",
+      "z": 350,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "body-paint",
+      "file": "body/paint.png",
+      "z": 400,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-shading",
+      "file": "body/shading.png",
+      "z": 410,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-fixtures",
+      "file": "body/fixtures.png",
+      "z": 440,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-linework",
+      "file": "body/linework.png",
+      "z": 460,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "masks": {
+    "paint": "paint-mask.png",
+    "paintRegions": "paint-regions.png"
+  },
+  "sources": [
+    {
+      "originalPath": "tests/car-integration/20261003-additional/sources/acura-integra-type-s-2024/acura-integra-type-s-2024-composite.png",
+      "sha256": "176c20f2d9217d6d55b4a3954e28b131f5fd98e761d6b82bc7ede447e40acda7",
+      "archivedFile": "inputs/master.png"
+    },
+    {
+      "originalPath": "scripts/prepare-additional-cars.py",
+      "sha256": "35b0d0cb2ddaeab48c4cae8f2198f474ad765b7c5e376aa2d05d04d7ab2bb063",
+      "archivedFile": "preparation-script.py"
+    },
+    {
+      "originalPath": "docs/art/additional-car-plans/acura-integra-type-s-2024.json",
+      "sha256": "979368fe5906d405310cb262094aa46ea6b187b72a7c4b4613b535e18b516243",
+      "archivedFile": "preparation-plan.json"
+    },
+    {
+      "originalPath": "scripts/flat_car_layers.py",
+      "sha256": "fdb1915d33933de4e5062269109b0693e9c5aff347d7bbdf9d819e952a1d36c1",
+      "archivedFile": "processing/flat_car_layers.py"
+    },
+    {
+      "originalPath": "scripts/prepare-additional-flat-cars.py",
+      "sha256": "47a7555cd190e4c103eb5b31cb2958b86ef90f849300091dd1bcdf160355188f",
+      "archivedFile": "processing/prepare-additional-flat-cars.py"
+    }
+  ],
+  "notes": [
+    "Illustrated source geometry, wheel styles and accessories are preserved; this is not an OEM CAD reconstruction.",
+    "Brake colors, positions and dimensions are visual modeling choices. Existing source discs/calipers are rejected because they contain clipped or spoke-occluded regions.",
+    "Source rims and hubs isolated by measured spoke support; upper tire restored by 180-degree source symmetry; complete rotors and calipers drawn with Pillow, separately for each axle.",
+    "The five composite-source rims retain native tire/lip pixels; their inner split ten-spoke geometry is reconstructed with Pillow because the source repeats calipers in all cavities.",
+    "Merged original exterior retained: the deferred flat-paint/fixture redesign is not applied.",
+    "Uniform continuous paint foundation covers the native silhouette with unchanged arches. Source-derived black/white shading has discrete alpha levels, fixtures retain fixed source pixels, and independent ink follows panels and silhouette. No source hue is baked into the paint or shading."
+  ],
+  "archProfiles": [
+    {
+      "axle": "rear",
+      "shape": "measured-contour",
+      "points": [
+        [
+          339,
+          782
+        ],
+        [
+          345,
+          704
+        ],
+        [
+          362,
+          650
+        ],
+        [
+          395,
+          609
+        ],
+        [
+          439,
+          587
+        ],
+        [
+          489,
+          580
+        ],
+        [
+          541,
+          585
+        ],
+        [
+          585,
+          608
+        ],
+        [
+          620,
+          650
+        ],
+        [
+          644,
+          706
+        ],
+        [
+          651,
+          791
+        ]
+      ]
+    },
+    {
+      "axle": "front",
+      "shape": "measured-contour",
+      "points": [
+        [
+          1349,
+          790
+        ],
+        [
+          1355,
+          703
+        ],
+        [
+          1376,
+          648
+        ],
+        [
+          1411,
+          608
+        ],
+        [
+          1459,
+          582
+        ],
+        [
+          1508,
+          574
+        ],
+        [
+          1561,
+          583
+        ],
+        [
+          1608,
+          609
+        ],
+        [
+          1641,
+          652
+        ],
+        [
+          1658,
+          710
+        ],
+        [
+          1663,
+          790
+        ]
+      ]
+    }
+  ],
+  "paintLayerMode": "foundation",
+  "bodyLayerMode": "flat-cel",
+  "flatPaint": {
+    "sourceReferenceLuminance": 203.2126007080078,
+    "shadowAlphaPalette": [
+      0,
+      40,
+      88,
+      132,
+      176
+    ],
+    "highlightAlphaPalette": [
+      0,
+      40,
+      80
+    ],
+    "shadingRGBPalette": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        255,
+        255,
+        255
+      ]
+    ],
+    "baseRGB": [
+      255,
+      255,
+      255
+    ],
+    "gradientInterpolation": false,
+    "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+    "classificationBlurPixels": 12,
+    "factoryColor": "#e4e5e5"
+  },
+  "fixtureSamples": [
+    {
+      "x": 890,
+      "y": 413,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 1211,
+      "y": 491,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 255,
+      "y": 522,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    },
+    {
+      "x": 1734,
+      "y": 580,
+      "layer": "body-fixtures",
+      "label": "Measured protected fixture region"
+    }
+  ]
+}

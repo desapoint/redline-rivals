@@ -18,7 +18,7 @@ export function layerImage(layer) {
 }
 const ready=img=>img.complete && img.naturalWidth>0;
 export function spriteReady(record,visual) {
-  return [record.layers.body,record.layers.underlay,record.layers.paintMask,...componentLayers(record,visual).flatMap(s=>[s.wheel,s.brake,s.rotor])].filter(Boolean).every(l=>ready(layerImage(l)));
+  return [...Object.values(record.layers),...componentLayers(record,visual).flatMap(s=>[s.wheel,s.brake,s.rotor])].filter(Boolean).every(l=>ready(layerImage(l)));
 }
 export async function installSpritePack(pack,url=baseURL) {
   // Commit only a fully decoded pack, so a missing component never produces a half-car.

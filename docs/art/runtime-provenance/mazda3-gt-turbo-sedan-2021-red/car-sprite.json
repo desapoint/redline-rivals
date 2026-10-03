@@ -8,7 +8,7 @@
     "trim": "GT Turbo Sedan",
     "facing": "right"
   },
-  "revision": 9,
+  "revision": 16,
   "canvas": {
     "width": 2099,
     "height": 926
@@ -26,46 +26,6 @@
     }
   },
   "layers": [
-    {
-      "id": "body-glass",
-      "file": "body/glass.png",
-      "z": 420,
-      "placement": {
-        "mode": "canvas",
-        "x": 0,
-        "y": 0
-      }
-    },
-    {
-      "id": "body-lights",
-      "file": "body/lights.png",
-      "z": 430,
-      "placement": {
-        "mode": "canvas",
-        "x": 0,
-        "y": 0
-      }
-    },
-    {
-      "id": "body-mirrors",
-      "file": "body/mirrors.png",
-      "z": 450,
-      "placement": {
-        "mode": "canvas",
-        "x": 0,
-        "y": 0
-      }
-    },
-    {
-      "id": "body-exterior",
-      "file": "body/exterior.png",
-      "z": 400,
-      "placement": {
-        "mode": "canvas",
-        "x": 0,
-        "y": 0
-      }
-    },
     {
       "id": "car-underlay",
       "file": "body/car-underlay.png",
@@ -189,10 +149,51 @@
         ]
       },
       "rotateWithWheel": true
+    },
+    {
+      "id": "body-paint",
+      "file": "body/paint.png",
+      "z": 400,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-shading",
+      "file": "body/shading.png",
+      "z": 410,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-fixtures",
+      "file": "body/fixtures.png",
+      "z": 440,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-linework",
+      "file": "body/linework.png",
+      "z": 460,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
     }
   ],
   "masks": {
-    "paint": "masks/paint-mask.png"
+    "paint": "masks/paint-mask.png",
+    "paintRegions": "masks/paint-regions.png"
   },
   "sources": [
     {
@@ -221,7 +222,10 @@
     "Glass, lights and mirrors are semantic source partitions; any unpartitioned fine edges, shading, linework and trim remain in the fused exterior layer.",
     "Paint regression samples cover inspected painted panels and protected areas, including previous observed failures; they supplement full visual inspection.",
     "Brake radius ratios and illustrated component identity are modeling choices, not factory measurements. Source artwork identity is inherited, not independently OEM-certified.",
-    "Rotor repair includes a measured occlusion/shadow fringe beyond the tight caliper contour; complete caliper pads are retained separately. Opposite-side clean source pixels rebuild the hidden disc."
+    "Rotor repair includes a measured occlusion/shadow fringe beyond the tight caliper contour; complete caliper pads are retained separately. Opposite-side clean source pixels rebuild the hidden disc.",
+    "Independent arch profiles follow original body alpha; source-opening profiles trace connected native contours of any shape. Tire circles only locate rotating components. Native fenders, wheel placement, paint masks and separated mechanical pixels unchanged.",
+    "Uniform white paint foundation accepts an arbitrary RGB color. Separate black/white grayscale shading uses discrete opacity shapes; separate black linework defines silhouette/panels/details. Glass/lights/trim remain fixed above paint. No source hue or gradients are baked into paint/shading. Native body source, arbitrary arch contours, axle geometry and mechanical pixels are preserved.",
+    "Uniform white paint foundation accepts an arbitrary RGB color. Separate black/white grayscale shading uses discrete opacity shapes; separate black linework defines silhouette/panels/details. Glass/lights/trim remain fixed above paint. No source hue or gradients are baked into paint/shading. Native body source, arbitrary arch contours, axle geometry and mechanical pixels are preserved."
   ],
   "paintSamples": [
     {
@@ -263,32 +267,132 @@
     {
       "x": 1100,
       "y": 410,
-      "expected": "protected",
+      "expected": "paint",
       "label": "previous glass spill"
     },
     {
       "x": 880,
       "y": 390,
-      "expected": "protected",
+      "expected": "paint",
       "label": "rear glass"
     },
     {
       "x": 1770,
       "y": 533,
-      "expected": "protected",
+      "expected": "paint",
       "label": "headlamp"
     },
     {
       "x": 310,
       "y": 470,
-      "expected": "protected",
+      "expected": "paint",
       "label": "taillamp"
     },
     {
       "x": 640,
       "y": 342,
-      "expected": "protected",
+      "expected": "paint",
       "label": "black window border below repaired paint strip"
     }
-  ]
+  ],
+  "archProfiles": [
+    {
+      "axle": "rear",
+      "shape": "source-opening",
+      "bounds": [
+        320,
+        450,
+        740,
+        690
+      ],
+      "seed": [
+        530,
+        590
+      ]
+    },
+    {
+      "axle": "front",
+      "shape": "source-opening",
+      "bounds": [
+        1390,
+        450,
+        1810,
+        690
+      ],
+      "seed": [
+        1599,
+        590
+      ]
+    }
+  ],
+  "paintLayerMode": "foundation",
+  "bodyLayerMode": "flat-cel",
+  "fixtureSamples": [
+    {
+      "x": 1100,
+      "y": 410,
+      "label": "previous glass spill",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 880,
+      "y": 390,
+      "label": "rear glass",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 1770,
+      "y": 533,
+      "label": "headlamp",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 310,
+      "y": 470,
+      "label": "taillamp",
+      "layer": "body-fixtures"
+    }
+  ],
+  "flatPaint": {
+    "sourceReferenceLuminance": 49.180599212646484,
+    "shadowAlphaPalette": [
+      0,
+      40,
+      88,
+      132,
+      176
+    ],
+    "highlightAlphaPalette": [
+      0,
+      40,
+      80
+    ],
+    "shadingRGBPalette": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        255,
+        255,
+        255
+      ]
+    ],
+    "baseRGB": [
+      255,
+      255,
+      255
+    ],
+    "gradientInterpolation": false,
+    "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+    "classificationBlurPixels": 12,
+    "factoryColor": "#a91f2c",
+    "stack": [
+      "body-paint",
+      "body-shading",
+      "body-fixtures",
+      "body-linework"
+    ]
+  }
 }

@@ -19,9 +19,10 @@ SELECTED = {
 }
 NEXT_PACKS = {'chevrolet-silverado-1500-custom-crew-short-2025-black':'wheel-fit-v11','kia-forte-gt-sedan-2022-orange': 'wheel-fit-v2', 'nissan-rogue-2020-red': 'wheel-fit-v3'}
 PLACEMENT_PACKS = {
-    'chevrolet-silverado-1500-custom-crew-short-2025-black': 'arch-fit-v12',
-    'kia-forte-gt-sedan-2022-orange': 'wheel-fit-v2',
-    'nissan-rogue-2020-red': 'wheel-fit-v3',
+    'mazda3-gt-turbo-sedan-2021-red': 'flat-paint-v16',
+    'chevrolet-silverado-1500-custom-crew-short-2025-black': 'flat-paint-v19',
+    'kia-forte-gt-sedan-2022-orange': 'flat-paint-v9',
+    'nissan-rogue-2020-red': 'flat-paint-v10',
 }
 
 def digest(path):
@@ -58,16 +59,22 @@ def main():
         if not review['accepted'] or review['unresolvedIssues'] or report['problems'] or review['contentFingerprint'] != current or review['qaReportHash'] != digest(report_path):
             raise ValueError(f'{vehicle_id}: reviewed QA does not match source bytes')
         layers = {layer['id']: layer for layer in pack['layers']}
-        # Keep the selected -2d master intact. The shader/fixture redesign is deferred.
+        # Keep the raw selected master archived; export the reviewed decomposed stack.
         source_body = directory/'inputs/body.png'
         staged_body = ROOT/'docs/art/staged-roster'/vehicle_id/'body-2d.png'
         if digest(source_body) != digest(staged_body):
             raise ValueError(f'{vehicle_id}: selected -2d master differs from reviewed source')
-        body = Image.open(source_body).convert('RGBA')
+        flat = pack.get('bodyLayerMode') == 'flat-cel'
+        body = Image.open(directory / layers['body-paint']['file'] if flat else source_body).convert('RGBA')
         record = {**pack['canvas'], 'facing': pack['vehicle']['facing'], 'paintColor': color, 'wheels': [], 'layers': {}}
         if pack.get('archProfiles'):
             record['archProfiles'] = pack['archProfiles']
         record['layers']['body'] = export_image(body, vehicle_id, 'body.webp')
+        if flat:
+            record['paintMode'] = 'flat-cel'
+            record['flatPaint'] = pack['flatPaint']
+            for role in ('shading', 'fixtures', 'linework'):
+                record['layers'][role] = export_image(Image.open(directory / layers['body-'+role]['file']), vehicle_id, role+'.webp')
         record['layers']['underlay'] = export_image(Image.open(directory / layers['car-underlay']['file']), vehicle_id, 'underlay.webp')
         record['layers']['paintMask'] = export_image(Image.open(directory / pack['masks']['paint']), vehicle_id, 'paint-mask.webp')
         combined = body.copy()
@@ -106,9 +113,14 @@ def main():
         snapshot.mkdir(parents=True,exist_ok=True)
         (snapshot/'car-sprite.json').write_bytes((directory/'car-sprite.json').read_bytes())
         (snapshot/'visual-review.json').write_bytes((directory/qa/'visual-review.json').read_bytes())
-        record['provenance'] = {'sourcePackage': directory.relative_to(ROOT).as_posix(), 'sourceManifest':(snapshot/'car-sprite.json').relative_to(ROOT).as_posix(), 'bodySource': staged_body.relative_to(ROOT).as_posix(),'bodySourceSha256':digest(source_body), 'revision': pack['revision'], 'reviewFingerprint': current, 'sourceManifestSha256': digest(directory / 'car-sprite.json'), 'conversion': 'Exact selected -2d body decoded to lossless WebP; underlay retained separately; measured wheel geometry with original component pixels/scales/pivots. Display framing ignores alpha below 8; native body pixels are retained. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo.'}
+        record['provenance'] = {'sourcePackage': directory.relative_to(ROOT).as_posix(), 'sourceManifest':(snapshot/'car-sprite.json').relative_to(ROOT).as_posix(), 'bodySource': staged_body.relative_to(ROOT).as_posix(),'bodySourceSha256':digest(source_body), 'revision': pack['revision'], 'reviewFingerprint': current, 'sourceManifestSha256': digest(directory / 'car-sprite.json'), 'conversion': 'Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo.' if flat else 'Native master and measured mechanical layers converted to lossless WebP.'}
         (RUNTIME / vehicle_id / 'provenance.json').write_text(json.dumps(record['provenance'], indent=2)+'\n', encoding='utf-8')
-    manifest_path.write_text(json.dumps(runtime, indent=2)+'\n', encoding='utf-8')
+    # Merge only selected IDs into the latest catalog so another art workflow
+    # can add its own cars during conversion without losing those records.
+    latest = json.loads(manifest_path.read_text(encoding='utf-8'))
+    for vehicle_id in SELECTED:
+        latest['cars'][vehicle_id] = runtime['cars'][vehicle_id]
+    manifest_path.write_text(json.dumps(latest, indent=2)+'\n', encoding='utf-8')
     (ROOT / 'src/real-car-specs.js').write_text('// Derived from the archived manufacturer research. Unknown factory facts remain null.\nexport const REAL_CAR_SPECS = '+json.dumps(specifications, indent=2)+';\n', encoding='utf-8')
     print('Imported four reviewed native vehicle packs and archived source specifications.')
 

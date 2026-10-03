@@ -1,0 +1,12 @@
+{
+  "sourcePackage": "tests/car-integration/20261003-additional/nissan-z-nismo-2024/flat-v7",
+  "sourceManifest": "docs/art/runtime-provenance/nissan-z-nismo-2024/car-sprite.json",
+  "bodySource": "tests/car-integration/20261003-additional/nissan-z-nismo-2024/flat-v7/inputs/body-2d.png",
+  "bodySourceSha256": "59e2efff4c810a248cbe2cdc6d46c9fc4b84eb3026d3535ca73c1f3b34554400",
+  "masterSource": "tests/car-integration/20261003-additional/sources/nissan-z-nismo-2024/nissan-z-nismo-2024-composite.png",
+  "masterSourceSha256": "c046433c39fccb63b7280a0759d9dea4d9f9a1a02c92a860f6089da5bf2236da",
+  "revision": 7,
+  "reviewFingerprint": "7e0ee7b87ae0e0a92e43223913ba1ce23a1dae94e20ea8896d85914c4cfb64a8",
+  "sourceManifestSha256": "dde307d9645677ec3e48ae92382535834ab2eb49c6a4ece24b9b3b71b9fc2113",
+  "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+}

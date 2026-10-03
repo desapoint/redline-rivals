@@ -8,7 +8,7 @@
     "id": "nissan-rogue-2020-red",
     "facing": "right"
   },
-  "revision": 3,
+  "revision": 10,
   "canvas": {
     "width": 2200,
     "height": 887
@@ -26,26 +26,6 @@
     }
   },
   "layers": [
-    {
-      "id": "body-lights",
-      "file": "body/lights.png",
-      "z": 430,
-      "placement": {
-        "mode": "canvas",
-        "x": 0,
-        "y": 0
-      }
-    },
-    {
-      "id": "body-exterior",
-      "file": "body/exterior.png",
-      "z": 400,
-      "placement": {
-        "mode": "canvas",
-        "x": 0,
-        "y": 0
-      }
-    },
     {
       "id": "car-underlay",
       "file": "body/car-underlay.png",
@@ -169,10 +149,51 @@
         ]
       },
       "rotateWithWheel": true
+    },
+    {
+      "id": "body-paint",
+      "file": "body/paint.png",
+      "z": 400,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-shading",
+      "file": "body/shading.png",
+      "z": 410,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-fixtures",
+      "file": "body/fixtures.png",
+      "z": 440,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-linework",
+      "file": "body/linework.png",
+      "z": 460,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
     }
   ],
   "masks": {
-    "paint": "masks/paint-mask.png"
+    "paint": "masks/paint-mask.png",
+    "paintRegions": "masks/paint-regions.png"
   },
   "sources": [
     {
@@ -201,7 +222,10 @@
     "Component circles and caliper/arch contours measured against the native source. Brake size ratios and source OEM identity remain illustrative assumptions.",
     "Factory paint names are inherited; digital colors remain illustrative.",
     "Revision 1 visual review found coarse lamp contours protecting painted hood and taillamp surround. Revision 2 contours follow actual lenses/black housings; original failed package remains preserved.",
-    "Wheel centers/radii remeasured against the alpha openings after user placement review; rotor/caliper scales follow each corrected hub; tire contact lines match. No source pixels or factory physics changed."
+    "Wheel centers/radii remeasured against the alpha openings after user placement review; rotor/caliper scales follow each corrected hub; tire contact lines match. No source pixels or factory physics changed.",
+    "Independent arch profiles follow original body alpha; source-opening profiles trace connected native contours of any shape. Tire circles only locate rotating components. Native fenders, wheel placement, paint masks and separated mechanical pixels unchanged.",
+    "Uniform white paint foundation accepts an arbitrary RGB color. Separate black/white grayscale shading uses discrete opacity shapes; separate black linework defines silhouette/panels/details. Glass/lights/trim remain fixed above paint. No source hue or gradients are baked into paint/shading. Native body source, arbitrary arch contours, axle geometry and mechanical pixels are preserved.",
+    "Uniform white paint foundation accepts an arbitrary RGB color. Separate black/white grayscale shading uses discrete opacity shapes; separate black linework defines silhouette/panels/details. Glass/lights/trim remain fixed above paint. No source hue or gradients are baked into paint/shading. Native body source, arbitrary arch contours, axle geometry and mechanical pixels are preserved."
   ],
   "paintSamples": [
     {
@@ -219,14 +243,102 @@
     {
       "x": 800,
       "y": 270,
-      "expected": "protected",
+      "expected": "paint",
       "label": "glass"
     },
     {
       "x": 230,
       "y": 330,
-      "expected": "protected",
+      "expected": "paint",
       "label": "taillamp"
     }
-  ]
+  ],
+  "archProfiles": [
+    {
+      "axle": "rear",
+      "shape": "source-opening",
+      "bounds": [
+        300,
+        420,
+        710,
+        680
+      ],
+      "seed": [
+        499,
+        615
+      ]
+    },
+    {
+      "axle": "front",
+      "shape": "source-opening",
+      "bounds": [
+        1480,
+        420,
+        1890,
+        680
+      ],
+      "seed": [
+        1673,
+        615
+      ]
+    }
+  ],
+  "paintLayerMode": "foundation",
+  "bodyLayerMode": "flat-cel",
+  "fixtureSamples": [
+    {
+      "x": 800,
+      "y": 270,
+      "label": "glass",
+      "layer": "body-fixtures"
+    },
+    {
+      "x": 230,
+      "y": 330,
+      "label": "taillamp",
+      "layer": "body-fixtures"
+    }
+  ],
+  "flatPaint": {
+    "sourceReferenceLuminance": 63.56480026245117,
+    "shadowAlphaPalette": [
+      0,
+      40,
+      88,
+      132,
+      176
+    ],
+    "highlightAlphaPalette": [
+      0,
+      40,
+      80
+    ],
+    "shadingRGBPalette": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        255,
+        255,
+        255
+      ]
+    ],
+    "baseRGB": [
+      255,
+      255,
+      255
+    ],
+    "gradientInterpolation": false,
+    "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
+    "classificationBlurPixels": 12,
+    "factoryColor": "#a92331",
+    "stack": [
+      "body-paint",
+      "body-shading",
+      "body-fixtures",
+      "body-linework"
+    ]
+  }
 }
