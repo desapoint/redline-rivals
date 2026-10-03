@@ -1,0 +1,10 @@
+{
+  "sourcePackage": "tests/car-integration/20261003/chevrolet-silverado-1500-custom-crew-short-2025-black/arch-fit-v12",
+  "sourceManifest": "docs/art/runtime-provenance/chevrolet-silverado-1500-custom-crew-short-2025-black/car-sprite.json",
+  "bodySource": "docs/art/staged-roster/chevrolet-silverado-1500-custom-crew-short-2025-black/body-2d.png",
+  "bodySourceSha256": "d3a84a84df7d34d37de24f5e7b42d6fc6baca7daec421bbc7e619012eb9a4432",
+  "revision": 12,
+  "reviewFingerprint": "b8087ab5a6c3e175e90ad8ba2ff104a311e9ec2cb0c440fc7a80b19bab74d9f0",
+  "sourceManifestSha256": "7e05a5832e0008eacb841114b3daae1f730a4fbaab593460032d52b1aa67e4ba",
+  "conversion": "Exact selected -2d body decoded to lossless WebP; underlay retained separately; measured wheel geometry with original component pixels/scales/pivots. Display framing ignores alpha below 8; native body pixels are retained. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+}

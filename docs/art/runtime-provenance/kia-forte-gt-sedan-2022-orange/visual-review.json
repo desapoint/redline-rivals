@@ -1,0 +1,20 @@
+{
+  "accepted": true,
+  "reviewer": "Codex",
+  "checks": [
+    "alpha-backgrounds",
+    "complete-rotors",
+    "complete-tires",
+    "fender-occlusion",
+    "hub-alignment",
+    "identity",
+    "layer-isolation",
+    "paint-coverage-exclusions",
+    "stationary-calipers",
+    "underlay-coverage"
+  ],
+  "notes": "User-reported wheel placement remeasured against native body alpha openings. Inspected before/after assembled cars, native opening diagnostic grid, rotations 0/45/90/180, separate mechanical layers and invariant caliper frames, underlay/wheels hidden, checker/black/white/gray backgrounds and blue repaint. Corrected tire contact lines match; all source layer bytes preserved.",
+  "unresolvedIssues": [],
+  "contentFingerprint": "9a4aeed07417cca14deae71f556029a2866d5c19fc6e140d35cfa801662ecdeb",
+  "qaReportHash": "c34d6f4894b9400417c891e386a989741e4078b96d4ecb7c4d56841629f98c29"
+}

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { CARS, EVENTS, CLASSES, TRACKS } from '../src/data.js';
+import { CARS, LEGACY_CARS, EVENTS, CLASSES, TRACKS } from '../src/data.js';
 import { buildCar, createVehicle, stepVehicle, shiftVehicle, estimate, rating, idealShift } from '../src/physics.js';
 import { freshSave, validateSave, accrueIncome, claimIncome, loadSave, newCar, isBusy, SAVE_KEY } from '../src/storage.js';
 import { eventLocked, restrictionReason } from '../src/views.js';
@@ -9,7 +9,7 @@ function run(c,options={}){const v=createVehicle(c);v.started=true;for(let i=0;i
 test('all factory cars finish with plausible speeds, positive splits and rated horsepower',()=>{
   for(const base of CARS){const c=buildCar(newCar(base.id)),r=estimate(c);assert.equal(c.hp,base.hp);assert.ok(r.et>7&&r.et<19,base.id);assert.ok(r.trap>120&&r.trap<330);assert.ok(r.splits['60ft']<r.splits.eighth&&r.splits.eighth<r.et);}
 });
-test('factory collection spans every performance class F through S',()=>assert.deepEqual(new Set(CARS.map(c=>rating(buildCar(newCar(c.id))).tier)),new Set(CLASSES)));
+test('performance ratings still span F through S across retained simulation fixtures',()=>assert.deepEqual(new Set([...CARS,...LEGACY_CARS].map(c=>rating(buildCar({...newCar(c.id),upgrades:{tires:c.factoryTires}})).tier)),new Set(CLASSES)));
 test('power upgrade produces a faster pass without claiming instantaneous gear changes',()=>{
   const stock=buildCar(newCar('kaze')),modified=buildCar({...newCar('kaze'),upgrades:{intake:2,ecu:1,tires:1}});
   assert.ok(modified.hp>stock.hp);assert.ok(estimate(modified).et<estimate(stock).et-.4);
@@ -62,7 +62,7 @@ test('save round-trip preserves purchases, ratios, paint and preset',()=>{
   const restored=validateSave(JSON.parse(JSON.stringify(s)),2000);assert.equal(restored.cash,9000);assert.equal(restored.cars[0].color,o.color);assert.deepEqual(restored.cars[0].tune.ratios,o.tune.ratios);assert.deepEqual(restored.cars[0].preset.ratios,o.tune.ratios);assert.equal(restored.cars[0].preset.finalDrive,3.55);
 });
 test('import validation rejects unsafe strings and normalizes malformed numbers',()=>{
-  const s=freshSave(1000);s.cash=-10;s.cars[0].color='\" onload=\"alert(1)';s.cars[0].upgrades={intake:999};s.settings.difficulty='Injected';const out=validateSave(s,2000);assert.equal(out.cash,0);assert.equal(out.cars[0].color,'#e6603b');assert.equal(out.cars[0].upgrades.intake,3);assert.equal(out.settings.difficulty,'Easy');
+  const s=freshSave(1000);s.cash=-10;s.cars[0].color='\" onload=\"alert(1)';s.cars[0].upgrades={intake:999};s.settings.difficulty='Injected';const out=validateSave(s,2000);assert.equal(out.cash,0);assert.equal(out.cars[0].color,CARS[0].color);assert.equal(out.cars[0].upgrades.intake,3);assert.equal(out.settings.difficulty,'Easy');
 });
 test('a car assigned to a job remains unavailable until claimed, even after the end timestamp',()=>{
   const s=freshSave(1000);s.business.jobs.push({jobId:'show',carUid:s.selected,endsAt:1100});assert.ok(isBusy(s,s.selected));const restored=validateSave(s,2000);assert.ok(isBusy(restored,restored.selected));
@@ -71,5 +71,5 @@ test('career gates rivals behind the qualifier and open race, and classes behind
   const s=freshSave(1000);assert.equal(eventLocked(s,EVENTS[0]),null);assert.ok(eventLocked(s,EVENTS[3]));assert.ok(eventLocked(s,EVENTS[4]));s.completed=['F-0','F-1'];assert.equal(eventLocked(s,EVENTS[3]),null);s.completed.push('F-3');assert.equal(eventLocked(s,EVENTS[4]),null);
 });
 test('restricted career events enforce drivetrain, mass and aspiration',()=>{
-  const fwd=buildCar(newCar('metro')),rwd=buildCar(newCar('kaze'));assert.ok(restrictionReason(fwd,EVENTS[2]));assert.equal(restrictionReason(rwd,EVENTS[2]),null);assert.ok(restrictionReason(buildCar(newCar('muscle')),EVENTS[6]));
+  const fwd=buildCar(newCar('vortex')),awd=buildCar(newCar('kaze'));assert.ok(restrictionReason(fwd,EVENTS[2]));assert.equal(restrictionReason(awd,EVENTS[2]),null);assert.ok(restrictionReason(buildCar(newCar('muscle')),EVENTS[6]));
 });

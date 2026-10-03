@@ -1,0 +1,10 @@
+{
+  "sourcePackage": "tests/skill-runs/20261002-pipeline/examples/mazda3-gt-turbo-sedan-2021-red/reviewed-v9",
+  "sourceManifest": "docs/art/runtime-provenance/mazda3-gt-turbo-sedan-2021-red/car-sprite.json",
+  "bodySource": "docs/art/staged-roster/mazda3-gt-turbo-sedan-2021-red/body-2d.png",
+  "bodySourceSha256": "dc0ec3438550c6a6dfbac7db02c1e6cfa8c3d17875c2cbf94c9953f1de7970d7",
+  "revision": 9,
+  "reviewFingerprint": "6559e72303266baa354b06caae6d975ea14358df5286e3ff2068dfe9f91887e9",
+  "sourceManifestSha256": "4ebad93d6b8f8f57c2755d9cd91896334944ddea73eb7d31b3861888934fc35e",
+  "conversion": "Exact selected -2d body decoded to lossless WebP; underlay retained separately; measured wheel geometry with original component pixels/scales/pivots. Display framing ignores alpha below 8; native body pixels are retained. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+}

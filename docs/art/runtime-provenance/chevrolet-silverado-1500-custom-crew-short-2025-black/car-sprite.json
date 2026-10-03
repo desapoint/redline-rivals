@@ -1,0 +1,378 @@
+{
+  "schemaVersion": 1,
+  "vehicle": {
+    "id": "chevrolet-silverado-1500-custom-crew-short-2025-black",
+    "make": "Chevrolet",
+    "model": "Silverado 1500",
+    "year": 2025,
+    "trim": "Custom Crew Cab Short Bed TurboMax 4WD (provisional)",
+    "facing": "right"
+  },
+  "revision": 12,
+  "canvas": {
+    "width": 2200,
+    "height": 887
+  },
+  "anchors": {
+    "rearWheel": {
+      "x": 464,
+      "y": 660,
+      "radius": 145
+    },
+    "frontWheel": {
+      "x": 1750,
+      "y": 660,
+      "radius": 145
+    }
+  },
+  "layers": [
+    {
+      "id": "body-glass",
+      "file": "body/glass.png",
+      "z": 420,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-lights",
+      "file": "body/lights.png",
+      "z": 430,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-mirrors",
+      "file": "body/mirrors.png",
+      "z": 450,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-exterior",
+      "file": "body/exterior.png",
+      "z": 400,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "car-underlay",
+      "file": "body/car-underlay.png",
+      "z": 200,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "rear-rotor",
+      "file": "rear-wheel/rotor.png",
+      "z": 300,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 0.13370901639344265,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "rear-caliper",
+      "file": "rear-wheel/caliper.png",
+      "z": 310,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 0.13370901639344265,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "rear-wheel",
+      "file": "rear-wheel/wheel.png",
+      "z": 320,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 0.23500810372771477,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-rotor",
+      "file": "front-wheel/rotor.png",
+      "z": 330,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 0.16936475409836066,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-caliper",
+      "file": "front-wheel/caliper.png",
+      "z": 340,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 0.16936475409836066,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "front-wheel",
+      "file": "front-wheel/wheel.png",
+      "z": 350,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 0.23500810372771477,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    }
+  ],
+  "masks": {
+    "paint": "masks/paint-mask.png"
+  },
+  "sources": [
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\skill-runs\\20261002-pipeline\\examples\\chevrolet-silverado-1500-custom-crew-short-2025-black\\inputs\\staged-roster\\chevrolet-silverado-1500-custom-crew-short-2025-black\\body-2d.png",
+      "sha256": "d3a84a84df7d34d37de24f5e7b42d6fc6baca7daec421bbc7e619012eb9a4432",
+      "archivedFile": "inputs/body.png"
+    },
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\skill-runs\\20261002-pipeline\\examples\\chevrolet-silverado-1500-custom-crew-short-2025-black\\inputs\\staged-roster\\chevrolet-silverado-1500-custom-crew-short-2025-black\\wheel.png",
+      "sha256": "cd35d80bbb3cd8bed089405d1e23b3909244b29c65f78f710c9999c7c158e8ef",
+      "archivedFile": "inputs/wheel.png"
+    },
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\skill-runs\\20261002-pipeline\\examples\\chevrolet-silverado-1500-custom-crew-short-2025-black\\inputs\\staged-roster\\chevrolet-silverado-1500-custom-crew-short-2025-black\\brake.png",
+      "sha256": "f3466c72c71b11957a10e33fd4a3df4cd7bee429f37b1bba680b3f85a25ae912",
+      "archivedFile": "inputs/brake.png"
+    },
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\skill-runs\\20261002-pipeline\\examples\\chevrolet-silverado-1500-custom-crew-short-2025-black\\inputs\\staged-roster\\chevrolet-silverado-1500-custom-crew-short-2025-black\\metadata.json",
+      "sha256": "227e1df02e1b7e4bb72e044e4821e18bd6008d2a94c2f92fe7e85ec2247ae3f7",
+      "archivedFile": "inputs/referenceMetadata.json"
+    }
+  ],
+  "notes": [
+    "Derived only from the selected source bytes. Native coordinate crops establish contours; prior coarse masks are preserved in earlier runs.",
+    "Glass, lights and mirrors are semantic source partitions; any unpartitioned fine edges, shading, linework and trim remain in the fused exterior layer.",
+    "Paint regression samples cover inspected painted panels and protected areas, including previous observed failures; they supplement full visual inspection.",
+    "Brake radius ratios and illustrated component identity are modeling choices, not factory measurements. Source artwork identity is inherited, not independently OEM-certified.",
+    "Rotor repair includes a measured occlusion/shadow fringe beyond the tight caliper contour; complete caliper pads are retained separately. Opposite-side clean source pixels rebuild the hidden disc.",
+    "Wheel centers/radii remeasured against the alpha openings after user placement review; rotor/caliper scales follow each corrected hub; tire contact lines match. No source pixels or factory physics changed.",
+    "Explicit rounded-rectangle arch envelopes clipped to original body alpha; tire circles only locate rotating components. Native fenders, wheel placement, paint masks and separated mechanical pixels unchanged."
+  ],
+  "paintSamples": [
+    {
+      "x": 900,
+      "y": 190,
+      "expected": "paint",
+      "label": "roof"
+    },
+    {
+      "x": 750,
+      "y": 300,
+      "expected": "paint",
+      "label": "rear cab pillar"
+    },
+    {
+      "x": 420,
+      "y": 450,
+      "expected": "paint",
+      "label": "bed"
+    },
+    {
+      "x": 850,
+      "y": 500,
+      "expected": "paint",
+      "label": "rear door"
+    },
+    {
+      "x": 1450,
+      "y": 565,
+      "expected": "paint",
+      "label": "previous door rectangle"
+    },
+    {
+      "x": 1840,
+      "y": 390,
+      "expected": "paint",
+      "label": "previous hood rectangle"
+    },
+    {
+      "x": 900,
+      "y": 350,
+      "expected": "protected",
+      "label": "rear glass lower edge"
+    },
+    {
+      "x": 1260,
+      "y": 350,
+      "expected": "protected",
+      "label": "previous front glass rectangle"
+    },
+    {
+      "x": 1240,
+      "y": 260,
+      "expected": "protected",
+      "label": "previous diagonal glass spill"
+    },
+    {
+      "x": 1470,
+      "y": 350,
+      "expected": "protected",
+      "label": "mirror"
+    },
+    {
+      "x": 1930,
+      "y": 437,
+      "expected": "protected",
+      "label": "lamp"
+    },
+    {
+      "x": 820,
+      "y": 430,
+      "expected": "protected",
+      "label": "handle"
+    },
+    {
+      "x": 850,
+      "y": 665,
+      "expected": "protected",
+      "label": "rocker trim"
+    },
+    {
+      "x": 1300,
+      "y": 263,
+      "expected": "protected",
+      "label": "upper front glass reflection previously tinted"
+    },
+    {
+      "x": 2080,
+      "y": 601,
+      "expected": "protected",
+      "label": "front plastic bumper edge"
+    },
+    {
+      "x": 1250,
+      "y": 230,
+      "expected": "protected",
+      "label": "inspected upper glass reflection"
+    },
+    {
+      "x": 1300,
+      "y": 245,
+      "expected": "protected",
+      "label": "inspected upper glass reflection"
+    },
+    {
+      "x": 1350,
+      "y": 275,
+      "expected": "protected",
+      "label": "inspected upper glass reflection"
+    },
+    {
+      "x": 1400,
+      "y": 310,
+      "expected": "protected",
+      "label": "inspected upper glass reflection"
+    }
+  ],
+  "archProfiles": [
+    {
+      "axle": "rear",
+      "shape": "rounded-rectangle",
+      "bounds": [
+        310,
+        475,
+        610,
+        674
+      ],
+      "cornerRadii": [
+        55,
+        55,
+        0,
+        0
+      ]
+    },
+    {
+      "axle": "front",
+      "shape": "rounded-rectangle",
+      "bounds": [
+        1600,
+        475,
+        1900,
+        674
+      ],
+      "cornerRadii": [
+        55,
+        55,
+        0,
+        0
+      ]
+    }
+  ]
+}

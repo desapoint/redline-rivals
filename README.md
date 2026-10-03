@@ -2,6 +2,8 @@
 
 A playable, single-player 2D drag racing game for the browser. No build step, accounts, or runtime npm dependencies.
 
+The game uses a viewport-sized interface with a Phaser-powered garage, HUD, bottom game menu, paged collections and native detail dialogs. Race results print as animated two-lane timing slips. See [the interface and engine research](docs/web-game-interface.md) for the library comparison, included Phaser license and verification coverage.
+
 ## Run
 
 Use Node.js 18 or newer:
@@ -22,7 +24,7 @@ Run `npm run build` to prepare the static site locally. Relative asset and modul
 
 ## Play
 
-Start with a Kaze S13 and $4,500. Hit the strip for a free race, or enter Career. Stage the car and watch the lights. Easy difficulty starts with automatic launch and transmission.
+Start with a 2021 Mazda3 GT Turbo and $4,500. Hit the strip for a free race, or enter Career. Stage the car and watch the lights. Easy difficulty starts with automatic launch and transmission.
 
 - **W / ↑**: hold throttle
 - **Space**: launch / engage first gear
@@ -38,21 +40,21 @@ The winning lane is determined by **reaction + elapsed time**. Personal bests an
 
 ## Included
 
-- 10 fictional vehicles covering F, E, D, C, B, A and S performance classes.
+- Four real-car demo vehicles: 2021 Mazda3 GT Turbo, 2025 Silverado 1500 Custom, 2022 Kia Forte GT and 2020 Nissan Rogue. Dealership, free races, career opponents and prizes all use their production sprites.
 - 28 career events: qualifications, open races, restrictions and seven named rivals. Win a qualification and open challenge to face each rival. Rival wins unlock the next class and award prize cars on first completion.
 - Free races at 60 ft, ⅛, ¼, ½ and 1 mile; three surfaces, day/night, dry/wet, selected or matched opponents.
 - Five difficulty presets and independently configurable launch, transmission, traction, rev matching, staging, shift hints and mechanical damage.
 - Engine torque interpolation, derived power, individual gear ratios, torque interruption, clutch coupling, turbo spool, tire slip, driven-wheel load and weight transfer, aerodynamic drag and rolling resistance. AI uses this same simulation.
 - Ten upgrade families, increasing purchase costs, reputation gates, tradeoffs, condition and servicing.
 - Live stock/current dyno graphs; adjustable launch RPM, shift target, tire pressure, differential, boost and final drive. Individual ratios unlock with a transmission upgrade. Tune presets persist with each car.
-- Paint, finishes, wheels, stripe, spoiler, window tint and ride height rendered as layered vector car artwork.
+- Native `body-2d` artwork for all four vehicles, with measured wheel positions, separate rotating wheels/rotors, stationary calipers, masked repainting and ride height. The proposed shader/fixture redesign remains deferred.
 - Garage business: six levels, capped offline earnings and three customer jobs that temporarily reserve assigned cars.
-- Automatic local saving, validated save import, downloadable export and explicit reset confirmation.
+- Automatic local saving, validated save import, downloadable export and explicit reset confirmation. Older fictional-car saves migrate to real vehicles while retaining owned UIDs, upgrades, paint, records and career progress.
 - Responsive layouts, touch pedals, optional engine audio and automatic pausing when the tab is hidden.
 
 ## Data and simulation limits
 
-Cars and dyno curves are fictional gameplay models, not licensed vehicles or measured dyno curves. Factory reference data is kept separately and shown in Technical data:
+All four real vehicles use the existing manufacturer research, with estimated torque curves and simulation assumptions kept separately. Unknown factory measurements stay null. **Factory specs & sources** dialogs show both datasets without scrolling. The Forte's seven-speed DCT preserves both factory final drives through equivalent overall gearing. The Rogue uses continuous CVT gearing with a modeled RPM target and ratio range; factory CVT ratios remain unknown. Its SV AWD configuration is provisional. Shift buttons and fixed-gear transmission upgrades are unavailable on the CVT. The other seven cars retain fictional engineering models and these references:
 
 - Hikari Roadster: [2016 Mazda MX-5 manufacturer press kit](https://news.mazdausa.com/download/2016_Mazda_MX-5_Press_Kit.pdf), 155 HP, approximately 201 Nm, approximately 1,058 kg.
 - Stallion 5.0: [2024 Mustang GT manufacturer power announcement](https://media.ford.com/content/fordmedia/fna/mx/es/news/2022/12/16/iho-ho-ho--el-nuevo-mustang-dark-horse-ofrece-500-caballos-de-fu.html), 480 HP.
@@ -64,6 +66,12 @@ Income accrues from wall-clock timestamps with a bank cap. Because saves are loc
 The referenced conversation was returned truncated at 20,000 characters, ending during section 38 (Garage Upgrades). This implementation follows the accessible design and original requirements. Eventual engine swaps, the full catalog of individual body panels and later racing modes are extension points.
 
 ## Verify
+
+The **[Test Drive Lab](http://localhost:5173/test-drive.html)** provides continuous driving, the shared drag HUD plus analog gauges, keyboard/touch pedals, manual/automatic shifting, neutral/rev blips, a practice launch tree, burnouts, braking, rolling starts, tuning, layered artwork, telemetry plots and CSV export. It reads garage builds without saving test changes. See [lab controls and behavior](docs/test-drive-lab.md). The page is bundled for Pages and linked from Settings and the asset gallery.
+
+The reviewed Mazda3 and Silverado packages are playable in the garage, races, dealership and test-drive lab. Open **http://localhost:5173/asset-preview.html** to inspect compositing, geometry, paint and rotation. See [the integration contract](docs/car-layer-integration.md) for source provenance, native pivots and save compatibility. Kia and Rogue artwork remains staged for a later integration pass. Factory specs and explicit simulation assumptions are available in paged **Factory specs & sources** dialogs.
+
+`npm run check:assets` validates production metadata and image file availability. The Pages build runs the same validation and includes registered runtime assets and the preview page.
 
 ```sh
 npm test
@@ -86,6 +94,8 @@ The browser test launches an isolated headless Chrome/Edge context; it does not 
 - `src/physics.js`: shared driver/AI simulation and performance estimation.
 - `src/storage.js`: save validation and offline economy.
 - `src/graphics.js`: car layers and track rendering.
+- `src/car-assets.js`, `src/sprite-geometry.js`, `src/sprite-renderer.js`: validated layered assets, native attachment transforms, cached SVG/Canvas compositing and component swaps.
+- `asset-preview.html`: isolated artwork preview with the shared renderer.
 - `src/views.js`: garage, tuning, career, business and race interface.
 - `src/app.js`: input, race state machine, progression and persistence.
 - `src/audio.js`: synthesized engine audio.

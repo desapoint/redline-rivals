@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "vehicle": {
+    "make": "Nissan",
+    "model": "Rogue",
+    "year": 2020,
+    "trim": "SV AWD (provisional)",
+    "id": "nissan-rogue-2020-red",
+    "facing": "right"
+  },
+  "revision": 3,
+  "canvas": {
+    "width": 2200,
+    "height": 887
+  },
+  "anchors": {
+    "rearWheel": {
+      "x": 499,
+      "y": 675,
+      "radius": 172
+    },
+    "frontWheel": {
+      "x": 1673,
+      "y": 675,
+      "radius": 172
+    }
+  },
+  "layers": [
+    {
+      "id": "body-lights",
+      "file": "body/lights.png",
+      "z": 430,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-exterior",
+      "file": "body/exterior.png",
+      "z": 400,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "car-underlay",
+      "file": "body/car-underlay.png",
+      "z": 200,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "rear-rotor",
+      "file": "rear-wheel/rotor.png",
+      "z": 300,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 0.2253275109170306,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "rear-caliper",
+      "file": "rear-wheel/caliper.png",
+      "z": 310,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 0.2253275109170306,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "rear-wheel",
+      "file": "rear-wheel/wheel.png",
+      "z": 320,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 0.30228471001757473,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-rotor",
+      "file": "front-wheel/rotor.png",
+      "z": 330,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 0.262882096069869,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-caliper",
+      "file": "front-wheel/caliper.png",
+      "z": 340,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 0.262882096069869,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "front-wheel",
+      "file": "front-wheel/wheel.png",
+      "z": 350,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 0.30228471001757473,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    }
+  ],
+  "masks": {
+    "paint": "masks/paint-mask.png"
+  },
+  "sources": [
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\car-integration\\20261003\\nissan-rogue-2020-red\\inputs\\body-2d.png",
+      "sha256": "17031392c4c527099904d5cb87f1e45afb3d7f91a7d07c6f269d2aa63b1eb3b0",
+      "archivedFile": "inputs/body.png"
+    },
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\car-integration\\20261003\\nissan-rogue-2020-red\\inputs\\wheel.png",
+      "sha256": "f76548d3ce7001e2a6d5f83aad3e4ce1492f5707da6faec472e67812b3b86954",
+      "archivedFile": "inputs/wheel.png"
+    },
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\car-integration\\20261003\\nissan-rogue-2020-red\\inputs\\brake.png",
+      "sha256": "464fbd89a82c6e83585801a12aafd8ea47c9ae467006ff1f66174c5f19f433fe",
+      "archivedFile": "inputs/brake.png"
+    },
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\car-integration\\20261003\\nissan-rogue-2020-red\\inputs\\metadata.json",
+      "sha256": "d3d825a3ea29290292d8ce26a27f932218b9a61713480db4c000cf22ff9e9751",
+      "archivedFile": "inputs/referenceMetadata.json"
+    }
+  ],
+  "notes": [
+    "Existing staged master and native parts preserved. Fine trim, glass, mirrors and shading remain in the exterior.",
+    "Component circles and caliper/arch contours measured against the native source. Brake size ratios and source OEM identity remain illustrative assumptions.",
+    "Factory paint names are inherited; digital colors remain illustrative.",
+    "Revision 1 visual review found coarse lamp contours protecting painted hood and taillamp surround. Revision 2 contours follow actual lenses/black housings; original failed package remains preserved.",
+    "Wheel centers/radii remeasured against the alpha openings after user placement review; rotor/caliper scales follow each corrected hub; tire contact lines match. No source pixels or factory physics changed."
+  ],
+  "paintSamples": [
+    {
+      "x": 900,
+      "y": 500,
+      "expected": "paint",
+      "label": "door"
+    },
+    {
+      "x": 830,
+      "y": 160,
+      "expected": "paint",
+      "label": "roof"
+    },
+    {
+      "x": 800,
+      "y": 270,
+      "expected": "protected",
+      "label": "glass"
+    },
+    {
+      "x": 230,
+      "y": 330,
+      "expected": "protected",
+      "label": "taillamp"
+    }
+  ]
+}

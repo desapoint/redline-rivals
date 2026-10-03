@@ -1,0 +1,20 @@
+{
+  "accepted": true,
+  "reviewer": "Codex",
+  "checks": [
+    "alpha-backgrounds",
+    "complete-rotors",
+    "complete-tires",
+    "fender-occlusion",
+    "hub-alignment",
+    "identity",
+    "layer-isolation",
+    "paint-coverage-exclusions",
+    "stationary-calipers",
+    "underlay-coverage"
+  ],
+  "notes": "Inspected native source crops, isolated mechanical components, all four rotations, caliper-only comparisons, contrast backgrounds, wheels-hidden arches, paint-mask overlay and contrasting recolor; exercised the browser controls. Identity is matched to the selected illustrated master, with inherited trim uncertainty and modeled brake ratios. Exterior reconstruction preserves all visible master pixels. Revision 9 archives native reference metadata and retains revision 8 artwork exactly. Sources and replay files match byte for byte.",
+  "unresolvedIssues": [],
+  "contentFingerprint": "6559e72303266baa354b06caae6d975ea14358df5286e3ff2068dfe9f91887e9",
+  "qaReportHash": "89ea218f788f2ed7015c57c234b03a0c220152835b895f3f84418a4be234d3c9"
+}

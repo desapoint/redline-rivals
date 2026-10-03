@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "vehicle": {
+    "make": "Kia",
+    "model": "Forte",
+    "year": 2022,
+    "trim": "GT Sedan",
+    "id": "kia-forte-gt-sedan-2022-orange",
+    "facing": "right"
+  },
+  "revision": 2,
+  "canvas": {
+    "width": 1932,
+    "height": 1000
+  },
+  "anchors": {
+    "rearWheel": {
+      "x": 464,
+      "y": 665,
+      "radius": 134
+    },
+    "frontWheel": {
+      "x": 1487,
+      "y": 665,
+      "radius": 134
+    }
+  },
+  "layers": [
+    {
+      "id": "body-lights",
+      "file": "body/lights.png",
+      "z": 430,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-exterior",
+      "file": "body/exterior.png",
+      "z": 400,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "car-underlay",
+      "file": "body/car-underlay.png",
+      "z": 200,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "rear-rotor",
+      "file": "rear-wheel/rotor.png",
+      "z": 300,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 0.17787610619469024,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "rear-caliper",
+      "file": "rear-wheel/caliper.png",
+      "z": 310,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 0.17787610619469024,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "rear-wheel",
+      "file": "rear-wheel/wheel.png",
+      "z": 320,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 0.22711864406779658,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-rotor",
+      "file": "front-wheel/rotor.png",
+      "z": 330,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 0.2075221238938053,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-caliper",
+      "file": "front-wheel/caliper.png",
+      "z": 340,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 0.2075221238938053,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "front-wheel",
+      "file": "front-wheel/wheel.png",
+      "z": 350,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 0.22711864406779658,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    }
+  ],
+  "masks": {
+    "paint": "masks/paint-mask.png"
+  },
+  "sources": [
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\car-integration\\20261003\\kia-forte-gt-sedan-2022-orange\\inputs\\body-2d.png",
+      "sha256": "52b42926f3c6f098627adc90145db3964fdf842ce2192b5e071729e6a8a97cfc",
+      "archivedFile": "inputs/body.png"
+    },
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\car-integration\\20261003\\kia-forte-gt-sedan-2022-orange\\inputs\\wheel.png",
+      "sha256": "89b2f8d5e94375b5910ff45d0d67ced397f10b3d978b2fcf84d164c6837ffd20",
+      "archivedFile": "inputs/wheel.png"
+    },
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\car-integration\\20261003\\kia-forte-gt-sedan-2022-orange\\inputs\\brake.png",
+      "sha256": "1a9b2d6fcde4660579d704cb2f479caeca55cc0039f479d996503b09f9744420",
+      "archivedFile": "inputs/brake.png"
+    },
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\car-integration\\20261003\\kia-forte-gt-sedan-2022-orange\\inputs\\metadata.json",
+      "sha256": "480a2b03b0f2c314853f8b3d5b8fa20c5aad4ea14ce7d601ba857e3021982c0b",
+      "archivedFile": "inputs/referenceMetadata.json"
+    }
+  ],
+  "notes": [
+    "Existing staged master and native parts preserved. Fine trim, glass, mirrors and shading remain in the exterior.",
+    "Component circles and caliper/arch contours measured against the native source. Brake size ratios and source OEM identity remain illustrative assumptions.",
+    "Factory paint names are inherited; digital colors remain illustrative.",
+    "Wheel centers/radii remeasured against the alpha openings after user placement review; rotor/caliper scales follow each corrected hub; tire contact lines match. No source pixels or factory physics changed."
+  ],
+  "paintSamples": [
+    {
+      "x": 800,
+      "y": 520,
+      "expected": "paint",
+      "label": "front door"
+    },
+    {
+      "x": 830,
+      "y": 255,
+      "expected": "paint",
+      "label": "roof"
+    },
+    {
+      "x": 850,
+      "y": 350,
+      "expected": "protected",
+      "label": "glass"
+    },
+    {
+      "x": 215,
+      "y": 438,
+      "expected": "protected",
+      "label": "taillamp"
+    }
+  ]
+}

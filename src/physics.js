@@ -1,4 +1,5 @@
-import { CARS, CLASSES } from './data.js';
+import { CARS, LEGACY_CARS, CLASSES } from './data.js';
+import { advanceWheelRotation } from './sprite-geometry.js';
 export const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
 export function interpolate(points,x){
   if(x<=points[0][0])return points[0][1];
@@ -13,7 +14,7 @@ export function torqueAt(c,rpm){
   return c.torque*fraction*boost*c.torqueScale*factoryBoost;
 }
 export function buildCar(owned){
-  const base=CARS.find(c=>c.id===owned.model)||CARS[0],u={tires:base.factoryTires,...owned.upgrades},t=owned.tune||{};
+  const base=CARS.find(c=>c.id===owned.model)||LEGACY_CARS.find(c=>c.id===owned.model)||CARS[0],u={tires:base.factoryTires,...owned.upgrades},t=owned.tune||{};
   const c={...base,factoryAspiration:base.aspiration,torqueScale:1+(u.intake||0)*0.08+(u.ecu||0)*0.07+(u.internals||0)*0.1,
     redline:base.redline+(u.ecu||0)*150+(u.internals||0)*200,
     mass:base.mass*(1-(u.weight||0)*0.06),turboStage:u.turbo||0,
@@ -26,7 +27,7 @@ export function buildCar(owned){
     shiftRPM:t.shiftRPM||0,pressure:t.pressure||30,diff:t.diff??70,boost:t.boost??100,
     condition:owned.condition??100,tires:u.tires||0,color:owned.color||base.color,visual:owned.visual||{},uid:owned.uid};
   c.turboStage*=c.boost/100;
-  // Normalize fictional curve to the specified factory horsepower; retain separate reference data.
+  // Normalize the estimated curve to factory horsepower; retain sourced facts separately.
   let peak=0;for(let r=1000;r<=base.redline;r+=50)peak=Math.max(peak,interpolate(base.curve,r/base.redline)*base.torque*r/7127);
   c.torqueScale*=base.hp/peak;
   c.hp=0;c.peakTorque=0;
@@ -35,14 +36,16 @@ export function buildCar(owned){
   return c;
 }
 export function idealShift(c,gear=1){
+  if(c.transmissionType==='cvt')return clamp(c.shiftRPM||c.cvt.targetRPM,900,c.redline-100);
   if(gear>=c.ratios.length)return c.redline-100;
   const ratio=c.ratios[gear]/c.ratios[gear-1];
   for(let r=c.redline*0.62;r<c.redline-100;r+=25){if(torqueAt(c,r)*c.ratios[gear-1]<torqueAt(c,r*ratio)*c.ratios[gear])return Math.round(r/25)*25;}
   return c.redline-100;
 }
-export function createVehicle(c){return {car:c,x:0,v:0,rpm:c.launchRPM,gear:1,elapsed:0,shiftTimer:0,slip:0,boost:0,temperature:25,tireWear:0,acceleration:0,splits:{},finished:false,finishTime:null,trap:0,zero60:null,stress:0,feedback:'',reaction:0,started:false};}
+export function createVehicle(c){return {car:c,x:0,v:0,rpm:c.launchRPM,gear:1,cvtRatio:c.cvt?.maxRatio,elapsed:0,shiftTimer:0,slip:0,boost:0,temperature:25,tireWear:0,acceleration:0,splits:{},finished:false,finishTime:null,trap:0,zero60:null,stress:0,feedback:'',reaction:0,started:false};}
 export function shiftVehicle(s,direction=1,{revMatch=true,clutch=true,blip=false}={}){
   const c=s.car,target=s.gear+direction;
+  if(c.transmissionType==='cvt')return null;
   if(s.shiftTimer>0||target<1||target>c.ratios.length||s.finished)return null;
   if(!clutch){s.feedback='CLUTCH REQUIRED';s.stress+=0.12;return s.feedback;}
   const ideal=idealShift(c,s.gear),diff=s.rpm-ideal;
@@ -53,12 +56,19 @@ export function shiftVehicle(s,direction=1,{revMatch=true,clutch=true,blip=false
   if(feedback==='ROUGH DOWNSHIFT')s.stress+=0.2;
   s.gear=target;s.rpm=clamp(needed,850,c.redline+300);s.feedback=feedback;return feedback;
 }
-export function stepVehicle(s,dt,{throttle=1,clutch=1,traction=0.5,surface=1,wet=false,distance=402.336,burnout=false}={}){
+export function stepVehicle(s,dt,{throttle=1,clutch=1,traction=0.5,surface=1,wet=false,distance=402.336,burnout=false,launchHold=true}={}){
   if(s.finished||!s.started)return;
   const c=s.car,oldX=s.x,oldElapsed=s.elapsed,oldV=s.v;
   s.elapsed+=dt;s.shiftTimer=Math.max(0,s.shiftTimer-dt);
-  const wheelRPM=s.v/(2*Math.PI*c.radius)*60*c.ratios[s.gear-1]*c.finalDrive;
-  const launchFloor=c.launchRPM*clamp(1-s.v/15,0,1);
+  const axleRPM=s.v/(2*Math.PI*c.radius)*60*c.finalDrive;
+  if(c.transmissionType==='cvt'){
+    const target=900+throttle*(idealShift(c)-900);
+    const desired=clamp(target/Math.max(axleRPM,1),c.cvt.minRatio,c.cvt.maxRatio);
+    s.cvtRatio+=(desired-s.cvtRatio)*Math.min(1,dt*c.cvt.response);
+  }
+  const ratio=c.transmissionType==='cvt'?s.cvtRatio:c.ratios[s.gear-1];
+  const wheelRPM=axleRPM*ratio;
+  const launchFloor=launchHold?c.launchRPM*clamp(1-s.v/15,0,1):0;
   const coupled=clutch>0.05?Math.max(900,wheelRPM,launchFloor):900+throttle*(c.redline-900);
   s.rpm+=(coupled-s.rpm)*Math.min(1,dt*13);
   if(s.slip>0.12)s.rpm+=s.slip*dt*1000;
@@ -70,7 +80,7 @@ export function stepVehicle(s,dt,{throttle=1,clutch=1,traction=0.5,surface=1,wet
   const tq=torqueAt(c,s.rpm)*throttle*lag*(0.85+0.15*c.condition/100);
   const capacity=Math.min(1,c.torqueCapacity/Math.max(tq,1));
   const limiter=s.rpm>=c.redline?0.25:1;
-  const wheelForce=s.shiftTimer>0?0:tq*c.ratios[s.gear-1]*c.finalDrive*c.efficiency/c.radius*clutch*capacity*limiter;
+  const wheelForce=s.shiftTimer>0?0:tq*ratio*c.finalDrive*c.efficiency/c.radius*clutch*capacity*limiter;
   const transfer=clamp(s.acceleration/9.81*0.20,-0.1,0.20);
   const driven=c.drive==='AWD'?0.94:c.drive==='RWD'?0.52+transfer:0.62-transfer;
   const pressure=1-Math.abs(c.pressure-(c.tires>=3?22:30))*0.008;
@@ -90,10 +100,11 @@ export function stepVehicle(s,dt,{throttle=1,clutch=1,traction=0.5,surface=1,wet
     if(!s.splits[name]&&oldX<mark&&s.x>=mark)s.splits[name]=oldElapsed+dt*(mark-oldX)/(s.x-oldX);
   }
   if(s.x>=distance){s.finished=true;s.finishTime=oldElapsed+dt*(distance-oldX)/(s.x-oldX);s.trap=s.v*3.6;s.x=distance;}
+  s.wheelRotation=advanceWheelRotation(s.wheelRotation,c,s.x-oldX,s.slip);
 }
 const estimates=new Map();
 export function estimate(c,distance=402.336){
-  const key=JSON.stringify([c.id,c.hp,c.mass,c.grip,c.redline,c.shiftTime,c.finalDrive,c.ratios,c.launchRPM,c.pressure,c.diff,c.boost,c.condition,distance]);
+  const key=JSON.stringify([c.id,c.hp,c.mass,c.grip,c.redline,c.shiftTime,c.finalDrive,c.ratios,c.cvt,c.launchRPM,c.pressure,c.diff,c.boost,c.condition,distance]);
   if(estimates.has(key))return estimates.get(key);
   const s=createVehicle(c);s.started=true;
   for(let i=0;i<7200&&!s.finished;i++){
@@ -117,7 +128,7 @@ export function componentRatings(c){
     {name:'Launch',tier:grade(-e.splits['60ft'],[-2.7,-2.5,-2.3,-2.1,-1.9,-1.7]),value:`${e.splits['60ft'].toFixed(2)} sec / 60 ft`},
     {name:'Grip',tier:grade(c.grip,[1.12,1.28,1.42,1.60,1.75,1.90]),value:`${c.grip.toFixed(2)} coefficient`},
     {name:'Weight',tier:grade(-c.mass,[-1850,-1600,-1400,-1250,-1100,-950]),value:`${Math.round(c.mass)} kg`},
-    {name:'Transmission',tier:grade(-c.shiftTime,[-.32,-.26,-.21,-.16,-.10,-.07]),value:`${Math.round(c.shiftTime*1000)} ms`},
+    {name:'Transmission',tier:c.transmissionType==='cvt'?'—':grade(-c.shiftTime,[-.32,-.26,-.21,-.16,-.10,-.07]),value:c.transmissionType==='cvt'?'Continuous ratio':`${Math.round(c.shiftTime*1000)} ms`},
     {name:'Aero',tier:grade(-c.cd,[-.40,-.36,-.33,-.30,-.27,-.24]),value:`${c.cd.toFixed(3)} Cd`},
     {name:'Reliability',tier:grade(c.condition,[40,50,60,70,85,95]),value:`${Math.round(c.condition)}% condition`}
   ];

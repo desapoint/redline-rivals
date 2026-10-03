@@ -1,0 +1,181 @@
+{
+  "manufacturerReference": {
+    "year": 2020,
+    "make": "Nissan",
+    "model": "Rogue",
+    "trim": "SV (provisional visual/spec assumption)",
+    "market": "United States for provisional SV/AWD powertrain; Canada for factory palette",
+    "body": "2nd-generation T32 4-door crossover SUV",
+    "requestedPaint": "Scarlet Ember (NBL; 2020 Canadian Rogue brochure name)",
+    "engine": {
+      "displacementL": 2.5,
+      "layout": "inline",
+      "cylinders": 4,
+      "aspiration": "naturally aspirated",
+      "fuelType": "gasoline"
+    },
+    "power": [
+      {
+        "hp": 170,
+        "rpm": 6000
+      }
+    ],
+    "torque": [
+      {
+        "lbFt": 175,
+        "rpm": 4400
+      }
+    ],
+    "redlineRpm": null,
+    "curbMassKg": null,
+    "drivetrain": "AWD (provisional assumption; trim/drive not specified by user)",
+    "transmission": {
+      "type": "Xtronic CVT with D-Step Shift Logic",
+      "gears": null,
+      "ratios": null,
+      "finalDrive": null
+    },
+    "tireSize": "P225/65R17 (SV base configuration; optional P225/60R18 with package)",
+    "wheelbaseMm": 2706,
+    "lengthMm": 4686,
+    "widthMm": 1840,
+    "heightMm": 1741,
+    "dragCoefficient": null,
+    "frontalAreaM2": null,
+    "notes": [
+      "Preserves 2020 T32 body; not the redesigned 2021 Rogue or Rogue Sport.",
+      "SV AWD is a provisional assumption, not a user-supplied trim/drive selection.",
+      "CVT does not have conventional fixed forward gear ratios; none are fabricated.",
+      "Default red is Scarlet Ember (paint code NBL), as named in the 2020 Canadian Rogue brochure.",
+      "No digital RGB/hex is claimed from the printed brochure.",
+      "Canadian palette uses color names/codes from the exact-year brochure; selected SV/AWD remains provisional and based on U.S. reference.",
+      "Canadian palette uses color names/codes from the exact-year brochure; selected SV/AWD remains provisional and based on U.S. reference."
+    ],
+    "sourceFieldMap": [
+      {
+        "url": "https://usa.nissannews.com/en-US/releases/2020-nissan-rogue-key-facts-and-figures",
+        "fields": [
+          "2020 U.S. Rogue engine output and CVT; body generation and model facts"
+        ]
+      },
+      {
+        "url": "https://usa.nissannews.com/en-US/releases/2020-nissan-rogue-overview",
+        "fields": [
+          "U.S. trim and drive availability; options overview"
+        ]
+      },
+      {
+        "url": "https://www.nissanusa.com/content/dam/Nissan/us/vehicle-brochures/2020/2020-nissan-rogue-brochure-en.pdf",
+        "fields": [
+          "U.S. model equipment and available tire/trim context"
+        ]
+      },
+      {
+        "url": "https://www.nissan.ca/content/dam/Nissan/Canada/vehicle-brochures/en/2020/2020-nissan-rogue-en.pdf",
+        "fields": [
+          "Canadian factory palette names and paint codes including Scarlet Ember NBL"
+        ]
+      }
+    ],
+    "unknownFieldsExplicitlyNull": true,
+    "paintCode": "NBL"
+  },
+  "gameplayModel": {
+    "status": "provisional balancing data; not measured dyno data",
+    "torqueCurve": {
+      "rpm": [
+        1000,
+        1800,
+        2500,
+        3500,
+        4400,
+        5000,
+        6000,
+        6500
+      ],
+      "lbFt": [
+        125,
+        155,
+        165,
+        172,
+        175,
+        168,
+        148.7,
+        135
+      ],
+      "source": "estimated torque points for a gameplay model; not measured dyno data"
+    },
+    "powerDerivedFromTorque": true,
+    "drivetrainLossFraction": null,
+    "gearRatios": null,
+    "shiftInterruptionMs": null,
+    "clutchTorqueCapacityNm": null,
+    "weightDistribution": null,
+    "tireGrip": null,
+    "tirePressureKPa": null,
+    "temperatureModel": null,
+    "dragCoefficient": null,
+    "frontalAreaM2": null,
+    "upgradePotential": null,
+    "reliability": null,
+    "performanceClass": null,
+    "performancePoints": null,
+    "selectedFuelProfile": "manufacturer-rated regular fuel",
+    "powerCurveDerivedFromTorque": [
+      {
+        "rpm": 1000,
+        "hp": 23.8
+      },
+      {
+        "rpm": 1500,
+        "hp": 41.06
+      },
+      {
+        "rpm": 2000,
+        "hp": 60.11
+      },
+      {
+        "rpm": 2500,
+        "hp": 78.54
+      },
+      {
+        "rpm": 3000,
+        "hp": 96.25
+      },
+      {
+        "rpm": 3500,
+        "hp": 114.62
+      },
+      {
+        "rpm": 4000,
+        "hp": 132.27
+      },
+      {
+        "rpm": 4500,
+        "hp": 148.94
+      },
+      {
+        "rpm": 5000,
+        "hp": 159.94
+      },
+      {
+        "rpm": 5500,
+        "hp": 165.83
+      },
+      {
+        "rpm": 6000,
+        "hp": 169.88
+      },
+      {
+        "rpm": 6500,
+        "hp": 167.08
+      }
+    ],
+    "expectedPeakHorsepowerHp": 170,
+    "interpolatedPeakHorsepowerHp": 169.878,
+    "notes": [
+      "Interpolated 10-rpm torque-to-power sweep is checked against selected factory horsepower rating; torque/power curve remains an estimated balancing curve.",
+      "Interpolated 10-rpm torque-to-power sweep is checked against selected factory horsepower rating; torque/power curve remains an estimated balancing curve."
+    ]
+  }
+}

@@ -1,7 +1,24 @@
-import { CARS, PARTS, BUSINESS_RATES, BUSINESS_CAPS, JOBS, EVENTS, DIFFICULTIES } from './data.js';
+import { CARS, LEGACY_CARS, LEGACY_MODEL_REPLACEMENTS, PARTS, BUSINESS_RATES, BUSINESS_CAPS, JOBS, EVENTS, DIFFICULTIES } from './data.js';
 import { clamp } from './physics.js';
+import { isAssetId } from './sprite-geometry.js';
 export const SAVE_KEY='redline-drag-club-v1';
-export const newCar=(model)=>({uid:`${model}-${Math.random().toString(36).slice(2,9)}`,model,color:CARS.find(c=>c.id===model)?.color||'#e6603b',upgrades:{tires:CARS.find(c=>c.id===model)?.factoryTires||0},tune:{},visual:{wheels:'silver',finish:'metallic',stripe:false,spoiler:false,tint:0.45,rideHeight:0},condition:100});
+export const newCar=(model)=>({uid:`${model}-${Math.random().toString(36).slice(2,9)}`,model,vehicleRevision:CARS.find(c=>c.id===model)?.vehicleRevision||0,color:CARS.find(c=>c.id===model)?.color||'#e6603b',upgrades:{tires:CARS.find(c=>c.id===model)?.factoryTires||0},tune:{},visual:{wheels:'silver',finish:'metallic',stripe:false,spoiler:false,tint:0.45,rideHeight:0},condition:100});
+function migrateVehicle(owned){
+  if(Object.hasOwn(LEGACY_MODEL_REPLACEMENTS,owned.model)){
+    const old=LEGACY_CARS.find(c=>c.id===owned.model),replacement=LEGACY_MODEL_REPLACEMENTS[owned.model];
+    owned={...owned,model:replacement,vehicleRevision:1,color:owned.color===old.color?CARS.find(c=>c.id===replacement).color:owned.color};
+  }
+  const model=CARS.find(c=>c.id===owned.model),legacy=model?.legacyDefaults;
+  if(!legacy || owned.vehicleRevision>=model.vehicleRevision)return owned;
+  const migrateTune=old=>{
+    if(!old)return old;
+    const tune={...old};
+    for(const key of ['finalDrive','launchRPM'])if(tune[key]===legacy[key])delete tune[key];
+    if(JSON.stringify(tune.ratios)===JSON.stringify(legacy.ratios))delete tune.ratios;
+    return tune;
+  };
+  return {...owned,vehicleRevision:model.vehicleRevision,color:owned.color===legacy.color?model.color:owned.color,tune:migrateTune(owned.tune),preset:migrateTune(owned.preset)};
+}
 export function freshSave(now=Date.now()){
   const starter=newCar('kaze');return {version:1,cash:4500,xp:0,rep:0,cars:[starter],selected:starter.uid,completed:[],records:{},history:[],business:{level:1,bank:0,lastAccrued:now,jobs:[]},settings:{difficulty:'Easy',transmission:'auto',launch:'auto',traction:0.7,revMatch:true,shiftHints:true,staging:'auto',damage:'off',sound:false,volume:0.18},free:{distance:402.336,track:'dock',weather:'Dry',time:'Night',opponent:'matched'},savedAt:now};
 }
@@ -9,7 +26,7 @@ export function validateSave(raw,now=Date.now()){
   if(!raw||raw.version!==1||!Array.isArray(raw.cars)||!raw.cars.length)throw Error('This is not a REDLINE v1 save.');
   const defaults=freshSave(now),num=(v,f,min,max)=>Number.isFinite(v)?clamp(v,min,max):f;
   const seen=new Set();
-  const cars=raw.cars.slice(0,50).filter(c=>CARS.some(b=>b.id===c.model)).map(c=>{
+  const cars=raw.cars.slice(0,50).filter(c=>CARS.some(b=>b.id===c.model)||Object.hasOwn(LEGACY_MODEL_REPLACEMENTS,c.model)).map(migrateVehicle).map(c=>{
     const base=newCar(c.model),model=CARS.find(b=>b.id===c.model),uid=typeof c.uid==='string'&&/^[\w-]{1,70}$/.test(c.uid)&&!seen.has(c.uid)?c.uid:base.uid;seen.add(uid);
     const upgrades=Object.fromEntries(PARTS.map(p=>[p.id,Math.floor(num(c.upgrades?.[p.id],0,0,p.max))]));
     const tune={finalDrive:num(c.tune?.finalDrive,model.finalDrive,2,5.5),launchRPM:num(c.tune?.launchRPM,Math.round(model.redline*.48/100)*100,1500,model.redline-200),shiftRPM:num(c.tune?.shiftRPM,0,0,model.redline+1000),pressure:num(c.tune?.pressure,30,16,40),diff:num(c.tune?.diff,70,0,100),boost:num(c.tune?.boost,100,50,120)};
@@ -17,7 +34,7 @@ export function validateSave(raw,now=Date.now()){
     const preset=c.preset&&typeof c.preset==='object'?{...tune,...Object.fromEntries(Object.entries(c.preset).filter(([k,v])=>['finalDrive','launchRPM','shiftRPM','pressure','diff','boost'].includes(k)&&Number.isFinite(v)).map(([k,v])=>[k,num(v,tune[k],k==='finalDrive'?2:k==='pressure'?16:k==='launchRPM'?1500:0,k==='finalDrive'?5.5:k==='pressure'?40:k==='launchRPM'||k==='shiftRPM'?model.redline+1000:120)]))}:undefined;
     if(preset&&Array.isArray(c.preset.ratios)&&c.preset.ratios.length===model.ratios.length)preset.ratios=c.preset.ratios.map((v,i)=>num(v,model.ratios[i],.4,5.5));
     return {...base,uid,upgrades,tune,preset,condition:num(c.condition,100,25,100),color:/^#[0-9a-f]{6}$/i.test(c.color)?c.color:base.color,
-      visual:{...base.visual,wheels:['silver','black','bronze'].includes(c.visual?.wheels)?c.visual.wheels:'silver',finish:['metallic','matte','pearl'].includes(c.visual?.finish)?c.visual.finish:'metallic',stripe:c.visual?.stripe===true,spoiler:c.visual?.spoiler===true,tint:num(c.visual?.tint,.45,0,.9),rideHeight:num(c.visual?.rideHeight,0,-12,8)}};
+      visual:{...base.visual,wheelAsset:isAssetId(c.visual?.wheelAsset)?c.visual.wheelAsset:'',brakeAsset:isAssetId(c.visual?.brakeAsset)?c.visual.brakeAsset:'',wheels:['silver','black','bronze'].includes(c.visual?.wheels)?c.visual.wheels:'silver',finish:['metallic','matte','pearl'].includes(c.visual?.finish)?c.visual.finish:'metallic',stripe:c.visual?.stripe===true,spoiler:c.visual?.spoiler===true,tint:num(c.visual?.tint,.45,0,.9),rideHeight:num(c.visual?.rideHeight,0,-12,8)}};
   });
   if(!cars.length)throw Error('Save has no valid vehicles.');
   const b=raw.business||{},jobs=Array.isArray(b.jobs)?b.jobs.filter(j=>JOBS.some(k=>k.id===j.jobId)&&cars.some(c=>c.uid===j.carUid)&&Number.isFinite(j.endsAt)).slice(0,50).map(j=>({jobId:j.jobId,carUid:j.carUid,endsAt:clamp(j.endsAt,0,now+24*3600000)})):[];

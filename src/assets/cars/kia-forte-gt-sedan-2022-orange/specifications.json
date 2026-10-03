@@ -1,0 +1,225 @@
+{
+  "manufacturerReference": {
+    "year": 2022,
+    "make": "Kia",
+    "model": "Forte",
+    "trim": "GT Limited (Canadian naming; equivalent requested GT 1.6T sedan)",
+    "market": "Canada for requested factory palette/GT Limited; some equipment cross-checks from U.S. documents",
+    "body": "4-door sedan",
+    "requestedPaint": "Orange Delight (factory palette name; exact GT Limited paint pairing is subject to Kia availability constraints)",
+    "engine": {
+      "displacementL": 1.6,
+      "layout": "inline",
+      "cylinders": 4,
+      "aspiration": "turbocharged direct injection",
+      "fuelType": "gasoline"
+    },
+    "power": [
+      {
+        "hp": 201,
+        "rpm": 6000
+      }
+    ],
+    "torque": [
+      {
+        "lbFt": 195,
+        "rpmRange": [
+          1500,
+          4500
+        ]
+      }
+    ],
+    "redlineRpm": null,
+    "curbMassKg": {
+      "min": 1366,
+      "max": 1397,
+      "sourceUnit": "lb",
+      "sourceRange": [
+        3012,
+        3079
+      ],
+      "configuration": "GT DCT; equipment dependent"
+    },
+    "drivetrain": "FWD",
+    "transmission": {
+      "type": "7-speed dual-clutch automatic (initial); optional 6-speed manual",
+      "gears": 7,
+      "ratios": [
+        3.643,
+        2.174,
+        1.826,
+        1.024,
+        0.809,
+        0.854,
+        0.717
+      ],
+      "finalDriveByGear": {
+        "1": 4.643,
+        "2": 4.643,
+        "3": 3.611,
+        "4": 4.643,
+        "5": 4.643,
+        "6": 3.611,
+        "7": 3.611
+      },
+      "alternate6SpeedManual": {
+        "ratios": [
+          3.308,
+          1.962,
+          1.323,
+          1.024,
+          0.825,
+          0.702
+        ],
+        "finalDrive": null
+      }
+    },
+    "tireSize": "P225/40R18",
+    "wheelbaseMm": 2700,
+    "dragCoefficient": null,
+    "frontalAreaM2": null,
+    "notes": [
+      "True GT trim, not GT-Line.",
+      "Requested orange is applied to the artwork; factory paint availability/name varies by market.",
+      "Default orange is the brochure name Orange Delight. User-requested orange is used in the illustration without asserting a verified GT Limited paint pairing.",
+      "Kia brochure says color/trim combinations may be limited. Paint code is not shown in the cited brochure.",
+      "Canadian GT Limited is the 1.6L turbo GDI 201 hp/195 lb-ft 7DCT model; U.S. GT-Line is a different 147 hp trim.",
+      "Canadian GT Limited is the 1.6L turbo GDI 201 hp/195 lb-ft 7DCT model; U.S. GT-Line is a different 147 hp trim."
+    ],
+    "sourceFieldMap": [
+      {
+        "url": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2022/forte/MY22_Forte_NOV19_ENG.pdf",
+        "fields": [
+          "Canadian GT Limited 1.6L turbo GDI engine, 201 hp/6000 rpm, 195 lb-ft/1500\u20134500 rpm, 7-speed DCT, FWD",
+          "2022 Forte sedan color names, 18-inch alloy wheels with red accents, color/trim combination caveat"
+        ]
+      },
+      {
+        "url": "https://www.kiamedia.com/us/en/media/specifications/20027/2022-kia-forte-specifications",
+        "fields": [
+          "U.S.-market equipment, gear ratios, final drives, curb mass and dimensions where shown"
+        ]
+      },
+      {
+        "url": "https://www.kiamedia.com/us/en/models/forte/2022/features",
+        "fields": [
+          "2022 U.S. GT versus GT-Line distinction and exterior GT feature list"
+        ]
+      },
+      {
+        "url": "https://www.kiamedia.com/image/low/17923/1/2?v=3",
+        "fields": [
+          "Visual rear reference for 2022 refreshed Forte rear diffuser/outlet surrounds; photo trim not treated as definitive GT proof"
+        ]
+      }
+    ],
+    "unknownFieldsExplicitlyNull": true,
+    "paintCode": null
+  },
+  "gameplayModel": {
+    "status": "provisional balancing data; not measured dyno data",
+    "torqueCurve": {
+      "rpm": [
+        1000,
+        1500,
+        2500,
+        3500,
+        4500,
+        5500,
+        6000,
+        6500
+      ],
+      "lbFt": [
+        115,
+        195,
+        195,
+        195,
+        195,
+        180,
+        175.9,
+        160
+      ],
+      "source": "estimated torque points for a gameplay model; not measured dyno data"
+    },
+    "powerDerivedFromTorque": true,
+    "drivetrainLossFraction": null,
+    "gearRatios": [
+      3.643,
+      2.174,
+      1.826,
+      1.024,
+      0.809,
+      0.854,
+      0.717
+    ],
+    "shiftInterruptionMs": null,
+    "clutchTorqueCapacityNm": null,
+    "weightDistribution": null,
+    "tireGrip": null,
+    "tirePressureKPa": null,
+    "temperatureModel": null,
+    "dragCoefficient": null,
+    "frontalAreaM2": null,
+    "upgradePotential": null,
+    "reliability": null,
+    "performanceClass": null,
+    "performancePoints": null,
+    "selectedFuelProfile": "manufacturer-rated regular fuel",
+    "powerCurveDerivedFromTorque": [
+      {
+        "rpm": 1000,
+        "hp": 21.9
+      },
+      {
+        "rpm": 1500,
+        "hp": 55.69
+      },
+      {
+        "rpm": 2000,
+        "hp": 74.26
+      },
+      {
+        "rpm": 2500,
+        "hp": 92.82
+      },
+      {
+        "rpm": 3000,
+        "hp": 111.39
+      },
+      {
+        "rpm": 3500,
+        "hp": 129.95
+      },
+      {
+        "rpm": 4000,
+        "hp": 148.51
+      },
+      {
+        "rpm": 4500,
+        "hp": 167.08
+      },
+      {
+        "rpm": 5000,
+        "hp": 178.5
+      },
+      {
+        "rpm": 5500,
+        "hp": 188.5
+      },
+      {
+        "rpm": 6000,
+        "hp": 200.95
+      },
+      {
+        "rpm": 6500,
+        "hp": 198.02
+      }
+    ],
+    "expectedPeakHorsepowerHp": 201,
+    "interpolatedPeakHorsepowerHp": 200.952,
+    "notes": [
+      "Interpolated 10-rpm torque-to-power sweep is checked against selected factory horsepower rating; torque/power curve remains an estimated balancing curve.",
+      "Interpolated 10-rpm torque-to-power sweep is checked against selected factory horsepower rating; torque/power curve remains an estimated balancing curve."
+    ]
+  }
+}

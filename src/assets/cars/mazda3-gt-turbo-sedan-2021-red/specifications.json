@@ -1,0 +1,197 @@
+{
+  "manufacturerReference": {
+    "year": 2021,
+    "make": "Mazda",
+    "model": "Mazda3",
+    "trim": "GT Turbo",
+    "market": "Canada",
+    "body": "4-door sedan",
+    "requestedPaint": "Soul Red Crystal Metallic (verified factory name; official digital swatch RGB/hex not sampled)",
+    "engine": {
+      "displacementL": 2.5,
+      "layout": "inline",
+      "cylinders": 4,
+      "aspiration": "turbocharged",
+      "fuelType": "gasoline"
+    },
+    "power": [
+      {
+        "fuel": "93 octane",
+        "hp": 250,
+        "rpm": 5000
+      },
+      {
+        "fuel": "87 octane",
+        "hp": 227,
+        "rpm": 5000
+      }
+    ],
+    "torque": [
+      {
+        "fuel": "93 octane",
+        "lbFt": 320,
+        "rpm": 2500
+      },
+      {
+        "fuel": "87 octane",
+        "lbFt": 310,
+        "rpm": 2000
+      }
+    ],
+    "redlineRpm": 6300,
+    "curbMassKg": 1533,
+    "drivetrain": "AWD (i-Activ)",
+    "transmission": {
+      "type": "6-speed automatic",
+      "gears": 6,
+      "ratios": [
+        3.487,
+        1.992,
+        1.449,
+        1,
+        0.707,
+        0.6
+      ],
+      "finalDrive": 3.583
+    },
+    "tireSize": "215/45R18",
+    "wheelbaseMm": 2726,
+    "dragCoefficient": null,
+    "frontalAreaM2": null,
+    "notes": [
+      "2021 Canadian GT Turbo sedan; not Mazda3 Sport hatchback.",
+      "Mazda Canada confirms fuel-dependent ratings, AWD and 6-speed automatic.",
+      "Gloss-black mirror caps and gloss-black 18-inch alloy wheels are supported by Mazda Canada Turbo trim description.",
+      "Default Mazda art is Soul Red Crystal Metallic by verified factory name. The rendered paint is an illustrative visual approximation until a swatch can be sampled from the official page.",
+      "Paint codes are not stated in the cited 2021 Canadian Mazda3 color guide; null is intentional.",
+      "Canadian GT Turbo is AWD/6AT; manufacturer color page names Soul Red Crystal Metallic as an available Mazda3 sedan color. Pixel-level digital color match remains pending.",
+      "Canadian GT Turbo is AWD/6AT; manufacturer color page names Soul Red Crystal Metallic as an available Mazda3 sedan color. Pixel-level digital color match remains pending."
+    ],
+    "sourceFieldMap": [
+      {
+        "url": "https://en.media.mazda.ca/2020-07-09-2021-Mazda3-And-Mazda3-Sport-Powertrain-Choice-for-Every-Lifestyle",
+        "fields": [
+          "2021 Canadian Mazda3 sedan GT Turbo/2.5T powertrain offering",
+          "AWD and 6-speed automatic"
+        ]
+      },
+      {
+        "url": "https://en.media.mazda.ca/2020-07-08-2021-Mazda3-Turbo-Refined-Performance",
+        "fields": [
+          "Turbo model rating and appearance claims; no curb weight or body dimensions asserted"
+        ]
+      },
+      {
+        "url": "https://filecache.mediaroom.com/mr5mr_mazdaca/218820/download/2021%20Mazda3%20Specifications%20%26%20Features.pdf",
+        "fields": [
+          "93/87 octane horsepower and torque with RPM",
+          "redline",
+          "2021 sedan color/trim list",
+          "GT Turbo chrome lower bumper inlet decoration, enlarged exhaust outlets, Jet Black Mica mirrors, black wheels",
+          "curb mass, tire size, AWD gear ratios/final drive and wheelbase"
+        ]
+      }
+    ],
+    "unknownFieldsExplicitlyNull": true,
+    "paintCode": null
+  },
+  "gameplayModel": {
+    "status": "provisional balancing data; not measured dyno data",
+    "torqueCurve": {
+      "rpm": [
+        1000,
+        1800,
+        2500,
+        3500,
+        4500,
+        5000,
+        6000
+      ],
+      "lbFt": [
+        175,
+        260,
+        320,
+        320,
+        285,
+        262.6,
+        210
+      ],
+      "source": "estimated torque points for a gameplay model; not measured dyno data"
+    },
+    "powerDerivedFromTorque": true,
+    "drivetrainLossFraction": null,
+    "gearRatios": [
+      3.487,
+      1.992,
+      1.449,
+      1,
+      0.707,
+      0.6
+    ],
+    "shiftInterruptionMs": null,
+    "clutchTorqueCapacityNm": null,
+    "weightDistribution": null,
+    "tireGrip": null,
+    "tirePressureKPa": null,
+    "temperatureModel": null,
+    "dragCoefficient": null,
+    "frontalAreaM2": null,
+    "upgradePotential": null,
+    "reliability": null,
+    "performanceClass": null,
+    "performancePoints": null,
+    "selectedFuelProfile": "93 octane premium",
+    "powerCurveDerivedFromTorque": [
+      {
+        "rpm": 1000,
+        "hp": 33.32
+      },
+      {
+        "rpm": 1500,
+        "hp": 65.15
+      },
+      {
+        "rpm": 2000,
+        "hp": 105.54
+      },
+      {
+        "rpm": 2500,
+        "hp": 152.32
+      },
+      {
+        "rpm": 3000,
+        "hp": 182.79
+      },
+      {
+        "rpm": 3500,
+        "hp": 213.25
+      },
+      {
+        "rpm": 4000,
+        "hp": 230.39
+      },
+      {
+        "rpm": 4500,
+        "hp": 244.19
+      },
+      {
+        "rpm": 5000,
+        "hp": 250
+      },
+      {
+        "rpm": 5500,
+        "hp": 247.46
+      },
+      {
+        "rpm": 6000,
+        "hp": 239.91
+      }
+    ],
+    "expectedPeakHorsepowerHp": 250,
+    "interpolatedPeakHorsepowerHp": 250,
+    "notes": [
+      "Interpolated 10-rpm torque-to-power sweep is checked against selected factory horsepower rating; torque/power curve remains an estimated balancing curve.",
+      "Interpolated 10-rpm torque-to-power sweep is checked against selected factory horsepower rating; torque/power curve remains an estimated balancing curve."
+    ]
+  }
+}

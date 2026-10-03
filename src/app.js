@@ -1,9 +1,13 @@
-import { CARS, PARTS, TRACKS, EVENTS, JOBS, BUSINESS_RATES, BUSINESS_CAPS, DIFFICULTIES, CLASSES } from './data.js';
+import { CARS, CAREER_MODELS, CAREER_PRIZES, PARTS, TRACKS, EVENTS, JOBS, BUSINESS_RATES, BUSINESS_CAPS, DIFFICULTIES, CLASSES } from './data.js';
 import { buildCar, rating, createVehicle, stepVehicle, shiftVehicle, idealShift, clamp } from './physics.js';
 import { freshSave, loadSave, saveState, validateSave, accrueIncome, claimIncome, newCar, isBusy } from './storage.js';
 import { drawTrack } from './graphics.js';
+import { loadCarAssets } from './car-assets.js';
 import { EngineAudio } from './audio.js';
 import * as views from './views.js';
+import * as gameViews from './game-views.js';
+import { mountScreen, openDialog, closeDialog, handleScreenKey } from './screen-ui.js';
+import { mountGarage, unmountGarage } from './garage-scene.js';
 
 let state=loadSave(),page=['garage','race','career','tuning','dealership','business','settings'].includes(location.hash.slice(1))?location.hash.slice(1):'garage';
 const ui={careerTier:'F',tuningTab:'upgrades'},keys={throttle:false,clutch:false,blip:false},audio=new EngineAudio();
@@ -14,9 +18,12 @@ const car=()=>buildCar(owned());
 function toast(message){const el=document.getElementById('toast');el.textContent=message;el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('visible'),4200);}
 function persist(){try{saveState(state);}catch{toast('Browser storage is unavailable. Export your save to keep this progress.');const el=document.getElementById('save-status');if(el)el.textContent='SAVE UNAVAILABLE';}}
 function render(){
+  unmountGarage();
   accrueIncome(state);ui.jobStatus=state.business.jobs.map(j=>j.endsAt<=Date.now()).join(',');let content;
-  if(page==='racing')content=views.racing(state,race);else content=views[page==='race'?'freeRace':page](state,ui);
-  app.innerHTML=views.shell(state,page,content);
+  if(page==='racing')content=views.racing(state,race);else if(page==='garage')content=gameViews.garage(state);else content=views[page==='race'?'freeRace':page](state,ui);
+  app.innerHTML=gameViews.shell(state,page,content);
+  mountScreen(page);
+  if(page==='garage')mountGarage(car());
   if(page==='racing')resizeTrack();
 }
 function go(next){
@@ -27,9 +34,11 @@ function spend(amount){if(state.cash<amount){toast('A few more runs will cover t
 function refresh(message){persist();render();if(message)toast(message);}
 function assertAvailable(){if(isBusy(state,state.selected)){toast('This car is on a job. Collect the completed job or choose another car.');return false;}return true;}
 function opponentFor(event){
-  if(event){const models=['kaze','roadster','vortex','rally','muscle','apex','nova'],o=newCar(models[event.tierIndex]);
+  if(event){const o=newCar(CAREER_MODELS[event.tierIndex]);
     o.upgrades={tires:Math.min(4,event.tierIndex),gearbox:Math.min(2,event.tierIndex),clutch:Math.min(2,event.tierIndex)};
-    if(event.boss){o.upgrades.intake=1;o.upgrades.ecu=1;}return buildCar(o);
+    o.upgrades.intake=Math.min(3,Math.floor(event.tierIndex/2));o.upgrades.ecu=Math.min(3,Math.floor(event.tierIndex/2));
+    o.upgrades.turbo=Math.min(4,Math.max(0,event.tierIndex-2));o.upgrades.weight=Math.min(4,Math.max(0,event.tierIndex-2));
+    if(event.boss){o.upgrades.intake=Math.min(3,o.upgrades.intake+1);o.upgrades.ecu=Math.min(3,o.upgrades.ecu+1);}return buildCar(o);
   }
   if(state.free.opponent==='matched'){const o=structuredClone(owned());o.uid='opponent';o.color='#8b9bb8';o.condition=100;o.visual={wheels:'silver',stripe:false};return buildCar(o);}
   return buildCar(newCar(state.free.opponent));
@@ -40,7 +49,7 @@ function startRace(event=null){
   stopRace();persist();const player=createVehicle(car()),opponent=createVehicle(opponentFor(event)),d=DIFFICULTIES[state.settings.difficulty];
   opponent.reaction=d.reaction+Math.random()*.055;
   race={player,opponent,event,distance:event?.distance||state.free.distance,track:TRACKS.find(t=>t.id===(event?'dock':state.free.track)),weather:event?'Dry':state.free.weather,time:event?'Night':state.free.time,opponentName:event?.boss?event.name:opponent.car.name,
-    clock:0,runClock:0,phase:'prepare',staged:false,burnout:false,paused:false,result:null,settings:{...state.settings},aiShiftOffset:d.shiftOffset+Math.random()*70,feedbackUntil:0};
+    clock:0,runClock:0,phase:'prepare',staged:false,burnout:false,paused:false,result:null,reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,settings:{...state.settings},aiShiftOffset:d.shiftOffset+Math.random()*70,feedbackUntil:0};
   if(race.settings.launch==='manual')player.gear=0;
   page='racing';render();window.scrollTo({top:0,behavior:'instant'});audio.start();lastFrame=performance.now();frame=requestAnimationFrame(animate);
 }
@@ -95,14 +104,18 @@ function physicsTick(dt){
 }
 function updateHUD(){
   if(!race)return;const p=race.player,c=p.car,put=(id,text)=>{const el=document.getElementById(id);if(el)el.textContent=text;};
-  put('speed',Math.round(p.v*3.6));put('gear',p.gear||'N');put('rpm',Math.round(p.rpm).toLocaleString());put('elapsed',(p.finishTime||p.elapsed).toFixed(3));put('slip',Math.round(p.slip*100)+'%');put('boost',(p.boost*(.6+c.turboStage*.4)).toFixed(1)+' bar');
+  put('speed',Math.round(p.v*3.6));put('gear',p.gear?(c.transmissionType==='cvt'?'D':p.gear):'N');put('rpm',Math.round(p.rpm).toLocaleString());put('elapsed',(p.finishTime||p.elapsed).toFixed(3));put('slip',Math.round(p.slip*100)+'%');put('boost',(p.boost*(.6+c.turboStage*.4)).toFixed(1)+' bar');
   put('player-distance',Math.round(p.x)+' m');put('opponent-distance',Math.round(race.opponent.x)+' m');
   document.getElementById('player-progress').style.width=p.x/race.distance*100+'%';document.getElementById('opponent-progress').style.width=race.opponent.x/race.distance*100+'%';
   document.getElementById('rpm-fill').style.width=Math.min(100,p.rpm/c.redline*100)+'%';document.getElementById('rpm-fill').classList.toggle('optimal',Math.abs(p.rpm-idealShift(c,p.gear||1))<250&&race.settings.shiftHints);
   const marker=document.getElementById('shift-marker');marker.style.left=idealShift(c,p.gear||1)/c.redline*100+'%';marker.hidden=!race.settings.shiftHints;
-  put('shift-hint',race.settings.shiftHints?'OPTIMAL SHIFT '+idealShift(c,p.gear||1)+' RPM':'SHIFT ASSIST OFF');
+  put('shift-hint',race.settings.shiftHints?(c.transmissionType==='cvt'?'CVT POWER TARGET ':'OPTIMAL SHIFT ')+idealShift(c,p.gear||1)+' RPM':'SHIFT ASSIST OFF');
   document.getElementById('shift-feedback')?.classList.toggle('show',race.clock<race.feedbackUntil);
-  audio.update(p.rpm,p.started?1:.35,race.settings.sound&&!race.paused&&!race.result,race.settings.volume);
+  const gap=race.opponent.x-p.x,status=document.getElementById('race-gap');
+  if(status)status.textContent=p.finished?'PASS COMPLETE':race.phase!=='running'?'AT THE LINE':!p.started?'WAITING FOR LAUNCH':Math.abs(gap)<.4?'NECK AND NECK':`${gap>0?'BEHIND':'AHEAD'} ${Math.abs(gap).toFixed(1)} M`;
+  const load=document.getElementById('race-g-force');if(load)load.textContent=(p.acceleration/9.81).toFixed(2)+' G';
+  const soundButton=document.getElementById('race-sound');if(soundButton){soundButton.setAttribute('aria-pressed',String(race.settings.sound));soundButton.textContent=race.settings.sound?'AUDIO ON':'AUDIO OFF';}
+  audio.update(p.rpm,p.started&&!p.finished?1:.35,race.settings.sound&&!race.paused&&!race.result,race.settings.volume,{speed:p.v,shifting:p.shiftTimer>0});
 }
 function animate(now){
   if(!race)return;const delta=Math.min(.1,Math.max(0,(now-lastFrame)/1000));lastFrame=now;
@@ -115,17 +128,18 @@ function finishRace({falseStart=false,dnf=false}){
   const p=race.player,o=race.opponent,event=race.event,won=!falseStart&&!dnf&&p.finishTime+p.reaction<o.finishTime+o.reaction;
   const cash=falseStart||dnf?0:won?(event?.reward||350):Math.round((event?.reward||350)*.2),rep=won?(event?.rep||3):0,xp=falseStart||dnf?0:won?(event?80:25):10;
   let prize=null;const first=event&&!state.completed.includes(event.id);
-  if(won&&event){if(first)state.completed.push(event.id);if(first&&event.boss){const model=['metro','roadster','zenith','rally','muscle','apex','nova'][event.tierIndex];if(!state.cars.some(c=>c.model===model)){state.cars.push(newCar(model));prize=CARS.find(c=>c.id===model).name;}}}
+  if(won&&event){if(first)state.completed.push(event.id);if(first&&event.boss){const model=CAREER_PRIZES[event.tierIndex];if(!state.cars.some(c=>c.model===model)){state.cars.push(newCar(model));prize=CARS.find(c=>c.id===model).name;}else{state.cash+=event.reward;prize='Bonus '+views.money(event.reward);}}}
   state.cash+=cash;state.rep+=rep;state.xp+=xp;
   const key=`${state.selected}-${race.distance}`,personalBest=!falseStart&&!dnf&&(!state.records[key]||p.finishTime<state.records[key]);if(personalBest)state.records[key]=p.finishTime;
   if(!falseStart&&!dnf){state.history.unshift({name:event?.name||`${race.track.name} · Free race`,et:p.finishTime,trap:p.trap,won});state.history=state.history.slice(0,20);}
   if(race.settings.damage!=='off'){const wear=(p.stress+p.tireWear*.25+(falseStart?0:.3))*(race.settings.damage==='full'?1:.2);owned().condition=Math.max(25,owned().condition-wear);}
   race.result={won,falseStart,dnf,cash,rep,xp,personalBest,prize};audio.stop();persist();
   if(falseStart)document.querySelector('[data-light="red"]')?.classList.add('lit');
-  document.getElementById('race-banner').hidden=true;document.getElementById('results').innerHTML=views.resultView(race.result,race,state);
+  document.getElementById('race-banner').hidden=true;document.getElementById('results').innerHTML=gameViews.resultView(race.result,race,state);
   document.getElementById('balance').textContent=views.money(state.cash);document.getElementById('result-title')?.focus();
 }
 const actions={
+  'toggle-race-sound':()=>{if(!race)return;state.settings.sound=!state.settings.sound;race.settings.sound=state.settings.sound;audio.start();persist();},
   'race-now':()=>startRace(), 'start-free':()=>startRace(), 'start-career':el=>startRace(EVENTS.find(e=>e.id===el.dataset.id)),
   'nav-garage':()=>go('garage'),'select-car':el=>{state.selected=el.dataset.id;refresh('Car selected.');},
   'career-tier':el=>{ui.careerTier=el.dataset.id;render();},'tuning-tab':el=>{ui.tuningTab=el.dataset.id;render();},
@@ -146,9 +160,9 @@ const actions={
   retry:()=>{const event=race?.event;startRace(event);},'finish-garage':()=>go('garage'),'finish-career':()=>{const tier=race?.event?.tier;ui.careerTier=tier||'F';go('career');},
   export:()=>{accrueIncome(state);persist();const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='redline-garage-save.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Garage backup exported.');},
   import:()=>document.getElementById('import-file').click(),
-  reset:()=>{const panel=document.querySelector('.save-panel');if(document.getElementById('reset-confirm'))return;panel.insertAdjacentHTML('afterend','<section class="panel reset-confirm" id="reset-confirm"><h3>Start a new career?</h3><p>This removes the garage saved in this browser. Export a backup first if you want to keep it.</p><button class="button danger" data-action="confirm-reset">Reset my garage</button> <button class="button secondary" data-action="cancel-reset">Keep my garage</button></section>');},
-  'cancel-reset':()=>document.getElementById('reset-confirm').remove(),
-  'confirm-reset':()=>{state=freshSave();refresh('New career started.');}
+  reset:()=>openDialog('reset-confirmation'),
+  'cancel-reset':closeDialog,
+  'confirm-reset':()=>{closeDialog();state=freshSave();refresh('New career started.');}
 };
 document.addEventListener('click',e=>{const nav=e.target.closest('[data-nav]');if(nav){go(nav.dataset.nav);return;}const button=e.target.closest('[data-action]');if(button&&!button.disabled)actions[button.dataset.action]?.(button);});
 document.addEventListener('input',e=>{
@@ -180,6 +194,7 @@ document.addEventListener('pointerdown',e=>{const button=e.target.closest('[data
 document.addEventListener('pointerup',e=>{const button=e.target.closest('[data-hold]');if(button){keys[button.dataset.hold]=false;button.classList.remove('pressed');}});
 document.addEventListener('pointercancel',clearInputs);
 document.addEventListener('keydown',e=>{
+  if(handleScreenKey(e))return;
   if(!race||race.result||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
   const k=e.code;if(['Space','ArrowUp','ArrowLeft','ArrowRight','ArrowDown'].includes(k))e.preventDefault();
   if(k==='Escape'&&!e.repeat){pause();return;}if(race.paused)return;
@@ -188,9 +203,15 @@ document.addEventListener('keydown',e=>{
   if(!e.repeat){if(k==='Space')launch();if(k==='KeyE'||k==='ArrowRight')shift(1);if(k==='KeyQ'||k==='ArrowLeft')shift(-1);}
 });
 document.addEventListener('keyup',e=>{if(e.code==='KeyW'||e.code==='ArrowUp')keys.throttle=false;if(e.code==='KeyC')keys.clutch=false;if(e.code==='KeyR')keys.blip=false;});
-window.addEventListener('blur',clearInputs);window.addEventListener('resize',resizeTrack);
+let compactLayout=innerWidth<650;
+window.addEventListener('blur',clearInputs);window.addEventListener('resize',()=>{resizeTrack();const compact=innerWidth<650;if(compact!==compactLayout){compactLayout=compact;if(!race)render();}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden){clearInputs();if(race&&!race.paused&&!race.result)pause();}else if(!race){accrueIncome(state);render();}});
 window.addEventListener('hashchange',()=>{const next=location.hash.slice(1);if(['garage','race','career','tuning','dealership','business','settings'].includes(next)&&next!==page)go(next);});
 window.addEventListener('beforeunload',()=>{accrueIncome(state);persist();});
 setInterval(()=>{if(race)return;accrueIncome(state);tick++;if(tick%5===0)persist();if(page==='business'){const el=document.getElementById('income-bank');if(el)el.textContent=views.money(state.business.bank);const b=document.querySelector('[data-action="claim-income"]');if(b)b.disabled=Math.floor(state.business.bank)<1;if(state.business.jobs.map(j=>j.endsAt<=Date.now()).join(',')!==ui.jobStatus)render();}},2000);
-accrueIncome(state);render();persist();
+accrueIncome(state);persist();
+app.innerHTML='<div class="panel" role="status">Loading real cars…</div>';
+loadCarAssets().then(()=>render()).catch(error=>{
+  console.error('Car assets failed to load.',error.message);
+  app.innerHTML='<div class="panel" role="alert"><h1>Car artwork could not load.</h1><p>Reload to retry loading the demo.</p><button class="button primary" onclick="location.reload()">Reload demo</button></div>';
+});

@@ -1,0 +1,519 @@
+{
+  "schemaVersion": 1,
+  "cars": {
+    "mazda3-gt-turbo-sedan-2021-red": {
+      "width": 2099,
+      "height": 926,
+      "facing": "right",
+      "paintColor": "#a91f2c",
+      "wheels": [
+        {
+          "axle": "rear",
+          "x": 530,
+          "y": 650,
+          "radius": 140,
+          "wheel": {
+            "file": "mazda3-gt-turbo-sedan-2021-red/rear-wheel.webp",
+            "width": 1382,
+            "height": 1382,
+            "pivot": [
+              691.0,
+              691.0
+            ],
+            "radius": 600.0
+          },
+          "brake": {
+            "file": "mazda3-gt-turbo-sedan-2021-red/rear-caliper.webp",
+            "width": 1392,
+            "height": 1392,
+            "pivot": [
+              696.0,
+              696.0
+            ],
+            "radius": 888.372093023256
+          },
+          "rotor": {
+            "file": "mazda3-gt-turbo-sedan-2021-red/rear-rotor.webp",
+            "width": 1392,
+            "height": 1392,
+            "pivot": [
+              696.0,
+              696.0
+            ],
+            "radius": 888.372093023256
+          }
+        },
+        {
+          "axle": "front",
+          "x": 1599,
+          "y": 650,
+          "radius": 140,
+          "wheel": {
+            "file": "mazda3-gt-turbo-sedan-2021-red/front-wheel.webp",
+            "width": 1382,
+            "height": 1382,
+            "pivot": [
+              691.0,
+              691.0
+            ],
+            "radius": 600.0
+          },
+          "brake": {
+            "file": "mazda3-gt-turbo-sedan-2021-red/front-caliper.webp",
+            "width": 1392,
+            "height": 1392,
+            "pivot": [
+              696.0,
+              696.0
+            ],
+            "radius": 720.7547169811321
+          },
+          "rotor": {
+            "file": "mazda3-gt-turbo-sedan-2021-red/front-rotor.webp",
+            "width": 1392,
+            "height": 1392,
+            "pivot": [
+              696.0,
+              696.0
+            ],
+            "radius": 720.7547169811321
+          }
+        }
+      ],
+      "layers": {
+        "body": {
+          "file": "mazda3-gt-turbo-sedan-2021-red/body.webp",
+          "width": 2099,
+          "height": 926
+        },
+        "underlay": {
+          "file": "mazda3-gt-turbo-sedan-2021-red/underlay.webp",
+          "width": 2099,
+          "height": 926
+        },
+        "paintMask": {
+          "file": "mazda3-gt-turbo-sedan-2021-red/paint-mask.webp",
+          "width": 2099,
+          "height": 926
+        }
+      },
+      "bounds": [
+        192,
+        106,
+        1815,
+        740
+      ],
+      "displayBounds": [
+        194,
+        260,
+        1724,
+        530
+      ],
+      "provenance": {
+        "sourcePackage": "tests/skill-runs/20261002-pipeline/examples/mazda3-gt-turbo-sedan-2021-red/reviewed-v9",
+        "sourceManifest": "docs/art/runtime-provenance/mazda3-gt-turbo-sedan-2021-red/car-sprite.json",
+        "bodySource": "docs/art/staged-roster/mazda3-gt-turbo-sedan-2021-red/body-2d.png",
+        "bodySourceSha256": "dc0ec3438550c6a6dfbac7db02c1e6cfa8c3d17875c2cbf94c9953f1de7970d7",
+        "revision": 9,
+        "reviewFingerprint": "6559e72303266baa354b06caae6d975ea14358df5286e3ff2068dfe9f91887e9",
+        "sourceManifestSha256": "4ebad93d6b8f8f57c2755d9cd91896334944ddea73eb7d31b3861888934fc35e",
+        "conversion": "Exact selected -2d body decoded to lossless WebP; underlay retained separately; measured wheel geometry with original component pixels/scales/pivots. Display framing ignores alpha below 8; native body pixels are retained. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+      }
+    },
+    "chevrolet-silverado-1500-custom-crew-short-2025-black": {
+      "width": 2200,
+      "height": 887,
+      "facing": "right",
+      "paintColor": "#202226",
+      "wheels": [
+        {
+          "axle": "rear",
+          "x": 464,
+          "y": 660,
+          "radius": 145,
+          "wheel": {
+            "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/rear-wheel.webp",
+            "width": 1402,
+            "height": 1402,
+            "pivot": [
+              701.0,
+              701.0
+            ],
+            "radius": 616.9999999999999
+          },
+          "brake": {
+            "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/rear-caliper.webp",
+            "width": 1400,
+            "height": 1400,
+            "pivot": [
+              700.0,
+              700.0
+            ],
+            "radius": 1084.4444444444441
+          },
+          "rotor": {
+            "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/rear-rotor.webp",
+            "width": 1400,
+            "height": 1400,
+            "pivot": [
+              700.0,
+              700.0
+            ],
+            "radius": 1084.4444444444441
+          }
+        },
+        {
+          "axle": "front",
+          "x": 1750,
+          "y": 660,
+          "radius": 145,
+          "wheel": {
+            "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/front-wheel.webp",
+            "width": 1402,
+            "height": 1402,
+            "pivot": [
+              701.0,
+              701.0
+            ],
+            "radius": 616.9999999999999
+          },
+          "brake": {
+            "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/front-caliper.webp",
+            "width": 1400,
+            "height": 1400,
+            "pivot": [
+              700.0,
+              700.0
+            ],
+            "radius": 856.140350877193
+          },
+          "rotor": {
+            "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/front-rotor.webp",
+            "width": 1400,
+            "height": 1400,
+            "pivot": [
+              700.0,
+              700.0
+            ],
+            "radius": 856.140350877193
+          }
+        }
+      ],
+      "layers": {
+        "body": {
+          "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/body.webp",
+          "width": 2200,
+          "height": 887
+        },
+        "underlay": {
+          "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/underlay.webp",
+          "width": 2200,
+          "height": 887
+        },
+        "paintMask": {
+          "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/paint-mask.webp",
+          "width": 2200,
+          "height": 887
+        }
+      },
+      "archProfiles": [
+        {
+          "axle": "rear",
+          "shape": "rounded-rectangle",
+          "bounds": [
+            310,
+            475,
+            610,
+            674
+          ],
+          "cornerRadii": [
+            55,
+            55,
+            0,
+            0
+          ]
+        },
+        {
+          "axle": "front",
+          "shape": "rounded-rectangle",
+          "bounds": [
+            1600,
+            475,
+            1900,
+            674
+          ],
+          "cornerRadii": [
+            55,
+            55,
+            0,
+            0
+          ]
+        }
+      ],
+      "bounds": [
+        104,
+        89,
+        1994,
+        716
+      ],
+      "displayBounds": [
+        106,
+        164,
+        1989,
+        641
+      ],
+      "provenance": {
+        "sourcePackage": "tests/car-integration/20261003/chevrolet-silverado-1500-custom-crew-short-2025-black/arch-fit-v12",
+        "sourceManifest": "docs/art/runtime-provenance/chevrolet-silverado-1500-custom-crew-short-2025-black/car-sprite.json",
+        "bodySource": "docs/art/staged-roster/chevrolet-silverado-1500-custom-crew-short-2025-black/body-2d.png",
+        "bodySourceSha256": "d3a84a84df7d34d37de24f5e7b42d6fc6baca7daec421bbc7e619012eb9a4432",
+        "revision": 12,
+        "reviewFingerprint": "b8087ab5a6c3e175e90ad8ba2ff104a311e9ec2cb0c440fc7a80b19bab74d9f0",
+        "sourceManifestSha256": "7e05a5832e0008eacb841114b3daae1f730a4fbaab593460032d52b1aa67e4ba",
+        "conversion": "Exact selected -2d body decoded to lossless WebP; underlay retained separately; measured wheel geometry with original component pixels/scales/pivots. Display framing ignores alpha below 8; native body pixels are retained. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+      }
+    },
+    "kia-forte-gt-sedan-2022-orange": {
+      "width": 1932,
+      "height": 1000,
+      "facing": "right",
+      "paintColor": "#ef721b",
+      "wheels": [
+        {
+          "axle": "rear",
+          "x": 464,
+          "y": 665,
+          "radius": 134,
+          "wheel": {
+            "file": "kia-forte-gt-sedan-2022-orange/rear-wheel.webp",
+            "width": 1388,
+            "height": 1388,
+            "pivot": [
+              694.0,
+              694.0
+            ],
+            "radius": 590.0000000000001
+          },
+          "brake": {
+            "file": "kia-forte-gt-sedan-2022-orange/rear-caliper.webp",
+            "width": 1396,
+            "height": 1396,
+            "pivot": [
+              698.0,
+              698.0
+            ],
+            "radius": 753.3333333333335
+          },
+          "rotor": {
+            "file": "kia-forte-gt-sedan-2022-orange/rear-rotor.webp",
+            "width": 1396,
+            "height": 1396,
+            "pivot": [
+              698.0,
+              698.0
+            ],
+            "radius": 753.3333333333335
+          }
+        },
+        {
+          "axle": "front",
+          "x": 1487,
+          "y": 665,
+          "radius": 134,
+          "wheel": {
+            "file": "kia-forte-gt-sedan-2022-orange/front-wheel.webp",
+            "width": 1388,
+            "height": 1388,
+            "pivot": [
+              694.0,
+              694.0
+            ],
+            "radius": 590.0000000000001
+          },
+          "brake": {
+            "file": "kia-forte-gt-sedan-2022-orange/front-caliper.webp",
+            "width": 1396,
+            "height": 1396,
+            "pivot": [
+              698.0,
+              698.0
+            ],
+            "radius": 645.7142857142857
+          },
+          "rotor": {
+            "file": "kia-forte-gt-sedan-2022-orange/front-rotor.webp",
+            "width": 1396,
+            "height": 1396,
+            "pivot": [
+              698.0,
+              698.0
+            ],
+            "radius": 645.7142857142857
+          }
+        }
+      ],
+      "layers": {
+        "body": {
+          "file": "kia-forte-gt-sedan-2022-orange/body.webp",
+          "width": 1932,
+          "height": 1000
+        },
+        "underlay": {
+          "file": "kia-forte-gt-sedan-2022-orange/underlay.webp",
+          "width": 1932,
+          "height": 1000
+        },
+        "paintMask": {
+          "file": "kia-forte-gt-sedan-2022-orange/paint-mask.webp",
+          "width": 1932,
+          "height": 1000
+        }
+      },
+      "bounds": [
+        95,
+        100,
+        1724,
+        786
+      ],
+      "displayBounds": [
+        118,
+        236,
+        1699,
+        563
+      ],
+      "provenance": {
+        "sourcePackage": "tests/car-integration/20261003/kia-forte-gt-sedan-2022-orange/wheel-fit-v2",
+        "sourceManifest": "docs/art/runtime-provenance/kia-forte-gt-sedan-2022-orange/car-sprite.json",
+        "bodySource": "docs/art/staged-roster/kia-forte-gt-sedan-2022-orange/body-2d.png",
+        "bodySourceSha256": "52b42926f3c6f098627adc90145db3964fdf842ce2192b5e071729e6a8a97cfc",
+        "revision": 2,
+        "reviewFingerprint": "9a4aeed07417cca14deae71f556029a2866d5c19fc6e140d35cfa801662ecdeb",
+        "sourceManifestSha256": "d0e6208b77709d79c74ba48dc8fcfe36796e0388561305660f8d17b4fb4a3d7c",
+        "conversion": "Exact selected -2d body decoded to lossless WebP; underlay retained separately; measured wheel geometry with original component pixels/scales/pivots. Display framing ignores alpha below 8; native body pixels are retained. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+      }
+    },
+    "nissan-rogue-2020-red": {
+      "width": 2200,
+      "height": 887,
+      "facing": "right",
+      "paintColor": "#a92331",
+      "wheels": [
+        {
+          "axle": "rear",
+          "x": 499,
+          "y": 675,
+          "radius": 172,
+          "wheel": {
+            "file": "nissan-rogue-2020-red/rear-wheel.webp",
+            "width": 1388,
+            "height": 1388,
+            "pivot": [
+              694.0,
+              694.0
+            ],
+            "radius": 568.9999999999999
+          },
+          "brake": {
+            "file": "nissan-rogue-2020-red/rear-caliper.webp",
+            "width": 1386,
+            "height": 1386,
+            "pivot": [
+              693.0,
+              693.0
+            ],
+            "radius": 763.3333333333333
+          },
+          "rotor": {
+            "file": "nissan-rogue-2020-red/rear-rotor.webp",
+            "width": 1386,
+            "height": 1386,
+            "pivot": [
+              693.0,
+              693.0
+            ],
+            "radius": 763.3333333333333
+          }
+        },
+        {
+          "axle": "front",
+          "x": 1673,
+          "y": 675,
+          "radius": 172,
+          "wheel": {
+            "file": "nissan-rogue-2020-red/front-wheel.webp",
+            "width": 1388,
+            "height": 1388,
+            "pivot": [
+              694.0,
+              694.0
+            ],
+            "radius": 568.9999999999999
+          },
+          "brake": {
+            "file": "nissan-rogue-2020-red/front-caliper.webp",
+            "width": 1386,
+            "height": 1386,
+            "pivot": [
+              693.0,
+              693.0
+            ],
+            "radius": 654.2857142857142
+          },
+          "rotor": {
+            "file": "nissan-rogue-2020-red/front-rotor.webp",
+            "width": 1386,
+            "height": 1386,
+            "pivot": [
+              693.0,
+              693.0
+            ],
+            "radius": 654.2857142857142
+          }
+        }
+      ],
+      "layers": {
+        "body": {
+          "file": "nissan-rogue-2020-red/body.webp",
+          "width": 2200,
+          "height": 887
+        },
+        "underlay": {
+          "file": "nissan-rogue-2020-red/underlay.webp",
+          "width": 2200,
+          "height": 887
+        },
+        "paintMask": {
+          "file": "nissan-rogue-2020-red/paint-mask.webp",
+          "width": 2200,
+          "height": 887
+        }
+      },
+      "bounds": [
+        89,
+        87,
+        1999,
+        760
+      ],
+      "displayBounds": [
+        112,
+        123,
+        1971,
+        724
+      ],
+      "provenance": {
+        "sourcePackage": "tests/car-integration/20261003/nissan-rogue-2020-red/wheel-fit-v3",
+        "sourceManifest": "docs/art/runtime-provenance/nissan-rogue-2020-red/car-sprite.json",
+        "bodySource": "docs/art/staged-roster/nissan-rogue-2020-red/body-2d.png",
+        "bodySourceSha256": "17031392c4c527099904d5cb87f1e45afb3d7f91a7d07c6f269d2aa63b1eb3b0",
+        "revision": 3,
+        "reviewFingerprint": "25084f090e245c2f10c7e00f311a34da13e48547e9d73053913da3cfcd85deaa",
+        "sourceManifestSha256": "470b4b6489582b061613698081449a2a49cc0616466272ecfb3a1d7a57ae03db",
+        "conversion": "Exact selected -2d body decoded to lossless WebP; underlay retained separately; measured wheel geometry with original component pixels/scales/pivots. Display framing ignores alpha below 8; native body pixels are retained. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+      }
+    }
+  },
+  "components": {
+    "wheels": {},
+    "brakes": {}
+  }
+}

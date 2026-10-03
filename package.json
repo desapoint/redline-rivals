@@ -6,9 +6,13 @@
   "engines": { "node": ">=18" },
   "scripts": {
     "build": "node scripts/build-pages.mjs",
+    "check:assets": "node scripts/check-car-assets.mjs",
     "start": "node server.mjs",
     "dev": "node server.mjs",
     "test": "node --test tests/*.test.mjs",
-    "test:browser": "node tests/browser.mjs"
+    "test:browser": "node tests/browser.mjs",
+    "test:interface": "node tests/interface-browser.mjs",
+    "test:race-feel": "node tests/race-feel-browser.mjs",
+    "test:real-cars": "node tests/real-cars-browser.mjs"
   }
 }

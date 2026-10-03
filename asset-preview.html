@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>REDLINE — Car asset preview</title><link rel="stylesheet" href="./style.css"><style>
+body{padding:32px;max-width:1300px;margin:auto}.preview-heading{margin-bottom:28px}.preview-heading h1{font-size:42px;margin:8px 0}.asset-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.asset-controls label{display:flex;flex-direction:column;gap:8px}select,input{max-width:100%}.asset-controls input[type=range]{width:100%}.asset-showroom{min-height:220px;background:radial-gradient(ellipse at bottom,#394050,#191c25);border-radius:16px}.asset-showroom svg{width:100%;max-height:330px}#asset-canvas{display:block;width:100%;height:auto;background:#1c222b;border-radius:16px}#asset-status{margin:16px 0;color:#d4d8e2}#asset-error{color:#ff9678} .asset-stage{margin-top:24px}.asset-stage h2{margin:8px 0 16px} .asset-note{color:#969dab;margin-top:12px}@media(max-width:700px){body{padding:16px}.asset-controls{grid-template-columns:1fr 1fr}.preview-heading h1{font-size:32px}}
+</style></head><body><header class="preview-heading"><a href="./index.html">← Back to game</a> · <a href="./test-drive.html">Test drive lab →</a><p class="eyebrow">ART INTEGRATION WORKBENCH</p><h1>Body. Brakes. Wheels.</h1><p>Check attachment geometry, paint masks and wheel rotation before adding a real car to the catalog.</p></header>
+<section class="panel asset-controls">
+<label>Car artwork<select id="art-choice" aria-label="Car artwork"></select></label>
+<label>Wheel component<select id="wheel-choice" aria-label="Wheel component"></select></label>
+<label>Brake component<select id="brake-choice" aria-label="Brake component"></select></label>
+<label>Paint<input id="paint" aria-label="Paint" type="color" value="#e6603b"></label>
+<label>Ride height<input id="ride-height" aria-label="Ride height" type="range" min="-12" max="8" step="1" value="0"></label>
+<label>Wheel angle <output id="angle-output">0°</output><input id="wheel-angle" aria-label="Wheel angle" type="range" min="0" max="360" value="0"></label>
+<label>Speed <output id="speed-output">50 km/h</output><input id="speed" aria-label="Speed" type="range" min="0" max="240" value="50"></label>
+<label>Wheel slip <output id="slip-output">0%</output><input id="slip" aria-label="Wheel slip" type="range" min="0" max="150" value="0"></label>
+<label>Driven wheels<select id="drive" aria-label="Driven wheels"><option>RWD</option><option>FWD</option><option>AWD</option></select></label>
+<label>Facing<select id="facing" aria-label="Facing"><option value="right">Right</option><option value="left">Left · mirror fixture</option></select></label>
+<label>Geometry overlay<input id="geometry" aria-label="Geometry overlay" type="checkbox" checked></label>
+<button class="button secondary" id="animation" type="button">Pause rotation</button>
+</section><p id="asset-status" role="status">Loading local artwork…</p><p id="asset-error" role="alert"></p>
+<section class="panel asset-stage"><h2>Garage preview · fixed wheel angle</h2><div id="asset-showroom" class="asset-showroom"></div></section>
+<section class="panel asset-stage"><h2>Race renderer · animated wheels</h2><canvas id="asset-canvas" width="1200" height="440" aria-label="Layered car rotation and geometry preview"></canvas><p class="asset-note">Red calipers stay fixed. Rotors and rims turn independently. Cyan circles mark measured wheel centers and tire radii. This demo is a geometry fixture; its speed and dimensions are preview settings.</p></section>
+<script type="module" src="./src/asset-preview.js"></script></body></html>

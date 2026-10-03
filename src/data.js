@@ -1,3 +1,4 @@
+import { REAL_CARS } from './real-cars.js';
 export const CLASSES = ['F', 'E', 'D', 'C', 'B', 'A', 'S'];
 export const DISTANCES = [{name:'60 ft',value:18.288},{name:'⅛ mile',value:201.168},{name:'¼ mile',value:402.336},{name:'½ mile',value:804.672},{name:'1 mile',value:1609.344}];
 export const TRACKS = [
@@ -14,14 +15,12 @@ const car = (id,name,subtitle,hp,torque,mass,drive,redline,price,unlock,color,sh
   curve: aspiration==='Turbo'?[[0.12,0.42],[0.28,0.64],[0.42,0.94],[0.6,1],[0.78,0.95],[0.9,0.81],[1,0.65]]:[[0.12,0.53],[0.3,0.75],[0.48,0.91],[0.65,1],[0.8,0.95],[0.92,0.82],[1,0.69]],
   ...extra
 });
-export const CARS = [
-  car('kaze','Kaze S13','1993 · Street coupe',132,165,1120,'RWD',6900,0,0,'#e6603b','coupe','NA',{engine:'1.8L inline-4'}),
-  car('metro','Metro RS','2002 · Hot hatch',145,170,1080,'FWD',7200,6800,0,'#e5bc47','hatch'),
+// Retained for save migration and simulation fixtures; excluded from the demo roster.
+export const LEGACY_CARS = [
   car('roadster','Hikari Roadster','2016 · Lightweight roadster',155,201,1058,'RWD',6800,12500,1,'#4bc7bd','roadster','NA',{
     reference:{label:'2016 Mazda MX-5 · engineering reference',hp:155,torque:201,mass:1058,url:'https://news.mazdausa.com/download/2016_Mazda_MX-5_Press_Kit.pdf'},
     ratios:[5.087,2.991,2.035,1.594,1.286,1],finalDrive:2.866,area:1.8
   }),
-  car('vortex','Vortex GTI','2018 · Turbo hatch',225,330,1330,'FWD',6700,21000,2,'#81abff','hatch','Turbo'),
   car('zenith','Zenith Z','2005 · Grand touring coupe',300,353,1470,'RWD',7500,32000,3,'#d2d5db','coupe','NA',{engine:'3.5L V6',finalDrive:3.54}),
   car('rally','Raijin XR','2015 · Rally-bred sedan',345,440,1480,'AWD',7500,48000,4,'#4676e5','sedan','Turbo',{engine:'2.5L turbo flat-4',finalDrive:3.7}),
   car('muscle','Stallion 5.0','2024 · American muscle',480,563,1710,'RWD',7500,68000,5,'#eaa147','muscle','NA',{
@@ -33,8 +32,12 @@ export const CARS = [
   car('nova','Nova X','2026 · All-wheel hypercar',960,1100,1450,'AWD',8500,280000,8,'#b8e468','super','Turbo',{engine:'4.0L twin-turbo V8',shiftTime:0.06,cd:0.27,finalDrive:3.1})
 ];
 // Factory compounds keep high-power cars usable before further upgrades.
-const factoryTires=[0,0,0,1,1,2,3,3,3,4];
-CARS.forEach((c,i)=>{c.factoryTires=factoryTires[i];});
+export const CARS = REAL_CARS;
+export const LEGACY_MODEL_REPLACEMENTS = Object.freeze({roadster:'vortex',zenith:'kaze',rally:'kaze',muscle:'metro',apex:'kaze',spectre:'vortex',nova:'kaze'});
+export const CAREER_MODELS = ['rogue','vortex','vortex','kaze','rogue','metro','kaze'];
+export const CAREER_PRIZES = ['metro','vortex','rogue','kaze','rogue','metro','kaze'];
+const factoryTires={kaze:0,metro:0,roadster:0,vortex:1,rogue:0,zenith:1,rally:2,muscle:3,apex:3,spectre:3,nova:4};
+[...CARS,...LEGACY_CARS].forEach(c=>{c.factoryTires=factoryTires[c.id];});
 export const PARTS = [
   {id:'intake',name:'Intake & exhaust',group:'Engine',icon:'↗',description:'Open up the airflow. A broader, stronger torque curve.',effect:'+8% torque / stage',baseCost:600,max:3},
   {id:'ecu',name:'ECU calibration',group:'Engine',icon:'⌘',description:'Fuel, ignition and a little more room at the top.',effect:'+7% torque · +150 RPM / stage',baseCost:900,max:3},
@@ -59,12 +62,12 @@ export const RIVALS = ['Jules “First Light”','Mika “Redshift”','Noah “
 export const EVENTS = CLASSES.flatMap((tier,i)=>[
   {id:`${tier}-0`,tier,tierIndex:i,name:['First light','After hours','Street credentials','Boost district','Heavy hitters','Velocity club','Final frontier'][i],kind:'Qualification',opponent:i,distance:201.168,reward:900*(i+1)**2,rep:15*(i+1),restriction:null},
   {id:`${tier}-1`,tier,tierIndex:i,name:`${tier} / Open challenge`,kind:'Open race',opponent:i,distance:402.336,reward:1400*(i+1)**2,rep:20*(i+1),restriction:null},
-  {id:`${tier}-2`,tier,tierIndex:i,name:['Rear-wheel roots','Lightweight legends','Frontline','All-wheel alliance','Naturally fast','Turbo territory','Unlimited'][i],kind:'Restricted event',opponent:i,distance:402.336,reward:1900*(i+1)**2,rep:25*(i+1),restriction:[{drive:'RWD'},{mass:1250},{drive:'FWD'},{drive:'AWD'},{aspiration:'NA'},{aspiration:'Turbo'},null][i]},
+  {id:`${tier}-2`,tier,tierIndex:i,name:['All-wheel beginnings','Lightweight legends','Frontline','All-wheel alliance','Naturally fast','Turbo territory','Unlimited'][i],kind:'Restricted event',opponent:i,distance:402.336,reward:1900*(i+1)**2,rep:25*(i+1),restriction:[{drive:'AWD'},{mass:1250},{drive:'FWD'},{drive:'AWD'},{aspiration:'NA'},{aspiration:'Turbo'},null][i]},
   {id:`${tier}-3`,tier,tierIndex:i,name:RIVALS[i],kind:'Rival showdown',opponent:i,distance:402.336,reward:2700*(i+1)**2,rep:40*(i+1),restriction:null,boss:true}
 ]);
 export const JOBS = [
   {id:'show',name:'Cars & coffee',description:'Put a spare car on display for the local club.',duration:30*60*1000,reward:750,requirement:'Any car',test:()=>true},
-  {id:'promo',name:'RWD promotional run',description:'A dealership needs a rear-wheel-drive hero.',duration:2*3600000,reward:3200,requirement:'RWD',test:c=>c.drive==='RWD'},
+  {id:'promo',name:'AWD promotional run',description:'A dealership needs an all-wheel-drive demonstrator.',duration:2*3600000,reward:3200,requirement:'AWD',test:c=>c.drive==='AWD'},
   {id:'dyno',name:'Dyno demonstration',description:'Show customers what 300 horsepower looks like.',duration:4*3600000,reward:7800,requirement:'300+ HP',test:c=>c.hp>=300}
 ];
 export const BUSINESS_RATES=[100,180,300,500,800,1200];

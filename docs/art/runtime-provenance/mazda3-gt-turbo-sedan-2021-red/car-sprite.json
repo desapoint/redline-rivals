@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "vehicle": {
+    "id": "mazda3-gt-turbo-sedan-2021-red",
+    "make": "Mazda",
+    "model": "Mazda3",
+    "year": 2021,
+    "trim": "GT Turbo Sedan",
+    "facing": "right"
+  },
+  "revision": 9,
+  "canvas": {
+    "width": 2099,
+    "height": 926
+  },
+  "anchors": {
+    "rearWheel": {
+      "x": 530,
+      "y": 650,
+      "radius": 140
+    },
+    "frontWheel": {
+      "x": 1599,
+      "y": 650,
+      "radius": 140
+    }
+  },
+  "layers": [
+    {
+      "id": "body-glass",
+      "file": "body/glass.png",
+      "z": 420,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-lights",
+      "file": "body/lights.png",
+      "z": 430,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-mirrors",
+      "file": "body/mirrors.png",
+      "z": 450,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "body-exterior",
+      "file": "body/exterior.png",
+      "z": 400,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "car-underlay",
+      "file": "body/car-underlay.png",
+      "z": 200,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "rear-rotor",
+      "file": "rear-wheel/rotor.png",
+      "z": 300,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 0.1575916230366492,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "rear-caliper",
+      "file": "rear-wheel/caliper.png",
+      "z": 310,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 0.1575916230366492,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "rear-wheel",
+      "file": "rear-wheel/wheel.png",
+      "z": 320,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "rearWheel",
+        "scale": 0.23333333333333334,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-rotor",
+      "file": "front-wheel/rotor.png",
+      "z": 330,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 0.19424083769633507,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    },
+    {
+      "id": "front-caliper",
+      "file": "front-wheel/caliper.png",
+      "z": 340,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 0.19424083769633507,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": false
+    },
+    {
+      "id": "front-wheel",
+      "file": "front-wheel/wheel.png",
+      "z": 350,
+      "placement": {
+        "mode": "anchor",
+        "anchor": "frontWheel",
+        "scale": 0.23333333333333334,
+        "offset": [
+          0,
+          0
+        ],
+        "pivotNormalized": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotateWithWheel": true
+    }
+  ],
+  "masks": {
+    "paint": "masks/paint-mask.png"
+  },
+  "sources": [
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\skill-runs\\20261002-pipeline\\examples\\mazda3-gt-turbo-sedan-2021-red\\inputs\\staged-roster\\mazda3-gt-turbo-sedan-2021-red\\body-2d.png",
+      "sha256": "dc0ec3438550c6a6dfbac7db02c1e6cfa8c3d17875c2cbf94c9953f1de7970d7",
+      "archivedFile": "inputs/body.png"
+    },
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\skill-runs\\20261002-pipeline\\examples\\mazda3-gt-turbo-sedan-2021-red\\inputs\\staged-roster\\mazda3-gt-turbo-sedan-2021-red\\wheel.png",
+      "sha256": "a85bd73fa615d85481e7e5361e1866be63a015e49aa8b9d92a8f08d8b9220852",
+      "archivedFile": "inputs/wheel.png"
+    },
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\skill-runs\\20261002-pipeline\\examples\\mazda3-gt-turbo-sedan-2021-red\\inputs\\staged-roster\\mazda3-gt-turbo-sedan-2021-red\\brake.png",
+      "sha256": "8314eeba33b6826a8b47692874c704191434068df6cd1d6be86f42f37b26ec81",
+      "archivedFile": "inputs/brake.png"
+    },
+    {
+      "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\skill-runs\\20261002-pipeline\\examples\\mazda3-gt-turbo-sedan-2021-red\\inputs\\staged-roster\\mazda3-gt-turbo-sedan-2021-red\\metadata.json",
+      "sha256": "4bdc66428a2728ec1a6d1135d06c55e7ce54b41649b89191138a6f0065222c43",
+      "archivedFile": "inputs/referenceMetadata.json"
+    }
+  ],
+  "notes": [
+    "Derived only from the selected source bytes. Native coordinate crops establish contours; prior coarse masks are preserved in earlier runs.",
+    "Glass, lights and mirrors are semantic source partitions; any unpartitioned fine edges, shading, linework and trim remain in the fused exterior layer.",
+    "Paint regression samples cover inspected painted panels and protected areas, including previous observed failures; they supplement full visual inspection.",
+    "Brake radius ratios and illustrated component identity are modeling choices, not factory measurements. Source artwork identity is inherited, not independently OEM-certified.",
+    "Rotor repair includes a measured occlusion/shadow fringe beyond the tight caliper contour; complete caliper pads are retained separately. Opposite-side clean source pixels rebuild the hidden disc."
+  ],
+  "paintSamples": [
+    {
+      "x": 1000,
+      "y": 280,
+      "expected": "paint",
+      "label": "roof"
+    },
+    {
+      "x": 640,
+      "y": 335,
+      "expected": "paint",
+      "label": "previous rear roof strip"
+    },
+    {
+      "x": 1180,
+      "y": 335,
+      "expected": "paint",
+      "label": "previous front roof strip"
+    },
+    {
+      "x": 1750,
+      "y": 501,
+      "expected": "paint",
+      "label": "paint above headlamp"
+    },
+    {
+      "x": 820,
+      "y": 520,
+      "expected": "paint",
+      "label": "rear door"
+    },
+    {
+      "x": 1150,
+      "y": 520,
+      "expected": "paint",
+      "label": "front door"
+    },
+    {
+      "x": 1100,
+      "y": 410,
+      "expected": "protected",
+      "label": "previous glass spill"
+    },
+    {
+      "x": 880,
+      "y": 390,
+      "expected": "protected",
+      "label": "rear glass"
+    },
+    {
+      "x": 1770,
+      "y": 533,
+      "expected": "protected",
+      "label": "headlamp"
+    },
+    {
+      "x": 310,
+      "y": 470,
+      "expected": "protected",
+      "label": "taillamp"
+    },
+    {
+      "x": 640,
+      "y": 342,
+      "expected": "protected",
+      "label": "black window border below repaired paint strip"
+    }
+  ]
+}

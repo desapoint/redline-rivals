@@ -1,0 +1,179 @@
+{
+  "manufacturerReference": {
+    "year": 2025,
+    "make": "Chevrolet",
+    "model": "Silverado 1500",
+    "trim": "Custom",
+    "market": "United States for 2025 model specifications and color list",
+    "body": "Crew Cab, Short Bed, standard height",
+    "requestedPaint": "Black (verified factory name; official digital swatch RGB/hex not sampled)",
+    "engine": {
+      "displacementL": 2.7,
+      "layout": "inline",
+      "cylinders": 4,
+      "aspiration": "turbocharged (TurboMax)",
+      "fuelType": "gasoline"
+    },
+    "power": [
+      {
+        "hp": 310,
+        "rpm": 5600
+      }
+    ],
+    "torque": [
+      {
+        "lbFt": 430,
+        "rpm": null
+      }
+    ],
+    "redlineRpm": null,
+    "curbMassKg": null,
+    "drivetrain": "4WD (provisional assumption; not specified by user)",
+    "transmission": {
+      "type": "8-speed automatic",
+      "gears": 8,
+      "ratios": null,
+      "finalDrive": null
+    },
+    "tireSize": null,
+    "wheelbaseMm": 3734,
+    "bedLengthMm": 1776,
+    "dragCoefficient": null,
+    "frontalAreaM2": null,
+    "notes": [
+      "Silverado 1500 is interpretation of \u201cChevrolet Custom.\u201d",
+      "Crew Cab with four full doors and Short Bed, not Double Cab.",
+      "Standard-height Custom, not Custom Trail Boss.",
+      "TurboMax is 2.7L turbo inline-four; no V8 is represented.",
+      "4WD is provisional because drive was not specified. 2025 GM geometry was not populated because exact trim/config-specific dimensions were not established in the reviewed source set.",
+      "Default black uses the factory color name Black. Exact Custom trim paint-code pairing and digital swatch sampling are not established here.",
+      "The listed palette is model-wide; trim-specific availability must be checked against a Custom order guide.",
+      "Crew Cab Short Bed is 147-inch wheelbase and 1,776 mm box length per 2025 GM configuration references.",
+      "Crew Cab Short Bed is 147-inch wheelbase and 1,776 mm box length per 2025 GM configuration references."
+    ],
+    "sourceFieldMap": [
+      {
+        "url": "https://www.gmenvolve.com/content/dam/gmenvolve/na/us/en/index/pdfs/trucks/02-pdfs/25GMFG_DECEMBER_FeaturePages_Chevrolet_Silverado1500.pdf",
+        "fields": [
+          "2025 Silverado Custom availability with 2WD/4WD",
+          "TurboMax 310 hp/430 lb-ft, standard 8-speed automatic",
+          "model-wide color names with trim availability caveat"
+        ]
+      },
+      {
+        "url": "https://www.gmenvolve.com/content/dam/gmenvolve/na/us/en/index/pdfs/guides-and-manuals/02-pdfs/25GMFG-DECEMBER.pdf",
+        "fields": [
+          "Crew Cab Short Bed nominal 5 ft 8 in box and 147 in wheelbase configuration dimensions; table is model/configuration-level"
+        ]
+      },
+      {
+        "url": "https://www.chevrolet.ca/byo-vc/client/en/CA/chevrolet/silverado/2025/silverado-1500/config/specifications/1",
+        "fields": [
+          "2025 Silverado Crew Cab Short Bed box length 1,776 mm and four-door crew cab / passenger-capacity distinction"
+        ]
+      },
+      {
+        "url": "https://www.chevrolet.ca/byo-vc/client/en/CA/chevrolet/silverado/2025/silverado-1500/trims/features/458921/ads/savedbuilds",
+        "fields": [
+          "2025 Canadian Custom 4WD with 2.7L TurboMax and 8-speed automatic"
+        ]
+      }
+    ],
+    "unknownFieldsExplicitlyNull": true,
+    "paintCode": null
+  },
+  "gameplayModel": {
+    "status": "provisional balancing data; not measured dyno data",
+    "torqueCurve": {
+      "rpm": [
+        1000,
+        1500,
+        2000,
+        2500,
+        3000,
+        3500,
+        4500,
+        5600
+      ],
+      "lbFt": [
+        250,
+        350,
+        405,
+        425,
+        430,
+        420,
+        345,
+        290.75
+      ],
+      "source": "estimated torque points for a gameplay model; not measured dyno data"
+    },
+    "powerDerivedFromTorque": true,
+    "drivetrainLossFraction": null,
+    "gearRatios": null,
+    "shiftInterruptionMs": null,
+    "clutchTorqueCapacityNm": null,
+    "weightDistribution": null,
+    "tireGrip": null,
+    "tirePressureKPa": null,
+    "temperatureModel": null,
+    "dragCoefficient": null,
+    "frontalAreaM2": null,
+    "upgradePotential": null,
+    "reliability": null,
+    "performanceClass": null,
+    "performancePoints": null,
+    "selectedFuelProfile": "manufacturer-rated regular fuel",
+    "powerCurveDerivedFromTorque": [
+      {
+        "rpm": 1000,
+        "hp": 47.6
+      },
+      {
+        "rpm": 1500,
+        "hp": 99.96
+      },
+      {
+        "rpm": 2000,
+        "hp": 154.23
+      },
+      {
+        "rpm": 2500,
+        "hp": 202.3
+      },
+      {
+        "rpm": 3000,
+        "hp": 245.62
+      },
+      {
+        "rpm": 3500,
+        "hp": 279.89
+      },
+      {
+        "rpm": 4000,
+        "hp": 291.32
+      },
+      {
+        "rpm": 4500,
+        "hp": 295.6
+      },
+      {
+        "rpm": 5000,
+        "hp": 304.97
+      },
+      {
+        "rpm": 5500,
+        "hp": 309.64
+      },
+      {
+        "rpm": 5600,
+        "hp": 310.02
+      }
+    ],
+    "expectedPeakHorsepowerHp": 310,
+    "interpolatedPeakHorsepowerHp": 310.015,
+    "notes": [
+      "Interpolated 10-rpm torque-to-power sweep is checked against selected factory horsepower rating; torque/power curve remains an estimated balancing curve.",
+      "Interpolated 10-rpm torque-to-power sweep is checked against selected factory horsepower rating; torque/power curve remains an estimated balancing curve."
+    ]
+  }
+}

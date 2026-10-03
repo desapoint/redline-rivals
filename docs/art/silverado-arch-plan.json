@@ -1,0 +1,10 @@
+{
+  "sourcePackage": "tests/car-integration/20261003/chevrolet-silverado-1500-custom-crew-short-2025-black/wheel-fit-v11",
+  "bodySha256": "d3a84a84df7d34d37de24f5e7b42d6fc6baca7daec421bbc7e619012eb9a4432",
+  "revision": 12,
+  "profiles": [
+    {"axle": "rear", "shape": "rounded-rectangle", "bounds": [310, 475, 610, 674], "cornerRadii": [55, 55, 0, 0]},
+    {"axle": "front", "shape": "rounded-rectangle", "bounds": [1600, 475, 1900, 674], "cornerRadii": [55, 55, 0, 0]}
+  ],
+  "measurementNotes": "Native fenders have flat crowns and rounded upper corners. These measured envelopes bound backing only, clipped to original alpha openings. Lower cutoff follows rocker height. Tires stay circular; no body cuts or factory dimensions inferred."
+}

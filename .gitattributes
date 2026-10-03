@@ -1,0 +1,2 @@
+# Reviewed source snapshots retain exact bytes for SHA validation on Windows and Linux.
+docs/art/runtime-provenance/** -text whitespace=cr-at-eol

@@ -15,9 +15,11 @@ const select=name=>page.getByRole('combobox',{name,exact:true});
 const screenshots=path.resolve('tests/artifacts');await mkdir(screenshots,{recursive:true});
 const start=async()=>{await button('Stage your car').click();await button('Stage & start').click();};
 const result=()=>page.locator('#result-title').waitFor({state:'visible',timeout:65000});
+const assetsReady=()=>page.waitForFunction(async()=>{const {getCarSprite,spriteReady}=await import('/src/car-assets.js');const record=getCarSprite({artId:'mazda3-gt-turbo-sedan-2021-red'});return record&&spriteReady(record,{});});
 try{
   await page.goto('http://localhost:5173');
-  await page.getByRole('heading',{name:'Make it yours.',exact:true}).waitFor();
+  await assetsReady();
+  await page.getByRole('heading',{name:/THE GARAGE/}).waitFor();
   assert.match(await page.locator('#balance').innerText(),/4,500/);
   await page.screenshot({path:path.join(screenshots,'garage.png'),fullPage:true});
   await button('Free race').click();await select('Distance').selectOption('18.288');await start();await result();
@@ -26,10 +28,10 @@ try{
   await button('Back to garage').click();await button('Upgrade & tune').click();await button('$600').click();await button('$1,800').click();
   await button('Tune & gearing').click();await page.getByRole('spinbutton',{name:'Gear 1 ratio'}).fill('3.5');await button('Save tune preset').click();
   assert.equal(await page.getByRole('spinbutton',{name:'Gear 1 ratio'}).inputValue(),'3.5');
-  await button('Appearance').click();await button('Paint #4676e5').click();await select('Wheels').selectOption('bronze');
-  await page.reload();await button('Tune & gearing').click();assert.equal(await page.getByRole('spinbutton',{name:'Gear 1 ratio'}).inputValue(),'3.5');
-  await button('Appearance').click();assert.equal(await select('Wheels').inputValue(),'bronze');
-  await button('Free race').click();await select('Launch control').selectOption('manual');await start();await button('Space Launch').click();await result();
+  await button('Appearance').click();await button('Paint #4676e5').click();
+  await page.reload();await assetsReady();await button('Tune & gearing').click();assert.equal(await page.getByRole('spinbutton',{name:'Gear 1 ratio'}).inputValue(),'3.5');
+  await button('Appearance').click();assert.equal(await page.locator('.paint-swatch.active').getAttribute('data-id'),'#4676e5');
+  await button('Free race').click();await button('Driving assists').click();await select('Launch control').selectOption('manual');await page.keyboard.press('Escape');await start();await button('Space Launch').click();await result();
   assert.equal(await page.locator('#result-title').innerText(),'Red light.');
   await button('Run it back').click();await button('Stage & start').click();await page.locator('[data-light="green"].lit').waitFor();await button('Space Launch').click();await result();
   assert.notEqual(await page.locator('#result-title').innerText(),'Red light.');
@@ -38,12 +40,14 @@ try{
   assert.equal(await page.locator('#result-title').innerText(),'That’s your lane.');await button('Continue career').click();
   assert.equal(await page.locator('[data-action="start-career"][data-id="F-1"]').isEnabled(),true);
   // Seed an isolated test save to verify offline return, completed jobs and cap handling.
-  await page.evaluate(()=>{const raw=JSON.parse(localStorage.getItem('redline-drag-club-v1'));raw.business.lastAccrued=Date.now()-20*3600000;raw.business.bank=0;raw.business.jobs=[{jobId:'show',carUid:raw.selected,endsAt:Date.now()-1000}];localStorage.setItem('redline-drag-club-v1',JSON.stringify(raw));});
+  const offlineSave=await page.evaluate(()=>{const raw=JSON.parse(localStorage.getItem('redline-drag-club-v1'));raw.business.lastAccrued=Date.now()-20*3600000;raw.business.bank=0;raw.business.jobs=[{jobId:'show',carUid:raw.selected,endsAt:Date.now()-1000}];return raw;});
+  // Seed after beforeunload has saved the previous live session, before the new app boots.
+  await page.addInitScript(raw=>localStorage.setItem('redline-drag-club-v1',JSON.stringify(raw)),offlineSave);
   await page.reload();await button('Garage business').click();assert.equal(await page.locator('#income-bank').innerText(),'$800');
   await button('Collect earnings').click();await button('Collect & return car').click();assert.equal(await page.locator('[data-action="start-job"][data-id="show"]').isEnabled(),true);
   await page.setViewportSize({width:390,height:844});await button('My garage').click();
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),true);
   await page.screenshot({path:path.join(screenshots,'mobile.png'),fullPage:true});
-  await page.locator('.top-settings').click();await page.getByRole('heading',{name:'Your race. Your rules.'}).waitFor();
+  await button('Settings & controls').click();await page.getByRole('heading',{name:'Your race. Your rules.'}).waitFor();
   assert.deepEqual(errors,[]);console.log('PASS: browser race, reward, upgrades, gearing, customization, persistence, false start, manual launch, career, offline income, jobs and mobile checks.');
 }finally{await context.close();await browser.close();}
