@@ -1,3 +1,4 @@
+const origin=process.env.REDLINE_TEST_ORIGIN||'http://localhost:5173/';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {readFileSync,mkdirSync} from 'node:fs';
@@ -9,7 +10,7 @@ mkdirSync('tests/artifacts',{recursive:true});
 try{
   for(const viewport of [{width:1440,height:1000},{width:390,height:844}]){
     const page=await browser.newPage({viewport,deviceScaleFactor:2});page.on('pageerror',e=>errors.push(e.message));
-    await page.goto('http://localhost:5173/asset-preview.html?car=mazda3-gt-turbo-sedan-2021-red&layer=paint');
+    await page.goto(origin+'asset-preview.html?car=mazda3-gt-turbo-sedan-2021-red&layer=paint');
     await page.waitForFunction(()=>document.querySelector('#art-choice')?.disabled===false&&document.querySelector('#body-view')?.disabled===false);
     await page.locator('#geometry').uncheck();
     for(const id of Object.keys(pack.cars)){
@@ -19,7 +20,7 @@ try{
         await page.locator('#paint').evaluate((el,c)=>{el.value=c;el.dispatchEvent(new Event('input',{bubbles:true}));},color);
         await page.waitForFunction(({id,color})=>{const canvas=document.querySelector('#asset-canvas');return canvas.dataset.artId===id&&canvas.dataset.bodyView==='paint'&&canvas.dataset.paint===color;},{id,color});
         const result=await page.evaluate(async({id,color})=>{
-          const {getCarSprite}=await import('/src/car-assets.js');const {spriteLayout}=await import('/src/sprite-geometry.js');
+          const {getCarSprite}=await import('./src/car-assets.js');const {spriteLayout}=await import('./src/sprite-geometry.js');
           const record=getCarSprite({artId:id}),layout=spriteLayout(record),canvas=document.querySelector('#asset-canvas');
           const x=Math.round((layout.x+1000*layout.scale)*canvas.width/600),y=Math.round((layout.y+500*layout.scale)*canvas.width/600);
           const pixel=[...canvas.getContext('2d').getImageData(x,y,1,1).data];
@@ -39,9 +40,9 @@ try{
         await page.locator('#paint').evaluate((el,c)=>{el.value=c;el.dispatchEvent(new Event('input',{bubbles:true}));},color);
         await page.waitForFunction(({id,color})=>{const c=document.querySelector('#asset-canvas');return c.dataset.artId===id&&c.dataset.bodyView==='assembled'&&c.dataset.paint===color;},{id,color});
         const tones=await page.evaluate(async({id,color})=>{
-          const {getCarSprite,layerImage}=await import('/src/car-assets.js');
-          const {drawSprite,celPaintColor}=await import('/src/sprite-renderer.js');
-          const {spriteLayout}=await import('/src/sprite-geometry.js');
+          const {getCarSprite,layerImage}=await import('./src/car-assets.js');
+          const {drawSprite,celPaintColor}=await import('./src/sprite-renderer.js');
+          const {spriteLayout}=await import('./src/sprite-geometry.js');
           const record=getCarSprite({artId:id}),layout=spriteLayout(record);
           const read=role=>{const c=document.createElement('canvas');c.width=record.width;c.height=record.height;const ctx=c.getContext('2d');ctx.drawImage(layerImage(record.layers[role]),0,0);return ctx.getImageData(0,0,c.width,c.height).data;};
           const base=read('body'),shade=read('shading'),protectedLayers=['fixtures','linework',...(record.layers.lights?['lights']:[])].map(read);
@@ -86,10 +87,10 @@ try{
       await page.locator('#paint').evaluate((el,c)=>{el.value=c;el.dispatchEvent(new Event('input',{bubbles:true}));},color);
       await page.waitForFunction(color=>document.querySelector('#asset-canvas').dataset.paint===color,color);
       const lamp=await page.evaluate(async()=>{
-        const {getCarSprite}=await import('/src/car-assets.js');const {spriteLayout}=await import('/src/sprite-geometry.js');
+        const {getCarSprite}=await import('./src/car-assets.js');const {spriteLayout}=await import('./src/sprite-geometry.js');
         const record=getCarSprite({artId:'chevrolet-silverado-1500-custom-crew-short-2025-black'}),layout=spriteLayout(record),canvas=document.querySelector('#asset-canvas');
         const x=Math.round((layout.x+2000*layout.scale)*canvas.width/600),y=Math.round((layout.y+620*layout.scale)*canvas.width/600);
-        return {bumper:[...canvas.getContext('2d').getImageData(x,y,1,1).data],images:[...document.querySelectorAll('#asset-showroom image')].map(i=>i.getAttribute('href').split('/').at(-1))};
+        return {bumper:[...canvas.getContext('2d').getImageData(x,y,1,1).data],images:[...document.querySelectorAll('#asset-showroom image')].map(i=>new URL(i.getAttribute('href')).pathname.split('/').at(-1))};
       });
       assert.deepEqual(lamp.images,['lights.webp']);
       assert.ok(lamp.bumper[0]===lamp.bumper[1]&&lamp.bumper[1]===lamp.bumper[2]&&lamp.bumper[0]>100,'lights-only canvas leaves bumper transparent over checkerboard');
@@ -98,9 +99,9 @@ try{
     await page.locator('#paint').evaluate(el=>{el.value='#000000';el.dispatchEvent(new Event('input',{bubbles:true}));});
     await page.waitForFunction(()=>{const c=document.querySelector('#asset-canvas');return c.dataset.bodyView==='fixtures'&&c.dataset.paint==='#000000';});
     const trim=await page.evaluate(async()=>{
-      const {getCarSprite}=await import('/src/car-assets.js'),{spriteLayout}=await import('/src/sprite-geometry.js');
+      const {getCarSprite}=await import('./src/car-assets.js'),{spriteLayout}=await import('./src/sprite-geometry.js');
       const record=getCarSprite({artId:'chevrolet-silverado-1500-custom-crew-short-2025-black'}),layout=spriteLayout(record),canvas=document.querySelector('#asset-canvas'),ctx=canvas.getContext('2d');
-      return {files:[...document.querySelectorAll('#asset-showroom image')].map(i=>i.getAttribute('href').split('/').at(-1)),pixels:[[225,608],[850,665],[1960,592],[2000,630]].map(([x,y])=>[...ctx.getImageData(Math.round((layout.x+x*layout.scale)*canvas.width/600),Math.round((layout.y+y*layout.scale)*canvas.width/600),1,1).data])};
+      return {files:[...document.querySelectorAll('#asset-showroom image')].map(i=>new URL(i.getAttribute('href')).pathname.split('/').at(-1)),pixels:[[225,608],[850,665],[1960,592],[2000,630]].map(([x,y])=>[...ctx.getImageData(Math.round((layout.x+x*layout.scale)*canvas.width/600),Math.round((layout.y+y*layout.scale)*canvas.width/600),1,1).data])};
     });
     assert.deepEqual(trim.files,['fixtures.webp']);
     for(const pixel of trim.pixels)assert.ok(pixel[0]===pixel[1]&&pixel[1]===pixel[2]&&pixel[0]>100,'fixed trim leaves painted bumpers and rocker transparent on checkerboard');

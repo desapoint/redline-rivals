@@ -6,5 +6,5 @@
   "revision": 18,
   "reviewFingerprint": "0030e8a6433f86c7e16478cdb566c8dab86cfc6a7fb987e8e1608c39a34079c2",
   "sourceManifestSha256": "a4efa5b829464a95fa96c453ed6dc645dcc1da9df000eb7abf402bc4d4d40c85",
-  "conversion": "Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+  "conversion": "Reviewed uniform paint foundation, source-native black alpha shading, fixed fixtures and independent linework. Native tire/rim bytes are unchanged; wheel placement uses the measured visible tire radius. Actual decoded tire contact determines framing and ground shadows."
 }

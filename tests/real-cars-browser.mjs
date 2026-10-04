@@ -1,3 +1,4 @@
+const origin=process.env.REDLINE_TEST_ORIGIN||'http://localhost:5173/';
 // Optional actual-game integration checks. Uses isolated saves and local runtime files.
 import {createRequire} from 'node:module';
 import {mkdir} from 'node:fs/promises';
@@ -30,7 +31,7 @@ try{
     const save=freshSave();save.cash=50000;save.cars.push(newCar('metro'),newCar('vortex'),newCar('rogue'));save.cars[0].color='#e6603b';delete save.cars[0].vehicleRevision;
     save.cars[0].tune={finalDrive:4.1,launchRPM:3300};
     await page.addInitScript(save=>{if(!localStorage.getItem('redline-drag-club-v1'))localStorage.setItem('redline-drag-club-v1',JSON.stringify(save));},save);
-    await page.goto('http://localhost:5173/#garage');await page.locator('#garage-scene[data-engine="phaser"] canvas').waitFor();
+    await page.goto(origin+'#garage');await page.locator('#garage-scene[data-engine="phaser"] canvas').waitFor();
     await page.waitForTimeout(1100);await fits(page,'real garage');await page.screenshot({path:`tests/artifacts/real-mazda-garage-${viewport.width}.png`});
     const migrated=await page.evaluate(()=>JSON.parse(localStorage.getItem('redline-drag-club-v1')));assert.equal(migrated.cars[0].color,'#a91f2c');
     for(const [model,name,artId] of [['kaze','Mazda3 GT Turbo','mazda3-gt-turbo-sedan-2021-red'],['metro','Silverado 1500 Custom','chevrolet-silverado-1500-custom-crew-short-2025-black'],['vortex','Kia Forte GT','kia-forte-gt-sedan-2022-orange'],['rogue','Nissan Rogue','nissan-rogue-2020-red']]){
@@ -66,10 +67,10 @@ try{
       await specs.click();await facts(page);
     }
     await context.close();
-    console.log(`PASS: four real cars at ${viewport.width}×${viewport.height} / 2× DPR.`);
+    console.log(`PASS: four real cars at ${viewport.width}Ã—${viewport.height} / 2Ã— DPR.`);
   }
   const context=await browser.newContext({viewport:{width:1440,height:900}}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('http://localhost:5173/test-drive.html');await page.waitForFunction(()=>document.getElementById('lab-asset-status').textContent.includes('12 production'));
+  await page.goto(origin+'test-drive.html');await page.waitForFunction(()=>document.getElementById('lab-asset-status').textContent.includes('12 production'));
   for(const model of ['vortex','rogue']){
     await page.getByRole('combobox',{name:'Vehicle',exact:true}).selectOption(model);
     assert.equal(await page.locator('#ratio-0').count(),model==='rogue'?0:1);
@@ -81,5 +82,5 @@ try{
     await page.locator('#reset').click();
   }
   await context.close();
-  assert.deepEqual(errors,[]);console.log(process.argv.includes('--lab-only')?'PASS: focused Forte/Rogue rolling drive-lab controls and telemetry.':'PASS: four real cars, save migration, garage, specs/source pages, repaint persistence, DCT/CVT controls, moving races/slips at desktop/phone sizes and 2× DPR, plus actual rolling drive-lab checks.');
+  assert.deepEqual(errors,[]);console.log(process.argv.includes('--lab-only')?'PASS: focused Forte/Rogue rolling drive-lab controls and telemetry.':'PASS: four real cars, save migration, garage, specs/source pages, repaint persistence, DCT/CVT controls, moving races/slips at desktop/phone sizes and 2Ã— DPR, plus actual rolling drive-lab checks.');
 }finally{await browser.close();}
