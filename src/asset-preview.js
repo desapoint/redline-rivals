@@ -30,6 +30,9 @@ async function selectArtwork(){
     await installSpritePack(currentPack,baseURL);if(version!==selectionVersion)return;
     car.artId=id;car.name=id==='layer-demo'?'Layer geometry demo':id;
     $('body-view').disabled=getCarSprite(car)?.paintMode!=='flat-cel';if($('body-view').disabled)$('body-view').value='assembled';
+    $('body-view').querySelector('[value="lights"]').disabled=!getCarSprite(car)?.layers.lights;
+    $('body-view').querySelector('[value="fixtures"]').textContent=getCarSprite(car)?.layers.lights?'Fixed glass & trim':'Glass, lights & trim';
+    if($('body-view').value==='lights'&&!getCarSprite(car)?.layers.lights)$('body-view').value='assembled';
     options($('wheel-choice'),[['','Factory wheels'],...componentOptions('wheels')]);options($('brake-choice'),[['','Factory brakes'],...componentOptions('brakes')]);
     rotation={front:0,rear:0};$('asset-error').textContent='';
     $('asset-status').textContent=id==='layer-demo'?`Demo fixture loaded. ${Object.keys(production.cars).length} finished car packs available.`:`Loaded ${id}. Native geometry and images validated.`;
@@ -61,6 +64,8 @@ try{const response=await fetch(new URL('manifest.json',baseURL));if(!response.ok
 options($('art-choice'),[['layer-demo','Demo · layered geometry'],...Object.keys(production.cars || {}).map(id=>[id,id])]);
 const requested=new URLSearchParams(location.search);
 if(Object.hasOwn(production.cars || {},requested.get('car')))$('art-choice').value=requested.get('car');
-if(['paint','shading','fixtures','linework'].includes(requested.get('layer')))$('body-view').value=requested.get('layer');
+if(['paint','shading','fixtures','lights','linework'].includes(requested.get('layer')))$('body-view').value=requested.get('layer');
 if(requested.get('layer')==='paint')$('paint').value='#ffffff';
+else if(Object.hasOwn(production.cars || {},requested.get('car')))$('paint').value=production.cars[requested.get('car')].paintColor;
+if(/^#?[0-9a-f]{6}$/i.test(requested.get('paint') || ''))$('paint').value='#'+requested.get('paint').replace(/^#/,'');
 await selectArtwork();requestAnimationFrame(animate);

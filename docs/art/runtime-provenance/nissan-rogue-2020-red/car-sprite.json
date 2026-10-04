@@ -8,7 +8,7 @@
     "id": "nissan-rogue-2020-red",
     "facing": "right"
   },
-  "revision": 10,
+  "revision": 11,
   "canvas": {
     "width": 2200,
     "height": 887
@@ -215,6 +215,21 @@
       "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\car-integration\\20261003\\nissan-rogue-2020-red\\inputs\\metadata.json",
       "sha256": "d3d825a3ea29290292d8ce26a27f932218b9a61713480db4c000cf22ff9e9751",
       "archivedFile": "inputs/referenceMetadata.json"
+    },
+    {
+      "originalPath": "scripts/flat_car_layers.py",
+      "archivedFile": "processing/cartoon/flat_car_layers.py",
+      "sha256": "7afa7d10d889d2601a91db9a531fd8a46933ec3be990cb9bd716763dbfec880e"
+    },
+    {
+      "originalPath": "scripts/cartoon_car_shading.py",
+      "archivedFile": "processing/cartoon/cartoon_car_shading.py",
+      "sha256": "dd1e4dddf707cf9c4474a70321e3cfbbc99d9b722f47fd66bb59b63cd0ab34ec"
+    },
+    {
+      "originalPath": "scripts/prepare-cartoon-shading.py",
+      "archivedFile": "processing/cartoon/prepare-cartoon-shading.py",
+      "sha256": "7647f86fc7689dc63ff039eb5133e61c35e85f9c34533ad72f787218af6c94e5"
     }
   ],
   "notes": [
@@ -225,7 +240,8 @@
     "Wheel centers/radii remeasured against the alpha openings after user placement review; rotor/caliper scales follow each corrected hub; tire contact lines match. No source pixels or factory physics changed.",
     "Independent arch profiles follow original body alpha; source-opening profiles trace connected native contours of any shape. Tire circles only locate rotating components. Native fenders, wheel placement, paint masks and separated mechanical pixels unchanged.",
     "Uniform white paint foundation accepts an arbitrary RGB color. Separate black/white grayscale shading uses discrete opacity shapes; separate black linework defines silhouette/panels/details. Glass/lights/trim remain fixed above paint. No source hue or gradients are baked into paint/shading. Native body source, arbitrary arch contours, axle geometry and mechanical pixels are preserved.",
-    "Uniform white paint foundation accepts an arbitrary RGB color. Separate black/white grayscale shading uses discrete opacity shapes; separate black linework defines silhouette/panels/details. Glass/lights/trim remain fixed above paint. No source hue or gradients are baked into paint/shading. Native body source, arbitrary arch contours, axle geometry and mechanical pixels are preserved."
+    "Uniform white paint foundation accepts an arbitrary RGB color. Separate black/white grayscale shading uses discrete opacity shapes; separate black linework defines silhouette/panels/details. Glass/lights/trim remain fixed above paint. No source hue or gradients are baked into paint/shading. Native body source, arbitrary arch contours, axle geometry and mechanical pixels are preserved.",
+    "Shading-only cartoon rework: two flat shadow opacities and one flat highlight opacity. Broad source-lit regions are traced into simplified polygons with small islands removed. No rendered blur or gradient; paint, fixtures, lamps, linework, arch alpha, hubs and mechanical bytes are preserved."
   ],
   "paintSamples": [
     {
@@ -303,15 +319,12 @@
     "sourceReferenceLuminance": 63.56480026245117,
     "shadowAlphaPalette": [
       0,
-      40,
-      88,
-      132,
-      176
+      72,
+      140
     ],
     "highlightAlphaPalette": [
       0,
-      40,
-      80
+      56
     ],
     "shadingRGBPalette": [
       [
@@ -332,13 +345,21 @@
     ],
     "gradientInterpolation": false,
     "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-    "classificationBlurPixels": 12,
+    "classificationBlurPixels": 0,
     "factoryColor": "#a92331",
     "stack": [
       "body-paint",
       "body-shading",
       "body-fixtures",
       "body-linework"
-    ]
+    ],
+    "shadingStyle": "cartoon-cel",
+    "decompositionSettings": {
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18,
+      "referenceLuminance": 63.56480026245117
+    }
   }
 }

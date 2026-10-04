@@ -14,8 +14,8 @@
     "stationary-calipers",
     "underlay-coverage"
   ],
-  "notes": "Inspected the current isolated body stack, factory/blue/white/black assembly and all mandatory rotation, caliper, mechanical isolation, underlay, background and paint previews. Uniform base RGB and opaque interior; discrete grayscale shading; independent silhouette, panel and handle linework; fixed glass, lights and trim. Native source archives and all mechanical bytes retained. Arbitrary wheel-arch boundaries remain native and antialiased. No unresolved issues.",
+  "notes": "Inspected native source shading versus the supplied Mazda reference, uniform foundation, independent fixtures/ink, rotations 0/45/90/180, complete wheels/brakes, dark arch backing, wheels-hidden assembly, checkerboard/white/gray/black backgrounds and contrasting blue repaint. Source illumination contours are preserved without simplified blocks; only wheel placement scale changes to the measured visible tire radius while mechanical pixels and hub anchors remain unchanged.",
   "unresolvedIssues": [],
-  "contentFingerprint": "260179af13ae84f6812fd6a22956114318591ce4588cd1dbfcc6eda36d2f0f4f",
-  "qaReportHash": "eb8f69e2fa76c8d95ee041d1f787912932689fb20edffdd773aea5843ab90cc2"
+  "contentFingerprint": "0030e8a6433f86c7e16478cdb566c8dab86cfc6a7fb987e8e1608c39a34079c2",
+  "qaReportHash": "39b17efca863f0de1e194b8f8b9d2e8d06e0ad2dd1f47bba29b79bd16afbde55"
 }

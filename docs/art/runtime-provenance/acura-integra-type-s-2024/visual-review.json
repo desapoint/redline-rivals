@@ -1,6 +1,6 @@
 {
   "accepted": true,
-  "reviewer": "Codex visual review",
+  "reviewer": "Codex",
   "checks": [
     "alpha-backgrounds",
     "complete-rotors",
@@ -14,8 +14,8 @@
     "stationary-calipers",
     "underlay-coverage"
   ],
-  "notes": "Inspected the four isolated body layers, continuous white foundation with native arches, fixed fixture pixels, discrete grayscale alpha shading, independent ink, green repaint, native source/hub crops and v6 mechanical diagnostics. Reviewed flat-v7 wheels-hidden, black/white/gray/checkerboard assembled contacts and 0/45/90/180 geometry. Eight illustrations are model representations; scripted brakes/rims/tires are visual approximations. No wheel/caliper/source-byte changes during flat decomposition.",
+  "notes": "Inspected all mandatory current QA frames and assembled factory, blue, white and black paint. Broad simplified polygon cel shapes use two fixed black shadow opacities and one white highlight opacity. No shading gradients. Native paint boundaries, fixtures, separate lights where supplied, ink and mechanical images remain unchanged. No unresolved issues found.",
   "unresolvedIssues": [],
-  "contentFingerprint": "169ba1f4bba4bd6643e2c560aada8fb58c98ac04a8798508c352fe4d86cf44d6",
-  "qaReportHash": "3383bd394933898d2f8d392b57fb0df5d19d164b65f161eb1b198c59471dbd11"
+  "contentFingerprint": "f947e6a79c8d9deb4b9dfdcef3a7a52dda697d9f82b0205a43e6c2863e563a06",
+  "qaReportHash": "31fd7ccb72c600fe671413e0773ba31ca118952947dd49399c5dbc4ec25d0a28"
 }

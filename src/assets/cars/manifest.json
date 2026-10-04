@@ -20,7 +20,7 @@
               691.0,
               691.0
             ],
-            "radius": 600.0
+            "radius": 504.0
           },
           "brake": {
             "file": "mazda3-gt-turbo-sedan-2021-red/rear-caliper.webp",
@@ -56,7 +56,7 @@
               691.0,
               691.0
             ],
-            "radius": 600.0
+            "radius": 504.0
           },
           "brake": {
             "file": "mazda3-gt-turbo-sedan-2021-red/front-caliper.webp",
@@ -147,15 +147,264 @@
         "sourceReferenceLuminance": 49.180599212646484,
         "shadowAlphaPalette": [
           0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
           40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
           88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
           132,
-          176
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          172,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          180,
+          181,
+          182,
+          183,
+          184,
+          185,
+          186,
+          187,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          220,
+          221,
+          222,
+          223,
+          224,
+          225,
+          226,
+          227,
+          228,
+          229,
+          230,
+          231,
+          232,
+          233,
+          234,
+          235,
+          236,
+          237,
+          238,
+          239,
+          240,
+          241,
+          242,
+          243,
+          244,
+          245,
+          246,
+          247,
+          248,
+          249,
+          250,
+          251,
+          252,
+          253,
+          254,
+          255
         ],
         "highlightAlphaPalette": [
-          0,
-          40,
-          80
+          0
         ],
         "shadingRGBPalette": [
           [
@@ -176,14 +425,20 @@
         ],
         "gradientInterpolation": false,
         "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-        "classificationBlurPixels": 12,
+        "classificationBlurPixels": 0,
         "factoryColor": "#a91f2c",
         "stack": [
           "body-paint",
           "body-shading",
           "body-fixtures",
           "body-linework"
-        ]
+        ],
+        "shadingStyle": "source-native-cel",
+        "decompositionSettings": {
+          "algorithm": "prepare-mazda-reference.reference_shading",
+          "sourceChannel": "red"
+        },
+        "sourceContourPreservation": "Native red-channel illumination; no spatial filtering, tracing or simplification"
       },
       "bounds": [
         192,
@@ -198,13 +453,13 @@
         530
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003/mazda3-gt-turbo-sedan-2021-red/flat-paint-v16",
+        "sourcePackage": "tests/car-integration/20261003/mazda3-gt-turbo-sedan-2021-red/reference-fit-v18",
         "sourceManifest": "docs/art/runtime-provenance/mazda3-gt-turbo-sedan-2021-red/car-sprite.json",
         "bodySource": "docs/art/staged-roster/mazda3-gt-turbo-sedan-2021-red/body-2d.png",
         "bodySourceSha256": "dc0ec3438550c6a6dfbac7db02c1e6cfa8c3d17875c2cbf94c9953f1de7970d7",
-        "revision": 16,
-        "reviewFingerprint": "260179af13ae84f6812fd6a22956114318591ce4588cd1dbfcc6eda36d2f0f4f",
-        "sourceManifestSha256": "d220b6c8b9df4afe1e47988d72f96c5558951e9b7fefff915e4f879eb47dc181",
+        "revision": 18,
+        "reviewFingerprint": "0030e8a6433f86c7e16478cdb566c8dab86cfc6a7fb987e8e1608c39a34079c2",
+        "sourceManifestSha256": "a4efa5b829464a95fa96c453ed6dc645dcc1da9df000eb7abf402bc4d4d40c85",
         "conversion": "Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
       }
     },
@@ -308,6 +563,11 @@
           "width": 2200,
           "height": 887
         },
+        "lights": {
+          "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/lights.webp",
+          "width": 2200,
+          "height": 887
+        },
         "underlay": {
           "file": "chevrolet-silverado-1500-custom-crew-short-2025-black/underlay.webp",
           "width": 2200,
@@ -354,15 +614,12 @@
         "sourceReferenceLuminance": 44.072200775146484,
         "shadowAlphaPalette": [
           0,
-          40,
-          88,
-          132,
-          176
+          72,
+          140
         ],
         "highlightAlphaPalette": [
           0,
-          40,
-          80
+          56
         ],
         "shadingRGBPalette": [
           [
@@ -383,14 +640,23 @@
         ],
         "gradientInterpolation": false,
         "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-        "classificationBlurPixels": 12,
+        "classificationBlurPixels": 0,
         "factoryColor": "#202226",
         "stack": [
           "body-paint",
           "body-shading",
           "body-fixtures",
+          "body-lights",
           "body-linework"
-        ]
+        ],
+        "decompositionSettings": {
+          "referenceLuminance": 44.072200775146484,
+          "shadingStyle": "cartoon-cel",
+          "shapeGridWidth": 256,
+          "shapeToleranceCells": 1.25,
+          "minimumShapeCells": 18
+        },
+        "shadingStyle": "cartoon-cel"
       },
       "bounds": [
         104,
@@ -405,13 +671,13 @@
         641
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003/chevrolet-silverado-1500-custom-crew-short-2025-black/flat-paint-v19",
+        "sourcePackage": "tests/car-integration/20261003/chevrolet-silverado-1500-custom-crew-short-2025-black/trim-v26",
         "sourceManifest": "docs/art/runtime-provenance/chevrolet-silverado-1500-custom-crew-short-2025-black/car-sprite.json",
         "bodySource": "docs/art/staged-roster/chevrolet-silverado-1500-custom-crew-short-2025-black/body-2d.png",
         "bodySourceSha256": "d3a84a84df7d34d37de24f5e7b42d6fc6baca7daec421bbc7e619012eb9a4432",
-        "revision": 19,
-        "reviewFingerprint": "06bc70a4a933441461c776dcc8baa2117b2949e562c4fe191cf68db332c95848",
-        "sourceManifestSha256": "9961c64f8dacbadc6fb0f30628aed3640fa5df80da1567a38e4a2a5359e4b24c",
+        "revision": 26,
+        "reviewFingerprint": "2b215c01753255b3aef960bea1fe3b402811181847f562e66b52071c541918c6",
+        "sourceManifestSha256": "1ba5e4b29941693d8900e5c1ae25552edc5b22d7cb295c9b889e1a4e27890719",
         "conversion": "Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
       }
     },
@@ -561,15 +827,12 @@
         "sourceReferenceLuminance": 132.39439392089844,
         "shadowAlphaPalette": [
           0,
-          40,
-          88,
-          132,
-          176
+          72,
+          140
         ],
         "highlightAlphaPalette": [
           0,
-          40,
-          80
+          56
         ],
         "shadingRGBPalette": [
           [
@@ -590,14 +853,22 @@
         ],
         "gradientInterpolation": false,
         "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-        "classificationBlurPixels": 12,
+        "classificationBlurPixels": 0,
         "factoryColor": "#ef721b",
         "stack": [
           "body-paint",
           "body-shading",
           "body-fixtures",
           "body-linework"
-        ]
+        ],
+        "shadingStyle": "cartoon-cel",
+        "decompositionSettings": {
+          "shadingStyle": "cartoon-cel",
+          "shapeGridWidth": 256,
+          "shapeToleranceCells": 1.25,
+          "minimumShapeCells": 18,
+          "referenceLuminance": 132.39439392089844
+        }
       },
       "bounds": [
         95,
@@ -612,13 +883,13 @@
         563
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003/kia-forte-gt-sedan-2022-orange/flat-paint-v9",
+        "sourcePackage": "tests/car-integration/20261003/kia-forte-gt-sedan-2022-orange/cartoon-v10",
         "sourceManifest": "docs/art/runtime-provenance/kia-forte-gt-sedan-2022-orange/car-sprite.json",
         "bodySource": "docs/art/staged-roster/kia-forte-gt-sedan-2022-orange/body-2d.png",
         "bodySourceSha256": "52b42926f3c6f098627adc90145db3964fdf842ce2192b5e071729e6a8a97cfc",
-        "revision": 9,
-        "reviewFingerprint": "16d19660af2f83df25edd361887fe298d65747135258b5199c34191a0df78f00",
-        "sourceManifestSha256": "246df45512c5a1a04a295881bc82384e522548b7fb5daf4ccc460394ade03c0e",
+        "revision": 10,
+        "reviewFingerprint": "f49ca236361ac6135dce61831ef0c47644ac339ea51971e38286baf6afed52e1",
+        "sourceManifestSha256": "cc95b6a59e5aaff74e90993991fc740bbc926099ef61e8b6abab2a7c2514a210",
         "conversion": "Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
       }
     },
@@ -768,15 +1039,12 @@
         "sourceReferenceLuminance": 63.56480026245117,
         "shadowAlphaPalette": [
           0,
-          40,
-          88,
-          132,
-          176
+          72,
+          140
         ],
         "highlightAlphaPalette": [
           0,
-          40,
-          80
+          56
         ],
         "shadingRGBPalette": [
           [
@@ -797,14 +1065,22 @@
         ],
         "gradientInterpolation": false,
         "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-        "classificationBlurPixels": 12,
+        "classificationBlurPixels": 0,
         "factoryColor": "#a92331",
         "stack": [
           "body-paint",
           "body-shading",
           "body-fixtures",
           "body-linework"
-        ]
+        ],
+        "shadingStyle": "cartoon-cel",
+        "decompositionSettings": {
+          "shadingStyle": "cartoon-cel",
+          "shapeGridWidth": 256,
+          "shapeToleranceCells": 1.25,
+          "minimumShapeCells": 18,
+          "referenceLuminance": 63.56480026245117
+        }
       },
       "bounds": [
         89,
@@ -819,13 +1095,13 @@
         724
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003/nissan-rogue-2020-red/flat-paint-v10",
+        "sourcePackage": "tests/car-integration/20261003/nissan-rogue-2020-red/cartoon-v11",
         "sourceManifest": "docs/art/runtime-provenance/nissan-rogue-2020-red/car-sprite.json",
         "bodySource": "docs/art/staged-roster/nissan-rogue-2020-red/body-2d.png",
         "bodySourceSha256": "17031392c4c527099904d5cb87f1e45afb3d7f91a7d07c6f269d2aa63b1eb3b0",
-        "revision": 10,
-        "reviewFingerprint": "b6ca34c896e07b021d240fff392035552c3282356d900eef19668e301a28fddf",
-        "sourceManifestSha256": "b2a86b16872301bc953463c1c00dfefd4d50558c1ee1d934b10795edfefd2d06",
+        "revision": 11,
+        "reviewFingerprint": "c505295497c76adbcbc3cf5a9648b62fe4a2ebb1c09a45dd7a5226d274524091",
+        "sourceManifestSha256": "17794ab1cd57ead4c820df85b06be35185dc8c871fe6a35599e5dc8ac021e8ff",
         "conversion": "Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
       }
     },
@@ -1047,15 +1323,12 @@
         "sourceReferenceLuminance": 203.2126007080078,
         "shadowAlphaPalette": [
           0,
-          40,
-          88,
-          132,
-          176
+          72,
+          140
         ],
         "highlightAlphaPalette": [
           0,
-          40,
-          80
+          56
         ],
         "shadingRGBPalette": [
           [
@@ -1076,8 +1349,16 @@
         ],
         "gradientInterpolation": false,
         "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-        "classificationBlurPixels": 12,
-        "factoryColor": "#e4e5e5"
+        "classificationBlurPixels": 0,
+        "factoryColor": "#e4e5e5",
+        "shadingStyle": "cartoon-cel",
+        "decompositionSettings": {
+          "shadingStyle": "cartoon-cel",
+          "shapeGridWidth": 256,
+          "shapeToleranceCells": 1.25,
+          "minimumShapeCells": 18,
+          "referenceLuminance": 203.2126007080078
+        }
       },
       "bounds": [
         140,
@@ -1092,15 +1373,15 @@
         546
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/flat-v7",
+        "sourcePackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/cartoon-v8",
         "sourceManifest": "docs/art/runtime-provenance/acura-integra-type-s-2024/car-sprite.json",
-        "bodySource": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/flat-v7/inputs/body-2d.png",
+        "bodySource": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/cartoon-v8/inputs/body-2d.png",
         "bodySourceSha256": "fa5bcc729c24a79c00615a4b69e8039f42731645d1ba34f1b3ab46d3c90e9773",
         "masterSource": "tests/car-integration/20261003-additional/sources/acura-integra-type-s-2024/acura-integra-type-s-2024-composite.png",
         "masterSourceSha256": "176c20f2d9217d6d55b4a3954e28b131f5fd98e761d6b82bc7ede447e40acda7",
-        "revision": 7,
-        "reviewFingerprint": "169ba1f4bba4bd6643e2c560aada8fb58c98ac04a8798508c352fe4d86cf44d6",
-        "sourceManifestSha256": "aa88eb21ce66822c4a404b7b04016c6dd3de6c55d722fad9e7f7aaeb07aba651",
+        "revision": 8,
+        "reviewFingerprint": "f947e6a79c8d9deb4b9dfdcef3a7a52dda697d9f82b0205a43e6c2863e563a06",
+        "sourceManifestSha256": "d82fc4f0a7b3fa9511145a83e6f02b90227d26df47e351e95ed156cacb0f659c",
         "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
       }
     },
@@ -1322,15 +1603,12 @@
         "sourceReferenceLuminance": 53.0072021484375,
         "shadowAlphaPalette": [
           0,
-          40,
-          88,
-          132,
-          176
+          72,
+          140
         ],
         "highlightAlphaPalette": [
           0,
-          40,
-          80
+          56
         ],
         "shadingRGBPalette": [
           [
@@ -1351,8 +1629,16 @@
         ],
         "gradientInterpolation": false,
         "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-        "classificationBlurPixels": 12,
-        "factoryColor": "#bc1831"
+        "classificationBlurPixels": 0,
+        "factoryColor": "#bc1831",
+        "shadingStyle": "cartoon-cel",
+        "decompositionSettings": {
+          "shadingStyle": "cartoon-cel",
+          "shapeGridWidth": 256,
+          "shapeToleranceCells": 1.25,
+          "minimumShapeCells": 18,
+          "referenceLuminance": 53.0072021484375
+        }
       },
       "bounds": [
         138,
@@ -1367,15 +1653,15 @@
         549
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/flat-v7",
+        "sourcePackage": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/cartoon-v8",
         "sourceManifest": "docs/art/runtime-provenance/cadillac-ct5-v-blackwing-2025/car-sprite.json",
-        "bodySource": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/flat-v7/inputs/body-2d.png",
+        "bodySource": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/cartoon-v8/inputs/body-2d.png",
         "bodySourceSha256": "75f38f935cfc7899b363251409596addf3d6e8d7955c3409accfafc03c2cd7b6",
         "masterSource": "tests/car-integration/20261003-additional/sources/cadillac-ct5-v-blackwing-2025/cadillac-ct5-v-blackwing-2025-composite.png",
         "masterSourceSha256": "d2e6e6d0a996854a103f1d509f9d493b681efed509a3f079459bca20c2293b85",
-        "revision": 7,
-        "reviewFingerprint": "043919e2cf79a9f492a31f321b7bed2fb528e92e53082bdfef46ce2de1186cb1",
-        "sourceManifestSha256": "a14cdd4d4ce3672499478576d069be4a3915eecceef1d80577b71c8a0e78146f",
+        "revision": 8,
+        "reviewFingerprint": "c0ed5559f7ed2488acd3023dc3869acf470faaffc3102f71332b1a6a94f1e00b",
+        "sourceManifestSha256": "9b6ce7daa64c797642882bdb9825c33ad28db6364abd97ef6ad59bc6f4b018b7",
         "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
       }
     },
@@ -1597,15 +1883,12 @@
         "sourceReferenceLuminance": 70.46720123291016,
         "shadowAlphaPalette": [
           0,
-          40,
-          88,
-          132,
-          176
+          72,
+          140
         ],
         "highlightAlphaPalette": [
           0,
-          40,
-          80
+          56
         ],
         "shadingRGBPalette": [
           [
@@ -1626,8 +1909,16 @@
         ],
         "gradientInterpolation": false,
         "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-        "classificationBlurPixels": 12,
-        "factoryColor": "#ef2417"
+        "classificationBlurPixels": 0,
+        "factoryColor": "#ef2417",
+        "shadingStyle": "cartoon-cel",
+        "decompositionSettings": {
+          "shadingStyle": "cartoon-cel",
+          "shapeGridWidth": 256,
+          "shapeToleranceCells": 1.25,
+          "minimumShapeCells": 18,
+          "referenceLuminance": 70.46720123291016
+        }
       },
       "bounds": [
         26,
@@ -1642,15 +1933,15 @@
         570
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/flat-v7",
+        "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/cartoon-v8",
         "sourceManifest": "docs/art/runtime-provenance/ford-mustang-boss302-1969/car-sprite.json",
-        "bodySource": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/flat-v7/inputs/body-2d.png",
+        "bodySource": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/cartoon-v8/inputs/body-2d.png",
         "bodySourceSha256": "e41b1574d187add7ec2f63634d56461d6dbeb095b905f78dc5a979a8b61835e1",
         "masterSource": "tests/car-integration/20261003-additional/sources/ford-mustang-boss302-1969/ford-mustang-boss302-1969-2d.png",
         "masterSourceSha256": "07dddb01fe882ad67a6c27e7b467e34a426849049000930ef8e992faa61e8976",
-        "revision": 7,
-        "reviewFingerprint": "6c1aae97eb612d6e3af1a65449693ebf7dbe63a1f8060c5cfd0e64d735da902f",
-        "sourceManifestSha256": "90a3ad86e33e439ecdf2b8ffe135534b9a26d307198258ac0401dd46579b913f",
+        "revision": 8,
+        "reviewFingerprint": "d6169933a4289b624c445422c14ee6f3a87ea50a8dcaa7d98415d39532894103",
+        "sourceManifestSha256": "b9d3d233ca1dc139f8e24e0cc511fc1be8fc71ab816d4ce087dc90b631133382",
         "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
       }
     },
@@ -1872,15 +2163,12 @@
         "sourceReferenceLuminance": 58.72319793701172,
         "shadowAlphaPalette": [
           0,
-          40,
-          88,
-          132,
-          176
+          72,
+          140
         ],
         "highlightAlphaPalette": [
           0,
-          40,
-          80
+          56
         ],
         "shadingRGBPalette": [
           [
@@ -1901,8 +2189,16 @@
         ],
         "gradientInterpolation": false,
         "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-        "classificationBlurPixels": 12,
-        "factoryColor": "#24518a"
+        "classificationBlurPixels": 0,
+        "factoryColor": "#24518a",
+        "shadingStyle": "cartoon-cel",
+        "decompositionSettings": {
+          "shadingStyle": "cartoon-cel",
+          "shapeGridWidth": 256,
+          "shapeToleranceCells": 1.25,
+          "minimumShapeCells": 18,
+          "referenceLuminance": 58.72319793701172
+        }
       },
       "bounds": [
         143,
@@ -1917,15 +2213,15 @@
         541
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/flat-v7",
+        "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/cartoon-v8",
         "sourceManifest": "docs/art/runtime-provenance/ford-mustang-dark-horse-2024/car-sprite.json",
-        "bodySource": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/flat-v7/inputs/body-2d.png",
+        "bodySource": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/cartoon-v8/inputs/body-2d.png",
         "bodySourceSha256": "ff7e998b7838ca7f23adb1c0597b770b85c2bb79e8f763b82c58111fa917ae8d",
         "masterSource": "tests/car-integration/20261003-additional/sources/ford-mustang-dark-horse-2024/ford-mustang-dark-horse-2024-composite.png",
         "masterSourceSha256": "2555bd406212daa6d4f19a313777e939ebfa1062d2eaff69aa24ae965b9bd59a",
-        "revision": 7,
-        "reviewFingerprint": "dbc76ba958922f271e98f2122e4a64ee2c92034157c7b5e29e5f3e2cf817cd04",
-        "sourceManifestSha256": "95fddb6dc800bf96ce3de4b6e7784c84f1430882563782f00514bee45697b236",
+        "revision": 8,
+        "reviewFingerprint": "20befaadd55d98a471bf16bf89e0e67c816b3beceec2c492a976953094b348be",
+        "sourceManifestSha256": "e51b8f1781091f9db4c6eca621501f910ea7cbdfaf07d3591e3d7d2cf42655bd",
         "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
       }
     },
@@ -2147,15 +2443,12 @@
         "sourceReferenceLuminance": 99.6550064086914,
         "shadowAlphaPalette": [
           0,
-          40,
-          88,
-          132,
-          176
+          72,
+          140
         ],
         "highlightAlphaPalette": [
           0,
-          40,
-          80
+          56
         ],
         "shadingRGBPalette": [
           [
@@ -2176,8 +2469,16 @@
         ],
         "gradientInterpolation": false,
         "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-        "classificationBlurPixels": 12,
-        "factoryColor": "#a0a3a7"
+        "classificationBlurPixels": 0,
+        "factoryColor": "#a0a3a7",
+        "shadingStyle": "cartoon-cel",
+        "decompositionSettings": {
+          "shadingStyle": "cartoon-cel",
+          "shapeGridWidth": 256,
+          "shapeToleranceCells": 1.25,
+          "minimumShapeCells": 18,
+          "referenceLuminance": 99.6550064086914
+        }
       },
       "bounds": [
         155,
@@ -2192,15 +2493,15 @@
         529
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003-additional/nissan-z-nismo-2024/flat-v7",
+        "sourcePackage": "tests/car-integration/20261003-additional/nissan-z-nismo-2024/cartoon-v8",
         "sourceManifest": "docs/art/runtime-provenance/nissan-z-nismo-2024/car-sprite.json",
-        "bodySource": "tests/car-integration/20261003-additional/nissan-z-nismo-2024/flat-v7/inputs/body-2d.png",
+        "bodySource": "tests/car-integration/20261003-additional/nissan-z-nismo-2024/cartoon-v8/inputs/body-2d.png",
         "bodySourceSha256": "59e2efff4c810a248cbe2cdc6d46c9fc4b84eb3026d3535ca73c1f3b34554400",
         "masterSource": "tests/car-integration/20261003-additional/sources/nissan-z-nismo-2024/nissan-z-nismo-2024-composite.png",
         "masterSourceSha256": "c046433c39fccb63b7280a0759d9dea4d9f9a1a02c92a860f6089da5bf2236da",
-        "revision": 7,
-        "reviewFingerprint": "7e0ee7b87ae0e0a92e43223913ba1ce23a1dae94e20ea8896d85914c4cfb64a8",
-        "sourceManifestSha256": "dde307d9645677ec3e48ae92382535834ab2eb49c6a4ece24b9b3b71b9fc2113",
+        "revision": 8,
+        "reviewFingerprint": "5f46d623ab6937eb0b36a90bc3dd65a51900d185c19cec325f6f9184901980c1",
+        "sourceManifestSha256": "3b65c474df7038f11e4737a3493cb0d82cdc039e1fc1be9e43f01389d1600d68",
         "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
       }
     },
@@ -2422,15 +2723,12 @@
         "sourceReferenceLuminance": 62.898399353027344,
         "shadowAlphaPalette": [
           0,
-          40,
-          88,
-          132,
-          176
+          72,
+          140
         ],
         "highlightAlphaPalette": [
           0,
-          40,
-          80
+          56
         ],
         "shadingRGBPalette": [
           [
@@ -2451,8 +2749,16 @@
         ],
         "gradientInterpolation": false,
         "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-        "classificationBlurPixels": 12,
-        "factoryColor": "#1459b3"
+        "classificationBlurPixels": 0,
+        "factoryColor": "#1459b3",
+        "shadingStyle": "cartoon-cel",
+        "decompositionSettings": {
+          "shadingStyle": "cartoon-cel",
+          "shapeGridWidth": 256,
+          "shapeToleranceCells": 1.25,
+          "minimumShapeCells": 18,
+          "referenceLuminance": 62.898399353027344
+        }
       },
       "bounds": [
         168,
@@ -2467,15 +2773,15 @@
         567
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/flat-v7",
+        "sourcePackage": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/cartoon-v8",
         "sourceManifest": "docs/art/runtime-provenance/subaru-wrx-tr-2024/car-sprite.json",
-        "bodySource": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/flat-v7/inputs/body-2d.png",
+        "bodySource": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/cartoon-v8/inputs/body-2d.png",
         "bodySourceSha256": "46e55c5dc9c06af3b1f64b75ae67bcc9730f9e0befd44aebfc79d743222e988c",
         "masterSource": "tests/car-integration/20261003-additional/sources/subaru-wrx-tr-2024/subaru-wrx-tr-2024-composite.png",
         "masterSourceSha256": "fc4edb2968e705c3ca0b582c285aed956a0b71f307070393d6e4fa5ecbcd7fe6",
-        "revision": 7,
-        "reviewFingerprint": "877ac7f737e35ee6edaed44f00b15c517b66f63a343cb249af9d79ea93e2a011",
-        "sourceManifestSha256": "402f4263d912eec35a4673fab195d1bc6b4fe5f743780489bd16def16f054296",
+        "revision": 8,
+        "reviewFingerprint": "ae3ff74733be46586e64e2c71af9e3e21ca6f5c6b108ca1e97337af6e76506db",
+        "sourceManifestSha256": "92ead0e2692cf99e388ddba2eefe5acc8cd0c263d2d86b65f6b448b01828c348",
         "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
       }
     },
@@ -2697,15 +3003,12 @@
         "sourceReferenceLuminance": 120.89440155029297,
         "shadowAlphaPalette": [
           0,
-          40,
-          88,
-          132,
-          176
+          72,
+          140
         ],
         "highlightAlphaPalette": [
           0,
-          40,
-          80
+          56
         ],
         "shadingRGBPalette": [
           [
@@ -2726,8 +3029,16 @@
         ],
         "gradientInterpolation": false,
         "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-        "classificationBlurPixels": 12,
-        "factoryColor": "#0866e8"
+        "classificationBlurPixels": 0,
+        "factoryColor": "#0866e8",
+        "shadingStyle": "cartoon-cel",
+        "decompositionSettings": {
+          "shadingStyle": "cartoon-cel",
+          "shapeGridWidth": 256,
+          "shapeToleranceCells": 1.25,
+          "minimumShapeCells": 18,
+          "referenceLuminance": 120.89440155029297
+        }
       },
       "bounds": [
         15,
@@ -2742,15 +3053,15 @@
         587
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/flat-v7",
+        "sourcePackage": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/cartoon-v8",
         "sourceManifest": "docs/art/runtime-provenance/toyota-gr-corolla-2024/car-sprite.json",
-        "bodySource": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/flat-v7/inputs/body-2d.png",
+        "bodySource": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/cartoon-v8/inputs/body-2d.png",
         "bodySourceSha256": "96f85bf15e18486a0e7c4b38af0c2dfcc2d61bb14fd0ba46f26be488d595d580",
         "masterSource": "tests/car-integration/20261003-additional/sources/toyota-gr-corolla-2024/toyota-gr-corolla-2024-2d.png",
         "masterSourceSha256": "25dac294c2dfacd83e6fe2299db13a4b39b4779c3e87479799b08c3968f9a28e",
-        "revision": 7,
-        "reviewFingerprint": "a0f1ff5ade70127614cbe87096879738bead47d7d7a686db4ea50403d43ccb0d",
-        "sourceManifestSha256": "9e200903d96b2b960db163f34c0e90efe80d7d385ef8ce41c779d933845d32c6",
+        "revision": 8,
+        "reviewFingerprint": "f07cb59d1981d13cddbf41dcc9b7072da67000155a635ca6308d2923fd319484",
+        "sourceManifestSha256": "60a7a8ba2dcfce4b582d1aa51ec13106bda74397dc769e270da073761f67cab3",
         "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
       }
     },
@@ -2972,15 +3283,12 @@
         "sourceReferenceLuminance": 61.33440017700195,
         "shadowAlphaPalette": [
           0,
-          40,
-          88,
-          132,
-          176
+          72,
+          140
         ],
         "highlightAlphaPalette": [
           0,
-          40,
-          80
+          56
         ],
         "shadingRGBPalette": [
           [
@@ -3001,8 +3309,16 @@
         ],
         "gradientInterpolation": false,
         "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-        "classificationBlurPixels": 12,
-        "factoryColor": "#dc1826"
+        "classificationBlurPixels": 0,
+        "factoryColor": "#dc1826",
+        "shadingStyle": "cartoon-cel",
+        "decompositionSettings": {
+          "shadingStyle": "cartoon-cel",
+          "shapeGridWidth": 256,
+          "shapeToleranceCells": 1.25,
+          "minimumShapeCells": 18,
+          "referenceLuminance": 61.33440017700195
+        }
       },
       "bounds": [
         11,
@@ -3017,15 +3333,15 @@
         590
       ],
       "provenance": {
-        "sourcePackage": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/flat-v7",
+        "sourcePackage": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/cartoon-v8",
         "sourceManifest": "docs/art/runtime-provenance/volkswagen-golf-gti-2024/car-sprite.json",
-        "bodySource": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/flat-v7/inputs/body-2d.png",
+        "bodySource": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/cartoon-v8/inputs/body-2d.png",
         "bodySourceSha256": "4508fc607a98b3b27d3b418bbfd8eb9bb6c7aa1dc6512c9da0a421e8efd9a2a9",
         "masterSource": "tests/car-integration/20261003-additional/sources/volkswagen-golf-gti-2024/volkswagen-golf-gti-2024-2d.png",
         "masterSourceSha256": "b22cdfa92f120789caa8111809c7da9512f3862e23f76dfd9b88d35908d65be1",
-        "revision": 7,
-        "reviewFingerprint": "3796c2cfedef4318c5f4c092dc47a71d4b296ec0cf6467411e680a911bf6f9ae",
-        "sourceManifestSha256": "f94ac1819e067a0a4ed02d29dbb3105edfed65f1202cc9231eecf3bc6a109cce",
+        "revision": 8,
+        "reviewFingerprint": "bb3e9193d3ad173584c8bf1395ea39dc6ca3a2bc9e32d723be105e06b5b9fd79",
+        "sourceManifestSha256": "790f7195d75ffa72de49890bbffa35ff4e4367d6e3bd57a4cd75e94371d89298",
         "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
       }
     }

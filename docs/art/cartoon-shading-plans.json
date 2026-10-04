@@ -1,0 +1,194 @@
+[
+  {
+    "vehicle": "mazda3-gt-turbo-sedan-2021-red",
+    "sourcePackage": "tests/car-integration/20261003/mazda3-gt-turbo-sedan-2021-red/flat-paint-v16",
+    "outputPackage": "tests/car-integration/20261003/mazda3-gt-turbo-sedan-2021-red/cartoon-v17",
+    "sourceBody": "inputs/body.png",
+    "sourceBodySha256": "dc0ec3438550c6a6dfbac7db02c1e6cfa8c3d17875c2cbf94c9953f1de7970d7",
+    "paintRegionsSha256": "de0385aff8297cd3ae9433f08f356e6388f06c711c72153913eb7ca29956b91b",
+    "revision": 17,
+    "settings": {
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18,
+      "referenceLuminance": 49.180599212646484
+    }
+  },
+  {
+    "vehicle": "chevrolet-silverado-1500-custom-crew-short-2025-black",
+    "sourcePackage": "tests/car-integration/20261003/chevrolet-silverado-1500-custom-crew-short-2025-black/flat-paint-v22",
+    "outputPackage": "tests/car-integration/20261003/chevrolet-silverado-1500-custom-crew-short-2025-black/cartoon-v23",
+    "sourceBody": "inputs/body.png",
+    "sourceBodySha256": "d3a84a84df7d34d37de24f5e7b42d6fc6baca7daec421bbc7e619012eb9a4432",
+    "paintRegionsSha256": "64f30f7652f77e44789dab6b6cf16c5d2a5e28ecf5db412b82edf69e11770795",
+    "revision": 23,
+    "settings": {
+      "referenceLuminance": 44.072200775146484,
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18
+    }
+  },
+  {
+    "vehicle": "kia-forte-gt-sedan-2022-orange",
+    "sourcePackage": "tests/car-integration/20261003/kia-forte-gt-sedan-2022-orange/flat-paint-v9",
+    "outputPackage": "tests/car-integration/20261003/kia-forte-gt-sedan-2022-orange/cartoon-v10",
+    "sourceBody": "inputs/body.png",
+    "sourceBodySha256": "52b42926f3c6f098627adc90145db3964fdf842ce2192b5e071729e6a8a97cfc",
+    "paintRegionsSha256": "f13891885b3b8caf2fbe11b9aef24aefb09c5cbc88aa92c8240d1a995bbcbf24",
+    "revision": 10,
+    "settings": {
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18,
+      "referenceLuminance": 132.39439392089844
+    }
+  },
+  {
+    "vehicle": "nissan-rogue-2020-red",
+    "sourcePackage": "tests/car-integration/20261003/nissan-rogue-2020-red/flat-paint-v10",
+    "outputPackage": "tests/car-integration/20261003/nissan-rogue-2020-red/cartoon-v11",
+    "sourceBody": "inputs/body.png",
+    "sourceBodySha256": "17031392c4c527099904d5cb87f1e45afb3d7f91a7d07c6f269d2aa63b1eb3b0",
+    "paintRegionsSha256": "0e6a3aa76d1fe4e3b489c4f70f4cf5fd571d9fed3c4e3f0181aedc6295974132",
+    "revision": 11,
+    "settings": {
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18,
+      "referenceLuminance": 63.56480026245117
+    }
+  },
+  {
+    "vehicle": "acura-integra-type-s-2024",
+    "sourcePackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/flat-v7",
+    "outputPackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/cartoon-v8",
+    "sourceBody": "body.png",
+    "sourceBodySha256": "fa5bcc729c24a79c00615a4b69e8039f42731645d1ba34f1b3ab46d3c90e9773",
+    "paintRegionsSha256": "aaf23e0ed9f876ce6fced9e38565f33619c69430eaf522761269f9f34d50a539",
+    "revision": 8,
+    "settings": {
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18,
+      "referenceLuminance": 203.2126007080078
+    }
+  },
+  {
+    "vehicle": "cadillac-ct5-v-blackwing-2025",
+    "sourcePackage": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/flat-v7",
+    "outputPackage": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/cartoon-v8",
+    "sourceBody": "body.png",
+    "sourceBodySha256": "75f38f935cfc7899b363251409596addf3d6e8d7955c3409accfafc03c2cd7b6",
+    "paintRegionsSha256": "0d1d3a240536b774cfb4f2d3a233911ca10853bef4711836a7d7e89c6e01d885",
+    "revision": 8,
+    "settings": {
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18,
+      "referenceLuminance": 53.0072021484375
+    }
+  },
+  {
+    "vehicle": "ford-mustang-boss302-1969",
+    "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/flat-v7",
+    "outputPackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/cartoon-v8",
+    "sourceBody": "body.png",
+    "sourceBodySha256": "e41b1574d187add7ec2f63634d56461d6dbeb095b905f78dc5a979a8b61835e1",
+    "paintRegionsSha256": "57fb76405d250bb06004f04969538626fc3ba7b09ed3c2f2ed3e5e5240178b15",
+    "revision": 8,
+    "settings": {
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18,
+      "referenceLuminance": 70.46720123291016
+    }
+  },
+  {
+    "vehicle": "ford-mustang-dark-horse-2024",
+    "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/flat-v7",
+    "outputPackage": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/cartoon-v8",
+    "sourceBody": "body.png",
+    "sourceBodySha256": "ff7e998b7838ca7f23adb1c0597b770b85c2bb79e8f763b82c58111fa917ae8d",
+    "paintRegionsSha256": "0bd2fca9a8dd40d3b642930496c1066f1170689eeca538336c89fcedc355449b",
+    "revision": 8,
+    "settings": {
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18,
+      "referenceLuminance": 58.72319793701172
+    }
+  },
+  {
+    "vehicle": "nissan-z-nismo-2024",
+    "sourcePackage": "tests/car-integration/20261003-additional/nissan-z-nismo-2024/flat-v7",
+    "outputPackage": "tests/car-integration/20261003-additional/nissan-z-nismo-2024/cartoon-v8",
+    "sourceBody": "body.png",
+    "sourceBodySha256": "59e2efff4c810a248cbe2cdc6d46c9fc4b84eb3026d3535ca73c1f3b34554400",
+    "paintRegionsSha256": "deed6dcbdef4c4dc2de8b08a3952994aa47fa90b467302a954ade17ee2147b67",
+    "revision": 8,
+    "settings": {
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18,
+      "referenceLuminance": 99.6550064086914
+    }
+  },
+  {
+    "vehicle": "subaru-wrx-tr-2024",
+    "sourcePackage": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/flat-v7",
+    "outputPackage": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/cartoon-v8",
+    "sourceBody": "body.png",
+    "sourceBodySha256": "46e55c5dc9c06af3b1f64b75ae67bcc9730f9e0befd44aebfc79d743222e988c",
+    "paintRegionsSha256": "083e908e8e48a283f7ffc1a36766c09793070d2c29b04090d726da8fb07038e4",
+    "revision": 8,
+    "settings": {
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18,
+      "referenceLuminance": 62.898399353027344
+    }
+  },
+  {
+    "vehicle": "toyota-gr-corolla-2024",
+    "sourcePackage": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/flat-v7",
+    "outputPackage": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/cartoon-v8",
+    "sourceBody": "body.png",
+    "sourceBodySha256": "96f85bf15e18486a0e7c4b38af0c2dfcc2d61bb14fd0ba46f26be488d595d580",
+    "paintRegionsSha256": "5a63e89140ae668825f747d2a0d490c60a2dc453e5846c5f3bd2c68d4a922a32",
+    "revision": 8,
+    "settings": {
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18,
+      "referenceLuminance": 120.89440155029297
+    }
+  },
+  {
+    "vehicle": "volkswagen-golf-gti-2024",
+    "sourcePackage": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/flat-v7",
+    "outputPackage": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/cartoon-v8",
+    "sourceBody": "body.png",
+    "sourceBodySha256": "4508fc607a98b3b27d3b418bbfd8eb9bb6c7aa1dc6512c9da0a421e8efd9a2a9",
+    "paintRegionsSha256": "b4ec795e9818174253dba906cb4d45f2d6dd5731480e227b104379067280554f",
+    "revision": 8,
+    "settings": {
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18,
+      "referenceLuminance": 61.33440017700195
+    }
+  }
+]

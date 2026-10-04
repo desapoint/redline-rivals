@@ -47,7 +47,7 @@ The winning lane is determined by **reaction + elapsed time**. Personal bests an
 - Engine torque interpolation, derived power, individual gear ratios, torque interruption, clutch coupling, turbo spool, tire slip, driven-wheel load and weight transfer, aerodynamic drag and rolling resistance. AI uses this same simulation.
 - Ten upgrade families, increasing purchase costs, reputation gates, tradeoffs, condition and servicing.
 - Live stock/current dyno graphs; adjustable launch RPM, shift target, tire pressure, differential, boost and final drive. Individual ratios unlock with a transmission upgrade. Tune presets persist with each car.
-- Separate flat paint, solid grayscale shading, fixed fixtures and panel line art for all twelve real vehicles, with native fender contours, measured wheel positions, rotating wheels/rotors, stationary calipers and ride height. See [the paint-layer contract](docs/art/flat-paint-layers.md).
+- Separate flat paint, broad hard-edged cartoon shading without gradients, fixed fixtures and panel line art for all twelve real vehicles, with native fender contours, measured wheel positions, rotating wheels/rotors, stationary calipers and ride height. See [the paint-layer contract](docs/art/flat-paint-layers.md).
 - Garage business: six levels, capped offline earnings and three customer jobs that temporarily reserve assigned cars.
 - Automatic local saving, validated save import, downloadable export and explicit reset confirmation. Older fictional-car saves migrate to real vehicles while retaining owned UIDs, upgrades, paint, records and career progress.
 - Responsive layouts, touch pedals, optional engine audio and automatic pausing when the tab is hidden.
@@ -65,6 +65,8 @@ Income accrues from wall-clock timestamps with a bank cap. Because saves are loc
 The referenced conversation was returned truncated at 20,000 characters, ending during section 38 (Garage Upgrades). This implementation follows the accessible design and original requirements. Eventual engine swaps, the full catalog of individual body panels and later racing modes are extension points.
 
 ## Verify
+
+The **[Sprite Studio](http://localhost:5173/sprite-workbench.html)** creates and edits layered car art with brush/eraser, magnetic lasso, connected color selection, part extraction, wheel hubs/pivots, rotor/caliper previews and metadata export. It loads the realistic source examples and current game layers, preserves original images and saves editable projects. See [studio controls and the sprite-skill audit](docs/sprite-studio.md).
 
 The **[Test Drive Lab](http://localhost:5173/test-drive.html)** provides continuous driving, the shared drag HUD plus analog gauges, keyboard/touch pedals, manual/automatic shifting, neutral/rev blips, a practice launch tree, burnouts, braking, rolling starts, tuning, layered artwork, telemetry plots and CSV export. It reads garage builds without saving test changes. See [lab controls and behavior](docs/test-drive-lab.md). The page is bundled for Pages and linked from Settings and the asset gallery.
 

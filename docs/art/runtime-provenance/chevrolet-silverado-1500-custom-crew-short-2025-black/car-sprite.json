@@ -8,7 +8,7 @@
     "trim": "Custom Crew Cab Short Bed TurboMax 4WD (provisional)",
     "facing": "right"
   },
-  "revision": 19,
+  "revision": 26,
   "canvas": {
     "width": 2200,
     "height": 887
@@ -189,11 +189,22 @@
         "x": 0,
         "y": 0
       }
+    },
+    {
+      "id": "body-lights",
+      "file": "body/lights.png",
+      "z": 450,
+      "placement": {
+        "mode": "canvas",
+        "x": 0,
+        "y": 0
+      }
     }
   ],
   "masks": {
     "paint": "masks/paint-mask.png",
-    "paintRegions": "masks/paint-regions.png"
+    "paintRegions": "masks/paint-regions.png",
+    "lights": "masks/lights-mask.png"
   },
   "sources": [
     {
@@ -215,6 +226,36 @@
       "originalPath": "E:\\Coding adventures\\Racing Game\\tests\\skill-runs\\20261002-pipeline\\examples\\chevrolet-silverado-1500-custom-crew-short-2025-black\\inputs\\staged-roster\\chevrolet-silverado-1500-custom-crew-short-2025-black\\metadata.json",
       "sha256": "227e1df02e1b7e4bb72e044e4821e18bd6008d2a94c2f92fe7e85ec2247ae3f7",
       "archivedFile": "inputs/referenceMetadata.json"
+    },
+    {
+      "originalPath": "scripts/flat_car_layers.py",
+      "archivedFile": "processing/cartoon/flat_car_layers.py",
+      "sha256": "7afa7d10d889d2601a91db9a531fd8a46933ec3be990cb9bd716763dbfec880e"
+    },
+    {
+      "originalPath": "scripts/cartoon_car_shading.py",
+      "archivedFile": "processing/cartoon/cartoon_car_shading.py",
+      "sha256": "dd1e4dddf707cf9c4474a70321e3cfbbc99d9b722f47fd66bb59b63cd0ab34ec"
+    },
+    {
+      "originalPath": "scripts/prepare-cartoon-shading.py",
+      "archivedFile": "processing/cartoon/prepare-cartoon-shading.py",
+      "sha256": "7647f86fc7689dc63ff039eb5133e61c35e85f9c34533ad72f787218af6c94e5"
+    },
+    {
+      "originalPath": "scripts/flat_car_layers.py",
+      "archivedFile": "processing/fixtures-v26/flat_car_layers.py",
+      "sha256": "ac032178d028d839977588755b0f82504eab1d364b93d6a5bb15507a1d2a05ae"
+    },
+    {
+      "originalPath": "scripts/repair-body-fixtures.py",
+      "archivedFile": "processing/fixtures-v26/repair-body-fixtures.py",
+      "sha256": "de6e9b076c592629ad5d73e73f1d6ddff6c6efd599afe66ccfcebccc1828ef68"
+    },
+    {
+      "originalPath": "scripts/cartoon_car_shading.py",
+      "archivedFile": "processing/fixtures-v26/cartoon_car_shading.py",
+      "sha256": "dd1e4dddf707cf9c4474a70321e3cfbbc99d9b722f47fd66bb59b63cd0ab34ec"
     }
   ],
   "notes": [
@@ -227,7 +268,10 @@
     "Explicit rounded-rectangle arch envelopes clipped to original body alpha; tire circles only locate rotating components. Native fenders, wheel placement, paint masks and separated mechanical pixels unchanged.",
     "Independent arch profiles follow original body alpha; source-opening profiles trace connected native contours of any shape. Tire circles only locate rotating components. Native fenders, wheel placement, paint masks and separated mechanical pixels unchanged.",
     "Uniform white paint foundation accepts an arbitrary RGB color. Separate black/white grayscale shading uses discrete opacity shapes; separate black linework defines silhouette/panels/details. Glass/lights/trim remain fixed above paint. No source hue or gradients are baked into paint/shading. Native body source, arbitrary arch contours, axle geometry and mechanical pixels are preserved.",
-    "Uniform white paint foundation accepts an arbitrary RGB color. Separate black/white grayscale shading uses discrete opacity shapes; separate black linework defines silhouette/panels/details. Glass/lights/trim remain fixed above paint. No source hue or gradients are baked into paint/shading. Native body source, arbitrary arch contours, axle geometry and mechanical pixels are preserved."
+    "Uniform white paint foundation accepts an arbitrary RGB color. Separate black/white grayscale shading uses discrete opacity shapes; separate black linework defines silhouette/panels/details. Glass/lights/trim remain fixed above paint. No source hue or gradients are baked into paint/shading. Native body source, arbitrary arch contours, axle geometry and mechanical pixels are preserved.",
+    "Measured lens contours at native source scale. Lamp images exclude the grille, bumper and intervening painted nose panels. The C-shaped lamp retains its hollow interior. Grille remains fixed trim, while surrounding source-painted areas return to grayscale shading over flat paint. No hue/brightness test decides the semantic boundaries.",
+    "Shading-only cartoon rework: two flat shadow opacities and one flat highlight opacity. Broad source-lit regions are traced into simplified polygons with small islands removed. No rendered blur or gradient; paint, fixtures, lamps, linework, arch alpha, hubs and mechanical bytes are preserved.",
+    "Fixed-trim correction measured from the retained native black illustration: painted Custom bumper shells and lower rocker surfaces return to paint/cel shading. Genuine grille, rear step recess/pad, front lower insert and valance remain fixed. Glass, mirror, handles, bed rail, lights, native linework, silhouette, wheel arches and mechanical parts are preserved. Native source contours, not hue thresholds, decide paint versus fixed trim. Existing cartoon lighting settings remain intact. Native crop review of draft v24 found thin residual paint strips; v25 extends the measured restoration to the complete lower body and nose borders while retaining identical glass and lamps. Revision 26 corrects the regression label on the native grille-edge point (2055,414); all image bytes match revision 25."
   ],
   "paintSamples": [
     {
@@ -343,6 +387,66 @@
       "y": 310,
       "expected": "paint",
       "label": "inspected upper glass reflection"
+    },
+    {
+      "x": 225,
+      "y": 608,
+      "expected": "paint",
+      "label": "Restored painted surface"
+    },
+    {
+      "x": 210,
+      "y": 648,
+      "expected": "paint",
+      "label": "Restored painted surface"
+    },
+    {
+      "x": 850,
+      "y": 665,
+      "expected": "paint",
+      "label": "Restored painted surface"
+    },
+    {
+      "x": 1400,
+      "y": 665,
+      "expected": "paint",
+      "label": "Restored painted surface"
+    },
+    {
+      "x": 1960,
+      "y": 592,
+      "expected": "paint",
+      "label": "Restored painted surface"
+    },
+    {
+      "x": 2000,
+      "y": 630,
+      "expected": "paint",
+      "label": "Restored painted surface"
+    },
+    {
+      "x": 2030,
+      "y": 666,
+      "expected": "paint",
+      "label": "Restored painted surface"
+    },
+    {
+      "x": 300,
+      "y": 664,
+      "expected": "paint",
+      "label": "Restored painted surface"
+    },
+    {
+      "x": 900,
+      "y": 649,
+      "expected": "paint",
+      "label": "Restored painted surface"
+    },
+    {
+      "x": 1877,
+      "y": 478,
+      "expected": "paint",
+      "label": "Restored painted surface"
     }
   ],
   "archProfiles": [
@@ -403,33 +507,15 @@
       "layer": "body-fixtures"
     },
     {
-      "x": 1930,
-      "y": 437,
-      "label": "lamp",
-      "layer": "body-fixtures"
-    },
-    {
       "x": 820,
       "y": 430,
       "label": "handle",
       "layer": "body-fixtures"
     },
     {
-      "x": 850,
-      "y": 665,
-      "label": "rocker trim",
-      "layer": "body-fixtures"
-    },
-    {
       "x": 1300,
       "y": 263,
       "label": "upper front glass reflection previously tinted",
-      "layer": "body-fixtures"
-    },
-    {
-      "x": 2080,
-      "y": 601,
-      "label": "front plastic bumper edge",
       "layer": "body-fixtures"
     },
     {
@@ -455,21 +541,78 @@
       "y": 310,
       "label": "inspected upper glass reflection",
       "layer": "body-fixtures"
+    },
+    {
+      "x": 1939,
+      "y": 440,
+      "layer": "body-lights",
+      "label": "Measured lamp lens"
+    },
+    {
+      "x": 1990,
+      "y": 439,
+      "layer": "body-lights",
+      "label": "Measured lamp lens"
+    },
+    {
+      "x": 2010,
+      "y": 492,
+      "layer": "body-lights",
+      "label": "Measured lamp lens"
+    },
+    {
+      "x": 158,
+      "y": 407,
+      "layer": "body-lights",
+      "label": "Measured lamp lens"
+    },
+    {
+      "x": 150,
+      "y": 451,
+      "layer": "body-lights",
+      "label": "Measured lamp lens"
+    },
+    {
+      "x": 153,
+      "y": 508,
+      "layer": "body-lights",
+      "label": "Measured lamp lens"
+    },
+    {
+      "x": 165,
+      "y": 615,
+      "layer": "body-fixtures",
+      "label": "Measured fixed trim"
+    },
+    {
+      "x": 2069,
+      "y": 630,
+      "layer": "body-fixtures",
+      "label": "Measured fixed trim"
+    },
+    {
+      "x": 2050,
+      "y": 490,
+      "layer": "body-fixtures",
+      "label": "Measured fixed trim"
+    },
+    {
+      "x": 2055,
+      "y": 414,
+      "layer": "body-fixtures",
+      "label": "Measured fixed trim"
     }
   ],
   "flatPaint": {
     "sourceReferenceLuminance": 44.072200775146484,
     "shadowAlphaPalette": [
       0,
-      40,
-      88,
-      132,
-      176
+      72,
+      140
     ],
     "highlightAlphaPalette": [
       0,
-      40,
-      80
+      56
     ],
     "shadingRGBPalette": [
       [
@@ -490,13 +633,22 @@
     ],
     "gradientInterpolation": false,
     "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-    "classificationBlurPixels": 12,
+    "classificationBlurPixels": 0,
     "factoryColor": "#202226",
     "stack": [
       "body-paint",
       "body-shading",
       "body-fixtures",
+      "body-lights",
       "body-linework"
-    ]
+    ],
+    "decompositionSettings": {
+      "referenceLuminance": 44.072200775146484,
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18
+    },
+    "shadingStyle": "cartoon-cel"
   }
 }

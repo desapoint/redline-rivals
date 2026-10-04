@@ -1,0 +1,34 @@
+{
+  "vehicle": "chevrolet-silverado-1500-custom-crew-short-2025-black",
+  "sourcePackage": "tests/car-integration/20261003/chevrolet-silverado-1500-custom-crew-short-2025-black/cartoon-v23",
+  "sourceBodySha256": "d3a84a84df7d34d37de24f5e7b42d6fc6baca7daec421bbc7e619012eb9a4432",
+  "outputPackage": "tests/car-integration/20261003/chevrolet-silverado-1500-custom-crew-short-2025-black/trim-v24",
+  "revision": 24,
+  "paintRestore": [
+    [[108,551],[302,551],[302,681],[108,681]],
+    [[574,650],[1595,650],[1595,682],[574,682]],
+    [[1883,529],[2099,529],[2099,705],[1883,705]]
+  ],
+  "fixedTrim": [
+    [[2049,417],[2087,424],[2087,454],[2020,454],[2020,471],[2024,483],[2024,507],[2020,519],[2012,527],[1989,529],[1989,550],[2090,550],[2090,417]],
+    [[2014,525],[2088,525],[2088,555],[2011,555]],
+    [[118,565],[203,565],[218,573],[219,578],[118,578]],
+    [[121,591],[190,591],[201,597],[207,607],[207,628],[201,638],[122,638]],
+    [[2059,612],[2086,612],[2086,642],[2073,649],[2061,649],[2053,642]],
+    [[1890,680],[1976,680],[2005,702],[1890,702]]
+  ],
+  "lights": [
+    {"label":"Front amber lens","points":[[1927,427],[1951,429],[1954,466],[1943,463],[1937,459],[1931,449]]},
+    {"label":"Front upper white lens","points":[[1953,426],[2044,431],[2044,455],[1956,449]]},
+    {"label":"Front C-shaped white lens","points":[[1958,459],[1985,463],[2008,468],[2016,474],[2018,484],[2017,511],[2013,520],[2007,524],[1994,525],[1994,516],[2000,512],[2001,506],[2001,485],[1998,480],[1986,475],[1959,468]]},
+    {"label":"Rear lamp lens","points":[[141,391],[186,391],[204,398],[209,408],[206,425],[198,432],[176,440],[174,462],[182,471],[181,520],[176,527],[137,530],[135,515],[135,414],[137,401]]}
+  ],
+  "lightSamples": [[1939,440],[1990,439],[2010,492],[158,407],[150,451],[153,508]],
+  "paintSamples": [[225,608],[210,648],[850,665],[1400,665],[1960,592],[2000,630],[2030,666]],
+  "trimSamples": [[165,615],[2069,630],[2050,490]],
+  "excludedLightSamples": [[2000,630],[225,608],[850,665],[2050,490]],
+  "references": [
+    {"url":"https://www.chevrolet.ca/byo-vc/client/en/CA/chevrolet/silverado/2025/silverado-1500/summary/moreviews?isExterior=true", "fact":"Custom front and rear bumpers are body-colour; CornerStep pads remain textured fixed trim."}
+  ],
+  "notes": "Fixed-trim correction measured from the retained native black illustration: painted Custom bumper shells and lower rocker surfaces return to paint/cel shading. Genuine grille, rear step recess/pad, front lower insert and valance remain fixed. Glass, mirror, handles, bed rail, lights, native linework, silhouette, wheel arches and mechanical parts are preserved. Native source contours, not hue thresholds, decide paint versus fixed trim. Existing cartoon lighting settings remain intact."
+}

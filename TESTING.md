@@ -1,5 +1,9 @@
 # Verification record
 
+## Silverado lights-only repair — October 3, 2026
+
+The previous combined fixture mask captured the nose and bumper around the lights. Silverado revision 22 separates the measured front amber/white/C-shaped lenses and rear lamp into `lights.webp`; the grille and bumper stay in the other fixture layer. Native regression samples exclude those parts and the C's hollow interior, while the previously excluded painted surrounds return to the paint/shading stack. Source paint foundation, line art, geometry, underlay and mechanical bytes are unchanged. Eight flat-layer tests pass, including RGBA lamp-mask alpha handling and the native semantic exclusions. Fresh full sprite QA, native lens crops, contrasting recolors and all mandatory previews were inspected before accepted review and import.
+
 ## Independent paint layers — October 3, 2026
 
 - Final verification: 54 Node tests and 18 Python art/geometry tests pass. Asset validation and the static build pass with 12 cars and 144 independently decoded image files.
@@ -121,3 +125,31 @@ The full 28-event campaign, prolonged real-time job durations, every keyboard/to
 - `npm run test:real-cars` passes original-car save migration, specs/source pagination, tune/data views, repaint persistence, moving races/slips and CVT/DCT controls at 1440×900, 390×844 and 360×640 / 2× DPR, plus rolling lab checks.
 - `npm run test:additional-cars` covers all eight dealership purchases, ownership/selection and repaint persistence, production garages, factory/simulation/source dialogs, moving races/results at desktop and phone sizes, and rolling lab gauges. Screenshots are isolated in ignored `tests/artifacts/`; the runner accepts `REDLINE_TEST_ORIGIN` for the deployed Pages URL.
 - Factory references and unknown values remain separate from simulated gearing, masses, torque shapes, credits and visual geometry. The historical Boss rating is labeled SAE gross; its rear drum/backing hardware uses the shared mechanical attachment roles.
+
+## Cartoon cel shading — 2026-10-03
+
+- All twelve production cars now use broad simplified polygon shading: two constant black shadow opacities (72/140) and one constant white highlight opacity (56). Interior shading boundaries have no blur or interpolated gradients; native silhouette/arch antialiasing remains intact.
+- 21 Python checks pass, including deterministic replay of every current native package, discrete grayscale/opacity checks, exact preservation of paint/fixtures/linework, invalid processing settings, and Silverado lens/exclusion regression. All 54 game checks pass. The static build validates 12 cars and 145 image files.
+- Every new shading revision has fresh full sprite QA, actual visual inspection across rotations, fixed calipers, isolated parts, underlays, backgrounds and factory/blue/white/black paint, a hash-bound accepted review and a unique reviewed ZIP. The preparation script asserts all other layer and mask bytes remain unchanged.
+- The production paint browser runner passes at 1440×1000 and 390×844 with 2× DPR for all twelve cars: five arbitrary exact RGB colors, isolated layers, SVG/Canvas composition, separate Silverado lights and no horizontal overflow. Updated desktop/phone Silverado assembly screenshots were visually inspected.
+
+## Black paint lighting — 2026-10-03
+
+- Assembled dark paint now has a constant reflected-light midtone shared by SVG and Canvas. Pure black therefore retains distinct flat shadow/midtone/highlight values. Isolated paint remains exact RGB, saved paint is unchanged, and brighter colors are unchanged. No source image, sprite geometry or reviewed package bytes change.
+- 55 game checks pass, including ordered dark-paint cel tones and preserved dark-color channel differences. The build validates all 12 cars and 145 layers.
+- `tests/flat-paint-browser.mjs` passes for all twelve cars at desktop/phone sizes and 2× DPR, comparing actual native Canvas panel pixels with alpha-composed expected tones for pure black, near-black blue and Silverado factory black. It also verifies matching SVG lighting, distinct shadow contrast, exact paint-only colors and independent layers.
+- `tests/black-paint-browser.mjs` passes a saved pure-black Silverado through garage rendering, reload persistence, a moving night race and its result at 1440×900 and 390×844 with 2× DPR. Actual garage, race and layer-inspector screenshots were visually inspected.
+
+## Silverado fixed glass and trim — 2026-10-03
+
+- The fixed image incorrectly included source-black painted Custom bumper shells and lower rocker/body strips. Measured native contours return these surfaces to paint/cel shading while retaining grille, step pad/recess, lower insert and valance. Glass, mirror, handles, bed rail, independent lamps, silhouette, ink, arches, hubs and mechanical bytes are preserved.
+- Revision 24 was rejected for residual paint strips. Revision 25 corrected the art but had an incorrectly labeled grille-edge regression sample; revision 26 corrects the sample metadata with identical artwork. Revision 26 has fresh full sprite QA, inspected native crops, isolated layers and all mandatory backgrounds/rotations/repaint evidence, hash-bound accepted review and a unique reviewed ZIP. Only Silverado was imported.
+- Current shared-workspace checks pass: 23 Python tests (including native trim exclusions, actual protected parts, preserved glass/lamp/mechanical bytes, source hashes and deterministic replay) and 61 JavaScript tests. The build validates 12 cars and 145 image files. Replay checks preserve the separately selected Mazda source-contour shading variant.
+- Desktop/phone layer checks verify that painted bumper/rocker samples show transparent checkerboard in **Fixed glass & trim**, with exact paint-only RGB and discrete dark-paint contrast for cartoon packs. A saved black Silverado also passes garage/reload persistence and moving night races/results at 1440×900 and 390×844 / 2× DPR. Updated isolated-trim and blue/black assemblies were visually inspected.
+
+## Sprite Studio and installed skill audit — 2026-10-03
+
+- Installed `racing-car-sprites` passes all 52 tests without changes to its installed files. Fresh Mazda and Silverado example replays match 16 and 25 files respectively plus manifest geometry, and both pass full automated QA. Assembled checkerboard evidence was inspected; this audit does not issue a new complete visual acceptance.
+- The studio browser runner passes brush/undo/redo, connected color selection, magnetic lasso/extraction, saved rework masks/instructions, axle dragging, actual fixed-caliper and rotating-wheel pixel comparisons, project and ZIP downloads, reopening, both realistic source packages, runtime car import, autosave, native-size master creation, incomplete draft restoration and Codex URL handoff. Desktop and 390px screenshots were visually inspected; no page errors or horizontal overflow.
+- The actual browser-exported ZIP passes CRC checks and the installed skill's full QA. Archived source hashes match and all 12 unchanged PNG layers retain exact source bytes. Exports remain drafts requiring fresh visual review before reviewed packaging.
+- All 61 JavaScript tests and the static build pass; the build validates 12 cars and 145 production image files and includes the new editor. Evidence and reproducible audit report are under `tests/sprite-workbench-audit/20261003/`; controls and limitations are documented in `docs/sprite-studio.md`.

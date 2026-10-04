@@ -1,12 +1,12 @@
 {
-  "sourcePackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/flat-v7",
+  "sourcePackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/cartoon-v8",
   "sourceManifest": "docs/art/runtime-provenance/acura-integra-type-s-2024/car-sprite.json",
-  "bodySource": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/flat-v7/inputs/body-2d.png",
+  "bodySource": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/cartoon-v8/inputs/body-2d.png",
   "bodySourceSha256": "fa5bcc729c24a79c00615a4b69e8039f42731645d1ba34f1b3ab46d3c90e9773",
   "masterSource": "tests/car-integration/20261003-additional/sources/acura-integra-type-s-2024/acura-integra-type-s-2024-composite.png",
   "masterSourceSha256": "176c20f2d9217d6d55b4a3954e28b131f5fd98e761d6b82bc7ede447e40acda7",
-  "revision": 7,
-  "reviewFingerprint": "169ba1f4bba4bd6643e2c560aada8fb58c98ac04a8798508c352fe4d86cf44d6",
-  "sourceManifestSha256": "aa88eb21ce66822c4a404b7b04016c6dd3de6c55d722fad9e7f7aaeb07aba651",
+  "revision": 8,
+  "reviewFingerprint": "f947e6a79c8d9deb4b9dfdcef3a7a52dda697d9f82b0205a43e6c2863e563a06",
+  "sourceManifestSha256": "d82fc4f0a7b3fa9511145a83e6f02b90227d26df47e351e95ed156cacb0f659c",
   "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
 }

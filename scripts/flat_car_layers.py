@@ -16,7 +16,7 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def decompose(body, paint_mask, settings=None):
+def decompose(body, paint_mask, settings=None, lights_mask=None):
     settings = settings or {}
     if body.size != paint_mask.size:
         raise ValueError('Paint regions must use the same native canvas as the body')
@@ -36,7 +36,7 @@ def decompose(body, paint_mask, settings=None):
 
     rgb = pixels[:, :, :3].astype(np.float32)
     luminance = rgb @ np.array([.2126, .7152, .0722], dtype=np.float32)
-    reference = float(np.percentile(luminance[region & (a > 128)], settings.get('referencePercentile', 75)))
+    reference = float(settings.get('referenceLuminance', np.percentile(luminance[region & (a > 128)], settings.get('referencePercentile', 75))))
     line_luma = np.asarray(Image.fromarray(np.clip(luminance, 0, 255).astype(np.uint8)).filter(ImageFilter.MedianFilter(3))).astype(np.float32)
     # Detect thin dark ridges from both sides; a broad shadow is not line art.
     contrast = np.zeros(a.shape, dtype=np.float32)
@@ -57,27 +57,46 @@ def decompose(body, paint_mask, settings=None):
     ink = Image.new('RGBA', body.size, (0, 0, 0, 0))
     ink.putalpha(Image.fromarray(ink_alpha))
 
-    # Filtering simplifies classification only. Output uses discrete flat fills.
-    smooth = np.asarray(Image.fromarray(np.clip(luminance, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(settings.get('classificationBlur', 12))))
-    ratio = smooth.astype(np.float32)/max(1, reference)
-    shade = np.zeros_like(pixels)
-    shade[:, :, 3] = np.select([ratio < .25, ratio < .5, ratio < .7, ratio < .9,
-                               ratio > 1.7, ratio > 1.2],
-                              [176, 132, 88, 40, 80, 40], default=0).astype(np.uint8)
-    shade[ratio > 1, :3] = 255
-    shade[:, :, 3] = np.where(region & (ink_alpha == 0), shade[:, :, 3], 0)
-    shade[:, :, 3] = (shade[:, :, 3].astype(np.uint16)*a//255).astype(np.uint8)
+    cartoon = settings.get('shadingStyle') == 'cartoon-cel'
+    if cartoon:
+        from cartoon_car_shading import cel_shading
+        shade = cel_shading(luminance, reference, a, region, ink_alpha, settings)
+    else:
+        # Retained for replay of archived earlier revisions only.
+        smooth = np.asarray(Image.fromarray(np.clip(luminance, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(settings.get('classificationBlur', 12))))
+        ratio = smooth.astype(np.float32)/max(1, reference)
+        shade = np.zeros_like(pixels)
+        shade[:, :, 3] = np.select([ratio < .25, ratio < .5, ratio < .7, ratio < .9,
+                                   ratio > 1.7, ratio > 1.2],
+                                  [176, 132, 88, 40, 80, 40], default=0).astype(np.uint8)
+        shade[ratio > 1, :3] = 255
+        shade[:, :, 3] = np.where(region & (ink_alpha == 0), shade[:, :, 3], 0)
+        shade[:, :, 3] = (shade[:, :, 3].astype(np.uint16)*a//255).astype(np.uint8)
     fixtures = pixels.copy()
+    native=settings.get('sourceChannel')=='red'
+    if native:
+        shade=np.zeros_like(pixels)
+        shade[:,:,3]=np.where(region&(ink_alpha==0),(255-pixels[:,:,0]).astype(np.uint16)*a//255,0).astype(np.uint8)
     fixtures[:, :, 3] = np.where(region | (ink_alpha > 0), 0, a)
-    return {'paint': base, 'shading': Image.fromarray(shade),
-            'fixtures': Image.fromarray(fixtures), 'linework': ink}, {
+    layers = {'paint': base, 'shading': Image.fromarray(shade),
+              'fixtures': Image.fromarray(fixtures), 'linework': ink}
+    if lights_mask is not None:
+        if lights_mask.size != body.size:
+            raise ValueError('Light contours must use the same native canvas as the body')
+        coverage = np.asarray(lights_mask.getchannel('A') if 'A' in lights_mask.getbands() else lights_mask.convert('L')).astype(np.uint16)
+        lights = pixels.copy()
+        lights[:, :, 3] = np.where(ink_alpha > 0, 0, a.astype(np.uint16)*coverage//255).astype(np.uint8)
+        fixtures[:, :, 3] = (fixtures[:, :, 3].astype(np.uint16)*(255-coverage)//255).astype(np.uint8)
+        layers.update(lights=Image.fromarray(lights), fixtures=Image.fromarray(fixtures))
+    return layers, {
                 'sourceReferenceLuminance': reference,
-                'shadowAlphaPalette': [0, 40, 88, 132, 176],
-                'highlightAlphaPalette': [0, 40, 80],
+                'shadingStyle': 'source-native-cel' if native else 'cartoon-cel' if cartoon else 'source-posterized',
+                'shadowAlphaPalette': list(range(256)) if native else [0, 72, 140] if cartoon else [0, 40, 88, 132, 176],
+                'highlightAlphaPalette': [0] if native else [0, 56] if cartoon else [0, 40, 80],
                 'shadingRGBPalette': [[0, 0, 0], [255, 255, 255]],
                 'baseRGB': [255, 255, 255], 'gradientInterpolation': False,
                 'foundationOpacity': 'opaque interior; native antialiasing at silhouette and arch boundaries',
-                'classificationBlurPixels': settings.get('classificationBlur', 12)}
+                'classificationBlurPixels': 0 if native or cartoon else settings.get('classificationBlur', 12)}
 
 
 def prepare(source, target, revision, color):
@@ -87,7 +106,10 @@ def prepare(source, target, revision, color):
     body = Image.open(source/'inputs/body.png').convert('RGBA')
     region_file = old['masks'].get('paintRegions', old['masks']['paint'])
     mask = Image.open(source/region_file).convert('RGBA')
-    result, report = decompose(body, mask)
+    settings = old.get('flatPaint', {}).get('decompositionSettings', {})
+    lights_file = old.get('masks', {}).get('lights')
+    lights_mask = Image.open(source/lights_file) if lights_file else None
+    result, report = decompose(body, mask, settings, lights_mask)
     shutil.copytree(source, target, ignore=shutil.ignore_patterns('qa', 'qa-refined', '*.zip', '__pycache__'))
     for role, image in result.items():
         image.save(target/'body'/f'{role}.png')
@@ -100,7 +122,8 @@ def prepare(source, target, revision, color):
     manifest['bodyLayerMode'] = 'flat-cel'
     manifest['masks'] = {**old['masks'], 'paintRegions': 'masks/paint-regions.png'}
     manifest['layers'] = [l for l in old['layers'] if l['placement']['mode'] == 'anchor' or l['id'] == 'car-underlay']
-    for role, z in [('paint', 400), ('shading', 410), ('fixtures', 440), ('linework', 460)]:
+    roles = [('paint', 400), ('shading', 410), ('fixtures', 440)] + ([('lights', 450)] if lights_file else []) + [('linework', 460)]
+    for role, z in roles:
         manifest['layers'].append({'id': 'body-'+role, 'file': f'body/{role}.png', 'z': z,
                                    'placement': {'mode': 'canvas', 'x': 0, 'y': 0}})
     manifest['paintSamples'] = [{**point, 'expected': 'paint'} for point in old.get('paintSamples', [])]
@@ -108,16 +131,18 @@ def prepare(source, target, revision, color):
     manifest['fixtureSamples'] = [{k: v for k, v in point.items() if k != 'expected'} | {'layer': 'body-fixtures'}
                                   for point in protected
                                   if result['fixtures'].getpixel((point['x'], point['y']))[3] >= 128]
-    manifest['flatPaint'] = {**report, 'factoryColor': color,
-        'stack': ['body-paint', 'body-shading', 'body-fixtures', 'body-linework']}
+    manifest['flatPaint'] = {**report, 'factoryColor': color, 'decompositionSettings': settings,
+        'stack': ['body-'+role for role, _ in roles]}
     manifest['notes'] = old.get('notes', []) + ['Uniform white paint foundation accepts an arbitrary RGB color. Separate black/white grayscale shading uses discrete opacity shapes; separate black linework defines silhouette/panels/details. Glass/lights/trim remain fixed above paint. No source hue or gradients are baked into paint/shading. Native body source, arbitrary arch contours, axle geometry and mechanical pixels are preserved.']
     (target/'car-sprite.json').write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf-8')
     (target/'flat-paint-report.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
     (target/'flat-paint-plan.json').write_text(json.dumps({'sourcePackage': source.as_posix(), 'sourceBodySha256': sha(source/'inputs/body.png'),
         'sourcePaintMaskSha256': sha(source/region_file), 'revision': revision, 'factoryColor': color,
-        'algorithm': 'flat_car_layers.decompose', 'settings': {}}, indent=2)+'\n', encoding='utf-8')
+        'algorithm': 'flat_car_layers.decompose', 'settings': settings}, indent=2)+'\n', encoding='utf-8')
     (target/'processing').mkdir(exist_ok=True)
     shutil.copyfile(Path(__file__), target/'processing/flat_car_layers.py')
+    if settings.get('shadingStyle') == 'cartoon-cel':
+        shutil.copyfile(Path(__file__).with_name('cartoon_car_shading.py'), target/'processing/cartoon_car_shading.py')
     for layer in manifest['layers']:
         if layer['id'] == 'car-underlay' or layer['placement']['mode'] == 'anchor':
             assert sha(source/layer['file']) == sha(target/layer['file'])

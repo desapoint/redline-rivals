@@ -2,10 +2,12 @@ import importlib.util
 import json
 from pathlib import Path
 import unittest
+import sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageChops, ImageFilter
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT/'scripts'))
 spec = importlib.util.spec_from_file_location('flat', ROOT/'scripts/flat_car_layers.py')
 flat = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(flat)
@@ -61,6 +63,21 @@ class FlatCarLayersTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 flat.decompose(body, mask)
 
+    def test_rgba_lamp_mask_uses_alpha_and_keeps_other_dark_fixtures_separate(self):
+        body = Image.new('RGBA', (140, 90), (10, 10, 10, 255))
+        ImageDraw.Draw(body).rectangle((30, 30, 50, 50), fill=(245, 240, 235, 255))
+        lamp = Image.new('RGBA', body.size, (255, 255, 255, 0))
+        ImageDraw.Draw(lamp).rectangle((30, 30, 50, 50), fill=(255, 255, 255, 255))
+        paint = Image.new('RGBA', body.size)
+        ImageDraw.Draw(paint).rectangle((60, 20, 110, 70), fill='white')
+        layers, _ = flat.decompose(body, paint, lights_mask=lamp)
+        self.assertGreaterEqual(layers['lights'].getpixel((40, 40))[3], 128)
+        self.assertEqual(layers['fixtures'].getpixel((40, 40))[3], 0)
+        self.assertEqual(layers['lights'].getpixel((15, 40))[3], 0)
+        self.assertEqual(layers['fixtures'].getpixel((15, 40))[3], 255)
+        with self.assertRaisesRegex(ValueError, 'Light contours'):
+            flat.decompose(body, paint, lights_mask=Image.new('RGBA', (10, 10)))
+
     def test_source_opacity_jitter_is_not_mistaken_for_outline(self):
         body = Image.new('RGBA', (140, 90), (200, 20, 30, 255))
         body.putpixel((70, 50), (200, 20, 30, 254))
@@ -68,6 +85,28 @@ class FlatCarLayersTests(unittest.TestCase):
         self.assertEqual(layers['linework'].getpixel((70, 50))[3], 0)
         self.assertEqual(layers['linework'].getpixel((69, 50))[3], 0)
         self.assertEqual(layers['paint'].getpixel((70, 50))[3], 255)
+
+    def test_cartoon_shading_has_three_solid_tones_and_keeps_other_layers(self):
+        body=Image.new('RGBA',(256,128),(200,80,40,255))
+        draw=ImageDraw.Draw(body)
+        draw.rectangle((10,60,210,110),fill=(60,20,10,255))
+        draw.rectangle((40,75,110,95),fill=(20,10,5,255))
+        draw.rectangle((120,20,240,45),fill=(250,210,180,255))
+        mask=Image.new('RGBA',body.size,'white')
+        original,_=flat.decompose(body,mask)
+        cartoon,report=flat.decompose(body,mask,{'shadingStyle':'cartoon-cel'})
+        for role in ('paint','fixtures','linework'):
+            self.assertEqual(original[role].tobytes(),cartoon[role].tobytes())
+        shade=np.asarray(cartoon['shading'])
+        self.assertTrue(set(np.unique(shade[:,:,3]))<={0,56,72,140})
+        self.assertGreater(np.count_nonzero(shade[:,:,3]),500)
+        self.assertEqual(report['classificationBlurPixels'],0)
+        self.assertFalse(report['gradientInterpolation'])
+        self.assertTrue(np.all(shade[:,:,0]==shade[:,:,1]))
+        self.assertTrue(np.all(shade[:,:,1]==shade[:,:,2]))
+        for settings in [{'shapeGridWidth':0},{'shapeToleranceCells':float('nan')},{'minimumShapeCells':0}]:
+            with self.assertRaises(ValueError):
+                flat.decompose(body,mask,{'shadingStyle':'cartoon-cel',**settings})
 
     def test_all_native_packs_are_uniform_and_replay_from_preserved_regions(self):
         count = 0
@@ -82,7 +121,16 @@ class FlatCarLayersTests(unittest.TestCase):
             body_file = p/'inputs/body.png' if (p/'inputs/body.png').exists() else p/'body.png'
             body = Image.open(body_file).convert('RGBA')
             region = Image.open(p/manifest['masks']['paintRegions']).convert('RGBA')
-            result, report = flat.decompose(body, region)
+            settings = manifest.get('flatPaint', {}).get('decompositionSettings', {})
+            lamp = Image.open(p/manifest['masks']['lights']) if manifest['masks'].get('lights') else None
+            result, report = flat.decompose(body, region, settings, lamp)
+            if settings.get('algorithm') == 'prepare-mazda-reference.reference_shading':
+                archived = p/'processing/prepare-mazda-reference.py'
+                reference_spec = importlib.util.spec_from_file_location('archived_reference', archived)
+                reference_module = importlib.util.module_from_spec(reference_spec)
+                reference_spec.loader.exec_module(reference_module)
+                result['shading'] = reference_module.reference_shading(body, result['paint'], region, result['linework'])
+                report = manifest['flatPaint']
             for role, expected in result.items():
                 self.assertEqual(expected.tobytes(), Image.open(p/'body'/f'{role}.png').convert('RGBA').tobytes(), id+' '+role)
             base = np.asarray(result['paint'])
@@ -104,6 +152,49 @@ class FlatCarLayersTests(unittest.TestCase):
             self.assertEqual(manifest['bodyLayerMode'], 'flat-cel')
         if not count:
             self.skipTest('Native review workspace is not included in public demo')
+
+    def test_silverado_fixed_trim_excludes_painted_bumpers_and_rocker(self):
+        plan = json.loads((ROOT/'docs/art/fixture-plans/silverado-fixed-trim-v26.json').read_text(encoding='utf-8'))
+        p, old = ROOT/plan['outputPackage'], ROOT/plan['sourcePackage']
+        if not p.exists():
+            self.skipTest('Native trim review workspace is not included in public demo')
+        fixtures = Image.open(p/'body/fixtures.png').convert('RGBA')
+        regions = Image.open(p/'masks/paint-regions.png').convert('RGBA')
+        for point in plan['paintSamples']:
+            self.assertEqual(fixtures.getpixel(tuple(point))[3], 0, 'painted bumper/rocker has no fixed source color')
+            self.assertGreaterEqual(regions.getpixel(tuple(point))[3], 128, 'painted body belongs to semantic paint regions')
+        for point in plan['trimSamples']:
+            self.assertGreaterEqual(fixtures.getpixel(tuple(point))[3], 128, 'actual plastic insert/step/grille remains fixed')
+            self.assertEqual(regions.getpixel(tuple(point))[3], 0)
+        for role in ('paint', 'linework', 'lights'):
+            self.assertEqual((p/'body'/f'{role}.png').read_bytes(), (old/'body'/f'{role}.png').read_bytes())
+        self.assertEqual(fixtures.crop((700,170,1605,425)).tobytes(), Image.open(old/'body/fixtures.png').convert('RGBA').crop((700,170,1605,425)).tobytes(), 'cab glass, mirror and window seals are preserved')
+        manifest = json.loads((p/'car-sprite.json').read_text(encoding='utf-8'))
+        original = json.loads((old/'car-sprite.json').read_text(encoding='utf-8'))
+        self.assertEqual(manifest['anchors'], original['anchors'])
+        self.assertEqual(manifest['flatPaint']['decompositionSettings'], original['flatPaint']['decompositionSettings'])
+        for layer in original['layers']:
+            if layer['id'] not in ('body-fixtures', 'body-shading'):
+                self.assertEqual(flat.sha(p/layer['file']), flat.sha(old/layer['file']))
+        for source in manifest['sources']:
+            self.assertEqual(flat.sha(p/source['archivedFile']), source['sha256'])
+
+    def test_silverado_lights_exclude_grille_bumper_and_hollow_lamp_interior(self):
+        plan = json.loads((ROOT/'docs/art/fixture-plans/chevrolet-silverado-1500-custom-crew-short-2025-black.json').read_text(encoding='utf-8'))
+        p = ROOT/plan['outputPackage']
+        if not p.exists():
+            self.skipTest('Native lamp review workspace is not included in public demo')
+        lights = Image.open(p/'body/lights.png').convert('RGBA')
+        region = Image.open(p/'masks/paint-regions.png').convert('RGBA')
+        fixtures = Image.open(p/'body/fixtures.png').convert('RGBA')
+        for point in plan['lightSamples']:
+            self.assertGreaterEqual(lights.getpixel(tuple(point))[3], 128, 'actual white/amber/red lamp lens')
+            self.assertEqual(region.getpixel(tuple(point))[3], 0, 'lamp does not repaint')
+            self.assertEqual(fixtures.getpixel(tuple(point))[3], 0, 'lamp is separated from other fixtures')
+        for point in plan['excludedLightSamples']:
+            self.assertEqual(lights.getpixel(tuple(point))[3], 0, 'bumper/grille/body and open C interior do not become lights')
+        for point in plan['paintSamples']:
+            self.assertGreaterEqual(region.getpixel(tuple(point))[3], 128, 'previously captured painted surround returns to paint')
 
 
 if __name__ == '__main__':

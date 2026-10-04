@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": 7,
+  "revision": 8,
   "vehicle": {
     "id": "subaru-wrx-tr-2024",
     "make": "Subaru",
@@ -220,6 +220,21 @@
       "originalPath": "scripts/prepare-additional-flat-cars.py",
       "sha256": "47a7555cd190e4c103eb5b31cb2958b86ef90f849300091dd1bcdf160355188f",
       "archivedFile": "processing/prepare-additional-flat-cars.py"
+    },
+    {
+      "originalPath": "scripts/flat_car_layers.py",
+      "archivedFile": "processing/cartoon/flat_car_layers.py",
+      "sha256": "7afa7d10d889d2601a91db9a531fd8a46933ec3be990cb9bd716763dbfec880e"
+    },
+    {
+      "originalPath": "scripts/cartoon_car_shading.py",
+      "archivedFile": "processing/cartoon/cartoon_car_shading.py",
+      "sha256": "dd1e4dddf707cf9c4474a70321e3cfbbc99d9b722f47fd66bb59b63cd0ab34ec"
+    },
+    {
+      "originalPath": "scripts/prepare-cartoon-shading.py",
+      "archivedFile": "processing/cartoon/prepare-cartoon-shading.py",
+      "sha256": "7647f86fc7689dc63ff039eb5133e61c35e85f9c34533ad72f787218af6c94e5"
     }
   ],
   "notes": [
@@ -228,7 +243,8 @@
     "Source rims and hubs isolated by measured spoke support; upper tire restored by 180-degree source symmetry; complete rotors and calipers drawn with Pillow, separately for each axle.",
     "The five composite-source rims retain native tire/lip pixels; their inner split ten-spoke geometry is reconstructed with Pillow because the source repeats calipers in all cavities.",
     "Merged original exterior retained: the deferred flat-paint/fixture redesign is not applied.",
-    "Uniform continuous paint foundation covers the native silhouette with unchanged arches. Source-derived black/white shading has discrete alpha levels, fixtures retain fixed source pixels, and independent ink follows panels and silhouette. No source hue is baked into the paint or shading."
+    "Uniform continuous paint foundation covers the native silhouette with unchanged arches. Source-derived black/white shading has discrete alpha levels, fixtures retain fixed source pixels, and independent ink follows panels and silhouette. No source hue is baked into the paint or shading.",
+    "Shading-only cartoon rework: two flat shadow opacities and one flat highlight opacity. Broad source-lit regions are traced into simplified polygons with small islands removed. No rendered blur or gradient; paint, fixtures, lamps, linework, arch alpha, hubs and mechanical bytes are preserved."
   ],
   "archProfiles": [
     {
@@ -338,15 +354,12 @@
     "sourceReferenceLuminance": 62.898399353027344,
     "shadowAlphaPalette": [
       0,
-      40,
-      88,
-      132,
-      176
+      72,
+      140
     ],
     "highlightAlphaPalette": [
       0,
-      40,
-      80
+      56
     ],
     "shadingRGBPalette": [
       [
@@ -367,8 +380,16 @@
     ],
     "gradientInterpolation": false,
     "foundationOpacity": "opaque interior; native antialiasing at silhouette and arch boundaries",
-    "classificationBlurPixels": 12,
-    "factoryColor": "#1459b3"
+    "classificationBlurPixels": 0,
+    "factoryColor": "#1459b3",
+    "shadingStyle": "cartoon-cel",
+    "decompositionSettings": {
+      "shadingStyle": "cartoon-cel",
+      "shapeGridWidth": 256,
+      "shapeToleranceCells": 1.25,
+      "minimumShapeCells": 18,
+      "referenceLuminance": 62.898399353027344
+    }
   },
   "fixtureSamples": [
     {

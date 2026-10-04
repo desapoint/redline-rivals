@@ -15,6 +15,7 @@
     "test:race-feel": "node tests/race-feel-browser.mjs",
     "test:real-cars": "node tests/real-cars-browser.mjs",
     "test:additional-cars": "node tests/additional-cars-browser.mjs",
-    "test:paint": "node tests/flat-paint-browser.mjs"
+    "test:paint": "node tests/flat-paint-browser.mjs",
+    "test:sprite-studio": "node tests/sprite-workbench-browser.mjs"
   }
 }

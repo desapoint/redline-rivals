@@ -1,10 +1,10 @@
 {
-  "sourcePackage": "tests/car-integration/20261003/kia-forte-gt-sedan-2022-orange/flat-paint-v9",
+  "sourcePackage": "tests/car-integration/20261003/kia-forte-gt-sedan-2022-orange/cartoon-v10",
   "sourceManifest": "docs/art/runtime-provenance/kia-forte-gt-sedan-2022-orange/car-sprite.json",
   "bodySource": "docs/art/staged-roster/kia-forte-gt-sedan-2022-orange/body-2d.png",
   "bodySourceSha256": "52b42926f3c6f098627adc90145db3964fdf842ce2192b5e071729e6a8a97cfc",
-  "revision": 9,
-  "reviewFingerprint": "16d19660af2f83df25edd361887fe298d65747135258b5199c34191a0df78f00",
-  "sourceManifestSha256": "246df45512c5a1a04a295881bc82384e522548b7fb5daf4ccc460394ade03c0e",
+  "revision": 10,
+  "reviewFingerprint": "f49ca236361ac6135dce61831ef0c47644ac339ea51971e38286baf6afed52e1",
+  "sourceManifestSha256": "cc95b6a59e5aaff74e90993991fc740bbc926099ef61e8b6abab2a7c2514a210",
   "conversion": "Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
 }

@@ -16,8 +16,8 @@ export function carImage(c){
   const key=JSON.stringify([spriteRevision(),c.id,c.color,c.visual]);if(carImages.has(key))return carImages.get(key);
   const image=new Image();image.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(carSVG(c,'',false));if(carImages.size>=40)carImages.clear();carImages.set(key,image);return image;
 }
-export function drawCar(ctx,c,x,y,width,rotation={}){
-  if(drawSprite(ctx,c,x,y,width,rotation))return;
+export function drawCar(ctx,c,x,y,width,rotation={},options={}){
+  if(drawSprite(ctx,c,x,y,width,rotation,options))return;
   const img=carImage(c);if(!img.complete || !img.naturalWidth)return;
   ctx.save();ctx.translate(x,y);ctx.scale(width/600,width/600);ctx.drawImage(img,0,0,600,220);
   const rim={silver:'#9ca6b0',black:'#353a43',bronze:'#a98050'}[c.visual?.wheels] || '#9ca6b0';

@@ -7,7 +7,7 @@ import {buildCar,estimate,createVehicle,stepVehicle,shiftVehicle,idealShift} fro
 import {createDriveLab,setLabSpeed,stepDriveLab,launchDriveLab} from '../src/drive-lab-model.js';
 import {normalizePack,attachmentTransform,spriteLayout} from '../src/sprite-geometry.js';
 import {installSpritePack} from '../src/car-assets.js';
-import {drawSprite,spriteSVG} from '../src/sprite-renderer.js';
+import {drawSprite,spriteSVG,celPaintColor} from '../src/sprite-renderer.js';
 import {restrictionReason} from '../src/views.js';
 const pack=JSON.parse(readFileSync(new URL('../src/assets/cars/manifest.json',import.meta.url),'utf8'));
 
@@ -120,12 +120,12 @@ test('production drawing puts underlay below wheels, keeps calipers fixed and ro
       for(const angle of [0,Math.PI/4,Math.PI/2,Math.PI]){
         const log=[],ctx={save(){},restore(){},translate(){},scale(){},beginPath(){},ellipse(){},fill(){},rotate(value){log.push(['rotate',value]);},drawImage(img){log.push(['image',img.src?new URL(img.src).pathname.split('/').at(-1):'flat-paint']);}};
         assert.equal(drawSprite(ctx,c,0,0,600,{front:angle,rear:angle}),true);
-        assert.deepEqual(log.filter(x=>x[0]==='image').map(x=>x[1]),['underlay.webp','rear-rotor.webp','rear-caliper.webp','rear-wheel.webp','front-rotor.webp','front-caliper.webp','front-wheel.webp','flat-paint','shading.webp','fixtures.webp','linework.webp']);
+        assert.deepEqual(log.filter(x=>x[0]==='image').map(x=>x[1]),['underlay.webp','rear-rotor.webp','rear-caliper.webp','rear-wheel.webp','front-rotor.webp','front-caliper.webp','front-wheel.webp','flat-paint','shading.webp','fixtures.webp',...(pack.cars[c.artId].layers.lights?['lights.webp']:[]),'linework.webp']);
         const rotation=pack.cars[c.artId].facing==='left'?-angle:angle;
         assert.deepEqual(log.filter(x=>x[0]==='rotate').map(x=>x[1]),[rotation,0,rotation,rotation,0,rotation]);
         const svg=spriteSVG(c,'',{front:angle,rear:angle});assert.ok(svg.indexOf('underlay.webp')<svg.indexOf('rear-rotor.webp'));
         assert.ok(svg.includes(`rotate(${rotation*180/Math.PI})`));assert.match(svg,/rotate\(0\)/);
-        assert.doesNotMatch(svg,/mix-blend-mode:color/);assert.match(svg,new RegExp('fill="'+c.color+'"'));
+        assert.doesNotMatch(svg,/mix-blend-mode:color/);assert.match(svg,new RegExp('fill="'+celPaintColor(c.color)+'"'));
         assert.ok(svg.indexOf('shading.webp')<svg.indexOf('fixtures.webp'));assert.ok(svg.indexOf('fixtures.webp')<svg.indexOf('linework.webp'));
       }
     }
@@ -139,9 +139,25 @@ test('flat production bodies require independent shading, fixtures and line art'
     assert.equal(record.paintMode,'flat-cel');
     assert.equal(new Set(['body','shading','fixtures','linework'].map(role=>record.layers[role].file)).size,4);
     assert.equal(record.flatPaint.gradientInterpolation,false);
+    assert.equal(record.flatPaint.shadingStyle,record===pack.cars['mazda3-gt-turbo-sedan-2021-red']?'source-native-cel':'cartoon-cel');
+    assert.equal(record.flatPaint.classificationBlurPixels,0);
   }
   for(const role of ['shading','fixtures','linework']){
     const bad=structuredClone(pack),record=Object.values(bad.cars)[0];delete record.layers[role];
     assert.throws(()=>normalizePack(bad),new RegExp(role));
   }
+});
+
+test('black and near-black finishes retain ordered cel tones without shifting bright paint',()=>{
+  for(const color of ['#000000','#080a10','#202226']){
+    const lit=celPaintColor(color).slice(1).match(/../g).map(v=>parseInt(v,16));
+    const shadow=lit.map(v=>Math.round(v*(1-140/255))),mid=lit.map(v=>Math.round(v*(1-72/255)));
+    const highlight=lit.map(v=>Math.round(v*(1-56/255)+56));
+    for(let i=0;i<3;i++){
+      assert.ok(shadow[i]<mid[i]&&mid[i]<lit[i]&&lit[i]<highlight[i],color+' has distinct ordered tones');
+      assert.ok(lit[i]-shadow[i]>=25,color+' has readable shadow contrast');
+    }
+  }
+  for(const color of ['#383838','#ffffff','#009cff','#ff2bd6','#57e441'])assert.equal(celPaintColor(color),color);
+  assert.equal(celPaintColor('#080a10'),'#303238','dark blue channel differences survive lighting');
 });

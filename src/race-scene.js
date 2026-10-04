@@ -134,9 +134,10 @@ function vehicle(ctx,s,nose,baseline,size,isPlayer,race,frame,drawCar,wet){
     ctx.fillStyle=isPlayer?'rgba(255,108,60,.22)':'rgba(134,188,216,.14)';ctx.fillRect(left+size*.10-frame.trail*.6,top+size*.235,frame.trail*.6+3,2);
     if(wet){ctx.fillStyle='rgba(133,200,216,.18)';ctx.beginPath();ctx.ellipse(left+size*.21-frame.trail*.22,baseline-2,Math.max(5,frame.trail*.38),3,0,0,Math.PI*2);ctx.fill();}
   }
-  ctx.save();ctx.translate(left+size*.5,baseline-size*.10);
   const pitch=isPlayer?frame.pitch:(!race.reducedMotion?clamp(-s.acceleration*.0035,-.025,.02):0);
-  ctx.rotate(pitch);drawCar(ctx,s.car,-size*.5,-size*(196/600-.10),size,s.wheelRotation);ctx.restore();
+  // Suspension pitch moves the sprung body. Tires and contact shadows stay on
+  // the road instead of tilting the complete car above its ground shadow.
+  drawCar(ctx,s.car,left,top,size,s.wheelRotation,{pitch});
   if(s.v>12){
     ctx.strokeStyle=`rgba(181,193,185,${clamp(s.v/80,0,.38)})`;ctx.lineWidth=2;
     for(const axle of [.225,.775]){ctx.beginPath();ctx.arc(left+size*axle,baseline-size*35/600,size*24/600,0,Math.PI*2);ctx.stroke();}
