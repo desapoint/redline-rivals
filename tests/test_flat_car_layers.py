@@ -82,7 +82,7 @@ class FlatCarLayersTests(unittest.TestCase):
             body_file = p/'inputs/body.png' if (p/'inputs/body.png').exists() else p/'body.png'
             body = Image.open(body_file).convert('RGBA')
             region = Image.open(p/manifest['masks']['paintRegions']).convert('RGBA')
-            result, report = flat.decompose(body, region)
+            result, report = flat.decompose(body, region, manifest.get('flatPaint',{}).get('decompositionSettings',{}))
             for role, expected in result.items():
                 self.assertEqual(expected.tobytes(), Image.open(p/'body'/f'{role}.png').convert('RGBA').tobytes(), id+' '+role)
             base = np.asarray(result['paint'])

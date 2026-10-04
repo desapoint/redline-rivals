@@ -1,10 +1,10 @@
 {
-  "sourcePackage": "tests/car-integration/20261003/mazda3-gt-turbo-sedan-2021-red/flat-paint-v16",
+  "sourcePackage": "tests/car-integration/20261003/mazda3-gt-turbo-sedan-2021-red/reference-fit-v18",
   "sourceManifest": "docs/art/runtime-provenance/mazda3-gt-turbo-sedan-2021-red/car-sprite.json",
   "bodySource": "docs/art/staged-roster/mazda3-gt-turbo-sedan-2021-red/body-2d.png",
   "bodySourceSha256": "dc0ec3438550c6a6dfbac7db02c1e6cfa8c3d17875c2cbf94c9953f1de7970d7",
-  "revision": 16,
-  "reviewFingerprint": "260179af13ae84f6812fd6a22956114318591ce4588cd1dbfcc6eda36d2f0f4f",
-  "sourceManifestSha256": "d220b6c8b9df4afe1e47988d72f96c5558951e9b7fefff915e4f879eb47dc181",
-  "conversion": "Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+  "revision": 18,
+  "reviewFingerprint": "0030e8a6433f86c7e16478cdb566c8dab86cfc6a7fb987e8e1608c39a34079c2",
+  "sourceManifestSha256": "a4efa5b829464a95fa96c453ed6dc645dcc1da9df000eb7abf402bc4d4d40c85",
+  "conversion": "Reviewed uniform paint foundation, source-native black alpha shading, fixed fixtures and independent linework. Native tire/rim bytes are unchanged; wheel placement uses the measured visible tire radius. Actual decoded tire contact determines framing and ground shadows."
 }

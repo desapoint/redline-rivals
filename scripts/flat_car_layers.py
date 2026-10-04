@@ -67,17 +67,23 @@ def decompose(body, paint_mask, settings=None):
     shade[ratio > 1, :3] = 255
     shade[:, :, 3] = np.where(region & (ink_alpha == 0), shade[:, :, 3], 0)
     shade[:, :, 3] = (shade[:, :, 3].astype(np.uint16)*a//255).astype(np.uint8)
+    native=settings.get('sourceChannel')=='red'
+    if native:
+        # Explicit red-master replay: preserve source illumination contours
+        # rather than classifying blurred or simplified lighting regions.
+        shade=np.zeros_like(pixels)
+        shade[:,:,3]=np.where(region&(ink_alpha==0),(255-pixels[:,:,0]).astype(np.uint16)*a//255,0).astype(np.uint8)
     fixtures = pixels.copy()
     fixtures[:, :, 3] = np.where(region | (ink_alpha > 0), 0, a)
     return {'paint': base, 'shading': Image.fromarray(shade),
             'fixtures': Image.fromarray(fixtures), 'linework': ink}, {
                 'sourceReferenceLuminance': reference,
-                'shadowAlphaPalette': [0, 40, 88, 132, 176],
-                'highlightAlphaPalette': [0, 40, 80],
+                'shadowAlphaPalette': list(range(256)) if native else [0, 40, 88, 132, 176],
+                'highlightAlphaPalette': [0] if native else [0, 40, 80],
                 'shadingRGBPalette': [[0, 0, 0], [255, 255, 255]],
                 'baseRGB': [255, 255, 255], 'gradientInterpolation': False,
                 'foundationOpacity': 'opaque interior; native antialiasing at silhouette and arch boundaries',
-                'classificationBlurPixels': settings.get('classificationBlur', 12)}
+                'classificationBlurPixels': 0 if native else settings.get('classificationBlur', 12)}
 
 
 def prepare(source, target, revision, color):

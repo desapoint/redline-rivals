@@ -46,6 +46,10 @@ export function normalizePack(pack) {
         layers[role]=layer(value.layers[role],`${id}.${role}`);
         if(layers[role].width!==value.width || layers[role].height!==value.height)throw Error(`${id}: ${role} must align with the body canvas`);
       }
+      if(value.layers.lights){
+        layers.lights=layer(value.layers.lights,`${id}.lights`);
+        if(layers.lights.width!==value.width || layers.lights.height!==value.height)throw Error(`${id}: lights must align with the body canvas`);
+      }
     }else if(value.paintMode && value.paintMode!=='legacy-tint')throw Error(`${id}: unsupported paint mode`);
     for (const type of ['wheel','brake','rotor']) if(value.layers[type]) layers[type]=layer(value.layers[type],`${id}.${type}`,true);
     const wheels=value.wheels.map((w,i)=>{
@@ -68,9 +72,20 @@ export function attachmentTransform(slot, component) {
 }
 export function spriteLayout(record) {
   const [x,y,width,height]=record.displayBounds||record.bounds;
-  const ground=Math.max(...record.wheels.map(w=>w.y+w.radius));
+  const ground=Math.max(...record.wheels.map(w=>wheelGround(w)));
   const scale=Math.min(500/width,155/Math.max(height,ground-y));
   return {scale,x:300-(x+width/2)*scale,y:196-ground*scale};
+}
+function wheelGround(slot){
+  const wheel=slot.wheel;
+  return wheel?.contactY!==undefined?slot.y+(wheel.contactY-wheel.pivot[1])*slot.radius/wheel.radius:slot.y+slot.radius;
+}
+export function spriteContacts(record,slots=record.wheels){
+  const layout=spriteLayout(record);
+  return slots.map(slot=>{
+    const x=layout.x+slot.x*layout.scale;
+    return {axle:slot.axle,x:record.facing==='left'?600-x:x,y:layout.y+wheelGround(slot)*layout.scale,radius:slot.radius*layout.scale};
+  });
 }
 export function selectedLayers(record, visual={}, components={wheels:{},brakes:{}}) {
   const component=(group,id)=>Object.hasOwn(group || {},id)?group[id]:null;

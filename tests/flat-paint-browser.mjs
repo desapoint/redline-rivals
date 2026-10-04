@@ -1,3 +1,4 @@
+const origin=process.env.REDLINE_TEST_ORIGIN||'http://localhost:5173/';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {readFileSync,mkdirSync} from 'node:fs';
@@ -9,7 +10,7 @@ mkdirSync('tests/artifacts',{recursive:true});
 try{
   for(const viewport of [{width:1440,height:1000},{width:390,height:844}]){
     const page=await browser.newPage({viewport,deviceScaleFactor:2});page.on('pageerror',e=>errors.push(e.message));
-    await page.goto('http://localhost:5173/asset-preview.html?car=mazda3-gt-turbo-sedan-2021-red&layer=paint');
+    await page.goto(origin+'asset-preview.html?car=mazda3-gt-turbo-sedan-2021-red&layer=paint');
     await page.waitForFunction(()=>document.querySelector('#art-choice')?.disabled===false&&document.querySelector('#body-view')?.disabled===false);
     await page.locator('#geometry').uncheck();
     for(const id of Object.keys(pack.cars)){
@@ -31,7 +32,7 @@ try{
       }
       for(const role of ['shading','fixtures','linework']){
         await page.locator('#body-view').selectOption(role);await page.waitForTimeout(30);
-        const files=await page.locator('#asset-showroom image').evaluateAll(images=>images.map(image=>image.getAttribute('href').split('/').at(-1)));
+        const files=await page.locator('#asset-showroom image').evaluateAll(images=>images.map(image=>new URL(image.getAttribute('href')).pathname.split('/').at(-1)));
         assert.deepEqual(files,[role+'.webp'],id+' isolated '+role);
       }
       await page.locator('#body-view').selectOption('assembled');

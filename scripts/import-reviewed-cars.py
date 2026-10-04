@@ -19,8 +19,8 @@ SELECTED = {
 }
 NEXT_PACKS = {'chevrolet-silverado-1500-custom-crew-short-2025-black':'wheel-fit-v11','kia-forte-gt-sedan-2022-orange': 'wheel-fit-v2', 'nissan-rogue-2020-red': 'wheel-fit-v3'}
 PLACEMENT_PACKS = {
-    'mazda3-gt-turbo-sedan-2021-red': 'flat-paint-v16',
-    'chevrolet-silverado-1500-custom-crew-short-2025-black': 'flat-paint-v19',
+    'mazda3-gt-turbo-sedan-2021-red': 'reference-fit-v18',
+    'chevrolet-silverado-1500-custom-crew-short-2025-black': 'trim-v26',
     'kia-forte-gt-sedan-2022-orange': 'flat-paint-v9',
     'nissan-rogue-2020-red': 'flat-paint-v10',
 }
@@ -43,11 +43,12 @@ def export_image(image, vehicle_id, filename):
     image.save(out, 'WEBP', lossless=True, exact=True, method=6)
     return {'file': f'{vehicle_id}/{filename}', 'width': image.width, 'height': image.height}
 
-def main():
+def main(selected=None):
+    selected = SELECTED if selected is None else {id: SELECTED[id] for id in selected}
     manifest_path = RUNTIME / 'manifest.json'
     runtime = json.loads(manifest_path.read_text(encoding='utf-8'))
     specifications = {}
-    for vehicle_id, color in SELECTED.items():
+    for vehicle_id, color in selected.items():
         selected_pack = PLACEMENT_PACKS.get(vehicle_id) or NEXT_PACKS.get(vehicle_id)
         directory = ROOT / 'tests/car-integration/20261003' / vehicle_id / selected_pack if selected_pack else SOURCE / vehicle_id / 'reviewed-v9'
         qa = 'qa' if selected_pack else 'qa-refined'
@@ -75,6 +76,8 @@ def main():
             record['flatPaint'] = pack['flatPaint']
             for role in ('shading', 'fixtures', 'linework'):
                 record['layers'][role] = export_image(Image.open(directory / layers['body-'+role]['file']), vehicle_id, role+'.webp')
+            if 'body-lights' in layers:
+                record['layers']['lights'] = export_image(Image.open(directory/layers['body-lights']['file']), vehicle_id, 'lights.webp')
         record['layers']['underlay'] = export_image(Image.open(directory / layers['car-underlay']['file']), vehicle_id, 'underlay.webp')
         record['layers']['paintMask'] = export_image(Image.open(directory / pack['masks']['paint']), vehicle_id, 'paint-mask.webp')
         combined = body.copy()
@@ -118,11 +121,15 @@ def main():
     # Merge only selected IDs into the latest catalog so another art workflow
     # can add its own cars during conversion without losing those records.
     latest = json.loads(manifest_path.read_text(encoding='utf-8'))
-    for vehicle_id in SELECTED:
+    for vehicle_id in selected:
         latest['cars'][vehicle_id] = runtime['cars'][vehicle_id]
     manifest_path.write_text(json.dumps(latest, indent=2)+'\n', encoding='utf-8')
-    (ROOT / 'src/real-car-specs.js').write_text('// Derived from the archived manufacturer research. Unknown factory facts remain null.\nexport const REAL_CAR_SPECS = '+json.dumps(specifications, indent=2)+';\n', encoding='utf-8')
-    print('Imported four reviewed native vehicle packs and archived source specifications.')
+    if set(selected)==set(SELECTED):
+        (ROOT / 'src/real-car-specs.js').write_text('// Derived from the archived manufacturer research. Unknown factory facts remain null.\nexport const REAL_CAR_SPECS = '+json.dumps(specifications, indent=2)+';\n', encoding='utf-8')
+    print(f'Imported {len(selected)} reviewed native vehicle packs and archived source specifications.')
 
 if __name__ == '__main__':
-    main()
+    import argparse
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--car',action='append',choices=SELECTED)
+    main(parser.parse_args().car)
