@@ -14,8 +14,8 @@
     "stationary-calipers",
     "underlay-coverage"
   ],
-  "notes": "Inspected original source vs restored panels, factory and blue/white/black assembly, independent foundation/shading/fixtures/ink, isolated mechanical parts/backing, wheels-hidden view, four rotations and white/black/gray/checker backgrounds. Native source intensity replaces simplified patches. All unrelated bytes and attachment metadata are preserved; reconstructed mechanical designs remain the previously disclosed approximations.",
+  "notes": "Inspected native source crops and isolated rims, complete hardware, full assembled rotations 0/45/90/180, fixture/paint/ink isolation, wheel-hidden backing, white/black/gray backgrounds and blue repaint. Native metal replaces invented Y spokes; Boss cavity masks stay between chrome spokes. Existing accepted tire contact and all unrelated body pixels remain unchanged. Hardware is a modeled illustration, not factory CAD.",
   "unresolvedIssues": [],
-  "contentFingerprint": "731736aba4fcef912bed49d2dfabe5ddff74f2b1dbf5230b10dfabcc1181c025",
-  "qaReportHash": "c22e4f3e0cf4d9a154e010a2c057b19f472ffa97131a0f967d600fea00c2565d"
+  "contentFingerprint": "247c8f37017afcf3ca13936f3fb9ec77d28074297a10b109c6c4d6da9f01427b",
+  "qaReportHash": "19f6488ef562323b050ef5d661ccb70418fe7caea26fd26954b22f3f03e678dc"
 }

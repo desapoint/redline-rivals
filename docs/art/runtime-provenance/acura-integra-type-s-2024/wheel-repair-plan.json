@@ -1,0 +1,65 @@
+{
+  "vehicle": "acura-integra-type-s-2024",
+  "sourcePackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/native-detail-v11",
+  "outputPackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/wheel-detail-v12",
+  "revision": 12,
+  "masterSha256": "176c20f2d9217d6d55b4a3954e28b131f5fd98e761d6b82bc7ede447e40acda7",
+  "manifestSha256": "8c1c07404dd9adcf9ebe5f1daa6616f448c9c8e2cb92a036af3e7a2ceacab6f4",
+  "style": "ten-native",
+  "caliperColor": "#cd2630",
+  "measurements": {
+    "rear": {
+      "sourceCenter": [
+        491,
+        715
+      ],
+      "sourceRimRadius": 103,
+      "targetRimRatio": 0.77,
+      "spokeAngles": [
+        -104,
+        -76,
+        -32,
+        -4,
+        40,
+        68,
+        112,
+        140,
+        184,
+        212
+      ]
+    },
+    "front": {
+      "sourceCenter": [
+        1496,
+        718
+      ],
+      "sourceRimRadius": 103,
+      "targetRimRatio": 0.77,
+      "spokeAngles": [
+        -104,
+        -76,
+        -32,
+        -4,
+        40,
+        68,
+        112,
+        140,
+        184,
+        212
+      ]
+    }
+  },
+  "notes": [
+    "Visual hub and rim boundary measured on native source crops. Runtime axle, tire radius, tire contact and body geometry remain unchanged.",
+    "Brake hardware is a complete modeled approximation; native source contains repeated, occluded calipers and cannot be used as rotating brake pixels."
+  ],
+  "unchangedFiles": {
+    "underlay.png": "7336a3d4ed12dfde9d2a68a16f9a49797de08f7fb38b96c8e461ed5760430c38",
+    "body/paint.png": "8e8642ac0e1afb20ab6abf172c0ee9843b048f3bc9b5e3de406e12457c744de8",
+    "body/shading.png": "f4efa10abbb0911fb298f992ed1e94068c586cc380a135436ee8d82c238fe4cf",
+    "body/fixtures.png": "9f739f2376e542307220566c76b72ad405bbdd292e9a3d921be3306276a46a07",
+    "body/linework.png": "413370576af2ea73c5742f8143175554b6a245ab97b075f7612ac2ad5b6da08b",
+    "paint-mask.png": "8e8642ac0e1afb20ab6abf172c0ee9843b048f3bc9b5e3de406e12457c744de8",
+    "paint-regions.png": "aaf23e0ed9f876ce6fced9e38565f33619c69430eaf522761269f9f34d50a539"
+  }
+}

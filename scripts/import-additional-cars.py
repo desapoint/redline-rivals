@@ -11,6 +11,11 @@ import numpy as np
 from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
+MECHANICAL_REPAIRS = {
+ 'acura-integra-type-s-2024': 'wheel-detail-v12',
+ 'ford-mustang-dark-horse-2024': 'wheel-detail-v12',
+ 'ford-mustang-boss302-1969': 'wheel-detail-v12',
+}
 spec=importlib.util.spec_from_file_location('reviewed_importer',ROOT/'scripts/import-reviewed-cars.py')
 base=importlib.util.module_from_spec(spec);spec.loader.exec_module(base)
 
@@ -23,7 +28,7 @@ def main():
  count=0
  for planfile in sorted((ROOT/'docs/art/additional-car-plans').glob('*.json')):
   plan=json.loads(planfile.read_text(encoding='utf-8'));id=plan['id']
-  directory=ROOT/'tests/car-integration/20261003-additional'/id/'native-detail-v11'
+  directory=ROOT/'tests/car-integration/20261003-additional'/id/MECHANICAL_REPAIRS.get(id,'native-detail-v11')
   pack=json.loads((directory/'car-sprite.json').read_text(encoding='utf-8'))
   reportpath=directory/'qa/qa-report.json';report=json.loads(reportpath.read_text(encoding='utf-8'))
   review=json.loads((directory/'qa/visual-review.json').read_text(encoding='utf-8'));current=base.fingerprint(directory,pack)
@@ -53,7 +58,7 @@ def main():
   record['provenance']={'sourcePackage':directory.relative_to(ROOT).as_posix(),'sourceManifest':(snapshot/'car-sprite.json').relative_to(ROOT).as_posix(),
    'bodySource':(directory/'inputs/body-2d.png').relative_to(ROOT).as_posix(),'bodySourceSha256':base.digest(directory/'inputs/body-2d.png'),
    'masterSource':plan['source'],'masterSourceSha256':plan['sha256'],'revision':pack['revision'],'reviewFingerprint':current,'sourceManifestSha256':base.digest(directory/'car-sprite.json'),
-   'conversion':'Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation.'}
+   'conversion':('Measured source spokes, hubs, bevels and rim lip retained with transparent cavities; independent complete modeled brake hardware. ' if id in MECHANICAL_REPAIRS else 'Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. ')+'Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation.'}
   (base.RUNTIME/id/'provenance.json').write_text(json.dumps(record['provenance'],indent=2)+'\n',encoding='utf-8')
   runtime['cars'][id]=record;count+=1
  target.write_text(json.dumps(runtime,indent=2)+'\n',encoding='utf-8')

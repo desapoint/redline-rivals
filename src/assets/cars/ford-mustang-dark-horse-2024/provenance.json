@@ -1,12 +1,12 @@
 {
-  "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/native-detail-v11",
+  "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/wheel-detail-v12",
   "sourceManifest": "docs/art/runtime-provenance/ford-mustang-dark-horse-2024/car-sprite.json",
   "bodySource": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/cartoon-v8/inputs/body-2d.png",
   "bodySourceSha256": "ff7e998b7838ca7f23adb1c0597b770b85c2bb79e8f763b82c58111fa917ae8d",
   "masterSource": "tests/car-integration/20261003-additional/sources/ford-mustang-dark-horse-2024/ford-mustang-dark-horse-2024-composite.png",
   "masterSourceSha256": "2555bd406212daa6d4f19a313777e939ebfa1062d2eaff69aa24ae965b9bd59a",
-  "revision": 11,
-  "reviewFingerprint": "ea7ec7bc5ad491f497d0e8193d8e8c5ae78bcff51a1e91610df0e07be0fc1f7f",
-  "sourceManifestSha256": "d1e5d0e2322cd08295d2fcddad425289060f4e635685a6068bfa67aec385d1e1",
-  "conversion": "Shading-only source detail restoration: static black/white alpha preserves native panel and reflection contours without filtering or polygon simplification. Uniform paint, fixtures, lamps, linework, arches, wheel/rotor/caliper images, pivots and geometry remain unchanged. Complete source archives and rejected attempts stay in the local art workspace."
+  "revision": 12,
+  "reviewFingerprint": "857e8c7eaea58bb91861938cb5757ae92c85530915dfc7fe9e6e94bf33977032",
+  "sourceManifestSha256": "5598fb2a4ae574a9b576e852a9f89269501a9d81e1c550e26769b07354f02113",
+  "conversion": "Mechanical-only native rim repair: measured source spokes, hubs, bevels and lip replace generic rims. Transparent spoke cavities expose complete modeled steel rotors/drum and single stationary calipers. Circular tire alpha/contact, axle positions, pivots, scales, body, shader, fixtures, linework, underlay and paint masks are preserved. Illustrated mechanical hardware is a visual approximation; full sources and replay metadata stay in the local art workspace."
 }

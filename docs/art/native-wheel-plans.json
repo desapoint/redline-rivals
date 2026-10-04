@@ -1,0 +1,160 @@
+[
+  {
+    "vehicle": "acura-integra-type-s-2024",
+    "sourcePackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/native-detail-v11",
+    "outputPackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/wheel-detail-v12",
+    "revision": 12,
+    "masterSha256": "176c20f2d9217d6d55b4a3954e28b131f5fd98e761d6b82bc7ede447e40acda7",
+    "manifestSha256": "8c1c07404dd9adcf9ebe5f1daa6616f448c9c8e2cb92a036af3e7a2ceacab6f4",
+    "style": "ten-native",
+    "caliperColor": "#cd2630",
+    "measurements": {
+      "rear": {
+        "sourceCenter": [
+          491,
+          715
+        ],
+        "sourceRimRadius": 103,
+        "targetRimRatio": 0.77,
+        "spokeAngles": [
+          -104,
+          -76,
+          -32,
+          -4,
+          40,
+          68,
+          112,
+          140,
+          184,
+          212
+        ]
+      },
+      "front": {
+        "sourceCenter": [
+          1496,
+          718
+        ],
+        "sourceRimRadius": 103,
+        "targetRimRatio": 0.77,
+        "spokeAngles": [
+          -104,
+          -76,
+          -32,
+          -4,
+          40,
+          68,
+          112,
+          140,
+          184,
+          212
+        ]
+      }
+    },
+    "notes": [
+      "Visual hub and rim boundary measured on native source crops. Runtime axle, tire radius, tire contact and body geometry remain unchanged.",
+      "Brake hardware is a complete modeled approximation; native source contains repeated, occluded calipers and cannot be used as rotating brake pixels."
+    ]
+  },
+  {
+    "vehicle": "ford-mustang-dark-horse-2024",
+    "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/native-detail-v11",
+    "outputPackage": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/wheel-detail-v12",
+    "revision": 12,
+    "masterSha256": "2555bd406212daa6d4f19a313777e939ebfa1062d2eaff69aa24ae965b9bd59a",
+    "manifestSha256": "d1e5d0e2322cd08295d2fcddad425289060f4e635685a6068bfa67aec385d1e1",
+    "style": "ten-native",
+    "caliperColor": "#327dc5",
+    "measurements": {
+      "rear": {
+        "sourceCenter": [
+          529,
+          697
+        ],
+        "sourceRimRadius": 105,
+        "targetRimRatio": 0.77,
+        "spokeAngles": [
+          -104,
+          -76,
+          -32,
+          -4,
+          40,
+          68,
+          112,
+          140,
+          184,
+          212
+        ]
+      },
+      "front": {
+        "sourceCenter": [
+          1582,
+          699
+        ],
+        "sourceRimRadius": 105,
+        "targetRimRatio": 0.77,
+        "spokeAngles": [
+          -104,
+          -76,
+          -32,
+          -4,
+          40,
+          68,
+          112,
+          140,
+          184,
+          212
+        ]
+      }
+    },
+    "notes": [
+      "Visual hub and rim boundary measured on native source crops. Runtime axle, tire radius, tire contact and body geometry remain unchanged.",
+      "Brake hardware is a complete modeled approximation; native source contains repeated, occluded calipers and cannot be used as rotating brake pixels."
+    ]
+  },
+  {
+    "vehicle": "ford-mustang-boss302-1969",
+    "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/native-detail-v11",
+    "outputPackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/wheel-detail-v12",
+    "revision": 12,
+    "masterSha256": "07dddb01fe882ad67a6c27e7b467e34a426849049000930ef8e992faa61e8976",
+    "manifestSha256": "739c6457d9a1a2df60864cb568670d35c42e43117f46659690a5fc0a33f2e110",
+    "style": "boss-native",
+    "caliperColor": "#484c52",
+    "measurements": {
+      "rear": {
+        "sourceCenter": [
+          454,
+          553
+        ],
+        "sourceRimRadius": 87,
+        "targetRimRatio": 0.6,
+        "openingAngles": [
+          -90,
+          -18,
+          54,
+          126,
+          198
+        ]
+      },
+      "front": {
+        "sourceCenter": [
+          1663,
+          553
+        ],
+        "sourceRimRadius": 87,
+        "targetRimRatio": 0.6,
+        "openingAngles": [
+          -90,
+          -18,
+          54,
+          126,
+          198
+        ]
+      }
+    },
+    "notes": [
+      "Visual hub and rim boundary measured on native source crops. Runtime axle, tire radius, tire contact and body geometry remain unchanged.",
+      "Brake hardware is a complete modeled approximation; native source contains repeated, occluded calipers and cannot be used as rotating brake pixels."
+    ]
+  }
+]

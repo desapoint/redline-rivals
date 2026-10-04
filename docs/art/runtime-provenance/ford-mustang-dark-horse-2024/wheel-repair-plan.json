@@ -1,0 +1,65 @@
+{
+  "vehicle": "ford-mustang-dark-horse-2024",
+  "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/native-detail-v11",
+  "outputPackage": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/wheel-detail-v12",
+  "revision": 12,
+  "masterSha256": "2555bd406212daa6d4f19a313777e939ebfa1062d2eaff69aa24ae965b9bd59a",
+  "manifestSha256": "d1e5d0e2322cd08295d2fcddad425289060f4e635685a6068bfa67aec385d1e1",
+  "style": "ten-native",
+  "caliperColor": "#327dc5",
+  "measurements": {
+    "rear": {
+      "sourceCenter": [
+        529,
+        697
+      ],
+      "sourceRimRadius": 105,
+      "targetRimRatio": 0.77,
+      "spokeAngles": [
+        -104,
+        -76,
+        -32,
+        -4,
+        40,
+        68,
+        112,
+        140,
+        184,
+        212
+      ]
+    },
+    "front": {
+      "sourceCenter": [
+        1582,
+        699
+      ],
+      "sourceRimRadius": 105,
+      "targetRimRatio": 0.77,
+      "spokeAngles": [
+        -104,
+        -76,
+        -32,
+        -4,
+        40,
+        68,
+        112,
+        140,
+        184,
+        212
+      ]
+    }
+  },
+  "notes": [
+    "Visual hub and rim boundary measured on native source crops. Runtime axle, tire radius, tire contact and body geometry remain unchanged.",
+    "Brake hardware is a complete modeled approximation; native source contains repeated, occluded calipers and cannot be used as rotating brake pixels."
+  ],
+  "unchangedFiles": {
+    "underlay.png": "42d629530fd89ddc0e4958b05ade9f79cdd761dad9a0de692d42ddddbd4e21f6",
+    "body/paint.png": "6e9d49f5877383b0bfa50c44f7e5da55c006e189677043bebc0964b31963ac74",
+    "body/shading.png": "fdcba04ecbbdaa45fd27b723fd416574c54112abe6d46aba900fa690bd79b327",
+    "body/fixtures.png": "b3a1a5a9e2191b8282b0e648348f66e20bef776506894fbadc3a506502bda87b",
+    "body/linework.png": "f597612d0d16788dfd88209ca36177413329489c291e0ce145103b79cecb0431",
+    "paint-mask.png": "6e9d49f5877383b0bfa50c44f7e5da55c006e189677043bebc0964b31963ac74",
+    "paint-regions.png": "0bd2fca9a8dd40d3b642930496c1066f1170689eeca538336c89fcedc355449b"
+  }
+}

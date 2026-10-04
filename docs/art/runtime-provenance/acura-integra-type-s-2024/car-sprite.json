@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": 11,
+  "revision": 12,
   "vehicle": {
     "id": "acura-integra-type-s-2024",
     "make": "Acura",
@@ -245,6 +245,16 @@
       "originalPath": "scripts/prepare-native-shading.py",
       "archivedFile": "processing/native-detail/prepare-native-shading.py",
       "sha256": "e0628b9534a5086353f2a83b323a98d2f27e0af9437e7566d58b10a4e844ea4e"
+    },
+    {
+      "originalPath": "scripts/repair-native-wheels.py",
+      "archivedFile": "processing/native-wheels/repair-native-wheels.py",
+      "sha256": "56b25609cd1c590736063ce3120b8b1d07ee96093f8476d78eae41eb60258c91"
+    },
+    {
+      "originalPath": "native-wheel-plans.json",
+      "archivedFile": "processing/native-wheels/plan.json",
+      "sha256": "bafe4678c3bbda3da0a73abc91b24cebc52f602741480a8fcedf17ffc4f4bf2c"
     }
   ],
   "notes": [
@@ -255,7 +265,8 @@
     "Merged original exterior retained: the deferred flat-paint/fixture redesign is not applied.",
     "Uniform continuous paint foundation covers the native silhouette with unchanged arches. Source-derived black/white shading has discrete alpha levels, fixtures retain fixed source pixels, and independent ink follows panels and silhouette. No source hue is baked into the paint or shading.",
     "Shading-only cartoon rework: two flat shadow opacities and one flat highlight opacity. Broad source-lit regions are traced into simplified polygons with small islands removed. No rendered blur or gradient; paint, fixtures, lamps, linework, arch alpha, hubs and mechanical bytes are preserved.",
-    "Shading-only source-detail repair after user review: native panel/reflection detail replaces simplified polygon patches. Static black/white RGB with per-pixel transparency remains recolorable. All other layers, masks, fixtures, native alpha, hubs, scales and mechanical bytes are unchanged."
+    "Shading-only source-detail repair after user review: native panel/reflection detail replaces simplified polygon patches. Static black/white RGB with per-pixel transparency remains recolorable. All other layers, masks, fixtures, native alpha, hubs, scales and mechanical bytes are unchanged.",
+    "Targeted native-rim repair: measured source hub remapped to unchanged component pivot; source spoke metal, bevels, hub and rim lip retained with transparent cavities. Circular accepted tires and all body/shader/fixture/underlay/paint bytes unchanged. Complete steel rotors and single fixed calipers modeled independently; mechanical details are illustrated approximations."
   ],
   "archProfiles": [
     {

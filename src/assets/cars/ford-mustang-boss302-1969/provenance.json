@@ -1,12 +1,12 @@
 {
-  "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/native-detail-v11",
+  "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/wheel-detail-v12",
   "sourceManifest": "docs/art/runtime-provenance/ford-mustang-boss302-1969/car-sprite.json",
   "bodySource": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/cartoon-v8/inputs/body-2d.png",
   "bodySourceSha256": "e41b1574d187add7ec2f63634d56461d6dbeb095b905f78dc5a979a8b61835e1",
   "masterSource": "tests/car-integration/20261003-additional/sources/ford-mustang-boss302-1969/ford-mustang-boss302-1969-2d.png",
   "masterSourceSha256": "07dddb01fe882ad67a6c27e7b467e34a426849049000930ef8e992faa61e8976",
-  "revision": 11,
-  "reviewFingerprint": "3ad8b9648c2500f4f2b879ef1d6fa239abaf315f8c503b544cc79c70a04400d2",
-  "sourceManifestSha256": "739c6457d9a1a2df60864cb568670d35c42e43117f46659690a5fc0a33f2e110",
-  "conversion": "Shading-only source detail restoration: static black/white alpha preserves native panel and reflection contours without filtering or polygon simplification. Uniform paint, fixtures, lamps, linework, arches, wheel/rotor/caliper images, pivots and geometry remain unchanged. Complete source archives and rejected attempts stay in the local art workspace."
+  "revision": 12,
+  "reviewFingerprint": "8f4b2083311dc542a175b6ed7d80608f1b23fef253565ef8b4cf328ddf278faa",
+  "sourceManifestSha256": "ee5e6447b738ea203820e8cbe4144369242e508b06feaaabd86a6716b564ca79",
+  "conversion": "Mechanical-only native rim repair: measured source spokes, hubs, bevels and lip replace generic rims. Transparent spoke cavities expose complete modeled steel rotors/drum and single stationary calipers. Circular tire alpha/contact, axle positions, pivots, scales, body, shader, fixtures, linework, underlay and paint masks are preserved. Illustrated mechanical hardware is a visual approximation; full sources and replay metadata stay in the local art workspace."
 }

@@ -1,0 +1,55 @@
+{
+  "vehicle": "ford-mustang-boss302-1969",
+  "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/native-detail-v11",
+  "outputPackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/wheel-detail-v12",
+  "revision": 12,
+  "masterSha256": "07dddb01fe882ad67a6c27e7b467e34a426849049000930ef8e992faa61e8976",
+  "manifestSha256": "739c6457d9a1a2df60864cb568670d35c42e43117f46659690a5fc0a33f2e110",
+  "style": "boss-native",
+  "caliperColor": "#484c52",
+  "measurements": {
+    "rear": {
+      "sourceCenter": [
+        454,
+        553
+      ],
+      "sourceRimRadius": 87,
+      "targetRimRatio": 0.6,
+      "openingAngles": [
+        -90,
+        -18,
+        54,
+        126,
+        198
+      ]
+    },
+    "front": {
+      "sourceCenter": [
+        1663,
+        553
+      ],
+      "sourceRimRadius": 87,
+      "targetRimRatio": 0.6,
+      "openingAngles": [
+        -90,
+        -18,
+        54,
+        126,
+        198
+      ]
+    }
+  },
+  "notes": [
+    "Visual hub and rim boundary measured on native source crops. Runtime axle, tire radius, tire contact and body geometry remain unchanged.",
+    "Brake hardware is a complete modeled approximation; native source contains repeated, occluded calipers and cannot be used as rotating brake pixels."
+  ],
+  "unchangedFiles": {
+    "underlay.png": "ce9eb8b0771e57c15359bf0c90ac522a6ecb2a3ecb7fe23ac1eb4416f5197a0d",
+    "body/paint.png": "601d2efc7a4fe7f5ea1d46e11ad7dd1cbe7056c237762736653000a307952366",
+    "body/shading.png": "bde5fd92683f3f919a001203c965a718f9b22b2cd68433f94914d377985f0b1d",
+    "body/fixtures.png": "db8c35d3234d770a651af50d6ca0d62ee6d36ce0d3d3d580165b2a5fd0fafddb",
+    "body/linework.png": "b9e8b16a842c8612572ecbcdca579af697eab90e3fed6441ed2a825faa7d4149",
+    "paint-mask.png": "601d2efc7a4fe7f5ea1d46e11ad7dd1cbe7056c237762736653000a307952366",
+    "paint-regions.png": "57fb76405d250bb06004f04969538626fc3ba7b09ed3c2f2ed3e5e5240178b15"
+  }
+}
