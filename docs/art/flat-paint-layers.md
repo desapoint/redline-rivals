@@ -1,5 +1,7 @@
 # Flat paint, solid shading and line art
 
+Current production shading preserves native source reflections for all twelve cars. See [source shading restoration](native-source-shading.md) for the selected revisions and replay parameters. The cartoon classifier and its selections below describe the superseded preparation history.
+
 The body uses separate, native-size RGBA images in this order:
 
 | Role | Content | Recolor behavior |

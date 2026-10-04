@@ -1,0 +1,32 @@
+{
+  "vehicle": "nissan-rogue-2020-red",
+  "sourcePackage": "tests/car-integration/20261003/nissan-rogue-2020-red/cartoon-v11",
+  "outputPackage": "tests/car-integration/20261003/nissan-rogue-2020-red/native-detail-v14",
+  "revision": 14,
+  "sourceBody": "inputs/body.png",
+  "sourceBodySha256": "17031392c4c527099904d5cb87f1e45afb3d7f91a7d07c6f269d2aa63b1eb3b0",
+  "settings": {
+    "shadingStyle": "source-native-cel",
+    "shapeGridWidth": 256,
+    "shapeToleranceCells": 1.25,
+    "minimumShapeCells": 18,
+    "referenceLuminance": 63.56480026245117,
+    "sourceChannel": "max",
+    "referenceValue": 255,
+    "algorithm": "flat_car_layers.source_shading"
+  },
+  "unchangedFiles": {
+    "body/car-underlay.png": "1575a73f75928e1d9d5f2cefae8678fb264611dd9bbc18d68130e3dcf1b92a24",
+    "rear-wheel/rotor.png": "2e5076ab9677bfc5d02430c173b35fe88a942005666e5c0b0c5f8c6bb2ce716a",
+    "rear-wheel/caliper.png": "e2013b6cd85888360015e0a0748eebfbcd386e7adc1f2083c6df2a60d8d2b261",
+    "rear-wheel/wheel.png": "7c06c46c48357c5c95998172f2027b363910010d81f86d7b05ac062d6247f535",
+    "front-wheel/rotor.png": "2e5076ab9677bfc5d02430c173b35fe88a942005666e5c0b0c5f8c6bb2ce716a",
+    "front-wheel/caliper.png": "e2013b6cd85888360015e0a0748eebfbcd386e7adc1f2083c6df2a60d8d2b261",
+    "front-wheel/wheel.png": "7c06c46c48357c5c95998172f2027b363910010d81f86d7b05ac062d6247f535",
+    "body/paint.png": "fd101c4953b51f7d46236303fceceb3b83ba9ee1701496659c7668bcf446850f",
+    "body/fixtures.png": "83ee97b60402ebeb001685a75153515a51ffc25703393399b007679096073258",
+    "body/linework.png": "1dc32869f2c0af01ad031295922df0b341778e059f4f44d4f9892f0559f0f880",
+    "masks/paint-mask.png": "fd101c4953b51f7d46236303fceceb3b83ba9ee1701496659c7668bcf446850f",
+    "masks/paint-regions.png": "0e6a3aa76d1fe4e3b489c4f70f4cf5fd571d9fed3c4e3f0181aedc6295974132"
+  }
+}

@@ -139,7 +139,7 @@ test('flat production bodies require independent shading, fixtures and line art'
     assert.equal(record.paintMode,'flat-cel');
     assert.equal(new Set(['body','shading','fixtures','linework'].map(role=>record.layers[role].file)).size,4);
     assert.equal(record.flatPaint.gradientInterpolation,false);
-    assert.equal(record.flatPaint.shadingStyle,record===pack.cars['mazda3-gt-turbo-sedan-2021-red']?'source-native-cel':'cartoon-cel');
+    assert.equal(record.flatPaint.shadingStyle,'source-native-cel');
     assert.equal(record.flatPaint.classificationBlurPixels,0);
   }
   for(const role of ['shading','fixtures','linework']){

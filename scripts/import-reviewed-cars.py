@@ -20,9 +20,9 @@ SELECTED = {
 NEXT_PACKS = {'chevrolet-silverado-1500-custom-crew-short-2025-black':'wheel-fit-v11','kia-forte-gt-sedan-2022-orange': 'wheel-fit-v2', 'nissan-rogue-2020-red': 'wheel-fit-v3'}
 PLACEMENT_PACKS = {
     'mazda3-gt-turbo-sedan-2021-red': 'reference-fit-v18',
-    'chevrolet-silverado-1500-custom-crew-short-2025-black': 'trim-v26',
-    'kia-forte-gt-sedan-2022-orange': 'cartoon-v10',
-    'nissan-rogue-2020-red': 'cartoon-v11',
+    'chevrolet-silverado-1500-custom-crew-short-2025-black': 'native-detail-v29',
+    'kia-forte-gt-sedan-2022-orange': 'native-detail-v13',
+    'nissan-rogue-2020-red': 'native-detail-v14',
 }
 
 def digest(path):

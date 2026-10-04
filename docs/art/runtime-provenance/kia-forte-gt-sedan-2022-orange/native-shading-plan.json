@@ -1,0 +1,32 @@
+{
+  "vehicle": "kia-forte-gt-sedan-2022-orange",
+  "sourcePackage": "tests/car-integration/20261003/kia-forte-gt-sedan-2022-orange/cartoon-v10",
+  "outputPackage": "tests/car-integration/20261003/kia-forte-gt-sedan-2022-orange/native-detail-v13",
+  "revision": 13,
+  "sourceBody": "inputs/body.png",
+  "sourceBodySha256": "52b42926f3c6f098627adc90145db3964fdf842ce2192b5e071729e6a8a97cfc",
+  "settings": {
+    "shadingStyle": "source-native-cel",
+    "shapeGridWidth": 256,
+    "shapeToleranceCells": 1.25,
+    "minimumShapeCells": 18,
+    "referenceLuminance": 132.39439392089844,
+    "sourceChannel": "max",
+    "referenceValue": 255,
+    "algorithm": "flat_car_layers.source_shading"
+  },
+  "unchangedFiles": {
+    "body/car-underlay.png": "628f6c03a4206a56dbc4d09ac69ee9b45434ed88f831a1f47a09fff906f91f4e",
+    "rear-wheel/rotor.png": "57ffb99b011e86bc6736275d828e00dc59357afc5a2b0ea0f17134cccb72337a",
+    "rear-wheel/caliper.png": "2b30cb47c5a86b197f7ac15ef7ebc24742e7c33edcbc3b1bd0ae6af2587cf8db",
+    "rear-wheel/wheel.png": "9a0d749aad279d70a24f9745f3248cab73307ccb7a1bfa64d83e12c595cf3d48",
+    "front-wheel/rotor.png": "57ffb99b011e86bc6736275d828e00dc59357afc5a2b0ea0f17134cccb72337a",
+    "front-wheel/caliper.png": "2b30cb47c5a86b197f7ac15ef7ebc24742e7c33edcbc3b1bd0ae6af2587cf8db",
+    "front-wheel/wheel.png": "9a0d749aad279d70a24f9745f3248cab73307ccb7a1bfa64d83e12c595cf3d48",
+    "body/paint.png": "4cb2189adaee04facce799b5de28cf91605a302c8b79d3f42da724737f144c12",
+    "body/fixtures.png": "b51edbd07757ec159b8de74c9327070ef3f35e4cb1fd8357ab406852541656f4",
+    "body/linework.png": "df1f89441a8ee0b687319c8d16464c240d337b46a9d765dfd2b3f771f8aa8932",
+    "masks/paint-mask.png": "4cb2189adaee04facce799b5de28cf91605a302c8b79d3f42da724737f144c12",
+    "masks/paint-regions.png": "f13891885b3b8caf2fbe11b9aef24aefb09c5cbc88aa92c8240d1a995bbcbf24"
+  }
+}

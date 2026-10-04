@@ -1,0 +1,32 @@
+{
+  "vehicle": "volkswagen-golf-gti-2024",
+  "sourcePackage": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/cartoon-v8",
+  "outputPackage": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/native-detail-v11",
+  "revision": 11,
+  "sourceBody": "body.png",
+  "sourceBodySha256": "4508fc607a98b3b27d3b418bbfd8eb9bb6c7aa1dc6512c9da0a421e8efd9a2a9",
+  "settings": {
+    "shadingStyle": "source-native-cel",
+    "shapeGridWidth": 256,
+    "shapeToleranceCells": 1.25,
+    "minimumShapeCells": 18,
+    "referenceLuminance": 61.33440017700195,
+    "sourceChannel": "max",
+    "referenceValue": 255,
+    "algorithm": "flat_car_layers.source_shading"
+  },
+  "unchangedFiles": {
+    "underlay.png": "fa2c2a1f7bf17381a2d7c7aa3904f53bdf16632b97753942cd0675e938d7407a",
+    "rear-rotor.png": "51f6daff5a3be4c9af609035d043fccd96457d518edf08db61763b952196edfa",
+    "rear-caliper.png": "a2b53f2b1c307d7ae89da06e685f281b8f005f746e73d2a1de5b2ab2d936993f",
+    "rear-wheel.png": "eb8bff4b1bfa18dd5755a9c51f36c0edd7462caf9707c760cf42742c0a508b58",
+    "front-rotor.png": "24f181f2c3424f0c330aebde6f7fd033b9aa7fd2dd6715ccb7f580127cf0829c",
+    "front-caliper.png": "ef2938acdac8b53e6fd78ae5c5ba45e9b2e2ea1f7992cc9519a1d10762153147",
+    "front-wheel.png": "dd9275ab160a2109c2ed8b74c050b0b20c68c4a18d90a602c79956dbe1722d0e",
+    "body/paint.png": "6fd42a0fcd69e3e71908178f251ef35ea8e25e6b776187450b02b5ad276be30f",
+    "body/fixtures.png": "aba331228fd27a8674d09eef450b4649b7376116125a33f94f9c2a83550f59d9",
+    "body/linework.png": "1350eef2341d4c77b55e26202f23415bc149bd3110907b15360e81d13f6b3eb2",
+    "paint-mask.png": "6fd42a0fcd69e3e71908178f251ef35ea8e25e6b776187450b02b5ad276be30f",
+    "paint-regions.png": "b4ec795e9818174253dba906cb4d45f2d6dd5731480e227b104379067280554f"
+  }
+}

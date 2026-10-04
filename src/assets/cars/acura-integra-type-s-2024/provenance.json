@@ -1,12 +1,12 @@
 {
-  "sourcePackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/cartoon-v8",
+  "sourcePackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/native-detail-v11",
   "sourceManifest": "docs/art/runtime-provenance/acura-integra-type-s-2024/car-sprite.json",
   "bodySource": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/cartoon-v8/inputs/body-2d.png",
   "bodySourceSha256": "fa5bcc729c24a79c00615a4b69e8039f42731645d1ba34f1b3ab46d3c90e9773",
   "masterSource": "tests/car-integration/20261003-additional/sources/acura-integra-type-s-2024/acura-integra-type-s-2024-composite.png",
   "masterSourceSha256": "176c20f2d9217d6d55b4a3954e28b131f5fd98e761d6b82bc7ede447e40acda7",
-  "revision": 8,
-  "reviewFingerprint": "f947e6a79c8d9deb4b9dfdcef3a7a52dda697d9f82b0205a43e6c2863e563a06",
-  "sourceManifestSha256": "d82fc4f0a7b3fa9511145a83e6f02b90227d26df47e351e95ed156cacb0f659c",
-  "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+  "revision": 11,
+  "reviewFingerprint": "731736aba4fcef912bed49d2dfabe5ddff74f2b1dbf5230b10dfabcc1181c025",
+  "sourceManifestSha256": "8c1c07404dd9adcf9ebe5f1daa6616f448c9c8e2cb92a036af3e7a2ceacab6f4",
+  "conversion": "Shading-only source detail restoration: static black/white alpha preserves native panel and reflection contours without filtering or polygon simplification. Uniform paint, fixtures, lamps, linework, arches, wheel/rotor/caliper images, pivots and geometry remain unchanged. Complete source archives and rejected attempts stay in the local art workspace."
 }

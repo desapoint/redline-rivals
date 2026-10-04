@@ -37,30 +37,30 @@
     "recolor-check.jpg"
   ],
   "artifactHashes": {
-    "assembled.png": "74856b0b6b98a8a527a12102e45ee432a4af27568adfa93ff3e5f3719dcad2b5",
+    "assembled.png": "865ab9b66b2c958fd73eeae02d15b1027b3752ab04692750abec3f54387569ff",
     "layer-body-paint.jpg": "8ff5ededd85a973bb7b44c88b2c5314a76f1f3f9797021b141125408b5aa735e",
-    "layer-body-shading.jpg": "332d234f2bfcfd2f29538184f03d2429f5534199842c1dfb5c77907b024aced4",
+    "layer-body-shading.jpg": "836bfcdd202e2164256af681385909b7c744f7f78460c06997cd671caca46694",
     "layer-body-fixtures.jpg": "bba8af2525257b3e2fe6ee2a074572f5a357be2a382da24496149da91848ca99",
     "layer-body-linework.jpg": "88cd0f5e1352acb0d5048e2b99d73cf4b1a3762f56612893d6313e128077ce98",
-    "wheels-hidden.png": "0482edbd3c2410e0a3723ed2b3255eb0875cc3667415a9bc9e254262c689a821",
-    "checkerboard.jpg": "51643bcaf517cb3bdc9e07c9e2be48f697763af8a9b41fe05646ed22ec5ba91c",
-    "on-black.jpg": "e95a77b63b6aa775749612f3aef3d99d4bf296647487a3995a2e8ebf03588f88",
-    "on-white.jpg": "b6105a3b6f61ce85f6f6af60f454e2950e5663004575a0d32a2f960094364abb",
-    "on-gray.jpg": "bda0cac3390d25b2c37488bc0812ff569efa58571bb81511bc9a64372a635d97",
-    "rotation-0.png": "74856b0b6b98a8a527a12102e45ee432a4af27568adfa93ff3e5f3719dcad2b5",
+    "wheels-hidden.png": "e882430eb20500e7c7c08ee4aaf91483723bd5043813d70290c37be7e6898f87",
+    "checkerboard.jpg": "05a1ff183fdec1013242227775aaaa13cbc902f9517b6af7dfdca633f2c22c6a",
+    "on-black.jpg": "c5d74f26691b52491d47310f28b5830a67e9b9448e1c66ae859286e00f03fdfa",
+    "on-white.jpg": "88e30e5f3426bb97c9388ac7b1be5028b996dc748372a2a31686252a78582b17",
+    "on-gray.jpg": "3c1795ca8052bd32fdf090a5e04f33e7e61b82d7d90f4763263e2383ba14a952",
+    "rotation-0.png": "865ab9b66b2c958fd73eeae02d15b1027b3752ab04692750abec3f54387569ff",
     "calipers-0.jpg": "99ad3cf27b219e1a423d98c8cb5d53f853d45532633337c26f30bcc165a78883",
-    "rotation-45.png": "ed64e3ad4b451be0dbc5c5ac5ca69a9d3a6bdbbd8183e839f53d9af13da36806",
+    "rotation-45.png": "75971a74dd3afbcb8333d19afbd97c9521ae1061bc7322edad0f09f5c0852b5f",
     "calipers-45.jpg": "99ad3cf27b219e1a423d98c8cb5d53f853d45532633337c26f30bcc165a78883",
-    "rotation-90.png": "d7617a0332db5e5d98216cccaaa3179bc57aedd7e6f9872d9ad1520daa5e2353",
+    "rotation-90.png": "b2f51957a66d7310a5d251eecb76a95619ec5ed728bd260d998862962ff5e76f",
     "calipers-90.jpg": "99ad3cf27b219e1a423d98c8cb5d53f853d45532633337c26f30bcc165a78883",
-    "rotation-180.png": "b4ec8130ff31629b02f8ab4b2f19ad824301fcf7cd7bb1fb2591cf9ba2e64758",
+    "rotation-180.png": "da9bdae24a371dadac116b97d538b8ae4348c3c6e591fc058080661e85790653",
     "calipers-180.jpg": "99ad3cf27b219e1a423d98c8cb5d53f853d45532633337c26f30bcc165a78883",
     "isolated-wheel.jpg": "6c9d1a218c3b250796511b57b446eaf426aefc727bcd9ee69c93515fdbd6c368",
     "isolated-rotor.jpg": "644cf12b7f537792a7757f5f3ccd2c35df93a6afea67261ddcabb2815cd22382",
     "isolated-caliper.jpg": "99ad3cf27b219e1a423d98c8cb5d53f853d45532633337c26f30bcc165a78883",
     "isolated-underlay.jpg": "0bfcfee2105fb8d62544243c3e68332147bc56a36123107fa55c2d60c36344ef",
-    "paint-mask-overlay.jpg": "5d01cf087ace664a62d77e0e9e1fe8e4833af61e62a4a2af6cb78528dab9cc17",
-    "recolor-check.jpg": "860a92c38ba215ad2845e6a3ce5b79a5a60d827ab2718eb53ff7579988f78575"
+    "paint-mask-overlay.jpg": "a54fc318bd5ec98c8f256b541cc7c2a1ff34109c6e31cc78a60bf3dcd0f20a28",
+    "recolor-check.jpg": "4305baa2fb2b7fe883b51ce11d16e222360fc263df3a8f73fa33a1ebe642caf6"
   },
   "visualReviewRequired": true,
   "images": {
@@ -183,12 +183,12 @@
       ],
       "bounds": [
         163,
-        383,
-        1870,
+        377,
+        1872,
         809
       ],
       "mode": "RGBA",
-      "sha256": "4006717952cbc9627f1c7c3e267dd8524eb1b06f77fc4a895685abb5ff3c7fb3"
+      "sha256": "15f3290bda6d3cd262ddce86d282a5243a11025f6b840abb4596d7d17d822207"
     },
     "body/fixtures.png": {
       "size": [
@@ -247,7 +247,7 @@
       "sha256": "deed6dcbdef4c4dc2de8b08a3952994aa47fa90b467302a954ade17ee2147b67"
     }
   },
-  "contentFingerprint": "5f46d623ab6937eb0b36a90bc3dd65a51900d185c19cec325f6f9184901980c1",
+  "contentFingerprint": "314c110799984acc756bec195f7f9474dd59f1e97f783497c8af02fb0e5983f9",
   "recolorDiagnostic": {
     "color": "#009cff",
     "purpose": "mask coverage/exclusion; not a factory paint simulation"

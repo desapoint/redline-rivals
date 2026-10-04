@@ -1,6 +1,6 @@
 {
   "accepted": true,
-  "reviewer": "Codex",
+  "reviewer": "Codex visual inspection",
   "checks": [
     "alpha-backgrounds",
     "complete-rotors",
@@ -14,8 +14,8 @@
     "stationary-calipers",
     "underlay-coverage"
   ],
-  "notes": "Inspected current native/isolated/assembled contact sheets and every mandatory QA preview. Correct body-colour bumper shells/rocker; actual grille, step pads/recess and lower inserts retained. Glass, lamps, source outline/fenders and mechanics unchanged. Image bytes match visually inspected v25; v26 correctly labels grille-edge regression point as protected trim.",
+  "notes": "Inspected original source vs restored panels, factory and blue/white/black assembly, independent foundation/shading/fixtures/ink, isolated mechanical parts/backing, wheels-hidden view, four rotations and white/black/gray/checker backgrounds. Native source intensity replaces simplified patches. All unrelated bytes and attachment metadata are preserved; reconstructed mechanical designs remain the previously disclosed approximations.",
   "unresolvedIssues": [],
-  "contentFingerprint": "2b215c01753255b3aef960bea1fe3b402811181847f562e66b52071c541918c6",
-  "qaReportHash": "36f4e9af796bc0cff16ac7c736d5810648c7505ca49829bb23894aaa0ae962ab"
+  "contentFingerprint": "428582b961c3d0badd1fe874e3172a2bc0700fb1169fc34a0b391fa71ab3ed7b",
+  "qaReportHash": "e379e7cdd674be3abc24a5d4d2c764ccc657de13a4fb583d59ba3e9df1a86b2d"
 }

@@ -1,0 +1,32 @@
+{
+  "vehicle": "acura-integra-type-s-2024",
+  "sourcePackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/cartoon-v8",
+  "outputPackage": "tests/car-integration/20261003-additional/acura-integra-type-s-2024/native-detail-v11",
+  "revision": 11,
+  "sourceBody": "body.png",
+  "sourceBodySha256": "fa5bcc729c24a79c00615a4b69e8039f42731645d1ba34f1b3ab46d3c90e9773",
+  "settings": {
+    "shadingStyle": "source-native-cel",
+    "shapeGridWidth": 256,
+    "shapeToleranceCells": 1.25,
+    "minimumShapeCells": 18,
+    "referenceLuminance": 203.2126007080078,
+    "sourceChannel": "max",
+    "referenceValue": 229,
+    "algorithm": "flat_car_layers.source_shading"
+  },
+  "unchangedFiles": {
+    "underlay.png": "7336a3d4ed12dfde9d2a68a16f9a49797de08f7fb38b96c8e461ed5760430c38",
+    "rear-rotor.png": "9d4c8209eec812d819a84c8e95a96df60afd5f178699d92981b128db9f5bc99a",
+    "rear-caliper.png": "8b5bcf237513b70b2dfe64dbffebf2acd57e0a0f4a30f6f6cd526b59e3723fed",
+    "rear-wheel.png": "c9ec579edbd3e66562af33700195278095af6ffb5cdc6eca68dd235d5fb17169",
+    "front-rotor.png": "8172573a8d10fae04809d007b7f2fcb2c2d5a78eefa78c467e87c7d9b1199985",
+    "front-caliper.png": "43554d16d7aa73db33ee7194142603a7037c1145e81591b1206a86dd36b5dd68",
+    "front-wheel.png": "7c3be25976944caf0b76df7c429f98db7c6be911881ba7422dd569e4278b41d8",
+    "body/paint.png": "8e8642ac0e1afb20ab6abf172c0ee9843b048f3bc9b5e3de406e12457c744de8",
+    "body/fixtures.png": "9f739f2376e542307220566c76b72ad405bbdd292e9a3d921be3306276a46a07",
+    "body/linework.png": "413370576af2ea73c5742f8143175554b6a245ab97b075f7612ac2ad5b6da08b",
+    "paint-mask.png": "8e8642ac0e1afb20ab6abf172c0ee9843b048f3bc9b5e3de406e12457c744de8",
+    "paint-regions.png": "aaf23e0ed9f876ce6fced9e38565f33619c69430eaf522761269f9f34d50a539"
+  }
+}

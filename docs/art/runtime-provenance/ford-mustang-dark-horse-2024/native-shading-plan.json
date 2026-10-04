@@ -1,0 +1,32 @@
+{
+  "vehicle": "ford-mustang-dark-horse-2024",
+  "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/cartoon-v8",
+  "outputPackage": "tests/car-integration/20261003-additional/ford-mustang-dark-horse-2024/native-detail-v11",
+  "revision": 11,
+  "sourceBody": "body.png",
+  "sourceBodySha256": "ff7e998b7838ca7f23adb1c0597b770b85c2bb79e8f763b82c58111fa917ae8d",
+  "settings": {
+    "shadingStyle": "source-native-cel",
+    "shapeGridWidth": 256,
+    "shapeToleranceCells": 1.25,
+    "minimumShapeCells": 18,
+    "referenceLuminance": 58.72319793701172,
+    "sourceChannel": "max",
+    "referenceValue": 138,
+    "algorithm": "flat_car_layers.source_shading"
+  },
+  "unchangedFiles": {
+    "underlay.png": "42d629530fd89ddc0e4958b05ade9f79cdd761dad9a0de692d42ddddbd4e21f6",
+    "rear-rotor.png": "a06e3d3f8caad869ce282cf72c4d877864ebead42eaa41b402fbc88f22db0afe",
+    "rear-caliper.png": "cc237f677c7e4298565bc7e55326263f0f170632c2e8f6d6553234735e82ab2d",
+    "rear-wheel.png": "b46ff2649de27337fe32d736e0bdf9879ab6778d15335077a5fce15ad505b920",
+    "front-rotor.png": "7d89f0f5eb73b5e5fea6bea85b753bb055672ea4de6dd590053ce8c117320dc4",
+    "front-caliper.png": "53bdf42c693a2d166c97218a382c1d94cfc8032151faab7ba226e1f2bff18dfc",
+    "front-wheel.png": "6c1c8a864e2eb4ff551abeaea4a29c8d8eea6c72b1223e5aa7bf58b59a996d05",
+    "body/paint.png": "6e9d49f5877383b0bfa50c44f7e5da55c006e189677043bebc0964b31963ac74",
+    "body/fixtures.png": "b3a1a5a9e2191b8282b0e648348f66e20bef776506894fbadc3a506502bda87b",
+    "body/linework.png": "f597612d0d16788dfd88209ca36177413329489c291e0ce145103b79cecb0431",
+    "paint-mask.png": "6e9d49f5877383b0bfa50c44f7e5da55c006e189677043bebc0964b31963ac74",
+    "paint-regions.png": "0bd2fca9a8dd40d3b642930496c1066f1170689eeca538336c89fcedc355449b"
+  }
+}

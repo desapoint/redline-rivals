@@ -62,6 +62,6 @@ export async function installSpritePack(pack,url=baseURL) {
 }
 export async function loadCarAssets() {
   const url=new URL('./assets/cars/manifest.json',import.meta.url);
-  const response=await fetch(url);if(!response.ok)throw Error(`Sprite manifest: HTTP ${response.status}`);
+  const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error(`Sprite manifest: HTTP ${response.status}`);
   return installSpritePack(await response.json(),new URL('./',url));
 }

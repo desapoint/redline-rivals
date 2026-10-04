@@ -1,10 +1,10 @@
 {
-  "sourcePackage": "tests/car-integration/20261003/nissan-rogue-2020-red/cartoon-v11",
+  "sourcePackage": "tests/car-integration/20261003/nissan-rogue-2020-red/native-detail-v14",
   "sourceManifest": "docs/art/runtime-provenance/nissan-rogue-2020-red/car-sprite.json",
   "bodySource": "docs/art/staged-roster/nissan-rogue-2020-red/body-2d.png",
   "bodySourceSha256": "17031392c4c527099904d5cb87f1e45afb3d7f91a7d07c6f269d2aa63b1eb3b0",
-  "revision": 11,
-  "reviewFingerprint": "c505295497c76adbcbc3cf5a9648b62fe4a2ebb1c09a45dd7a5226d274524091",
-  "sourceManifestSha256": "17794ab1cd57ead4c820df85b06be35185dc8c871fe6a35599e5dc8ac021e8ff",
-  "conversion": "Reviewed uniform paint foundation, discrete grayscale/alpha shading, fixed fixtures and independent black line art decoded to lossless WebP. Original -2d master is archived unchanged; runtime recolors only the uniform foundation. Separate underlay follows native arch contours; original mechanical pixels/scales/pivots retained. Display framing ignores alpha below 8. Full source packages stay in the local art workspace; compact manifest/review snapshots accompany the public demo."
+  "revision": 14,
+  "reviewFingerprint": "af8f512029529df6857fd46a12fc834a3bfd1c772d4b45d01774a8e0883a0ac0",
+  "sourceManifestSha256": "baa092e1f10b7acce193c3817248d66726a179934857f31cf62d65ebe4d07f70",
+  "conversion": "Shading-only source detail restoration: static black/white alpha preserves native panel and reflection contours without filtering or polygon simplification. Uniform paint, fixtures, lamps, linework, arches, wheel/rotor/caliper images, pivots and geometry remain unchanged. Complete source archives and rejected attempts stay in the local art workspace."
 }

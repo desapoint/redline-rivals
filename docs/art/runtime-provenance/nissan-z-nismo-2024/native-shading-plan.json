@@ -1,0 +1,32 @@
+{
+  "vehicle": "nissan-z-nismo-2024",
+  "sourcePackage": "tests/car-integration/20261003-additional/nissan-z-nismo-2024/cartoon-v8",
+  "outputPackage": "tests/car-integration/20261003-additional/nissan-z-nismo-2024/native-detail-v11",
+  "revision": 11,
+  "sourceBody": "body.png",
+  "sourceBodySha256": "59e2efff4c810a248cbe2cdc6d46c9fc4b84eb3026d3535ca73c1f3b34554400",
+  "settings": {
+    "shadingStyle": "source-native-cel",
+    "shapeGridWidth": 256,
+    "shapeToleranceCells": 1.25,
+    "minimumShapeCells": 18,
+    "referenceLuminance": 99.6550064086914,
+    "sourceChannel": "max",
+    "referenceValue": 167,
+    "algorithm": "flat_car_layers.source_shading"
+  },
+  "unchangedFiles": {
+    "underlay.png": "9deff3bd2c53e982fe1486256f94d54dc57a6bd901b7e8b122c29da262f5a93f",
+    "rear-rotor.png": "51f6daff5a3be4c9af609035d043fccd96457d518edf08db61763b952196edfa",
+    "rear-caliper.png": "a2b53f2b1c307d7ae89da06e685f281b8f005f746e73d2a1de5b2ab2d936993f",
+    "rear-wheel.png": "cd752170351c457e6cfa6a88a54d080ab0f306a76b1e57e22cadf506802b93c8",
+    "front-rotor.png": "24f181f2c3424f0c330aebde6f7fd033b9aa7fd2dd6715ccb7f580127cf0829c",
+    "front-caliper.png": "ef2938acdac8b53e6fd78ae5c5ba45e9b2e2ea1f7992cc9519a1d10762153147",
+    "front-wheel.png": "c750e17a7282385c21a0b4f8d239c38d236cc5a24ef2adb8c8e10ece896ce86a",
+    "body/paint.png": "56927716852362a3a014b681447a582df6f92caef520fae1e3c43c2e7d57a038",
+    "body/fixtures.png": "e5347173d2ba5b9eafd7638407fb42b8cd8b3f0d8062a3488ce29dc5cd4e1d24",
+    "body/linework.png": "009a0be681b213d740feab8dba79dec501389130718f8527877041cce34122c5",
+    "paint-mask.png": "56927716852362a3a014b681447a582df6f92caef520fae1e3c43c2e7d57a038",
+    "paint-regions.png": "deed6dcbdef4c4dc2de8b08a3952994aa47fa90b467302a954ade17ee2147b67"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "vehicle": "cadillac-ct5-v-blackwing-2025",
+  "sourcePackage": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/cartoon-v8",
+  "outputPackage": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/native-detail-v11",
+  "revision": 11,
+  "sourceBody": "body.png",
+  "sourceBodySha256": "75f38f935cfc7899b363251409596addf3d6e8d7955c3409accfafc03c2cd7b6",
+  "settings": {
+    "shadingStyle": "source-native-cel",
+    "shapeGridWidth": 256,
+    "shapeToleranceCells": 1.25,
+    "minimumShapeCells": 18,
+    "referenceLuminance": 53.0072021484375,
+    "sourceChannel": "max",
+    "referenceValue": 255,
+    "algorithm": "flat_car_layers.source_shading"
+  },
+  "unchangedFiles": {
+    "underlay.png": "06e25277bd61afbb41ce29b67d337b157a4eb54ca8f483e1b1a3045acabd4fdf",
+    "rear-rotor.png": "c996f5849e5d503c534d4c030259af450c85b6057e99ac54503e7668abe80d6e",
+    "rear-caliper.png": "0d78dbe0917cec4b3d89720d2226f7f8838039e9524e19d7d2ca59a39e8dec87",
+    "rear-wheel.png": "cfbfb9fd4a343d32ecdeff63e74d5398c94614c6f3f0a419bd404d4b9a86bd25",
+    "front-rotor.png": "17e6371f64e756be79908e83810e345553eb4f91390662c0735cefbd21e66ee9",
+    "front-caliper.png": "e613685be1087f8c4f33830d31eb6ff265cd16ee92de47f48f96d67df6174381",
+    "front-wheel.png": "274f5cae030e697c0ecaec4cb736a657854a4b73c36077fc0599fad71935d7b2",
+    "body/paint.png": "44327a2d1f9543c62d197e027dac95b2427521eaa89016985ea2dee0911cc072",
+    "body/fixtures.png": "33cee92f4beaf3fc4c03ba324427439576223bc61c6e18bd6d61143a79a61aad",
+    "body/linework.png": "ea3e1c8d9d26f37e2f61a4fa10ea6b652059cfd67cecafaecfcf955268bfc30c",
+    "paint-mask.png": "44327a2d1f9543c62d197e027dac95b2427521eaa89016985ea2dee0911cc072",
+    "paint-regions.png": "0d1d3a240536b774cfb4f2d3a233911ca10853bef4711836a7d7e89c6e01d885"
+  }
+}

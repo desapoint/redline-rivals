@@ -1,12 +1,12 @@
 {
-  "sourcePackage": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/cartoon-v8",
+  "sourcePackage": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/native-detail-v11",
   "sourceManifest": "docs/art/runtime-provenance/cadillac-ct5-v-blackwing-2025/car-sprite.json",
   "bodySource": "tests/car-integration/20261003-additional/cadillac-ct5-v-blackwing-2025/cartoon-v8/inputs/body-2d.png",
   "bodySourceSha256": "75f38f935cfc7899b363251409596addf3d6e8d7955c3409accfafc03c2cd7b6",
   "masterSource": "tests/car-integration/20261003-additional/sources/cadillac-ct5-v-blackwing-2025/cadillac-ct5-v-blackwing-2025-composite.png",
   "masterSourceSha256": "d2e6e6d0a996854a103f1d509f9d493b681efed509a3f079459bca20c2293b85",
-  "revision": 8,
-  "reviewFingerprint": "c0ed5559f7ed2488acd3023dc3869acf470faaffc3102f71332b1a6a94f1e00b",
-  "sourceManifestSha256": "9b6ce7daa64c797642882bdb9825c33ad28db6364abd97ef6ad59bc6f4b018b7",
-  "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+  "revision": 11,
+  "reviewFingerprint": "02bcdd8039a76e50d2f80df1ff406d1535af66150410c531513fe7a680fb972d",
+  "sourceManifestSha256": "139441e1deff39bfa717ce351c8addb4c422232a5d9b57808d794ded23e817a1",
+  "conversion": "Shading-only source detail restoration: static black/white alpha preserves native panel and reflection contours without filtering or polygon simplification. Uniform paint, fixtures, lamps, linework, arches, wheel/rotor/caliper images, pivots and geometry remain unchanged. Complete source archives and rejected attempts stay in the local art workspace."
 }

@@ -16,6 +16,27 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def source_shading(body, foundation, paint_regions, linework, reference_value=255, channel='max'):
+    """Retain native reflections as black/white alpha, without spatial filtering."""
+    if len({im.size for im in (body, foundation, paint_regions, linework)}) != 1:
+        raise ValueError('Native shading layers must align')
+    if channel not in ('red', 'max') or not 1 <= reference_value <= 255:
+        raise ValueError('Invalid source shading reference or channel')
+    pixels = np.asarray(body.convert('RGBA'))
+    alpha = np.asarray(foundation.convert('RGBA'))[:, :, 3]
+    selected = (np.asarray(paint_regions.convert('RGBA'))[:, :, 3] > 0)
+    selected &= np.asarray(linework.convert('RGBA'))[:, :, 3] == 0
+    value = (pixels[:, :, 0] if channel == 'red' else pixels[:, :, :3].max(axis=2)).astype(np.float32)
+    bright = value > reference_value
+    shadow = np.rint(np.clip((reference_value-value)*255/reference_value, 0, 255))
+    highlight = np.rint(np.clip((value-reference_value)*255/max(1, 255-reference_value), 0, 255))
+    shade = np.zeros_like(pixels)
+    shade[bright, :3] = 255
+    opacity = np.where(bright, highlight, shadow).astype(np.uint16)
+    shade[:, :, 3] = np.where(selected, opacity*alpha//255, 0).astype(np.uint8)
+    return Image.fromarray(shade)
+
+
 def decompose(body, paint_mask, settings=None, lights_mask=None):
     settings = settings or {}
     if body.size != paint_mask.size:
@@ -73,10 +94,9 @@ def decompose(body, paint_mask, settings=None, lights_mask=None):
         shade[:, :, 3] = np.where(region & (ink_alpha == 0), shade[:, :, 3], 0)
         shade[:, :, 3] = (shade[:, :, 3].astype(np.uint16)*a//255).astype(np.uint8)
     fixtures = pixels.copy()
-    native=settings.get('sourceChannel')=='red'
+    native=settings.get('sourceChannel') in ('red', 'max')
     if native:
-        shade=np.zeros_like(pixels)
-        shade[:,:,3]=np.where(region&(ink_alpha==0),(255-pixels[:,:,0]).astype(np.uint16)*a//255,0).astype(np.uint8)
+        shade=np.asarray(source_shading(body,base,paint_mask,ink,settings.get('referenceValue',255),settings['sourceChannel']))
     fixtures[:, :, 3] = np.where(region | (ink_alpha > 0), 0, a)
     layers = {'paint': base, 'shading': Image.fromarray(shade),
               'fixtures': Image.fromarray(fixtures), 'linework': ink}
@@ -92,7 +112,7 @@ def decompose(body, paint_mask, settings=None, lights_mask=None):
                 'sourceReferenceLuminance': reference,
                 'shadingStyle': 'source-native-cel' if native else 'cartoon-cel' if cartoon else 'source-posterized',
                 'shadowAlphaPalette': list(range(256)) if native else [0, 72, 140] if cartoon else [0, 40, 88, 132, 176],
-                'highlightAlphaPalette': [0] if native else [0, 56] if cartoon else [0, 40, 80],
+                'highlightAlphaPalette': list(range(256)) if native and settings.get('referenceValue',255)<255 else [0] if native else [0, 56] if cartoon else [0, 40, 80],
                 'shadingRGBPalette': [[0, 0, 0], [255, 255, 255]],
                 'baseRGB': [255, 255, 255], 'gradientInterpolation': False,
                 'foundationOpacity': 'opaque interior; native antialiasing at silhouette and arch boundaries',

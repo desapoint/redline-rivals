@@ -1,12 +1,12 @@
 {
-  "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/cartoon-v8",
+  "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/native-detail-v11",
   "sourceManifest": "docs/art/runtime-provenance/ford-mustang-boss302-1969/car-sprite.json",
   "bodySource": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/cartoon-v8/inputs/body-2d.png",
   "bodySourceSha256": "e41b1574d187add7ec2f63634d56461d6dbeb095b905f78dc5a979a8b61835e1",
   "masterSource": "tests/car-integration/20261003-additional/sources/ford-mustang-boss302-1969/ford-mustang-boss302-1969-2d.png",
   "masterSourceSha256": "07dddb01fe882ad67a6c27e7b467e34a426849049000930ef8e992faa61e8976",
-  "revision": 8,
-  "reviewFingerprint": "d6169933a4289b624c445422c14ee6f3a87ea50a8dcaa7d98415d39532894103",
-  "sourceManifestSha256": "b9d3d233ca1dc139f8e24e0cc511fc1be8fc71ab816d4ce087dc90b631133382",
-  "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+  "revision": 11,
+  "reviewFingerprint": "3ad8b9648c2500f4f2b879ef1d6fa239abaf315f8c503b544cc79c70a04400d2",
+  "sourceManifestSha256": "739c6457d9a1a2df60864cb568670d35c42e43117f46659690a5fc0a33f2e110",
+  "conversion": "Shading-only source detail restoration: static black/white alpha preserves native panel and reflection contours without filtering or polygon simplification. Uniform paint, fixtures, lamps, linework, arches, wheel/rotor/caliper images, pivots and geometry remain unchanged. Complete source archives and rejected attempts stay in the local art workspace."
 }

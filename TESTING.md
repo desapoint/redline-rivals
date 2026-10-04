@@ -161,3 +161,9 @@ The full 28-event campaign, prolonged real-time job durations, every keyboard/to
 - The isolated release retains the other eleven published artwork packages. Fresh Mazda QA/review/package inspection covers four rotations, complete parts, underlay, paint/fixtures/ink isolation and contrasting backgrounds/repaint.
 - 55 game tests pass. Python processing checks pass, including exact Mazda source replay; the isolated checkout skips the optional Silverado native replay because its large local source workspace is not copied. Production asset/build validation covers twelve cars and 144 native images.
 - The focused actual-browser runner validates all twelve tire contacts and body-only pitch, source-version URLs, and Mazda garages, moving races/results and drive-lab views at desktop and phone sizes. The paint inspector verifies exact arbitrary colors and independent body layers for every car.
+
+## Restored native body detail — 2026-10-04
+
+- All twelve production cars retain source panel/reflection contours. The Mazda is unchanged; eleven shading-only revisions replace simplified patches. Every other native and runtime image, mask and mechanical placement is preserved. Source hashes, rejected candidates, replay parameters, fresh QA, inspected assembled/isolated/background/rotation evidence and accepted reviewed ZIPs accompany the native work.
+- All 62 game tests and the 12-car / 145-image build pass. All 27 Python checks pass in the native workspace; the isolated public checkout skips five optional large-source replay checks. Replayed shaders match the lossless runtime pixels.
+- Desktop and phone checks verify exact paint and independent layers, native source-alpha composition for all twelve cars, and all twelve Sprite Studio imports. Artwork fetches are versioned; older editable autosaves are preserved and identify when updated library art is available.

@@ -23,7 +23,7 @@ def main():
  count=0
  for planfile in sorted((ROOT/'docs/art/additional-car-plans').glob('*.json')):
   plan=json.loads(planfile.read_text(encoding='utf-8'));id=plan['id']
-  directory=ROOT/'tests/car-integration/20261003-additional'/id/'cartoon-v8'
+  directory=ROOT/'tests/car-integration/20261003-additional'/id/'native-detail-v11'
   pack=json.loads((directory/'car-sprite.json').read_text(encoding='utf-8'))
   reportpath=directory/'qa/qa-report.json';report=json.loads(reportpath.read_text(encoding='utf-8'))
   review=json.loads((directory/'qa/visual-review.json').read_text(encoding='utf-8'));current=base.fingerprint(directory,pack)

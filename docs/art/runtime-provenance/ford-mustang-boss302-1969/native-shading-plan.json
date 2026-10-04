@@ -1,0 +1,32 @@
+{
+  "vehicle": "ford-mustang-boss302-1969",
+  "sourcePackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/cartoon-v8",
+  "outputPackage": "tests/car-integration/20261003-additional/ford-mustang-boss302-1969/native-detail-v11",
+  "revision": 11,
+  "sourceBody": "body.png",
+  "sourceBodySha256": "e41b1574d187add7ec2f63634d56461d6dbeb095b905f78dc5a979a8b61835e1",
+  "settings": {
+    "shadingStyle": "source-native-cel",
+    "shapeGridWidth": 256,
+    "shapeToleranceCells": 1.25,
+    "minimumShapeCells": 18,
+    "referenceLuminance": 70.46720123291016,
+    "sourceChannel": "max",
+    "referenceValue": 255,
+    "algorithm": "flat_car_layers.source_shading"
+  },
+  "unchangedFiles": {
+    "underlay.png": "ce9eb8b0771e57c15359bf0c90ac522a6ecb2a3ecb7fe23ac1eb4416f5197a0d",
+    "rear-rotor.png": "2b9f4db4bd326989200008db5abf46e335ef23df2c8362c94767adbf98b1ecf5",
+    "rear-caliper.png": "8dafa4d72a5af643efaeacc530cd1522ca3172b3800dd36b3205ab4c069e74e9",
+    "rear-wheel.png": "9911ecf2fbe1e5ea511dd6e1794d92f78aa42598bf56236ebb799d3a3716e301",
+    "front-rotor.png": "5f8980f981223eff2ef51fdc7666ec70107435338cfeb43f244c5d268b2f77de",
+    "front-caliper.png": "c89d5f6740cdc0da2a41f881e14a81cb0bd3a956c9be3f962770cdf8bb69efe2",
+    "front-wheel.png": "0f19ea48a15aaad3d45aae33480e8f8db8201238f28b03f327b0e4accb424b8f",
+    "body/paint.png": "601d2efc7a4fe7f5ea1d46e11ad7dd1cbe7056c237762736653000a307952366",
+    "body/fixtures.png": "db8c35d3234d770a651af50d6ca0d62ee6d36ce0d3d3d580165b2a5fd0fafddb",
+    "body/linework.png": "b9e8b16a842c8612572ecbcdca579af697eab90e3fed6441ed2a825faa7d4149",
+    "paint-mask.png": "601d2efc7a4fe7f5ea1d46e11ad7dd1cbe7056c237762736653000a307952366",
+    "paint-regions.png": "57fb76405d250bb06004f04969538626fc3ba7b09ed3c2f2ed3e5e5240178b15"
+  }
+}

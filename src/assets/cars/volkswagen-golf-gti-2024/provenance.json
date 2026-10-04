@@ -1,12 +1,12 @@
 {
-  "sourcePackage": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/cartoon-v8",
+  "sourcePackage": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/native-detail-v11",
   "sourceManifest": "docs/art/runtime-provenance/volkswagen-golf-gti-2024/car-sprite.json",
   "bodySource": "tests/car-integration/20261003-additional/volkswagen-golf-gti-2024/cartoon-v8/inputs/body-2d.png",
   "bodySourceSha256": "4508fc607a98b3b27d3b418bbfd8eb9bb6c7aa1dc6512c9da0a421e8efd9a2a9",
   "masterSource": "tests/car-integration/20261003-additional/sources/volkswagen-golf-gti-2024/volkswagen-golf-gti-2024-2d.png",
   "masterSourceSha256": "b22cdfa92f120789caa8111809c7da9512f3862e23f76dfd9b88d35908d65be1",
-  "revision": 8,
-  "reviewFingerprint": "bb3e9193d3ad173584c8bf1395ea39dc6ca3a2bc9e32d723be105e06b5b9fd79",
-  "sourceManifestSha256": "790f7195d75ffa72de49890bbffa35ff4e4367d6e3bd57a4cd75e94371d89298",
-  "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+  "revision": 11,
+  "reviewFingerprint": "4a494d4f153773549262bf5b0f5ea1448b39a4c18a338871439a4ed516a6084e",
+  "sourceManifestSha256": "46ccb23af00565d770aa347344e49ca96e81123d50bd7b9f054bbf0264ef3a10",
+  "conversion": "Shading-only source detail restoration: static black/white alpha preserves native panel and reflection contours without filtering or polygon simplification. Uniform paint, fixtures, lamps, linework, arches, wheel/rotor/caliper images, pivots and geometry remain unchanged. Complete source archives and rejected attempts stay in the local art workspace."
 }

@@ -1,0 +1,32 @@
+{
+  "vehicle": "subaru-wrx-tr-2024",
+  "sourcePackage": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/cartoon-v8",
+  "outputPackage": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/native-detail-v11",
+  "revision": 11,
+  "sourceBody": "body.png",
+  "sourceBodySha256": "46e55c5dc9c06af3b1f64b75ae67bcc9730f9e0befd44aebfc79d743222e988c",
+  "settings": {
+    "shadingStyle": "source-native-cel",
+    "shapeGridWidth": 256,
+    "shapeToleranceCells": 1.25,
+    "minimumShapeCells": 18,
+    "referenceLuminance": 62.898399353027344,
+    "sourceChannel": "max",
+    "referenceValue": 199,
+    "algorithm": "flat_car_layers.source_shading"
+  },
+  "unchangedFiles": {
+    "underlay.png": "17dda7da25fa5365105003a8e3bc706d446e7654e4a2d8089bbd91d0373d3b92",
+    "rear-rotor.png": "474ecdafc3ed1e2310ff8ef5505908ac0083b1f1f2332189c3dc57706780fbbe",
+    "rear-caliper.png": "18792681e3550ff6aae4686b8a8627ffbe79e43e0a615e3bd98726ef4609803c",
+    "rear-wheel.png": "a45b356664377c83d3df42a064cbed6d63144a9c0cbfe82f5b8e6be609f1435e",
+    "front-rotor.png": "d9c5ac1608efd0b2a57645725a7f82a875367635393d3ab99156ccc125a0136a",
+    "front-caliper.png": "908a9cc4c0ac7a2ad3b1f389d75d60197f951f0746a35e2635e49f372891317e",
+    "front-wheel.png": "8cbb179ef4c3264fa7c9a909df938c1ebbd2af5889caa3d017b0a60fcca780f3",
+    "body/paint.png": "e74e547bff42b75a443a56a192850f50a3e812548c5d68837dcda901858492b0",
+    "body/fixtures.png": "0c3ac724653666c6f46b1d6a3b7b18e056eb898698ad4e15c3f5911f8c587985",
+    "body/linework.png": "fb0010afa4d73c4d5d1a45f261db790e59e028b98a4940f1e5d8099a960e2923",
+    "paint-mask.png": "e74e547bff42b75a443a56a192850f50a3e812548c5d68837dcda901858492b0",
+    "paint-regions.png": "083e908e8e48a283f7ffc1a36766c09793070d2c29b04090d726da8fb07038e4"
+  }
+}

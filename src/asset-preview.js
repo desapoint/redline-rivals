@@ -60,7 +60,7 @@ function animate(now){
 $('art-choice').addEventListener('change',selectArtwork);$('facing').addEventListener('change',selectArtwork);
 for(const id of ['wheel-choice','brake-choice','paint','ride-height','wheel-angle','speed','slip','drive','geometry','body-view','preview-background'])$(id).addEventListener('input',updatePreview);
 $('animation').addEventListener('click',()=>{running=!running;$('animation').textContent=running?'Pause rotation':'Resume rotation';});
-try{const response=await fetch(new URL('manifest.json',baseURL));if(!response.ok)throw Error(`Manifest: HTTP ${response.status}`);production=await response.json();}catch(error){showError(error);}
+try{const response=await fetch(new URL('manifest.json',baseURL),{cache:'no-store'});if(!response.ok)throw Error(`Manifest: HTTP ${response.status}`);production=await response.json();}catch(error){showError(error);}
 options($('art-choice'),[['layer-demo','Demo · layered geometry'],...Object.keys(production.cars || {}).map(id=>[id,id])]);
 const requested=new URLSearchParams(location.search);
 if(Object.hasOwn(production.cars || {},requested.get('car')))$('art-choice').value=requested.get('car');

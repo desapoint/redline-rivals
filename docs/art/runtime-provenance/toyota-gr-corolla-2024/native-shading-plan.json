@@ -1,0 +1,32 @@
+{
+  "vehicle": "toyota-gr-corolla-2024",
+  "sourcePackage": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/cartoon-v8",
+  "outputPackage": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/native-detail-v11",
+  "revision": 11,
+  "sourceBody": "body.png",
+  "sourceBodySha256": "96f85bf15e18486a0e7c4b38af0c2dfcc2d61bb14fd0ba46f26be488d595d580",
+  "settings": {
+    "shadingStyle": "source-native-cel",
+    "shapeGridWidth": 256,
+    "shapeToleranceCells": 1.25,
+    "minimumShapeCells": 18,
+    "referenceLuminance": 120.89440155029297,
+    "sourceChannel": "max",
+    "referenceValue": 255,
+    "algorithm": "flat_car_layers.source_shading"
+  },
+  "unchangedFiles": {
+    "underlay.png": "fb176fb419863e3bd8b6933c55b3e4d9d6e29cc69c63f89dbd58292904224fda",
+    "rear-rotor.png": "97c18428390dc9037086a5edb5b5cbf0ee8fbd1e0b084ddb31b5dc481ce975f9",
+    "rear-caliper.png": "333a63a238cbbaa355d578e761ba649b6ceea63129149bbfe60bef7a48fadbdc",
+    "rear-wheel.png": "5cdb0121f1393a9f80d3383c638e579cbfbfa1657d78880588039f0eb85e1a59",
+    "front-rotor.png": "6b3468169e5f723c5007b89de9eb376a1cadac2bdeaf8d3cc12b3264e3b81561",
+    "front-caliper.png": "a9cdc4070c5870bb179ff73c337aa9a5bb2f36ffb4403a21a120e55279cb178c",
+    "front-wheel.png": "6a13ed99c30547f59578bc5861e6e1257c6c79599b110ecef768e642e0b07c8e",
+    "body/paint.png": "2f8daed170f4f9db6de76dd909ac3b49165f327b16d7e977f50b51cd9c6e5ce3",
+    "body/fixtures.png": "216bb22662477120af3082e3e24c08123d29c22e93073cb49667e35bbcae3e6b",
+    "body/linework.png": "ac1ae1fba94a8df393e7fc0993aa41e9b223465185e200796d139b6c4bac6880",
+    "paint-mask.png": "2f8daed170f4f9db6de76dd909ac3b49165f327b16d7e977f50b51cd9c6e5ce3",
+    "paint-regions.png": "5a63e89140ae668825f747d2a0d490c60a2dc453e5846c5f3bd2c68d4a922a32"
+  }
+}

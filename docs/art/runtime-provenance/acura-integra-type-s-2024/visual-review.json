@@ -1,6 +1,6 @@
 {
   "accepted": true,
-  "reviewer": "Codex",
+  "reviewer": "Codex visual inspection",
   "checks": [
     "alpha-backgrounds",
     "complete-rotors",
@@ -14,8 +14,8 @@
     "stationary-calipers",
     "underlay-coverage"
   ],
-  "notes": "Inspected all mandatory current QA frames and assembled factory, blue, white and black paint. Broad simplified polygon cel shapes use two fixed black shadow opacities and one white highlight opacity. No shading gradients. Native paint boundaries, fixtures, separate lights where supplied, ink and mechanical images remain unchanged. No unresolved issues found.",
+  "notes": "Inspected original source vs restored panels, factory and blue/white/black assembly, independent foundation/shading/fixtures/ink, isolated mechanical parts/backing, wheels-hidden view, four rotations and white/black/gray/checker backgrounds. Native source intensity replaces simplified patches. All unrelated bytes and attachment metadata are preserved; reconstructed mechanical designs remain the previously disclosed approximations.",
   "unresolvedIssues": [],
-  "contentFingerprint": "f947e6a79c8d9deb4b9dfdcef3a7a52dda697d9f82b0205a43e6c2863e563a06",
-  "qaReportHash": "31fd7ccb72c600fe671413e0773ba31ca118952947dd49399c5dbc4ec25d0a28"
+  "contentFingerprint": "731736aba4fcef912bed49d2dfabe5ddff74f2b1dbf5230b10dfabcc1181c025",
+  "qaReportHash": "c22e4f3e0cf4d9a154e010a2c057b19f472ffa97131a0f967d600fea00c2565d"
 }

@@ -1,12 +1,12 @@
 {
-  "sourcePackage": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/cartoon-v8",
+  "sourcePackage": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/native-detail-v11",
   "sourceManifest": "docs/art/runtime-provenance/toyota-gr-corolla-2024/car-sprite.json",
   "bodySource": "tests/car-integration/20261003-additional/toyota-gr-corolla-2024/cartoon-v8/inputs/body-2d.png",
   "bodySourceSha256": "96f85bf15e18486a0e7c4b38af0c2dfcc2d61bb14fd0ba46f26be488d595d580",
   "masterSource": "tests/car-integration/20261003-additional/sources/toyota-gr-corolla-2024/toyota-gr-corolla-2024-2d.png",
   "masterSourceSha256": "25dac294c2dfacd83e6fe2299db13a4b39b4779c3e87479799b08c3968f9a28e",
-  "revision": 8,
-  "reviewFingerprint": "f07cb59d1981d13cddbf41dcc9b7072da67000155a635ca6308d2923fd319484",
-  "sourceManifestSha256": "60a7a8ba2dcfce4b582d1aa51ec13106bda74397dc769e270da073761f67cab3",
-  "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+  "revision": 11,
+  "reviewFingerprint": "f1dedb22616bc5df7de9d4e98f39bae467b81d66801cd3c58886f85c05016dbb",
+  "sourceManifestSha256": "f6e05deaca1f2abc4983c216a9b95763504397e0de42957eb4051710fba7947b",
+  "conversion": "Shading-only source detail restoration: static black/white alpha preserves native panel and reflection contours without filtering or polygon simplification. Uniform paint, fixtures, lamps, linework, arches, wheel/rotor/caliper images, pivots and geometry remain unchanged. Complete source archives and rejected attempts stay in the local art workspace."
 }

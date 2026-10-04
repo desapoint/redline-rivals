@@ -1,12 +1,12 @@
 {
-  "sourcePackage": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/cartoon-v8",
+  "sourcePackage": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/native-detail-v11",
   "sourceManifest": "docs/art/runtime-provenance/subaru-wrx-tr-2024/car-sprite.json",
   "bodySource": "tests/car-integration/20261003-additional/subaru-wrx-tr-2024/cartoon-v8/inputs/body-2d.png",
   "bodySourceSha256": "46e55c5dc9c06af3b1f64b75ae67bcc9730f9e0befd44aebfc79d743222e988c",
   "masterSource": "tests/car-integration/20261003-additional/sources/subaru-wrx-tr-2024/subaru-wrx-tr-2024-composite.png",
   "masterSourceSha256": "fc4edb2968e705c3ca0b582c285aed956a0b71f307070393d6e4fa5ecbcd7fe6",
-  "revision": 8,
-  "reviewFingerprint": "ae3ff74733be46586e64e2c71af9e3e21ca6f5c6b108ca1e97337af6e76506db",
-  "sourceManifestSha256": "92ead0e2692cf99e388ddba2eefe5acc8cd0c263d2d86b65f6b448b01828c348",
-  "conversion": "Measured native silhouette and arch contours; complete circular source-sampled tires; independently reconstructed complete brake hardware. Five composite-source inner rims are rebuilt with standard drawing to remove duplicated baked calipers. Uniform paint, discrete black/white alpha shading, fixed fixtures and independent ink follow the same contract as the original four cars. Lossless WebP with RGB cleared only at alpha-zero pixels. Factory identity is illustrated; reconstruction is a visual approximation."
+  "revision": 11,
+  "reviewFingerprint": "969da31a439905cfd1f104469bc15e4625cbb4b2cab650d85d13b4fbc7c608f6",
+  "sourceManifestSha256": "44b7e50cade0df20eabf0eb82ed5bd92a81046c739bd308ce5d7939cc77b81a8",
+  "conversion": "Shading-only source detail restoration: static black/white alpha preserves native panel and reflection contours without filtering or polygon simplification. Uniform paint, fixtures, lamps, linework, arches, wheel/rotor/caliper images, pivots and geometry remain unchanged. Complete source archives and rejected attempts stay in the local art workspace."
 }
